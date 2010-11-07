@@ -1,0 +1,150 @@
+{"type":"object",
+  "title": "client",
+  "description": "A client as seen by SalesKing",
+  "properties": {
+    "id": {
+      "identity":true,
+      "optional":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "number": {
+      "optional":true,
+      "type":"string"
+    },
+    "tax_number": {
+      "optional":true,
+      "type":"string"
+    },
+    "vat_number": {
+      "optional":true,
+      "type":"string"
+    },
+    "organisation": {
+      "type":"string"
+    },
+    "last_name": {
+      "optional":true,
+      "type":"string"
+    },
+    "first_name": {
+      "optional":true,
+      "type":"string"
+    },
+    "gender": {
+      "optional":true,
+      "enum":["male", "female"],
+      "type":"string"
+    },
+    "email": {
+      "optional":true,
+      "type":"string"
+    },
+    "position": {
+      "optional":true,
+      "type":"string"
+    },
+    "title": {
+      "optional":true,
+      "type":"string"
+    },
+    "created_at": {
+      "format":"date-time",
+      "optional":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at": {
+      "format":"date-time",
+      "optional":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "bank_iban": {
+      "optional":true,
+      "type":"string"
+    },
+    "bank_number": {
+      "optional":true,
+      "type":"string"
+    },
+    "bank_name": {
+      "optional":true,
+      "type":"string"
+    },
+    "bank_account_number": {
+      "optional":true,
+      "type":"string"
+    },
+    "phone_fax": {
+      "optional":true,
+      "type":"string"
+    },
+    "phone_office": {
+      "optional":true,
+      "type":"string"
+    },
+    "phone_home": {
+      "optional":true,
+      "type":"string"
+    },
+    "phone_mobile": {
+      "optional":true,
+      "type":"string"
+    },
+    "lock_version": {
+      "optional":true,
+      "readonly":true,
+      "type":"integer"
+    },
+    "payment_method": {
+      "optional":true,
+      "enum":["draft", "open", "closed"],
+      "type":"string"
+    },
+    "cash_discount": {
+      "optional":true,
+      "type":"number"
+    },
+    "due_days": {
+      "optional":true,
+      "type":"integer"
+    },
+    "url": {
+      "optional":true,
+      "type":"string"
+    },
+    "bank_swift": {
+      "optional":true,
+      "type":"string"
+    },
+    "tag_list": {
+      "optional":true,
+      "type":"string"
+    },
+    "birthday": {
+      "format":"date",
+      "optional":true,
+      "type":"string"
+    },
+    "address_field": {
+      "optional":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "bank_owner": {
+      "optional":true,
+      "type":"string"
+    },
+    "sending_method": {
+      "optional":true,
+//      "enum":["draft", "open", "closed"],
+      "type":"string"
+    },
+    "addresses": {
+      "optional":true,
+      "type":"array",
+      "properties" : {"$ref":"./addresses.json#properties"}
+    }
+  }
+}

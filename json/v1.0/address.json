@@ -1,0 +1,19 @@
+{"type":"object",
+  "title": "address",
+  "description":"An address",
+  "properties": {
+    "city": { "type":"string" },
+    "address1": { "optional":true, "type":"string" },
+    "address2": { "optional":true, "type":"string" },
+    "created_at": { "format":"date-time", "readonly":true, "type":"string" },
+    "pobox": { "optional":true, "type":"string" },
+    "zip": { "optional":true, "type":"string" },    
+    "country": { "optional":true, "type":"string" },
+    "updated_at": { "format":"date-time", "readonly":true, "type":"string" },
+    "id": { "identity":true, "readonly":true, "type":"string" },
+    "address_type": { "optional":true, "type":"string" },
+    "lat": { "optional":true, "type":"string" },
+    "long": { "optional":true, "type":"string" },
+    "state": { "optional":true, "type":"string"}
+  }
+}
