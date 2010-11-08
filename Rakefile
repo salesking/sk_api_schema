@@ -13,7 +13,7 @@ begin
     gem.homepage = "http://github.com/salesking/sk_api_schema"
     gem.authors = ["Georg Leciejewski"]
     gem.add_dependency 'activesupport'
-    gem.add_development_dependency "rspec", "<2"
+    gem.add_development_dependency "rspec"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
