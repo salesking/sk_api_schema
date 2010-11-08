@@ -9,70 +9,109 @@
       "type":"string"
     },
     "number": {
-      "optional":true,
-      "type":"string"
-    },
-    "tax_number": {
-      "optional":true,
-      "type":"string"
-    },
-    "vat_number": {
+      "description": "Unique number, assigned from SK numbering scheme.",
       "optional":true,
       "type":"string"
     },
     "organisation": {
+      "description": "Name of a company. At least this or the lastname field must be filled for new records",
       "type":"string"
     },
     "last_name": {
+      "description": "Last name of a person. At least this or the organisation field must be filled for new records",
       "optional":true,
       "type":"string"
     },
     "first_name": {
+       "description": "First name of a person.",
       "optional":true,
       "type":"string"
     },
     "gender": {
+      "description": "Can be empty for a company. Is used in salutation",
       "optional":true,
       "enum":["male", "female"],
       "type":"string"
     },
-    "email": {
-      "optional":true,
-      "type":"string"
-    },
     "position": {
+      "description": "Position of a person in a company.",
       "optional":true,
       "type":"string"
     },
     "title": {
+      "description": "Academical title of a person e.g. Dr., Prof",
       "optional":true,
       "type":"string"
     },
+    "tax_number": {
+      "description": "Tax number, normaly applies to a private person",
+      "optional":true,
+      "type":"string"
+    },
+    "vat_number": {
+      "description": "VAT number, for a company or person paying value added taxes.",
+      "optional":true,
+      "type":"string"
+    },   
+    "email": {
+      "description": "Email address of the contact.",
+      "optional":true,
+      "type":"string"
+    },
+    "url": {
+      "description": "An url associated with the person, e.g its company website.",
+      "optional":true,
+      "type":"string"
+    },
+    "birthday": {
+      "format":"date",
+      "optional":true,
+      "type":"string"
+    },
+    "tag_list": {
+      "description": "Space seperated list of tags.",
+      "optional":true,
+      "type":"string"
+    },   
     "created_at": {
+      "description": "Date the record was created in SK. Never changes afterwards.",
       "format":"date-time",
       "optional":true,
       "readonly":true,
       "type":"string"
     },
     "updated_at": {
+      "description": "Last date when the record was edited.",
       "format":"date-time",
       "optional":true,
       "readonly":true,
+      "type":"string"
+    },    
+    "bank_number": {
+      "description": "Number of the bank",
+      "optional":true,
+      "type":"string"
+    },
+    "bank_name": {
+      "description": "Name of the bank.",
+      "optional":true,
+      "type":"string"
+    },
+    "bank_account_number": {
+      "description": "Number of the bank account.",
+      "optional":true,
       "type":"string"
     },
     "bank_iban": {
       "optional":true,
       "type":"string"
     },
-    "bank_number": {
+    "bank_swift": {
       "optional":true,
       "type":"string"
     },
-    "bank_name": {
-      "optional":true,
-      "type":"string"
-    },
-    "bank_account_number": {
+    "bank_owner": {
+      "description": "Owner of the bank account.",
       "optional":true,
       "type":"string"
     },
@@ -93,55 +132,41 @@
       "type":"string"
     },
     "lock_version": {
+      "description": "Increased on every edit, so SK can detect/prevent a concurrent edit by another user. First save wins.",
       "optional":true,
       "readonly":true,
       "type":"integer"
     },
     "payment_method": {
+      "description": "Default payment method for new invoices.",
       "optional":true,
       "enum":["draft", "open", "closed"],
       "type":"string"
     },
     "cash_discount": {
+      "description": "Default cash discount for new invoices.",
       "optional":true,
       "type":"number"
     },
     "due_days": {
+      "description": "Default due days for new invoices.",
       "optional":true,
       "type":"integer"
     },
-    "url": {
-      "optional":true,
-      "type":"string"
-    },
-    "bank_swift": {
-      "optional":true,
-      "type":"string"
-    },
-    "tag_list": {
-      "optional":true,
-      "type":"string"
-    },
-    "birthday": {
-      "format":"date",
-      "optional":true,
-      "type":"string"
-    },
-    "address_field": {
-      "optional":true,
-      "readonly":true,
-      "type":"string"
-    },
-    "bank_owner": {
-      "optional":true,
-      "type":"string"
-    },
     "sending_method": {
+      "description": "Default sending method for new invoices.",
       "optional":true,
 //      "enum":["draft", "open", "closed"],
       "type":"string"
     },
+    "address_field": {
+      "description": "Returns the address field used on new docs. Consist of Organisation name and default(first) address",
+      "optional":true,
+      "readonly":true,
+      "type":"string"
+    },
     "addresses": {
+      "description": "A client can have many addresses, sorted by date descending(new first). Default address is the most recent one.",
       "optional":true,
       "type":"array",
       "properties" : {"$ref":"./addresses.json#properties"}
