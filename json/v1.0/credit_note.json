@@ -1,6 +1,6 @@
 { "type":"object",
-  "title": "invoice",
-  "description": "An invoice",
+  "title": "credit note",
+  "description": "A credit note",
   "properties":{
     "id":{
       "description": "UUID assigned by SK",
@@ -10,7 +10,7 @@
       "type":"string"
     },
     "number":{
-      "description": "Unique number assigned by SK invoice number schema. Auto-assigned when invoice is opened. Required unless doc status is draft.",
+      "description": "Unique number assigned by SK credit note number schema. Auto-assigned when document is opened. Required unless doc status is draft.",
       "optional":true,
       "type":"string"
     },
@@ -20,37 +20,37 @@
       "type":"string"
     },
     "date":{
-      "description": "Date the invoice is issued. Automatically set when invoice is opened. Required unless doc status is draft.",
+      "description": "Date the credit note is issued. Automatically set when document is opened. Required unless doc status is draft.",
       "format":"date",
       "optional":true,
       "type":"string"
     },
     "due_days":{
-      "description": "Used to calculate the due date of the invoice. Useless if date and due date are present.",
+      "description": "Used to calculate the due date of the credit note. Useless if date and due date are present.",
       "optional":true,
       "type":"integer"
     },
     "due_date":{
-      "description": "Auto-calculated from date + due days if empty and the invoice is opened.",
+      "description": "Auto-calculated from date + due days if empty and the document is opened.",
       "format":"date",
       "optional":true,
       "type":"string"
     },
     "status":{
-      "description": "A new document is always a draft unless otherwise stated. Only draft invoices can be deleted. When a doc is opened it's number, date and due date are auto-set",
+      "description": "A new document is always a draft unless otherwise stated. Only draft documents can be deleted. When a doc is opened it's number, date and due date are auto-set",
       "optional":true,
       "default":"draft",
       "enum":["draft","open","closed"],
       "type":"string"
     },
     "payment_method":{
-      "description": "How the invoce is beeing payed. Used in new payments.",
+      "description": "How the document is beeing payed. Used in new payments.",
       "optional":true,
       "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque"],
       "type":"string"
     },
     "title":{
-      "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your invoice [number]'",
+      "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your credit note [number]'",
       "optional":true,
       "type":"string"
     },
@@ -77,7 +77,7 @@
       "properties":{"$ref":"./client.json#properties"}
     },
     "client_id":{
-      "description": "The clients uuid, must be set for a new document. New invoices take the clients address field, due days and cash discount if those fields are not set.",
+      "description": "The clients uuid, must be set for a new document. New documents take the clients address field, due days and cash discount if those fields are not set.",
       "type":"string"
     },
     "line_items":{

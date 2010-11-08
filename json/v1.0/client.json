@@ -103,10 +103,12 @@
       "type":"string"
     },
     "bank_iban": {
+      "description": "IBAN Number of the bank account. Is validated",
       "optional":true,
       "type":"string"
     },
     "bank_swift": {
+      "description": "SWIFT BIC-  Bank Identifier Code",
       "optional":true,
       "type":"string"
     },
@@ -116,18 +118,22 @@
       "type":"string"
     },
     "phone_fax": {
+      "description": "Fax number",
       "optional":true,
       "type":"string"
     },
     "phone_office": {
+      "description": "Office phone number",
       "optional":true,
       "type":"string"
     },
     "phone_home": {
+      "description": "Private phone number.",
       "optional":true,
       "type":"string"
     },
     "phone_mobile": {
+      "description": "Mobile phone number",
       "optional":true,
       "type":"string"
     },
@@ -147,18 +153,6 @@
       "optional":true,
       "type":"integer"
     },
-//    "payment_method": {
-//      "description": "Default payment method for new invoices.",
-//      "optional":true,
-//      "enum":[],
-//      "type":"string"
-//    },
-//    "sending_method": {
-//      "description": "Default sending method for new invoices.",
-//      "optional":true,
-//      "enum":["draft", "open", "closed"],
-//      "type":"string"
-//    },
     "address_field": {
       "description": "Returns the address field used on new docs. Consist of Organisation name and default(first) address",
       "optional":true,
