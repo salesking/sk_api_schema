@@ -3,59 +3,71 @@
   "description": "A line item for a document",
   "properties":{
     "id":{
+      "description": "uuid of the item.",
       "identity":true,
       "readonly":true,
       "type":"string"
     },
     "position":{
+      "description": "Required since items are sorted by position.",
       "type":"integer"
     },
     "name":{
+      "description": "The name of an item",
       "optional":true,
       "type":"string"
     },
     "description":{
+      "description": "Item description",
       "optional":true,
       "type":"string"
     },
     "price_single":{
+      "description": "Net price of a single item",
       "type":"number"
     },
     "tax":{
+      "description": "Tax percent for a single item.",
       "optional":true,
       "type":"number"
     },
     "discount":{
+      "description": "Discount in percent applied to the items net total",
       "optional":true,
       "type":"number"
     },
     "quantity_unit":{
+      "description": "Unit like kg, days, month.",
       "optional":true,
       "type":"string"
     },
     "quantity":{
+      "description": "Quantity of the item.",
       "type":"number"
     },
     "product_id":{
+      "description": "An item can reference a product by its uuid. See use_product",
       "optional":true,
       "type":"string"
     },
     "use_product":{
+      "description": "If set and product_id is present, the products name, description, quantity, unit, price are copied if the according item fields are missing.",
       "optional":true,
       "type":"integer"
     },
     "created_at":{
+      "description": "Date the object was created in SK. Never changes aftwerwards",
       "format":"date-time",
       "optional":true,
       "readonly":true,
       "type":"string"
     },
     "updated_at":{
+      "description": "Date the object was edited in SK.",
       "format":"date-time",
       "optional":true,
       "readonly":true,
       "type":"string"
-    }
     }
   }
 }

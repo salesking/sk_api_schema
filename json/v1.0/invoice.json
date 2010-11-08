@@ -20,77 +20,95 @@
       "type":"string"
     },
     "date":{
+      "description": "Date the invoice is issued. Automatically set when invoice is opened.",
       "format":"date",
       "optional":true,
       "type":"string"
     },
     "due_days":{
+      "description": "Used to calculate the due date of the invoice. Useless if date and due date are present.",
       "optional":true,
       "type":"integer"
     },
     "due_date":{
+      "description": "Auto-calculated from date + due days if empty and the invoice is opened.",
       "format":"date",
       "optional":true,
       "type":"string"
     },
     "status":{
+      "description": "A new document is always a draft unless otherwise stated. Only draft invoices can be deleted. When a doc is opened it's number, date and due date are auto-set",
       "optional":true,
-      "default":"draft","enum":["draft","open","closed"],
+      "default":"draft",
+      "enum":["draft","open","closed"],
       "type":"string"
     },
     "payment_method":{
+      "description": "How the invoce is beeing payed. Used in new payments.",
       "optional":true,
       "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque"],
       "type":"string"
     },
     "title":{
-      "optional":true,
-      "type":"string"
-    },
-    "notes_after":{
+      "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your invoice [number]'",
       "optional":true,
       "type":"string"
     },
     "notes_before":{
+      "description": "Notes shown before the line items. Normaly contains salutation and other introductional information. SK placeholders can be used.",
+      "optional":true,
+      "type":"string"
+    },
+    "notes_after":{
+      "description": "Notes shown after the line items. Can contain information about payments, bank account or a thank-you message. SK placeholders can be used.",
       "optional":true,
       "type":"string"
     },
     "client":{
+      "description": "The client for the document. New documents cannot create a client, use client_id field to set it.",
       "optional":true,
-      "readonly":true,"type":"object",
+      "readonly":true,
+      "type":"object",
       "properties":{"$ref":"./client.json#properties"}
     },
     "client_id":{
+      "description": "The clients uuid, must be set for a new document. New invoices take the clients address field, due days and cash discount if those fields are not set.",
       "type":"string"
     },
     "line_items":{
+      "description": "Line items for the document",
       "optional":true,
       "type":"array",
       "properties":{"$ref":"./address.json#properties"}
     },
     "created_at":{
+      "description": "Date the object was created in SK. Never changes aftwerwards.",
       "format":"date-time",
       "optional":true,
       "readonly":true,
       "type":"string"
     },
     "updated_at":{
+      "description": "Date the object was edited in SK.",
       "format":"date-time",
       "optional":true,
       "readonly":true,
       "type":"string"
     },
     "lock_version":{
+      "description": "Auto-incremented by SK to prevent concurrent updateing. First save wins.",
       "optional":true,
       "readonly":true,
       "type":"integer"
     },
     "price_total":{
+      "description": "Net total sum of all line items, 6 decimals places",
       "optional":true,
       "readonly":true,
       "type":"number"
     },
     "price_tax":{
+      "description": "Summed up tax total of all line items, 2 decimals places",
       "optional":true,
       "readonly":true,
       "type":"number"

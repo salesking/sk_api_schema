@@ -137,12 +137,6 @@
       "readonly":true,
       "type":"integer"
     },
-    "payment_method": {
-      "description": "Default payment method for new invoices.",
-      "optional":true,
-      "enum":["draft", "open", "closed"],
-      "type":"string"
-    },
     "cash_discount": {
       "description": "Default cash discount for new invoices.",
       "optional":true,
@@ -153,12 +147,18 @@
       "optional":true,
       "type":"integer"
     },
-    "sending_method": {
-      "description": "Default sending method for new invoices.",
-      "optional":true,
+//    "payment_method": {
+//      "description": "Default payment method for new invoices.",
+//      "optional":true,
+//      "enum":[],
+//      "type":"string"
+//    },
+//    "sending_method": {
+//      "description": "Default sending method for new invoices.",
+//      "optional":true,
 //      "enum":["draft", "open", "closed"],
-      "type":"string"
-    },
+//      "type":"string"
+//    },
     "address_field": {
       "description": "Returns the address field used on new docs. Consist of Organisation name and default(first) address",
       "optional":true,

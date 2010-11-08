@@ -2,18 +2,73 @@
   "title": "address",
   "description":"An address",
   "properties": {
-    "city": { "type":"string" },
-    "address1": { "optional":true, "type":"string" },
-    "address2": { "optional":true, "type":"string" },
-    "created_at": { "format":"date-time", "readonly":true, "type":"string" },
-    "pobox": { "optional":true, "type":"string" },
-    "zip": { "optional":true, "type":"string" },    
-    "country": { "optional":true, "type":"string" },
-    "updated_at": { "format":"date-time", "readonly":true, "type":"string" },
-    "id": { "identity":true, "readonly":true, "type":"string" },
-    "address_type": { "optional":true, "type":"string" },
-    "lat": { "optional":true, "type":"string" },
-    "long": { "optional":true, "type":"string" },
-    "state": { "optional":true, "type":"string"}
+    "id": {
+      "description": "uuid of the adress.",
+      "identity":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "city": {
+      "description": "City for the address. Must at least be present for an address.",
+      "type":"string"
+    },
+    "address1": {
+      "description": "Should contain the street or otherwise primary address information.",
+      "optional":true,
+      "type":"string"
+    },
+    "address2": {
+      "description": "Additional address information, like floor number",
+      "optional":true,
+      "type":"string"
+    },
+    "pobox": {
+      "description": "Post office box number",
+      "optional":true,
+      "type":"string"
+    },
+    "zip": {
+      "description": "Zip number of the city. Length must be between 4..10",
+      "optional":true,
+      "type":"string"
+    },
+    "state": {
+      "description": "Country state of address",
+      "optional":true,
+      "type":"string"
+    },
+    "country": {
+      "description": "Country of the address.",
+      "optional":true,
+      "type":"string"
+    },
+    "created_at": {
+      "description": "Date the object was created in SK. Never changes aftwerwards",
+      "format":"date-time",
+      "readonly":true, "type":"string"
+    },
+    "updated_at": {
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },   
+    "address_type": {
+      "description": "Type of the address, as seen by vCard definition.",
+      "enum":["work","home"],
+      "optional":true,
+      "type":"string"
+    },
+    "lat": {
+      "description": "Geolocation latitude",
+      "optional":true,
+      "type":"string"
+    },
+    "long": {
+      "description": "Geolocation longitude",
+      "optional":true,
+      "type":"string"
+    },
+    
   }
 }
