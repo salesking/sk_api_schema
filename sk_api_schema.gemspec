@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sk_api_schema}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Georg Leciejewski"]
@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
      "json/v1.0/line_item.json",
      "lib/sk_api_schema.rb",
      "lib/utils/serializer.rb",
+     "sk_api_schema.gemspec",
      "spec/spec_helper.rb",
      "spec/utils/field_map_spec.rb"
   ]

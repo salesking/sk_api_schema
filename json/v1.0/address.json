@@ -68,7 +68,6 @@
       "description": "Geolocation longitude",
       "optional":true,
       "type":"string"
-    },
-    
+    }
   }
 }
