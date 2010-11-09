@@ -1,0 +1,59 @@
+{ "type":"object",
+  "title": "attachment",
+  "description":"An file attachment",
+  "properties": {
+    "id": {
+      "description": "uuid of the object.",
+      "identity":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "filename": {
+      "description": "The filename as set when uploaded",
+      "optional":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "disk_filename": {
+      "description": "The filename as set by SK",
+      "optional":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "url": {
+      "description": "File download url. Unique and valid for 15 minutes, public accessible.",
+      "optional":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "content_type": {
+      "description": "Auto detected on upload. Might not always reflect the real content type",
+      "optional":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "size": {
+      "description": "Filesize in kb. Auto detected on upload.",
+      "optional":true,
+      "readonly":true,
+      "type":"integer"
+    },
+    "is_signed": {
+      "description": "True if the file(pdf) has been digitally signed.",
+      "optional":true,
+      "type":"boolean"
+    },
+    "created_at": {
+      "description": "Date the object was created in SK. Never changes aftwerwards",
+      "format":"date-time",
+      "readonly":true, "type":"string"
+    },
+    "updated_at": {
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    }
+    
+  }
+}
