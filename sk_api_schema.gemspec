@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sk_api_schema}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Georg Leciejewski"]
-  s.date = %q{2010-11-08}
+  s.date = %q{2010-11-11}
   s.description = %q{SalesKing API JSON schema and utility methods}
   s.email = %q{gl@salesking.eu}
   s.extra_rdoc_files = [
@@ -21,15 +21,15 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "json/v1.0/address.json",
+     "json/v1.0/attachment.json",
      "json/v1.0/client.json",
      "json/v1.0/credit_note.json",
      "json/v1.0/invoice.json",
      "json/v1.0/line_item.json",
      "lib/sk_api_schema.rb",
-     "lib/utils/serializer.rb",
      "sk_api_schema.gemspec",
-     "spec/spec_helper.rb",
-     "spec/utils/field_map_spec.rb"
+     "spec/sk_api_schema_spec.rb",
+     "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/salesking/sk_api_schema}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
   s.summary = %q{SalesKing API JSON Schema}
   s.test_files = [
     "spec/spec_helper.rb",
-     "spec/utils/field_map_spec.rb"
+     "spec/sk_api_schema_spec.rb"
   ]
 
   if s.respond_to? :specification_version then
