@@ -1,6 +1,7 @@
 { "type":"object",
   "title": "invoice",
   "description": "An invoice",
+  
   "properties":{
     "id":{
       "description": "UUID assigned by SK",
@@ -125,5 +126,33 @@
       "readonly":true,
       "type":"number"
     }
-  }
+  },
+  "links":[
+    { "rel": "self",
+      "href": "{id}"
+    },
+    {
+    "rel": "delete",
+    "href": "{id}",
+    "method":'DELETE'
+    },
+    {
+    "rel": "update",
+    "href": "{id}",
+    "method":'PUT'
+    },
+    {
+    "rel": "create",
+    "href": "invoices",
+    "method":'POST'
+    },
+    {
+    "rel": "print",
+    "href": "{id}/print?template={template_id}"
+    },
+    {
+    "rel": "open",
+    "href": "{id}/open"
+    }
+  ]
 }

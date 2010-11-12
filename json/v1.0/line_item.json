@@ -1,5 +1,5 @@
 { "type":"object",
-  "title": "line item",
+  "title": "line_item",
   "description": "A line item for a document",
   "properties":{
     "id":{
