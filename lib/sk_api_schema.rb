@@ -1,5 +1,5 @@
 require 'activesupport'
-
+#activesupport/lib/active_support/core_ext/hash/indifferent_access.rb'
 module SK
   module Api
     class Schema
@@ -12,7 +12,7 @@ module SK
       def self.read(schema, version)
         file_path = File.join(File.dirname(__FILE__), '../json', version, "#{schema}.json")
         plain_data = File.open(file_path, 'r'){|f| f.read}
-        ActiveSupport::JSON.decode(plain_data)
+        ActiveSupport::JSON.decode(plain_data).with_indifferent_access
       end
 
       # Create a Hash with the available (api)object attributes defined in

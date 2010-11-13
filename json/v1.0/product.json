@@ -1,0 +1,55 @@
+{ "type":"object",
+  "title": "product",
+  "description": "A product in SK",
+  "properties":{
+    "id":{
+      "description": "uuid of the product.",
+      "identity":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "number":{
+      "description": "Unique number assigned by SK product number schema.",
+      "optional":true,
+      "type":"string"
+    },
+    "name":{
+      "description": "The name of the product",
+      "optional":true,
+      "type":"string"
+    },
+    "description":{
+      "description": "Product description",
+      "optional":true,
+      "type":"string"
+    },
+    "price":{
+      "description": "Net price of a single product",
+      "type":"number"
+    },
+    "tax":{
+      "description": "Tax percentage for this product.",
+      "optional":true,
+      "type":"number"
+    },
+    "quantity_unit":{
+      "description": "Unit like kg, days, month.",
+      "optional":true,
+      "type":"string"
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "optional":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "optional":true,
+      "readonly":true,
+      "type":"string"
+    }
+  }
+}

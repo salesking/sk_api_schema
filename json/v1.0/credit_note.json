@@ -87,7 +87,7 @@
       "properties":{"$ref":"./address.json#properties"}
     },
     "created_at":{
-      "description": "Date the object was created in SK. Never changes aftwerwards.",
+      "description": "Date the object was created in SK. Never changes afterwards.",
       "format":"date-time",
       "optional":true,
       "readonly":true,

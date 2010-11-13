@@ -95,7 +95,7 @@
       "properties":{"$ref":"./address.json#properties"}
     },
     "created_at":{
-      "description": "Date the object was created in SK. Never changes aftwerwards.",
+      "description": "Date the object was created in SK. Never changes afterwards.",
       "format":"date-time",
       "optional":true,
       "readonly":true,
@@ -131,6 +131,9 @@
     { "rel": "self",
       "href": "{id}"
     },
+    { "rel": "instances",
+      "href": "/invoices"
+    },
     {
     "rel": "delete",
     "href": "{id}",
@@ -143,12 +146,16 @@
     },
     {
     "rel": "create",
-    "href": "invoices",
+    "href": "/invoices",
     "method":'POST'
     },
     {
     "rel": "print",
     "href": "{id}/print?template={template_id}"
+    },
+    {
+    "rel": "open",
+    "href": "{id}/open"
     },
     {
     "rel": "open",

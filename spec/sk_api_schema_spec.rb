@@ -4,8 +4,8 @@ describe SK::Api::Schema do
 
   it "should read json schema file" do
     schema = SK::Api::Schema.read(:invoice, 'v1.0')
-    schema['title'].should == 'invoice'
-    schema['type'].should == 'object'
+    schema[:title].should == 'invoice'
+    schema[:type].should == 'object'
     schema['properties'].should be_a Hash
     schema['properties']['id']['identity'].should be_true
   end
@@ -44,7 +44,6 @@ describe SK::Api::Schema, 'object parsing' do
     @item.position = 1
     @item.price_single = 0.99
   end
-
 
   it "should parse object without relations from schema" do
     obj_hash = SK::Api::Schema.to_hash_from_schema(@invoice, 'v1.0')

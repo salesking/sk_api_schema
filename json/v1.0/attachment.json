@@ -44,7 +44,7 @@
       "type":"boolean"
     },
     "created_at": {
-      "description": "Date the object was created in SK. Never changes aftwerwards",
+      "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
       "readonly":true, "type":"string"
     },
