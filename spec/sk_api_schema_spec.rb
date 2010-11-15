@@ -47,7 +47,7 @@ describe SK::Api::Schema, 'object parsing' do
 
   it "should parse object without relations from schema" do
     obj_hash = SK::Api::Schema.to_hash_from_schema(@invoice, 'v1.0')
-    obj_hash.should == {"invoice"=>{"number"=>"911", "line_items"=>[], "title"=>"Your Invoice", "id"=>"some-uuid", "date"=>nil, "client"=>nil, "due_date"=>nil}}
+    obj_hash.should == {"invoice"=>{"number"=>"911", "line_items"=>[], "archived_pdf"=>nil, "title"=>"Your Invoice", "date"=>nil, "id"=>"some-uuid", "client"=>nil, "due_date"=>nil}}
     client_obj_hash = SK::Api::Schema.to_hash_from_schema(@client, 'v1.0')
     client_obj_hash.should == {"client"=>{"number"=>"911", "addresses"=>[], "id"=>"some-uuid", "organisation"=>"Dirty Food Inc.", "last_name"=>nil}}
   end
@@ -56,7 +56,7 @@ describe SK::Api::Schema, 'object parsing' do
     @invoice.line_items = [@item]
     @invoice.client = @client
     obj_hash = SK::Api::Schema.to_hash_from_schema(@invoice, 'v1.0')
-    obj_hash.should == {"invoice"=>{"number"=>"911", "line_items"=>[{"line_item"=>{"position"=>1, "name"=>"Pork Chops", "id"=>"some-uuid", "description"=>"Yummi Pork chopped by mexian emigrants", "price_single"=>0.99}}], "title"=>"Your Invoice", "id"=>"some-uuid", "date"=>nil, "client"=>{"client"=>{"number"=>"911", "addresses"=>[], "id"=>"some-uuid", "organisation"=>"Dirty Food Inc.", "last_name"=>nil}}, "due_date"=>nil}}
+    obj_hash.should == {"invoice"=>{"number"=>"911", "line_items"=>[{"line_item"=>{"name"=>"Pork Chops", "position"=>1, "id"=>"some-uuid", "description"=>"Yummi Pork chopped by mexian emigrants", "price_single"=>0.99}}], "archived_pdf"=>nil, "title"=>"Your Invoice", "date"=>nil, "id"=>"some-uuid", "client"=>{"client"=>{"number"=>"911", "addresses"=>[], "id"=>"some-uuid", "organisation"=>"Dirty Food Inc.", "last_name"=>nil}}, "due_date"=>nil}}
   end
 
 end
@@ -64,7 +64,7 @@ end
 ################################################################################
 # virtual classes used in test
 class Invoice
-  attr_accessor :id, :title, :description, :number, :date, :due_date, :line_items, :client
+  attr_accessor :id, :title, :description, :number, :date, :due_date, :line_items, :client, :archived_pdf
 end
 
 class LineItem

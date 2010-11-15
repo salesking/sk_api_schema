@@ -1,6 +1,6 @@
-{"type":"object",
+{ "type":"object",
   "title": "address",
-  "description":"An address",
+  "description":"An address in SK must always be related to an object.",
   "properties": {
     "id": {
       "description": "uuid of the adress.",

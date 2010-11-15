@@ -129,37 +129,67 @@
   },
   "links":[
     { "rel": "self",
-      "href": "{id}"
+      "href": "invoices/{id}"
     },
     { "rel": "instances",
-      "href": "/invoices"
+      "href": "invoices",
+      // Params /invoices?page=1&sort_by
+      "properties" : {
+        "q":{
+          "Title" : "Search",
+          "description": "Search parameter."
+        },
+        "page":{
+          "Title" : "Page",
+          "description": "In paginated results set the page to look for"
+        },
+        "filter[tags]":{
+          "Title" : "Tags",
+          "description": "Filter by a space delimited list of tags"
+        },
+        "filter[from]":{
+          "Title" : "From date",
+          "description": "All objects with a date after the date"
+        },
+        "filter[to]":{
+          "Title" : "To date",
+          "description": "All objects with date before the date"
+        },
+        "sort_by":{
+          "Title" : "Sort by",
+          "description": "Sort the results by the given field => invoice.number"
+        },
+        "sort":{
+          "Title" : "Sort",
+          "description": "Sort the results in ASC or DESC"
+        }
+      }
     },
     {
-    "rel": "delete",
-    "href": "{id}",
-    "method":'DELETE'
+    "rel": "destroy",
+    "href": "invoices/{id}",
+    "method": "DELETE"
     },
     {
     "rel": "update",
-    "href": "{id}",
-    "method":'PUT'
+    "href": "invoices/{id}",
+    "method": "PUT",
+    "properties" : {
+      "invoice" : {"$ref":"./invoice.json#properties"}
+      }
     },
     {
     "rel": "create",
-    "href": "/invoices",
-    "method":'POST'
+    "href": "invoices",
+    "method": "POST"
     },
     {
     "rel": "print",
-    "href": "{id}/print?template={template_id}"
+    "href": "invoices/{id}/print?template={template_id}"
     },
     {
     "rel": "open",
-    "href": "{id}/open"
-    },
-    {
-    "rel": "open",
-    "href": "{id}/open"
+    "href": "invoices/{id}/open"
     }
   ]
 }

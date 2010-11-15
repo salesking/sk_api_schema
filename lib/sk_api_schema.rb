@@ -1,5 +1,5 @@
-require 'activesupport'
-#activesupport/lib/active_support/core_ext/hash/indifferent_access.rb'
+require 'active_support'
+require 'active_support/core_ext/hash/indifferent_access'
 module SK
   module Api
     class Schema
@@ -9,6 +9,8 @@ module SK
       # === Parameter
       # schema<String|Symbol>::name of the schema, available ones are in json directory
       # version<String>:: version to read, this is the folder name where the schema is in.
+      # === Return
+      # <HashWithIndifferentAccess>:: schema as hash
       def self.read(schema, version)
         file_path = File.join(File.dirname(__FILE__), '../json', version, "#{schema}.json")
         plain_data = File.open(file_path, 'r'){|f| f.read}
@@ -40,16 +42,16 @@ module SK
         # iterate over the defined schema fields
         schema['properties'].each do |field, prop|
           if prop['type'] == 'array'
-            # always set an empty array
-            data[field] = []
+            data[field] = [] # always set an empty array
             if rel_objects = obj.send( field )
               rel_objects.each do |rel_obj|
-                # call related objects to_hash_from_schema method ex: data[:client][:addresses] << SKApi::Models::Address.to_hash_from_schema(object)
+                # call related objects to_hash_from_schema method ex:
+                # data[:client][:addresses] << SKApi::Models::Address.to_hash_from_schema(object)
                 data[field] << self.to_hash_from_schema(rel_obj, version)
               end
             end
           elsif prop['type'] == 'object'     # a singular related object
-            data[field] = nil
+            data[field] = nil # always set empty val
             if rel_obj = obj.send( field )
               data[field] = self.to_hash_from_schema(rel_obj, version)
             end
