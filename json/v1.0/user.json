@@ -62,14 +62,12 @@
     "created_at": {
       "description": "Date the record was created in SK. Never changes afterwards.",
       "format":"date-time",
-      "optional":true,
       "readonly":true,
       "type":"string"
     },
     "updated_at": {
       "description": "Last date when the record was edited.",
       "format":"date-time",
-      "optional":true,
       "readonly":true,
       "type":"string"
     },    
@@ -105,7 +103,12 @@
       "optional":true,
       "readonly":true,
       "type":"string"
-    }
+    }  
+  },
   
-  }
+  "links":[
+    { "rel": "self",
+      "href": "users/current"
+    }
+  ]
 }

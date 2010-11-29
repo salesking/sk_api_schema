@@ -5,7 +5,6 @@
     "id":{
       "description": "UUID assigned by SK",
       "identity":true,
-      "optional":true,
       "readonly":true,
       "type":"string"
     },
@@ -37,7 +36,7 @@
       "type":"string"
     },
     "status":{
-      "description": "A new document is always a draft unless otherwise stated. Only draft documents can be deleted. When a doc is opened it's number, date and due date are auto-set",
+      "description": "Defaults to draft for new documents, unless otherwise stated. For new documents with status 'open', following fields are set if empty: number(next in number schema), date(today), due date(due_days must be given). Only draft invoices can be deleted.",
       "optional":true,
       "default":"draft",
       "enum":["draft","open","closed"],
@@ -71,7 +70,6 @@
     },
     "client":{
       "description": "The client for the document. New documents cannot create a client, use client_id field to set it.",
-      "optional":true,
       "readonly":true,
       "type":"object",
       "properties":{"$ref":"./client.json#properties"}
@@ -89,32 +87,27 @@
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards.",
       "format":"date-time",
-      "optional":true,
       "readonly":true,
       "type":"string"
     },
     "updated_at":{
       "description": "Date the object was edited in SK.",
       "format":"date-time",
-      "optional":true,
       "readonly":true,
       "type":"string"
     },
     "lock_version":{
       "description": "Auto-incremented by SK to prevent concurrent updateing. First save wins.",
       "optional":true,
-      "readonly":true,
       "type":"integer"
     },
     "price_total":{
       "description": "Net total sum of all line items, 6 decimals places",
-      "optional":true,
       "readonly":true,
       "type":"number"
     },
     "price_tax":{
       "description": "Summed up tax total of all line items, 2 decimals places",
-      "optional":true,
       "readonly":true,
       "type":"number"
     }

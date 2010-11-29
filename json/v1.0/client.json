@@ -4,7 +4,6 @@
   "properties": {
     "id": {
       "identity":true,
-      "optional":true,
       "readonly":true,
       "type":"string"
     },
@@ -76,14 +75,12 @@
     "created_at": {
       "description": "Date the record was created in SK. Never changes afterwards.",
       "format":"date-time",
-      "optional":true,
       "readonly":true,
       "type":"string"
     },
     "updated_at": {
       "description": "Last date when the record was edited.",
       "format":"date-time",
-      "optional":true,
       "readonly":true,
       "type":"string"
     },    
@@ -140,7 +137,6 @@
     "lock_version": {
       "description": "Increased on every edit, so SK can detect/prevent a concurrent edit by another user. First save wins.",
       "optional":true,
-      "readonly":true,
       "type":"integer"
     },
     "cash_discount": {
@@ -155,7 +151,6 @@
     },
     "address_field": {
       "description": "Returns the address field used on new docs. Consist of Organisation name and default(first) address",
-      "optional":true,
       "readonly":true,
       "type":"string"
     },

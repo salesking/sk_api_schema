@@ -58,14 +58,12 @@
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
-      "optional":true,
       "readonly":true,
       "type":"string"
     },
     "updated_at":{
       "description": "Date the object was edited in SK.",
       "format":"date-time",
-      "optional":true,
       "readonly":true,
       "type":"string"
     }

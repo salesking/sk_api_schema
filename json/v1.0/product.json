@@ -9,13 +9,12 @@
       "type":"string"
     },
     "number":{
-      "description": "Unique number assigned by SK product number schema.",
+      "description": "Unique number assigned by you or if emtpy SK product number schema.",
       "optional":true,
       "type":"string"
     },
     "name":{
       "description": "The name of the product",
-      "optional":true,
       "type":"string"
     },
     "description":{
@@ -40,14 +39,12 @@
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
-      "optional":true,
       "readonly":true,
       "type":"string"
     },
     "updated_at":{
       "description": "Date the object was edited in SK.",
       "format":"date-time",
-      "optional":true,
       "readonly":true,
       "type":"string"
     }
