@@ -64,12 +64,6 @@
       "type":"object",
       "properties":{"$ref":"./client.json#properties"}
     },
-    "archived_pdf":{
-      "description": "Archived PDF version of the document. Is created when an document is printed and archived. A document can have multiple archived versions. This only returns the most recent one. ",
-      "readonly":true,
-      "type":"object",
-      "properties":{"$ref":"./attachment.json#properties"}
-    },
     "client_id":{
       "description": "The clients uuid, must be set for a new document. New invoices take the clients address field, due days and cash discount if those fields are not set.",
       "type":"string",
@@ -160,6 +154,9 @@
     { "rel": "create",
       "href": "invoices",
       "method": "POST"
+    },
+    { "rel": "attachments",
+      "href": "invoices/{id}/attachments"
     },
     { "rel": "print",
       "href": "invoices/{id}/print",
