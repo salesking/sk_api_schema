@@ -8,68 +8,57 @@
       "type":"string"
     },
     "number": {
-      "description": "Unique number, assigned from SK numbering scheme.",
-      "optional":true,
+      "description": "Unique number, auto-created by SK for new client without number.",
       "type":"string"
     },
     "organisation": {
       "description": "Name of a company. At least this or the lastname field must be filled for new records",
+      "required" : true,
       "type":"string"
     },
     "last_name": {
       "description": "Last name of a person. At least this or the organisation field must be filled for new records",
-      "optional":true,
       "type":"string"
     },
     "first_name": {
        "description": "First name of a person.",
-      "optional":true,
       "type":"string"
     },
     "gender": {
       "description": "Can be empty for a company. Is used in salutation",
-      "optional":true,
       "enum":["male", "female"],
       "type":"string"
     },
     "position": {
       "description": "Position of a person in a company.",
-      "optional":true,
       "type":"string"
     },
     "title": {
       "description": "Academical title of a person e.g. Dr., Prof",
-      "optional":true,
       "type":"string"
     },
     "tax_number": {
       "description": "Tax number, normaly applies to a private person",
-      "optional":true,
       "type":"string"
     },
     "vat_number": {
       "description": "VAT number, for a company or person paying value added taxes.",
-      "optional":true,
       "type":"string"
     },   
     "email": {
       "description": "Email address of the contact.",
-      "optional":true,
       "type":"string"
     },
     "url": {
       "description": "An url associated with the person, e.g its company website.",
-      "optional":true,
       "type":"string"
     },
     "birthday": {
       "format":"date",
-      "optional":true,
       "type":"string"
     },
     "tag_list": {
       "description": "Space seperated list of tags.",
-      "optional":true,
       "type":"string"
     },   
     "created_at": {
@@ -86,67 +75,54 @@
     },    
     "bank_number": {
       "description": "Number of the bank",
-      "optional":true,
       "type":"string"
     },
     "bank_name": {
       "description": "Name of the bank.",
-      "optional":true,
       "type":"string"
     },
     "bank_account_number": {
       "description": "Number of the bank account.",
-      "optional":true,
       "type":"string"
     },
     "bank_iban": {
       "description": "IBAN Number of the bank account. Is validated",
-      "optional":true,
       "type":"string"
     },
     "bank_swift": {
       "description": "SWIFT BIC-  Bank Identifier Code",
-      "optional":true,
       "type":"string"
     },
     "bank_owner": {
       "description": "Owner of the bank account.",
-      "optional":true,
       "type":"string"
     },
     "phone_fax": {
       "description": "Fax number",
-      "optional":true,
       "type":"string"
     },
     "phone_office": {
       "description": "Office phone number",
-      "optional":true,
       "type":"string"
     },
     "phone_home": {
       "description": "Private phone number.",
-      "optional":true,
       "type":"string"
     },
     "phone_mobile": {
       "description": "Mobile phone number",
-      "optional":true,
       "type":"string"
     },
     "lock_version": {
       "description": "Increased on every edit, so SK can detect/prevent a concurrent edit by another user. First save wins.",
-      "optional":true,
       "type":"integer"
     },
     "cash_discount": {
       "description": "Default cash discount for new invoices.",
-      "optional":true,
       "type":"number"
     },
     "due_days": {
       "description": "Default due days for new invoices.",
-      "optional":true,
       "type":"integer"
     },
     "address_field": {
@@ -156,7 +132,6 @@
     },
     "addresses": {
       "description": "A client can have many addresses, sorted by date descending(new first). Default address is the most recent one.",
-      "optional":true,
       "type":"array",
       "properties" : {"$ref":"./addresses.json#properties"}
     }

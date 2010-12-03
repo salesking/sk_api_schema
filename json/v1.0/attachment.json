@@ -10,12 +10,11 @@
     },
     "filename": {
       "description": "The filename as set when uploaded",
-      "optional":true,
       "readonly":true,
       "type":"string"
     },
     "disk_filename": {
-      "description": "The filename as set by SK",
+      "description": "Unique filename set by SK",
       "readonly":true,
       "type":"string"
     },
@@ -36,7 +35,6 @@
     },
     "is_signed": {
       "description": "True if the file(pdf) has been digitally signed.",
-      "optional":true,
       "type":"boolean"
     },
     "created_at": {

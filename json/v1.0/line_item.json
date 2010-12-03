@@ -10,16 +10,15 @@
     },
     "position":{
       "description": "Required since items are sorted by position.",
-      "type":"integer"
+      "type":"integer",
+      "required":true
     },
     "name":{
       "description": "The name of an item",
-      "optional":true,
       "type":"string"
     },
     "description":{
       "description": "Item description",
-      "optional":true,
       "type":"string"
     },
     "price_single":{
@@ -28,32 +27,29 @@
     },
     "tax":{
       "description": "Tax percent for a single item.",
-      "optional":true,
       "type":"number"
     },
     "discount":{
       "description": "Discount in percent applied to the items net total",
-      "optional":true,
       "type":"number"
     },
     "quantity_unit":{
-      "description": "Unit like kg, days, month.",
-      "optional":true,
+      "description": "Quantity unit: kg, days, month.",
       "type":"string"
     },
     "quantity":{
-      "description": "Quantity of the item.",
-      "type":"number"
+      "description": "Quantity of the item. Must be > 0",
+      "type":"number",
+      "exclusiveMinimum":0,
+      "required":true
     },
     "product_id":{
       "description": "An item can reference a product by its uuid. See use_product",
-      "optional":true,
       "type":"string"
     },
     "use_product":{
       "description": "If set and product_id is present, the products name, description, quantity, unit, price are copied if the according item fields are missing.",
-      "optional":true,
-      "type":"integer"
+      "type":"boolean"
     },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",

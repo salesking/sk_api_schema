@@ -10,62 +10,51 @@
     },
     "number":{
       "description": "Unique number assigned by SK credit note number schema. Auto-assigned when document is opened. Required unless doc status is draft.",
-      "optional":true,
       "type":"string"
     },
     "address_field":{
       "description": "Address field with the receiver. Shown in envelope window.",
-      "optional":true,
       "type":"string"
     },
     "date":{
       "description": "Date the credit note is issued. Automatically set when document is opened. Required unless doc status is draft.",
       "format":"date",
-      "optional":true,
       "type":"string"
     },
     "due_days":{
       "description": "Used to calculate the due date of the credit note. Useless if date and due date are present.",
-      "optional":true,
       "type":"integer"
     },
     "due_date":{
       "description": "Auto-calculated from date + due days if empty and the document is opened.",
       "format":"date",
-      "optional":true,
       "type":"string"
     },
     "status":{
       "description": "Defaults to draft for new documents, unless otherwise stated. For new documents with status 'open', following fields are set if empty: number(next in number schema), date(today), due date(due_days must be given). Only draft invoices can be deleted.",
-      "optional":true,
       "default":"draft",
       "enum":["draft","open","closed"],
       "type":"string"
     },
     "payment_method":{
       "description": "How the document is beeing payed. Used in new payments.",
-      "optional":true,
       "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque"],
       "type":"string"
     },
     "title":{
       "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your credit note [number]'",
-      "optional":true,
       "type":"string"
     },
     "notes_before":{
       "description": "Notes shown before the line items. Normaly contains salutation and other introductional information. SK placeholders can be used.",
-      "optional":true,
       "type":"string"
     },
     "notes_after":{
       "description": "Notes shown after the line items. Can contain information about payments, bank account or a thank-you message. SK placeholders can be used.",
-      "optional":true,
       "type":"string"
     },
     "tag_list": {
       "description": "Space seperated list of tags.",
-      "optional":true,
       "type":"string"
     },
     "client":{
@@ -80,7 +69,6 @@
     },
     "line_items":{
       "description": "Line items for the document",
-      "optional":true,
       "type":"array",
       "properties":{"$ref":"./address.json#properties"}
     },
@@ -98,7 +86,6 @@
     },
     "lock_version":{
       "description": "Auto-incremented by SK to prevent concurrent updateing. First save wins.",
-      "optional":true,
       "type":"integer"
     },
     "price_total":{
