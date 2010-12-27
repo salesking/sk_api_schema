@@ -1,7 +1,6 @@
 { "type":"object",
   "title": "invoice",
-  "description": "An invoice",
-  
+  "description": "An invoice",  
   "properties":{
     "id":{
       "description": "UUID assigned by SK",
@@ -32,7 +31,7 @@
       "type":"string"
     },
     "status":{
-      "description": "Defaults to draft for new documents, if empty. For new documents with status 'open',the following fields are set if empty: number(next in number schema), date(today), due date(today unless due_days given). Only draft invoices can be deleted.",
+      "description": "Defaults to draft for new documents, if empty. For new documents with status 'open',the following fields are set if empty: number(next in number schema), date(today), due date(today unless due_days given). Only drafts can be deleted.",
       "default":"draft",
       "enum":["draft","open","closed"],
       "type":"string"
@@ -57,6 +56,18 @@
     "tag_list": {
       "description": "Space seperated list of tags.",
       "type":"string"
+    },
+    "precision":{
+      "description": "Summed up tax total of all line items, 2 decimals places",
+      "type":"number",
+      "enum": [2,3,4],
+      "default":2
+    },
+    "archived_pdf":{
+      "description": "Archived PDF version of the document. Is created when an document is printed and archived. A document can have multiple archived versions. This only returns the most recent one. ",
+      "readonly":true,
+      "type":"object",
+      "properties":{"$ref":"./attachment.json#properties"}
     },
     "client":{
       "description": "The client for the document. New documents cannot create a client, use client_id field to set it.",
@@ -108,7 +119,6 @@
     },
     { "rel": "instances",
       "href": "invoices",
-      // Params /invoices?page=1&sort_by
       "properties" : {
         "q":{
           "title" : "Search",
@@ -136,6 +146,7 @@
         },
         "sort":{
           "title" : "Sort",
+          "enum":["ASC","DESC"],
           "description": "Sort the results in ASC or DESC"
         }
       }
@@ -146,10 +157,7 @@
     },
     { "rel": "update",
       "href": "invoices/{id}",
-      "method": "PUT",
-      "properties" : {
-        "invoice" : {"$ref":"./invoice.json#properties"}
-      }
+      "method": "PUT"
     },
     { "rel": "create",
       "href": "invoices",

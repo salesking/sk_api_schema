@@ -12,7 +12,9 @@ module SK
       # === Return
       # <HashWithIndifferentAccess>:: schema as hash
       def self.read(schema, version)
-        file_path = File.join(File.dirname(__FILE__), '../json', version, "#{schema}.json")
+        # prefix version with v1.0 of v is not present
+        v = (version =~ /^v/) ? version : "v#{version}"
+        file_path = File.join(File.dirname(__FILE__), '../json', v, "#{schema}.json")
         plain_data = File.open(file_path, 'r'){|f| f.read}
         ActiveSupport::JSON.decode(plain_data).with_indifferent_access
       end
@@ -27,12 +29,16 @@ module SK
       #  obj_hash => { invoice =>{'title'=>'hello world', 'number'=>'4711' } }
       #
       # === Parameter
-      # obj<Object>:. An ruby object which is returned as hash
-      # version<String>:. An ruby object which is returned as hash
+      # obj<Object>:: An ruby object which is returned as hash
+      # version<String>:: the schema version, must be a valid folder name see #self.read
+      # nested<Boolean>:: wether or not to return the object nested(prefixed)
+      # within its class name defaults to true:
+      # "client"=>{data} if false returns only: {data}
+      #
       # === Return
       # <Hash{String=>{String=>Mixed}}>:: The object as hash:
       # { invoice =>{'title'=>'hello world', 'number'=>''4711 } }
-      def self.to_hash_from_schema(obj, version)
+      def self.to_hash_from_schema(obj, version, nested=true)
         # get objects class name without inheritance
         obj_class_name =  obj.class.name.split('::').last.underscore
         # init data hash
@@ -50,16 +56,17 @@ module SK
                 data[field] << self.to_hash_from_schema(rel_obj, version)
               end
             end
-          elsif prop['type'] == 'object'     # a singular related object
+          elsif prop['type'] == 'object' # a singular related object
             data[field] = nil # always set empty val
             if rel_obj = obj.send( field )
-              data[field] = self.to_hash_from_schema(rel_obj, version)
+              #dont nest field to prevent => client=>{client=>{data} }
+              data[field] = self.to_hash_from_schema(rel_obj, version, false)
             end
-          else # a simple field is only added if objects know its
+          else # a simple field is only added if the object knows it
             data[field] = obj.send(field) if obj.respond_to?(field.to_sym)
           end
         end        
-        { obj_class_name => data }
+        nested ? { obj_class_name => data } : data
       end
 
     end
