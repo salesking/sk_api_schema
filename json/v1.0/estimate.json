@@ -1,0 +1,200 @@
+{ "type":"object",
+  "title": "estimate",
+  "description": "An estimate",
+  "properties":{
+    "id":{
+      "description": "UUID assigned by SK",
+      "identity":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "number":{
+      "description": "Unique number assigned by SK estimate number schema. Auto-assigned when estimate is opened. Required unless doc status is draft.",
+      "type":"string"
+    },
+    "address_field":{
+      "description": "Receiver address, normally shown in envelope window. Defaults to client address_field if empty and client_id present.",
+      "type":"string"
+    },
+    "date":{
+      "description": "Date the estimate is issued. Automatically set when estimate is opened. Required for non-draft documents.",
+      "format":"date",
+      "type":"string"
+    },
+    "due_days":{
+      "description": "Used to calculate the valid-until date of the estimate. Useless if date and due date are present.",
+      "type":"integer"
+    },
+    "due_date":{
+      "description": "Auto-calculated from date + due days if empty and the estimate is opened.",
+      "format":"date",
+      "type":"string"
+    },
+    "status":{
+      "description": "Defaults to draft for new documents, if empty. For new documents with status 'open', the following fields are set if empty: number(next in number schema), date(today), due date(today unless due_days given). Only drafts can be deleted.",
+      "default":"draft",
+      "enum":["draft","open","closed"],
+      "type":"string"
+    },
+    "title":{
+      "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your estimate [number]'",
+      "type":"string"
+    },
+    "notes_before":{
+      "description": "Notes shown before the line items. Normaly contains salutation and other introductional information. SK placeholders can be used.",
+      "type":"string"
+    },
+    "notes_after":{
+      "description": "Notes shown after the line items. Can contain information about payments, bank account or a thank-you message. SK placeholders can be used.",
+      "type":"string"
+    },
+    "tag_list": {
+      "description": "Space separated list of tags.",
+      "type":"string"
+    },
+    "precision":{
+      "description": "Decimal places for displayed(printed) money values. gross_total and net_total will always be displayed rounded to a precision of 2. When greater 2 use net_total_base(also in line_item) to show the net val with the set precision(3,4).",
+      "type":"number",
+      "enum": [2,3,4],
+      "default":2
+    },
+    "archived_pdf":{
+      "description": "Archived PDF version of the document. Is created when an document is printed and archived. A document can have multiple archived versions. This only returns the most recent one. ",
+      "readonly":true,
+      "type":"object",
+      "properties":{"$ref":"./attachment.json#properties"}
+    },
+    "client":{
+      "description": "The client for the document. New documents cannot create a client, use client_id field to set it.",
+      "readonly":true,
+      "type":"object",
+      "properties":{"$ref":"./client.json#properties"}
+    },
+    "client_id":{
+      "description": "The clients uuid, must be set for a new document. New estimates take the clients address field, due days and cash discount if those fields are not set.",
+      "type":"string",
+      "required":true
+    },
+    "line_items":{
+      "description": "Line items for the document",
+      "type":"array",
+      "properties":{"$ref":"./address.json#properties"}
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "lock_version":{
+      "description": "Auto-incremented to prevent concurrent updateing. First save wins and increments version.",
+      "optional":true,
+      "type":"integer"
+    },
+    "gross_total":{
+      "description": "Gross total of all line items, 2 decimals places",
+      "readonly":true,
+      "type":"number"
+    },
+    "tax_total":{
+      "description": "Tax total, 2 decimals places",
+      "readonly":true,
+      "type":"number"
+    },
+    "net_total":{
+      "description": "Net total, 2 decimals places",
+      "readonly":true,
+      "type":"number"
+    },
+    "net_total_base":{
+      "description": "Net total, decimals places as set in precision, default 2",
+      "readonly":true,
+      "type":"number"
+    },
+    "net_total_base_raw":{
+      "description": "Net total unrounded, 6 decimal places. Summed items net_total_base_raw (incl discount)",
+      "readonly":true,
+      "type":"number"
+    }
+  },
+  "links":[
+    { "rel": "self",
+      "href": "estimates/{id}"
+    },
+    { "rel": "instances",
+      "href": "estimates",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Search in title, number, addressfield",
+          "type":"string"
+        },
+        "filter[tags]":{
+          "title" : "Tags",
+          "description": "Filter by a space delimited list of tags",
+          "type":"string"
+        },
+        "filter[from]":{
+          "title" : "From date",
+          "description": "All objects with a date after the date"
+        },
+        "filter[to]":{
+          "title" : "To date",
+          "description": "All objects with date before the date"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":['title', 'number', 'created_at', 'updated_at', 'client_id', 'price_total', 'price_tax', 'date', 'due_date'],
+          "type": 'string'
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "estimates/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "estimates/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "estimates",
+      "method": "POST"
+    },
+    { "rel": "attachments",
+      "href": "estimates/{id}/attachments"
+    },
+    { "rel": "print",
+      "href": "estimates/{id}/print",
+      "method": "POST",
+      "properties" : {
+        "template_id" : {
+          "title" : "PDF template used for printing",
+          "description": "UUID of a pdf template used to print the document. MUST be present",
+          "required":true
+        },
+        "base64" : {
+          "title" : "Return the created pdf base64 encoded",
+          "description": "If set the new pdf is returned inside the attachment JSON within 'base64' key. Leave empty to save traffic."
+        }
+      }
+    }
+  ]
+}
