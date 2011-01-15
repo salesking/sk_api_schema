@@ -89,12 +89,37 @@
       "type":"integer"
     },
     "price_total":{
-      "description": "Net total sum of all line items, 6 decimals places",
+      "description": "Deprecated use net_total_base_raw",
       "readonly":true,
       "type":"number"
     },
     "price_tax":{
-      "description": "Summed up tax total of all line items, 2 decimals places",
+      "description": "Deprecated: use tax_total",
+      "readonly":true,
+      "type":"number"
+    },
+    "gross_total":{
+      "description": "Gross total of all line items, 2 decimals places",
+      "readonly":true,
+      "type":"number"
+    },
+    "tax_total":{
+      "description": "Tax total, 2 decimals places",
+      "readonly":true,
+      "type":"number"
+    },
+    "net_total":{
+      "description": "Net total, 2 decimals places",
+      "readonly":true,
+      "type":"number"
+    },
+    "net_total_base":{
+      "description": "Net total, decimals places as set in precision, default 2",
+      "readonly":true,
+      "type":"number"
+    },
+    "net_total_base_raw":{
+      "description": "Net total, 6 decimal places. Summmed items net_total_base_raw (incl discount)",
       "readonly":true,
       "type":"number"
     }

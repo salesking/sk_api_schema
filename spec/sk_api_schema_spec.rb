@@ -18,6 +18,14 @@ describe SK::Api::Schema do
     schema['properties']['id']['identity'].should be_true
   end
 
+  it "should read all json schemas" do
+    schemas = SK::Api::Schema.read_all('1.0')
+    
+    file_path = File.join(File.dirname(__FILE__), '../json', 'v1.0', '*.json')
+    # just check file count
+    schemas.length.should == Dir.glob( file_path ).length
+  end
+
   it "should raise error if version folder does not exist" do
     lambda{
       SK::Api::Schema.read(:invoice, 'v3.0')
@@ -55,16 +63,22 @@ describe SK::Api::Schema, 'object parsing' do
 
   it "should parse object with empty relations from schema" do
     obj_hash = SK::Api::Schema.to_hash_from_schema(@invoice, 'v1.0')
-    obj_hash.should == {"invoice"=>{"number"=>"911", "line_items"=>[], "archived_pdf"=>nil, "title"=>"Your Invoice", "date"=>nil, "id"=>"some-uuid", "client"=>nil, "due_date"=>nil}}
+    #   {"invoice"=>{"number"=>"911", "line_items"=>[], "archived_pdf"=>nil, "title"=>"Your Invoice", "date"=>nil, "id"=>"some-uuid", "client"=>nil, "due_date"=>nil}}
+    obj_hash.keys.should == ["invoice", "links"]
+    obj_hash['invoice'].should include( "number"=>"911","line_items"=>[],"archived_pdf"=>nil,"id"=>"some-uuid", "title"=>"Your Invoice" )
     client_obj_hash = SK::Api::Schema.to_hash_from_schema(@client, 'v1.0')
-    client_obj_hash.should == {"client"=>{"number"=>"911", "addresses"=>[], "id"=>"some-uuid", "organisation"=>"Dirty Food Inc.", "last_name"=>nil}}
+    client_obj_hash.keys.should == ["client", "links"]
+    client_obj_hash['client'].should include("number"=>"911", "addresses"=>[], "id"=>"some-uuid", "organisation"=>"Dirty Food Inc.", "last_name"=>nil)
   end
 
   it "should parse object with relations from schema" do
     @invoice.line_items = [@item]
     @invoice.client = @client
     obj_hash = SK::Api::Schema.to_hash_from_schema(@invoice, 'v1.0')
-    obj_hash.should == {"invoice"=>{"number"=>"911", "line_items"=>[{"line_item"=>{"name"=>"Pork Chops", "position"=>1, "id"=>"some-uuid", "description"=>"Yummi Pork chopped by mexian emigrants", "price_single"=>0.99}}], "archived_pdf"=>nil, "title"=>"Your Invoice", "date"=>nil, "id"=>"some-uuid", "client"=>{"number"=>"911", "addresses"=>[], "id"=>"some-uuid", "organisation"=>"Dirty Food Inc.", "last_name"=>nil}, "due_date"=>nil}}
+    obj_hash["invoice"]['client']['client'].should == {"number"=>"911", "addresses"=>[], "id"=>"some-uuid", "organisation"=>"Dirty Food Inc.", "last_name"=>nil}
+    obj_hash["invoice"]["client"]['links'].should == []
+    obj_hash["invoice"]["line_items"].should == [ {'links'=>[], "line_item"=>{"name"=>"Pork Chops", "position"=>1, \
+                                       "id"=>"some-uuid", "description"=>"Yummi Pork chopped by mexian emigrants", "price_single"=>0.99}}]
   end
 
 end

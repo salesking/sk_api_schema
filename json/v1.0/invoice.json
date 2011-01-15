@@ -13,7 +13,7 @@
       "type":"string"
     },
     "address_field":{
-      "description": "Address field with the receiver. Shown in envelope window.",
+      "description": "Receiver address, normally shown in envelope window. Defaults to client address_field if empty and client_id given.",
       "type":"string"
     },
     "date":{
@@ -54,11 +54,11 @@
       "type":"string"
     },
     "tag_list": {
-      "description": "Space seperated list of tags.",
+      "description": "Space separated list of tags.",
       "type":"string"
     },
     "precision":{
-      "description": "Summed up tax total of all line items, 2 decimals places",
+      "description": "Decimal places for displayed(printed) money values. gross_total and net_total will always be displayed rounded to a precision of 2. When greater 2 use net_total_base(also in line_item) to show the net val with the set precision(3,4).",
       "type":"number",
       "enum": [2,3,4],
       "default":2
@@ -98,17 +98,42 @@
       "type":"string"
     },
     "lock_version":{
-      "description": "Auto-incremented by SK to prevent concurrent updateing. First save wins.",
+      "description": "Auto-incremented to prevent concurrent updateing. First save wins and increments version. ",
       "optional":true,
       "type":"integer"
     },
     "price_total":{
-      "description": "Net total sum of all line items, 6 decimals places",
+      "description": "Deprecated use net_total_base_raw",
       "readonly":true,
       "type":"number"
     },
     "price_tax":{
-      "description": "Summed up tax total of all line items, 2 decimals places",
+      "description": "Deprecated: use tax_total",
+      "readonly":true,
+      "type":"number"
+    },
+    "gross_total":{
+      "description": "Gross total of all line items, 2 decimals places",
+      "readonly":true,
+      "type":"number"
+    },
+    "tax_total":{
+      "description": "Tax total, 2 decimals places",
+      "readonly":true,
+      "type":"number"
+    },
+    "net_total":{
+      "description": "Net total, 2 decimals places",
+      "readonly":true,
+      "type":"number"
+    },
+    "net_total_base":{
+      "description": "Net total, decimals places as set in precision, default 2",
+      "readonly":true,
+      "type":"number"
+    },
+    "net_total_base_raw":{
+      "description": "Net total, 6 decimal places. Summmed items net_total_base_raw (incl discount)",
       "readonly":true,
       "type":"number"
     }
@@ -120,17 +145,20 @@
     { "rel": "instances",
       "href": "invoices",
       "properties" : {
-        "q":{
-          "title" : "Search",
-          "description": "Search parameter."
-        },
         "page":{
           "title" : "Page",
-          "description": "In paginated results set the page to look for"
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Search in title, number, addressfield",
+          "type":"string"
         },
         "filter[tags]":{
           "title" : "Tags",
-          "description": "Filter by a space delimited list of tags"
+          "description": "Filter by a space delimited list of tags",
+          "type":"string"
         },
         "filter[from]":{
           "title" : "From date",
@@ -142,7 +170,9 @@
         },
         "sort_by":{
           "title" : "Sort by",
-          "description": "Sort the results by the given field => invoice.number"
+          "description": "Sort the results by the given field => number",
+          "enum":['title', 'number', 'created_at', 'updated_at', 'client_id', 'price_total', 'price_tax', 'date', 'due_date'],
+          "type": 'string'
         },
         "sort":{
           "title" : "Sort",
