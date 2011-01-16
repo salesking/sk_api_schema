@@ -200,6 +200,15 @@
     { "rel": "attachments",
       "href": "invoices/{id}/attachments"
     },
+    { "rel": "payment_reminders",
+      "href": "invoices/{id}/payment_reminders"
+    },
+    { "rel": "comments",
+      "href": "invoices/{id}/comments"
+    },
+    { "rel": "emails",
+      "href": "invoices/{id}/emails"
+    },
     { "rel": "print",
       "href": "invoices/{id}/print",
       "method": "POST",

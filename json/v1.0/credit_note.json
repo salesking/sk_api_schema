@@ -127,5 +127,85 @@
       "readonly":true,
       "type":"number"
     }
-  }
+  },
+  "links":[
+    { "rel": "self",
+      "href": "credit_notes/{id}"
+    },
+    { "rel": "instances",
+      "href": "credit_notes",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Search in title, number, addressfield",
+          "type":"string"
+        },
+        "filter[tags]":{
+          "title" : "Tags",
+          "description": "Filter by a space delimited list of tags",
+          "type":"string"
+        },
+        "filter[from]":{
+          "title" : "From date",
+          "description": "All objects with a date after the date"
+        },
+        "filter[to]":{
+          "title" : "To date",
+          "description": "All objects with date before the date"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":['title', 'number', 'created_at', 'updated_at', 'client_id', 'price_total', 'price_tax', 'date', 'due_date'],
+          "type": 'string'
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "credit_notes/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "credit_notes/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "credit_notes",
+      "method": "POST"
+    },
+    { "rel": "attachments",
+      "href": "credit_notes/{id}/attachments"
+    },
+    { "rel": "comments",
+      "href": "credit_notes/{id}/comments"
+    },
+    { "rel": "emails",
+      "href": "credit_notes/{id}/emails"
+    },
+    { "rel": "print",
+      "href": "credit_notes/{id}/print",
+      "method": "POST",
+      "properties" : {
+        "template_id" : {
+          "title" : "PDF template used for printing",
+          "description": "UUID of a pdf template used to print the document. MUST be present",
+          "required":true
+        },
+        "base64" : {
+          "title" : "Return the created pdf base64 encoded",
+          "description": "If set the new pdf is returned inside the attachment JSON within 'base64' key. Leave empty to save traffic."
+        }
+      }
+    }
+  ]
 }

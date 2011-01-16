@@ -185,6 +185,12 @@
     { "rel": "attachments",
       "href": "estimates/{id}/attachments"
     },
+    { "rel": "comments",
+      "href": "estimates/{id}/comments"
+    },
+    { "rel": "emails",
+      "href": "estimates/{id}/emails"
+    },
     { "rel": "print",
       "href": "estimates/{id}/print",
       "method": "POST",

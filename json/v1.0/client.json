@@ -134,6 +134,93 @@
       "description": "A client can have many addresses, sorted by date descending(new first). Default address is the most recent one.",
       "type":"array",
       "properties" : {"$ref":"./addresses.json#properties"}
+    },
+    "team_id":{
+      "description": "A team uuid. If set only the team and its parent teams can see the record.",
+      "type":"string"
     }
-  }
+  },
+  "links":[
+    { "rel": "self",
+      "href": "clients/{id}"
+    },
+    { "rel": "instances",
+      "href": "clients",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Search in first, last_name, organisation, email, number",
+          "type":"string"
+        },
+        "filter[tags]":{
+          "title" : "Tags",
+          "description": "Filter by a space delimited list of tags",
+          "type":"string"
+        },
+        "filter[from]":{
+          "title" : "From date",
+          "description": "All objects with a date after the date"
+        },
+        "filter[to]":{
+          "title" : "To date",
+          "description": "All objects with date before the date"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":['organisation', 'number','email','first_name','last_name', 'created_at', 'updated_at'],
+          "type": 'string'
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "clients/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "clients/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "clients",
+      "method": "POST"
+    },
+    { "rel": "attachments",
+      "href": "clients/{id}/attachments"
+    },
+    { "rel": "invoices",
+      "href": "clients/{id}/invoices"
+    },
+    { "rel": "estimates",
+      "href": "clients/{id}/estimates"
+    },
+    { "rel": "orders",
+      "href": "clients/{id}/orders"
+    },
+    { "rel": "credit_notes",
+      "href": "clients/{id}/credit_notes"
+    },
+    { "rel": "recurrings",
+      "href": "clients/{id}/recurrings"
+    },
+    { "rel": "payment_reminders",
+      "href": "clients/{id}/payment_reminders"
+    },
+    { "rel": "comments",
+      "href": "clients/{id}/comments"
+    },
+    { "rel": "emails",
+      "href": "clients/{id}/emails"
+    }
+  ]
 }

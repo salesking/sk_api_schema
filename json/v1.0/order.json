@@ -175,6 +175,12 @@
     { "rel": "attachments",
       "href": "orders/{id}/attachments"
     },
+    { "rel": "comments",
+      "href": "orders/{id}/comments"
+    },
+    { "rel": "emails",
+      "href": "orders/{id}/emails"
+    },
     { "rel": "print",
       "href": "orders/{id}/print",
       "method": "POST",

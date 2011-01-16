@@ -1,6 +1,6 @@
 { "type":"object",
   "title": "payment_reminder",
-  "description": "An payment_reminder",
+  "description": "A payment reminder",
   "properties":{
     "id":{
       "description": "UUID assigned by SK",
@@ -8,17 +8,21 @@
       "readonly":true,
       "type":"string"
     },
+    "invoice_id":{
+      "description": "The invoice for the reminder. If set assumes all other fields are set to custom values, instead of filling them from the invoice. POSTing to invoices/:id/payment_reminders, automatically set this and all other fields.",
+      "type":"string"
+    },
     "address_field":{
-      "description": "Receiver address, normally shown in envelope window. Defaults to client address_field if empty and client_id given.",
+      "description": "Receiver address, shown in envelope window. Defaults to invoice.client.address_field if created from invoice.",
       "type":"string"
     },
     "date":{
-      "description": "Date the payment_reminder is issued. Automatically set when payment_reminder is opened. Required for non-draft documents.",
+      "description": "Date the payment_reminder is issued. Automatically set when created from invoice. Defaults to today.",
       "format":"date",
       "type":"string"
     },
     "due_days":{
-      "description": "Used to calculate the due date of the payment_reminder. Useless if date and due date are present.",
+      "description": "Used to calculate the due date of the payment_reminder. Useless if date and due date are present. Taken from settings when created from invoice",
       "type":"integer"
     },
     "due_date":{
@@ -27,15 +31,15 @@
       "type":"string"
     },
     "title":{
-      "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your payment_reminder [number]'",
+      "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your payment_reminder [number]'. Defaults to values from settings",
       "type":"string"
     },
     "notes_before":{
-      "description": "Notes shown before the line items. Normaly contains salutation and other introductional information. SK placeholders can be used.",
+      "description": "Notes shown before the line items. Normaly contains salutation and other introductional information. SK placeholders can be used. Defaults to values from settings",
       "type":"string"
     },
     "notes_after":{
-      "description": "Notes shown after the line items. Can contain information about payments, bank account or a thank-you message. SK placeholders can be used.",
+      "description": "Notes shown after the line items. Can contain information about payments, bank account or a thank-you message. SK placeholders can be used. Defaults to values from settings",
       "type":"string"
     },
     "tag_list": {
@@ -62,15 +66,14 @@
     },
     "client_id":{
       "description": "The clients uuid. New payment_reminders take the clients address field, due days and cash discount if those fields are not set.",
-      "type":"string",
-      "required":true
+      "type":"string"
     },
     "team_id":{
-      "description": "A team uuid. If set only the team and its parent teams can see the record.",
+      "description": "A team uuid. If set, only the team and its parent teams can see the record. Defaults to team id from invoice",
       "type":"string"
     },
     "line_items":{
-      "description": "Line items for the document",
+      "description": "Line items for the document. Defaults to invoice.gross_total and late fee values from settings",
       "type":"array",
       "properties":{"$ref":"./address.json#properties"}
     },
@@ -159,6 +162,9 @@
     },
     { "rel": "attachments",
       "href": "payment_reminders/{id}/attachments"
+    },
+    { "rel": "emails",
+      "href": "payment_reminders/{id}/emails"
     },
     { "rel": "print",
       "href": "payment_reminders/{id}/print",
