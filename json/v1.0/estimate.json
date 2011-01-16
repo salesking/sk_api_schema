@@ -75,6 +75,10 @@
       "type":"string",
       "required":true
     },
+    "team_id":{
+      "description": "A team uuid. If set only the team and its parent teams can see the record.",
+      "type":"string"
+    },
     "line_items":{
       "description": "Line items for the document",
       "type":"array",

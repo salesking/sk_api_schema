@@ -1,6 +1,6 @@
 { "type":"object",
-  "title": "order",
-  "description": "An order",
+  "title": "payment_reminder",
+  "description": "An payment_reminder",
   "properties":{
     "id":{
       "description": "UUID assigned by SK",
@@ -8,27 +8,26 @@
       "readonly":true,
       "type":"string"
     },
-    "number":{
-      "description": "Unique number assigned by SK order number schema. Auto-assigned when order is opened. Required unless doc status is draft.",
-      "type":"string"
-    },
     "address_field":{
-      "description": "Receiver address, normally shown in envelope window. Defaults to client address_field if empty and client_id present.",
+      "description": "Receiver address, normally shown in envelope window. Defaults to client address_field if empty and client_id given.",
       "type":"string"
     },
     "date":{
-      "description": "Date the order is issued. Automatically set when order is opened. Required for non-draft documents.",
+      "description": "Date the payment_reminder is issued. Automatically set when payment_reminder is opened. Required for non-draft documents.",
       "format":"date",
       "type":"string"
     },
-    "status":{
-      "description": "Defaults to draft for new documents, if empty. For new documents with status 'open', the following fields are set if empty: number(next in number schema), date(today). Only drafts can be deleted.",
-      "default":"draft",
-      "enum":["draft","open","closed"],
+    "due_days":{
+      "description": "Used to calculate the due date of the payment_reminder. Useless if date and due date are present.",
+      "type":"integer"
+    },
+    "due_date":{
+      "description": "Auto-calculated from date + due days if empty and the payment_reminder is opened.",
+      "format":"date",
       "type":"string"
     },
     "title":{
-      "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your order [number]'",
+      "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your payment_reminder [number]'",
       "type":"string"
     },
     "notes_before":{
@@ -56,14 +55,15 @@
       "properties":{"$ref":"./attachment.json#properties"}
     },
     "client":{
-      "description": "The associated client. New documents cannot create a client, use client_id to set it.",
+      "description": "The client for the document. New documents cannot create a client, use client_id field to set it.",
       "readonly":true,
       "type":"object",
       "properties":{"$ref":"./client.json#properties"}
     },
     "client_id":{
-      "description": "The clients uuid, must not be set for a new document. New docuents take the clients address field, due days and cash discount if client is present abd those fields are not set.",
-      "type":"string"
+      "description": "The clients uuid. New payment_reminders take the clients address field, due days and cash discount if those fields are not set.",
+      "type":"string",
+      "required":true
     },
     "team_id":{
       "description": "A team uuid. If set only the team and its parent teams can see the record.",
@@ -87,7 +87,7 @@
       "type":"string"
     },
     "lock_version":{
-      "description": "Auto-incremented to prevent concurrent updateing. First save wins and increments version.",
+      "description": "Auto-incremented to prevent concurrent updateing. First save wins and increments version. ",
       "optional":true,
       "type":"integer"
     },
@@ -95,34 +95,19 @@
       "description": "Gross total of all line items, 2 decimals places",
       "readonly":true,
       "type":"number"
-    },
-    "tax_total":{
-      "description": "Tax total, 2 decimals places",
-      "readonly":true,
-      "type":"number"
-    },
+    },    
     "net_total":{
       "description": "Net total, 2 decimals places",
-      "readonly":true,
-      "type":"number"
-    },
-    "net_total_base":{
-      "description": "Net total, decimals places as set in precision, default 2",
-      "readonly":true,
-      "type":"number"
-    },
-    "net_total_base_raw":{
-      "description": "Net total unrounded, 6 decimal places. Summed items net_total_base_raw (incl discount)",
       "readonly":true,
       "type":"number"
     }
   },
   "links":[
     { "rel": "self",
-      "href": "orders/{id}"
+      "href": "payment_reminders/{id}"
     },
     { "rel": "instances",
-      "href": "orders",
+      "href": "payment_reminders",
       "properties" : {
         "page":{
           "title" : "Page",
@@ -161,22 +146,22 @@
       }
     },
     { "rel": "destroy",
-      "href": "orders/{id}",
+      "href": "payment_reminders/{id}",
       "method": "DELETE"
     },
     { "rel": "update",
-      "href": "orders/{id}",
+      "href": "payment_reminders/{id}",
       "method": "PUT"
     },
     { "rel": "create",
-      "href": "orders",
+      "href": "payment_reminders",
       "method": "POST"
     },
     { "rel": "attachments",
-      "href": "orders/{id}/attachments"
+      "href": "payment_reminders/{id}/attachments"
     },
     { "rel": "print",
-      "href": "orders/{id}/print",
+      "href": "payment_reminders/{id}/print",
       "method": "POST",
       "properties" : {
         "template_id" : {
