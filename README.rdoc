@@ -8,14 +8,20 @@ besides the schema. Other languages can take advantage of the raw json files.
 To get a fully working ruby client take a look at http://github.com/salesking/sk-api
 which will be replaced soon by a new gem at http://github.com/salesking/sk_api_activeresource
 
+== Notice:
 
-Notice: This gem is still evolving and will be used actively by salesking to deliver the api soon. 
-Atm the JSON files are the most interesting stuff in here.
+This gem is used actively by SalesKing to deliver it's api resources BUT commits
+and changes in here might not be directly reflected.
+The gem version does not reflect the api version. The version, for now, is keept
+in the folder-name and as long as there are no major changes(breaking backwards
+compatibility), the version number will remain.
+
+Especially within the next couple of weeks (until beginning of march) you will
+see some more resources made available. Links within each resource, will
+also be available but still need some cleanup.
 
 == Install
 
     gem install sk_api_schema
-
-== Usage
 
 Copyright (c) 2010 Georg Leciejewski, released under the MIT license
