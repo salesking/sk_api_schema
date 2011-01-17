@@ -1,6 +1,6 @@
 { "type":"object",
-  "title": "comment",
-  "description":"An comment in SK must always be related to an object.",
+  "title": "payment",
+  "description":"An payment in SK must always be related to an object.",
   "properties": {
     "id": {
       "description": "uuid of the adress.",
@@ -8,19 +8,29 @@
       "readonly":true,
       "type":"string"
     },
-    "text": {
-      "description": "The comment himself.",
+    "amount": {
+      "description": "The payment amount",
       "required":true,
-      "type":"string"
+      "type":"number"
     },   
-    "related_object_type": {
-      "description": "Object type of the comments parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
-      "required":true,
+    "external_ref":{
+      "description": "Reference number f.ex. issued by the bank.",
+      "format":"date",
       "type":"string"
     },
-    "related_object_id": {
-      "description": "uuid of the comments parent object.",
+    "date":{
+      "description": "Date the payment was made.",
       "required":true,
+      "format":"date",
+      "type":"string"
+    },
+    "method":{
+      "description": "How the payment was made.",
+      "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque"],
+      "type":"string"
+    },
+    "team_id":{
+      "description": "A team uuid. If set only the team and its parent teams can see the record.",
       "type":"string"
     },
     "created_at": {
@@ -28,20 +38,14 @@
       "format":"date-time",
       "readonly":true,
       "type":"string"
-    },
-    "updated_at": {
-      "description": "Date the object was edited in SK.",
-      "format":"date-time",
-      "readonly":true,
-      "type":"string"
     }
   },
    "links":[
     { "rel": "self",
-      "href": "comments/{id}"
+      "href": "payments/{id}"
     },
     { "rel": "instances",
-      "href": "comments",
+      "href": "payments",
       "properties" : {
         "page":{
           "title" : "Page",
@@ -50,7 +54,7 @@
         },
         "filter[q]":{
           "title" : "Search",
-          "description": "Search in text",
+          "description": "Search in title, number, addressfield",
           "type":"string"
         },
         "filter[from]":{
@@ -64,7 +68,7 @@
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",
-          "enum":['created_at', 'updated_at'],
+          "enum":['amount','created_at', 'updated_at'],
           "type": 'string'
         },
         "sort":{
@@ -75,15 +79,11 @@
       }
     },
     { "rel": "destroy",
-      "href": "comments/{id}",
+      "href": "payments/{id}",
       "method": "DELETE"
     },
-    { "rel": "update",
-      "href": "comments/{id}",
-      "method": "PUT"
-    },
     { "rel": "create",
-      "href": "comments",
+      "href": "payments",
       "method": "POST"
     }
   ]
