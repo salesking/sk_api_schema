@@ -1,0 +1,39 @@
+{ "type":"object",
+  "title": "comment",
+  "description":"An comment in SK must always be related to an object.",
+  "properties": {
+    "id": {
+      "description": "uuid of the adress.",
+      "identity":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "text": {
+      "description": "The comment himself.",
+      "required":true,
+      "type":"string"
+    },   
+    "related_object_type": {
+      "description": "Object type of the comments parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
+      "required":true,
+      "type":"string"
+    },
+    "related_object_id": {
+      "description": "uuid of the comments parent object.",
+      "required":true,
+      "type":"string"
+    },
+    "created_at": {
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at": {
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    }    
+  }
+}
