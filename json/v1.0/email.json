@@ -1,26 +1,55 @@
 { "type":"object",
-  "title": "comment",
-  "description":"An comment in SK must always be related to an object.",
+  "title": "email",
+  "description":"An email in SK must always be related to an object.",
   "properties": {
     "id": {
-      "description": "uuid of the comment",
+      "description": "uuid of the email",
       "identity":true,
       "readonly":true,
       "type":"string"
     },
-    "text": {
-      "description": "The comment himself.",
+    "bcc_addr": {
+      "description": "BCC addresses, comma separated. Max 5, format: a@b.de,'George'<georg@sk.eu>",
+      "type":"string"
+    },
+    "cc_addr": {
+      "description": "CC addresses, comma separated. Max 5, format: a@b.de,'George'<georg@sk.eu>",
+      "type":"string"
+    },
+    "from_addr": {
+      "description": "From address",
+      "required":true,
+      "type":"string"
+    },
+    "to_addr": {
+      "description": "TO addresses, comma separated. Max 5, format: a@b.de,'George'<georg@sk.eu>",
+      "required":true,
+      "type":"string"
+    },
+    "subject": {
+      "description": "The email subject.",
       "required":true,
       "type":"string"
     },   
+    "body": {
+      "description": "The email text.",
+      "required":true,
+      "type":"string"
+    },
     "related_object_type": {
-      "description": "Object type of the comments parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
+      "description": "Object type of the emails parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
       "required":true,
       "type":"string"
     },
     "related_object_id": {
-      "description": "uuid of the comments parent object.",
+      "description": "uuid of the emails parent object.",
       "required":true,
+      "type":"string"
+    },
+    "delivered_at": {
+      "description": "Date the email was delivered by SK. If set, the message cannot be edited anymore.",
+      "format":"date-time",
+      "readonly":true,
       "type":"string"
     },
     "created_at": {
@@ -38,10 +67,10 @@
   },
    "links":[
     { "rel": "self",
-      "href": "comments/{id}"
+      "href": "emails/{id}"
     },
     { "rel": "instances",
-      "href": "comments",
+      "href": "emails",
       "properties" : {
         "page":{
           "title" : "Page",
@@ -75,16 +104,23 @@
       }
     },
     { "rel": "destroy",
-      "href": "comments/{id}",
+      "href": "emails/{id}",
       "method": "DELETE"
     },
     { "rel": "update",
-      "href": "comments/{id}",
+      "href": "emails/{id}",
       "method": "PUT"
     },
     { "rel": "create",
-      "href": "comments",
-      "method": "POST"
+      "href": "emails",
+      "method": "POST",
+      "properties" : {
+        "template_id":{
+          "title" : "Template",
+          "description": "UUID if an email template to use",
+          "type":"string"
+        }
+      }
     }
   ]
 }

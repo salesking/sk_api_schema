@@ -15,7 +15,6 @@
     },   
     "external_ref":{
       "description": "Reference number f.ex. issued by the bank.",
-      "format":"date",
       "type":"string"
     },
     "date":{
@@ -27,6 +26,16 @@
     "method":{
       "description": "How the payment was made.",
       "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque"],
+      "type":"string"
+    },
+    "related_object_type": {
+      "description": "Object type of the comments parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
+      "required":true,
+      "type":"string"
+    },
+    "related_object_id": {
+      "description": "uuid of the comments parent object.",
+      "required":true,
       "type":"string"
     },
     "team_id":{
