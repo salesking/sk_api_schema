@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sk_api_schema}
-  s.version = "0.0.7"
+  s.version = "0.0.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Georg Leciejewski"]
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "json/v1.0/credit_note.json",
     "json/v1.0/email.json",
     "json/v1.0/estimate.json",
+    "json/v1.0/export.json",
     "json/v1.0/invoice.json",
     "json/v1.0/line_item.json",
     "json/v1.0/order.json",
