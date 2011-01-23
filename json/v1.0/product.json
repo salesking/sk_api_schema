@@ -9,7 +9,7 @@
       "type":"string"
     },
     "number":{
-      "description": "Unique number assigned by you or if emtpy SK product number schema.",
+      "description": "Unique number assigned by you or if empty SK product number schema.",
       "type":"string"
     },
     "name":{
@@ -43,6 +43,10 @@
       "description": "Date the object was edited in SK.",
       "format":"date-time",
       "readonly":true,
+      "type":"string"
+    },
+    "team_id":{
+      "description": "A team uuid. If set only the team and its parent teams can see the record.",
       "type":"string"
     }
   }

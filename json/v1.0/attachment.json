@@ -48,6 +48,10 @@
       "format":"date-time",
       "readonly":true,
       "type":"string"
+    },
+    "team_id":{
+      "description": "A team uuid. If set only the team and its parent teams can see the record.",
+      "type":"string"
     }
     
   }

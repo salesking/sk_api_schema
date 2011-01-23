@@ -38,8 +38,9 @@ module SK
           schemas
         end
 
-        # Create a Hash with the available (api)object attributes defined in
-        # schema properties.
+        # Create a Hash with the available (api)object attributes defined in the
+        # according schema properties. This is the meat of the object-to-api
+        # workflow
         #
         # === Example
         #  obj = Invoice.new(:title =>'hello world', :number=>'4711')

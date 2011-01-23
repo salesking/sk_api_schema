@@ -1,0 +1,125 @@
+{ "type":"object",
+  "title": "export",
+  "description":"An export in SK",
+  "properties": {
+    "id": {
+      "description": "uuid of the export",
+      "identity":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "collection_type": {
+      "description": "The type of data to export. Lower-case plural name of the export data's class",
+      "required":true,
+      "enum": ['text', 'archived_pdf', 'attachments', 'dtaus_lk', 'dtaus_gk', 'allinone_pdf'],
+      "type":"string"
+    },
+    "collection_ids": {
+      "description": "Comma separated uuid's of the export objects. The backend uses a mysql text-column limited to ~64kb. 100 uuids are ~2.5kb",
+      "required":true,
+      "type":"string"
+    },
+    "kind": {
+      "description": "The export type. text: uses an export template defined by a template_id. archived_pdf: zip with archived PDF(documents only). allinone_pdf: All archived PDF(Documents) in one big PDF. attachments: All attachments of the given objects as zip. dtaus: German bank format, relies on valid bank information in your company and for each client of the exported documents. dtaus_lk Lastschrift. dtaus_gk: Gutschrift.",
+      "required":true,
+      "enum": ['text', 'archived_pdf', 'attachments', 'dtaus_lk', 'dtaus_gk', 'allinone_pdf'],
+      "type":"string"
+    },
+    "template_id":{
+      "description": "A export template uuid. Only needed for text exports.",
+      "type":"string"
+    },
+    "team_id":{
+      "description": "A team uuid. If set only the team and its parent teams can see the record.",
+      "type":"string"
+    },
+    "status": {
+      "description": "The export status",
+      "readonly":true,
+      "enum": ['pending', 'in_progress', 'failed', 'success'],
+      "type":"string"
+    },
+    "log": {
+      "description": "Errors and warnings, can contain html markup f.ex. links to clients with invalid back accounts when doing dtaus export",
+      "readonly":true,
+      "type":"string"
+    },
+    "attachments":{
+      "description": "The exported data as attachment.",
+      "readonly":true,
+      "type":"array",
+      "properties":{"$ref":"./attachment.json#properties"}
+    },
+    "started_at": {
+      "description": "Date the was started",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "finished_at": {
+      "description": "Date the was finished",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "created_at": {
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at": {
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    }
+  },
+   "links":[
+    { "rel": "self",
+      "href": "exports/{id}"
+    },
+    { "rel": "instances",
+      "href": "exports",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+       
+        "filter[from]":{
+          "title" : "From date",
+          "description": "All objects with a date after the date"
+        },
+        "filter[to]":{
+          "title" : "To date",
+          "description": "All objects with date before the date"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":['created_at', 'updated_at'],
+          "type": 'string'
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "exports/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "exports/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "exports",
+      "method": "POST"
+    }
+  ]
+}
