@@ -220,7 +220,7 @@
         },
         "base64" : {
           "title" : "Return the created pdf base64 encoded",
-          "description": "If set the new pdf is returned inside the attachment JSON within 'base64' key. Leave empty to save traffic."
+          "description": "If set(any val) the new pdf is returned inside the attachment JSON within 'base64' key. Ommit to save traffic."
         }
       }
     }

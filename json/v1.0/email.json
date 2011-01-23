@@ -30,11 +30,17 @@
       "description": "The email subject.",
       "required":true,
       "type":"string"
-    },   
+    },
     "body": {
       "description": "The email text.",
       "required":true,
       "type":"string"
+    },
+    "attachments":{
+      "description": "The emails attachments.",
+      "readonly":true,
+      "type":"array",
+      "properties":{"$ref":"./attachment.json#properties"}
     },
     "related_object_type": {
       "description": "Object type of the emails parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
@@ -45,6 +51,11 @@
       "description": "uuid of the emails parent object.",
       "required":true,
       "type":"string"
+    },
+    "in_progress": {
+      "description": "Is set after an email has been scheduled for sending until it has been sent.",
+      "readonly":true,
+      "type":"boolean"
     },
     "delivered_at": {
       "description": "Date the email was delivered by SK. If set, the message cannot be edited anymore.",
@@ -103,6 +114,9 @@
         }
       }
     },
+    { "rel": "attachments",
+      "href": "emails/{id}/attachments"
+    },
     { "rel": "destroy",
       "href": "emails/{id}",
       "method": "DELETE"
@@ -117,8 +131,16 @@
       "properties" : {
         "template_id":{
           "title" : "Template",
-          "description": "UUID if an email template to use",
+          "description": "UUID of an email template to use. If present, subject, body and attachments of the template are used for the current email.",
           "type":"string"
+        },
+        "send":{
+          "title" : "Send email",
+          "description": "If present(any val) email is scheduled for sending."
+        },
+        "archived_pdf":{
+          "title" : "Attach archived pdf",
+          "description": "Adds the archived pdf from the related resource(if it has one)."
         }
       }
     }

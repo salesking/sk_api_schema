@@ -57,6 +57,18 @@
       "description": "Space seperated list of tags.",
       "type":"string"
     },
+    "precision":{
+      "description": "Decimal places for displayed(printed) money values. gross_total and net_total will always be displayed rounded to a precision of 2. When greater 2 use net_total_base(also in line_item) to show the net val with the set precision(3,4).",
+      "type":"number",
+      "enum": [2,3,4],
+      "default":2
+    },
+    "archived_pdf":{
+      "description": "Archived PDF version of the document. Is created when an document is printed and archived. A document can have multiple archived versions. This only returns the most recent one. ",
+      "readonly":true,
+      "type":"object",
+      "properties":{"$ref":"./attachment.json#properties"}
+    },
     "client":{
       "description": "The client for the document. New documents cannot create a client, use client_id field to set it.",
       "readonly":true,
