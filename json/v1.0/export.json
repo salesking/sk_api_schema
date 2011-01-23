@@ -9,9 +9,8 @@
       "type":"string"
     },
     "collection_type": {
-      "description": "The type of data to export. Lower-case plural name of the export data's class",
+      "description": "The type of data to export. Lower-case singular name of the export data's class, see available classes in json schema",
       "required":true,
-      "enum": ['text', 'archived_pdf', 'attachments', 'dtaus_lk', 'dtaus_gk', 'allinone_pdf'],
       "type":"string"
     },
     "collection_ids": {
