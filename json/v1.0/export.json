@@ -9,8 +9,7 @@
       "type":"string"
     },
     "collection_type": {
-      "description": "The type of data to export. Lower-case singular name of the export data's class, see available classes in json schema",
-      "required":true,
+      "description": "The type of data to export. Lower-case singular name of the export data's class(invoice,client ..), see available classes in json schema. Does not need to be set for text-exports as its set from the export tempaltes type.",
       "type":"string"
     },
     "collection_ids": {
@@ -25,7 +24,7 @@
       "type":"string"
     },
     "template_id":{
-      "description": "A export template uuid. Only needed for text exports.",
+      "description": "A export template uuid. Required for text exports. collection_type can be empty as is forced to the templates type",
       "type":"string"
     },
     "team_id":{

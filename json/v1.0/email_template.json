@@ -1,0 +1,87 @@
+{ "type":"object",
+  "title": "email_template",
+  "description":"An email_template in SK",
+  "properties": {
+    "id": {
+      "description": "uuid of the email template",
+      "identity":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "name": {
+      "description": "A meaningful name.",
+      "required":true,
+      "type":"string"
+    },
+    "subject": {
+      "description": "Subject containing placeholders, replaced when the template is used.",
+      "required":true,
+      "type":"string"
+    },   
+    "body": {
+      "description": "Body with placeholders, replaced when the template is used.",
+      "required":true,
+      "type":"string"
+    },
+    "kind": {
+      "description": "Kind of object receiving the email.",
+      "required":true,
+      "enum": ['invoice', 'estimate', 'credit_note', 'payment_reminder', 'order', 'client'],
+      "type":"string"
+    },
+    "created_at": {
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at": {
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "team_id":{
+      "description": "A team uuid. If set only the team and its parent teams can see the record.",
+      "type":"string"
+    }
+  },
+   "links":[
+    { "rel": "self",
+      "href": "email_templates/{id}"
+    },
+    { "rel": "instances",
+      "href": "email_templates",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":['created_at', 'updated_at'],
+          "type": 'string'
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "email_templates/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "email_templates/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "email_templates",
+      "method": "POST"
+    }
+  ]
+}

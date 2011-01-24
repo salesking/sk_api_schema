@@ -1,0 +1,82 @@
+{ "type":"object",
+  "title": "text_template",
+  "description":"An text_template in SK",
+  "properties": {
+    "id": {
+      "description": "uuid of the text template",
+      "identity":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "name": {
+      "description": "A meaningful name.",
+      "required":true,
+      "type":"string"
+    },
+    "text": {
+      "description": "Subject containing placeholders, replaced when the template is used.",
+      "required":true,
+      "type":"string"
+    },   
+    "kind": {
+      "description": "Kind of object in which the text is used. If empty the snippet can be used globally, but watch those placeholder.",
+      "required":true,
+      "enum": ['','invoice', 'estimate', 'credit_note', 'payment_reminder', 'order', 'client', 'email'],
+      "type":"string"
+    },
+    "created_at": {
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at": {
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "team_id":{
+      "description": "A team uuid. If set only the team and its parent teams can see the record.",
+      "type":"string"
+    }
+  },
+   "links":[
+    { "rel": "self",
+      "href": "text_templates/{id}"
+    },
+    { "rel": "instances",
+      "href": "text_templates",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":['created_at', 'updated_at'],
+          "type": 'string'
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "text_templates/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "text_templates/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "text_templates",
+      "method": "POST"
+    }
+  ]
+}
