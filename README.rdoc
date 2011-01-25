@@ -1,17 +1,21 @@
 = SalesKing Api Schema
 
-SalesKing API description using JSON Schema(http://json-schema.org/)
+SalesKing API description using JSON Schema(http://json-schema.org/). A schema
+describes the resource in terms of available fields, CRUD actions and
+relationships with other resources.
 
 For ruby users this project provides a gem with some basic utility functions
 besides the schema. Other languages can take advantage of the raw json files.
 
-To get a fully working ruby client take a look at http://github.com/salesking/sk-api
-which will be replaced soon by a new gem at http://github.com/salesking/sk_api_activeresource
+== TODO
+
+The urls in the link sections, need some love, so please don't rely on them right now
 
 == Notice:
 
 This gem is used actively by SalesKing to deliver it's api resources BUT commits
 and changes in here might not be directly reflected.
+
 The gem version does not reflect the api version. The version, for now, is keept
 in the folder-name and as long as there are no major changes(breaking backwards
 compatibility), the version number will remain.
