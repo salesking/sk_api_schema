@@ -12,7 +12,7 @@
       "type":"string"
     },
     "organisation": {
-      "description": "Name of a company. At least this or the lastname field must be filled for new records",
+      "description": "Name of a company. This or lastname must be present",
       "required" : true,
       "type":"string"
     },
@@ -58,7 +58,7 @@
       "type":"string"
     },
     "tag_list": {
-      "description": "Space seperated list of tags.",
+      "description": "Space separated list of tags.",
       "type":"string"
     },   
     "created_at": {
@@ -79,11 +79,15 @@
       "type":"string"
     },
     "bank_name": {
-      "description": "Name of the bank.",
+      "description": "Bank name",
+      "type":"string"
+    },
+    "bank_number": {
+      "description": "Bank number",
       "type":"string"
     },
     "bank_account_number": {
-      "description": "Number of the bank account.",
+      "description": "Bank account number.",
       "type":"string"
     },
     "bank_iban": {
@@ -95,7 +99,7 @@
       "type":"string"
     },
     "bank_owner": {
-      "description": "Owner of the bank account.",
+      "description": "Bank account owner",
       "type":"string"
     },
     "phone_fax": {
@@ -107,7 +111,7 @@
       "type":"string"
     },
     "phone_home": {
-      "description": "Private phone number.",
+      "description": "Private phone number",
       "type":"string"
     },
     "phone_mobile": {

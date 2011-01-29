@@ -7,22 +7,35 @@ relationships with other resources.
 For ruby users this project provides a gem with some basic utility functions
 besides the schema. Other languages can take advantage of the raw json files.
 
-== TODO
+== Tutorial & Docs
 
-The urls in the link sections, need some love, so please don't rely on them right now
+http://dev.blog.salesking.eu/api/
+
+== Versioning
+
+The API-version, is kept in the folder-name and as long as there are no major
+changes(breaking backwards compatibility), the version number will remain.
+
+The gem has its own version, not reflecting the api version. It is used in
+SalesKing to deliver it's resources BUT changes might not be directly reflected.
+A new gem version indicates a change, but we first try it on our staging environment
+before any live instances are updated.
+
+You can get the current schema at your SalesKing api url:
+  my.salesking.eu/api/schema
+  my.salesking.eu/api/clients/schema
+
+The version to use can be set with the "v" url parameter:
+  my.salesking.eu/api/clients?v='1.0'
+
 
 == Notice:
 
-This gem is used actively by SalesKing to deliver it's api resources BUT commits
-and changes in here might not be directly reflected.
-
-The gem version does not reflect the api version. The version, for now, is keept
-in the folder-name and as long as there are no major changes(breaking backwards
-compatibility), the version number will remain.
+Those relative urls in the link sections, need some love, so please don't rely on
+them to much right now.
 
 Especially within the next couple of weeks (until beginning of march) you will
-see some more resources made available. Links within each resource, will
-also be available but still need some cleanup.
+see bugfixes since more resources where made available.
 
 == Install
 
