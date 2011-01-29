@@ -3,7 +3,7 @@
   "description":"An payment in SK must always be related to an object.",
   "properties": {
     "id": {
-      "description": "uuid of the adress.",
+      "description": "uuid of the object",
       "identity":true,
       "readonly":true,
       "type":"string"
@@ -29,12 +29,12 @@
       "type":"string"
     },
     "related_object_type": {
-      "description": "Object type of the comments parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
+      "description": "Object type of the payments parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
       "required":true,
       "type":"string"
     },
     "related_object_id": {
-      "description": "uuid of the comments parent object.",
+      "description": "uuid of the payments parent object.",
       "required":true,
       "type":"string"
     },
@@ -93,7 +93,15 @@
     },
     { "rel": "create",
       "href": "payments",
-      "method": "POST"
+      "method": "POST",
+      "properties" : {
+        "new_doc_status":{
+          "title" : "New status for document",
+          "description": "Convinience method to close a document with a payment.",
+          "enum": ['open','closed'],
+          "type":"string"
+        }
+      }
     }
   ]
 }

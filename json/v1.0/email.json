@@ -1,6 +1,6 @@
 { "type":"object",
   "title": "email",
-  "description":"An email in SK must always be related to an object.",
+  "description":"An email in SK must always be related to an object. Receivers are limited to 5 per address field.",
   "properties": {
     "id": {
       "description": "uuid of the email",
@@ -94,16 +94,28 @@
         },
         "filter[q]":{
           "title" : "Search",
-          "description": "Search in text",
+          "description": "Search in body and subject",
           "type":"string"
+        },
+        "filter[sent]":{
+          "title" : "Sent emails",
+          "description": "Show only sent emails"
+        },
+        "filter[draft]":{
+          "title" : "Draft emails",
+          "description": "Show only draft emails"
+        },
+        "filter[address]":{
+          "title" : "Search in address",
+          "description": "Searches in all address fields: bcc, cc, to, from"
         },
         "filter[from]":{
           "title" : "From date",
-          "description": "All objects with a date after the date"
+          "description": "All objects updated on/after the date"
         },
         "filter[to]":{
           "title" : "To date",
-          "description": "All objects with date before the date"
+          "description": "All objects updated on/before the date"
         },
         "sort_by":{
           "title" : "Sort by",

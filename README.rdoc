@@ -16,8 +16,8 @@ http://dev.blog.salesking.eu/api/
 The API-version, is kept in the folder-name and as long as there are no major
 changes(breaking backwards compatibility), the version number will remain.
 
-The gem has its own version, not reflecting the api version. It is used in
-SalesKing to deliver it's resources BUT changes might not be directly reflected.
+The gem has its own version number. It is used by SalesKing to deliver it's
+resources BUT changes might not be directly reflected.
 A new gem version indicates a change, but we first try it on our staging environment
 before any live instances are updated.
 
