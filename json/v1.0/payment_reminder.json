@@ -10,6 +10,7 @@
     },
     "invoice_id":{
       "description": "The invoice for the reminder. If set assumes all other fields are set to custom values, instead of filling them from the invoice. POSTing to invoices/:id/payment_reminders, automatically set this and all other fields.",
+      "required": true,
       "type":"string"
     },
     "address_field":{
@@ -19,6 +20,7 @@
     "date":{
       "description": "Date the payment_reminder is issued. Automatically set when created from invoice. Defaults to today.",
       "format":"date",
+      "required": true,
       "type":"string"
     },
     "due_days":{
