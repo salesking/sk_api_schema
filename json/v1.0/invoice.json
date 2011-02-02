@@ -195,7 +195,18 @@
     },
     { "rel": "create",
       "href": "invoices",
-      "method": "POST"
+      "method": "POST",
+      "properties" : {
+        "source" : {
+          "title" : "Source document id",
+          "description": "Copies the source document(excl. number,date) and returns a new draft document. If the source is an Estimate or Order only line_items, client & tags are copied, so you can pass in additional fields."
+        },
+        "cancel" : {
+          "title" : "Cancel an invoice",
+          "description": "Cancelling a document negates its line item values. A source id must be set.",
+          "dependencies": ['source']
+        }
+      }
     },
     { "rel": "attachments",
       "href": "invoices/{id}/attachments"

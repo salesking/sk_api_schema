@@ -193,7 +193,18 @@
     },
     { "rel": "create",
       "href": "credit_notes",
-      "method": "POST"
+      "method": "POST",
+      "properties" : {
+        "source" : {
+          "title" : "Source document id",
+          "description": "Copies the source document(excl. number,date) and returns a new draft document."
+        },
+        "cancel" : {
+          "title" : "Cancel an credit note",
+          "description": "Cancelling a document negates its line item values. A source id must be set.",
+          "dependencies": ['source']
+        }
+      }
     },
     { "rel": "attachments",
       "href": "credit_notes/{id}/attachments"

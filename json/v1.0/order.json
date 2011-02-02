@@ -170,7 +170,13 @@
     },
     { "rel": "create",
       "href": "orders",
-      "method": "POST"
+      "method": "POST",
+      "properties" : {
+        "source" : {
+          "title" : "Source document id",
+          "description": "Copies the source document(excl. number,date) and returns a new draft document."
+        }
+      }
     },
     { "rel": "attachments",
       "href": "orders/{id}/attachments"
