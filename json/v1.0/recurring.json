@@ -27,8 +27,8 @@
       "description": "Used to calculate the due date of the recurring. Useless if date and due date are present.",
       "type":"integer"
     },
-    "recurring_last_date":{
-      "description": "The last date the recurring is executed",
+    "final_date":{
+      "description": "The last date the recurring is executed.",
       "format":"date",
       "type":"string",
       "required":true
