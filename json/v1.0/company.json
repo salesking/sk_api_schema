@@ -1,0 +1,103 @@
+{"type":"object",
+  "title": "company",
+  "description": "A company is the main entity. Data is always retrieved in the scope of the current company, identified by the subdomain.",
+  "properties": {
+    "id": {
+      "identity":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "name": {
+      "description": "Company name",
+      "type":"string"
+    },
+    "language": {
+      "description": "Default language, used for new users",
+      "type":"string"
+    },    
+    "sub_domain": {
+      "description": "Unique subdomain identifying the company's SalesKing account.",
+      "type":"string"
+    },
+    "account_link": {
+      "description": "Link to a company's SalesKing account.",
+      "type":"string",
+      "readonly":true
+    },
+    "time_zone": {
+      "description": "Default time zone, used for new users",
+      "type":"string"
+    },
+    "email": {
+      "description": "Email address",
+      "required":true,
+      "type":"string"
+    },
+    "url": {
+      "description": "A company website",
+      "type":"string"
+    },   
+    "phone_fax": {
+      "description": "Fax number",
+      "type":"string"
+    },
+    "phone_office": {
+      "description": "Office phone number",
+      "type":"string"
+    },
+    "phone_mobile": {
+      "description": "Mobile phone number",
+      "type":"string"
+    },
+    "tax_number": {
+      "description": "Tax number, normally applies to a private person running a small business.",
+      "type":"string"
+    },
+    "vat_number": {
+      "description": "VAT number, for a company entitled to pay value added taxes.",
+      "type":"string"
+    },
+    "bank_name": {
+      "description": "Bank name",
+      "type":"string"
+    },
+    "bank_number": {
+      "description": "Bank number",
+      "type":"string"
+    },
+    "bank_account_number": {
+      "description": "Bank account number.",
+      "type":"string"
+    },
+    "bank_iban": {
+      "description": "IBAN Number of the bank account. Is validated",
+      "type":"string"
+    },
+    "bank_swift": {
+      "description": "SWIFT BIC-  Bank Identifier Code",
+      "type":"string"
+    },
+    "bank_owner": {
+      "description": "Bank account owner",
+      "type":"string"
+    },
+    "created_at": {
+      "description": "Date the record was created in SK. Never changes afterwards.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at": {
+      "description": "Last date when the record was edited.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    }
+  },
+  
+  "links":[
+    { "rel": "self",
+      "href": "companies"
+    }
+  ]
+}
