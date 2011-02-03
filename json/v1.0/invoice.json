@@ -36,6 +36,10 @@
       "enum":["draft","open","closed"],
       "type":"string"
     },
+    "external_ref":{
+      "description": "Some external reference, whatever this may be.",
+      "type":"string"
+    },
     "payment_method":{
       "description": "How the invoce is beeing payed. Used in new payments.",
       "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque"],

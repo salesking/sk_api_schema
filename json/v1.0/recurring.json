@@ -44,6 +44,10 @@
       "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque"],
       "type":"string"
     },
+    "external_ref":{
+      "description": "Some external reference, whatever this may be.",
+      "type":"string"
+    },
     "title":{
       "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your recurring [number]'",
       "type":"string"

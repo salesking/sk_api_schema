@@ -44,7 +44,7 @@
       "required":true
     },
     "product_id":{
-      "description": "An item can reference a product by its uuid. See use_product",
+      "description": "An item can reference a product. This makes it easier to track a products turnover and the documents it is used on. Also ee use_product",
       "type":"string"
     },
     "use_product":{

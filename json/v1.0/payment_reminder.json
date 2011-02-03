@@ -32,6 +32,10 @@
       "format":"date",
       "type":"string"
     },
+    "external_ref":{
+      "description": "Some external reference, whatever this may be.",
+      "type":"string"
+    },
     "title":{
       "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your payment_reminder [number]'. Defaults to values from settings",
       "type":"string"

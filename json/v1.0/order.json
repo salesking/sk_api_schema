@@ -27,6 +27,10 @@
       "enum":["draft","open","closed"],
       "type":"string"
     },
+    "external_ref":{
+      "description": "Some external reference, whatever this may be.",
+      "type":"string"
+    },
     "title":{
       "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your order [number]'",
       "type":"string"
