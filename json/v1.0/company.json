@@ -1,6 +1,6 @@
 {"type":"object",
   "title": "company",
-  "description": "A company is the main entity. Data is always retrieved in the scope of the current company, identified by the subdomain.",
+  "description": "A company is the main entity. Any data is retrieved scoped to the current company, identified by the subdomain.",
   "properties": {
     "id": {
       "identity":true,
@@ -52,6 +52,11 @@
     "tax_number": {
       "description": "Tax number, normally applies to a private person running a small business.",
       "type":"string"
+    },
+    "addresses": {
+      "description": "A company can have many addresses, sorted by date descending(new first). Default address used in placeholder is the most recent one.",
+      "type":"array",
+      "properties" : {"$ref":"./addresses.json#properties"}
     },
     "vat_number": {
       "description": "VAT number, for a company entitled to pay value added taxes.",
