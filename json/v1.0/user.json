@@ -12,11 +12,11 @@
       "type":"string"
     },
     "first_name": {
-      "description": "First name of a person.",
+      "description": "First name",
       "type":"string"
     },
     "gender": {
-      "description": "Can be empty for a company. Is used in salutation",
+      "description": "The users gender, used in salutation",
       "enum":["male", "female"],
       "type":"string"
     },
@@ -29,12 +29,12 @@
       "type":"string"
     },
     "language": {
-      "description": "the users language inside SK",
-      "optional":true,
+      "description": "The users language, reflected in the interface.",
+      "required":true,
       "type":"string"
     },
     "time_zone": {
-      "description": "the users time zone inside SK",
+      "description": "Time zone",
       "type":"string"
     },
     "email": {
@@ -56,17 +56,14 @@
     },
     "phone_office": {
       "description": "Office phone number",
-      "optional":true,
       "type":"string"
     },
     "phone_home": {
       "description": "Private phone number.",
-      "optional":true,
       "type":"string"
     },
     "phone_mobile": {
       "description": "Mobile phone number",
-      "optional":true,
       "type":"string"
     },
     "created_at": {

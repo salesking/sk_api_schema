@@ -103,7 +103,6 @@
     },
     "lock_version":{
       "description": "Auto-incremented to prevent concurrent updateing. First save wins and increments version. ",
-      "optional":true,
       "type":"integer"
     },
     "price_total":{

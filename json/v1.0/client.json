@@ -38,7 +38,7 @@
       "type":"string"
     },
     "tax_number": {
-      "description": "Tax number, normaly applies to a private person",
+      "description": "Tax number, normally applies to a private person",
       "type":"string"
     },
     "vat_number": {
