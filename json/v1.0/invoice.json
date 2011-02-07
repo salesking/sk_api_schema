@@ -178,8 +178,8 @@
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",
-          "enum":['title', 'number', 'created_at', 'updated_at', 'client_id', 'price_total', 'price_tax', 'date', 'due_date'],
-          "type": 'string'
+          "enum":["title", "number", "created_at", "updated_at", "client_id", "price_total", "price_tax", "date", "due_date"],
+          "type": "string"
         },
         "sort":{
           "title" : "Sort",
@@ -207,7 +207,7 @@
         "cancel" : {
           "title" : "Cancel an invoice",
           "description": "Cancelling a document negates its line item values. A source id must be set.",
-          "dependencies": ['source']
+          "dependencies": ["source"]
         }
       }
     },

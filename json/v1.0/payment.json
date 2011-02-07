@@ -77,8 +77,8 @@
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",
-          "enum":['amount','created_at', 'updated_at'],
-          "type": 'string'
+          "enum":["amount","created_at", "updated_at"],
+          "type": "string"
         },
         "sort":{
           "title" : "Sort",
@@ -98,7 +98,7 @@
         "new_doc_status":{
           "title" : "New status for document",
           "description": "Convinience method to close a document with a payment.",
-          "enum": ['open','closed'],
+          "enum": ["open","closed"],
           "type":"string"
         }
       }

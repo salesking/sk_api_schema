@@ -14,14 +14,14 @@
       "type":"string"
     },
     "text": {
-      "description": "Subject containing placeholders, replaced when the template is used.",
+      "description": "Text which may contain placeholders, replaced when the template is used.",
       "required":true,
       "type":"string"
     },   
     "kind": {
       "description": "Kind of object in which the text is used. If empty the snippet can be used globally, but watch those placeholder.",
       "required":true,
-      "enum": ['','invoice', 'estimate', 'credit_note', 'payment_reminder', 'order', 'client', 'email'],
+      "enum": ["","invoice", "estimate", "credit_note", "payment_reminder", "order", "client", "email"],
       "type":"string"
     },
     "created_at": {
@@ -56,8 +56,8 @@
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",
-          "enum":['created_at', 'updated_at'],
-          "type": 'string'
+          "enum":["created_at", "updated_at"],
+          "type": "string"
         },
         "sort":{
           "title" : "Sort",

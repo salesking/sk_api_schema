@@ -26,7 +26,7 @@
     "kind": {
       "description": "Kind of object receiving the email.",
       "required":true,
-      "enum": ['invoice', 'estimate', 'credit_note', 'payment_reminder', 'order', 'client'],
+      "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "client"],
       "type":"string"
     },
     "created_at": {
@@ -61,8 +61,8 @@
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",
-          "enum":['created_at', 'updated_at'],
-          "type": 'string'
+          "enum":["created_at", "updated_at"],
+          "type": "string"
         },
         "sort":{
           "title" : "Sort",

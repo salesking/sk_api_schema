@@ -178,8 +178,8 @@
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",
-          "enum":['organisation', 'number','email','first_name','last_name', 'created_at', 'updated_at'],
-          "type": 'string'
+          "enum":["organisation", "number","email","first_name","last_name", "created_at", "updated_at"],
+          "type": "string"
         },
         "sort":{
           "title" : "Sort",

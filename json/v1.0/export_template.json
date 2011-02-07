@@ -21,7 +21,7 @@
     "kind": {
       "description": "Kind of exported data.",
       "required":true,
-      "enum": ['invoice', 'estimate', 'credit_note', 'payment_reminder', 'order', 'client', 'payment', 'comment', 'email', 'history', 'product','recurring'],
+      "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "client", "payment", "comment", "email", "history", "product","recurring"],
       "type":"string"
     },
     "filename": {
@@ -60,8 +60,8 @@
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",
-          "enum":['created_at', 'updated_at'],
-          "type": 'string'
+          "enum":["created_at", "updated_at"],
+          "type": "string"
         },
         "sort":{
           "title" : "Sort",

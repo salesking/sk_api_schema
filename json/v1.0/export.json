@@ -20,7 +20,7 @@
     "kind": {
       "description": "The export type. text: uses an export template defined by a template_id. archived_pdf: zip with archived PDF(documents only). allinone_pdf: All archived PDF(Documents) in one big PDF. attachments: All attachments of the given objects as zip. dtaus: German bank format, relies on valid bank information in your company and for each client of the exported documents. dtaus_lk Lastschrift. dtaus_gk: Gutschrift.",
       "required":true,
-      "enum": ['text', 'archived_pdf', 'attachments', 'dtaus_lk', 'dtaus_gk', 'allinone_pdf'],
+      "enum": ["text", "archived_pdf", "attachments", "dtaus_lk", "dtaus_gk", "allinone_pdf"],
       "type":"string"
     },
     "template_id":{
@@ -34,7 +34,7 @@
     "status": {
       "description": "The export status",
       "readonly":true,
-      "enum": ['pending', 'in_progress', 'failed', 'success'],
+      "enum": ["pending", "in_progress", "failed", "success"],
       "type":"string"
     },
     "log": {
@@ -97,8 +97,8 @@
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",
-          "enum":['created_at', 'updated_at'],
-          "type": 'string'
+          "enum":["created_at", "updated_at"],
+          "type": "string"
         },
         "sort":{
           "title" : "Sort",

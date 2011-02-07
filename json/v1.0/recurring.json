@@ -35,7 +35,7 @@
     },
     "frequency":{
       "description": "Recurring frequency",
-      "enum":['yearly', 'monthly', 'weekly', 'quarterly', 'biweekly', 'sixmonthly'],
+      "enum":["yearly", "monthly", "weekly", "quarterly", "biweekly", "sixmonthly"],
       "type":"string",
       "required":true
     },
@@ -165,8 +165,8 @@
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",
-          "enum":['title', 'number', 'created_at', 'updated_at', 'client_id', 'price_total'],
-          "type": 'string'
+          "enum":["title", "number", "created_at", "updated_at", "client_id", "price_total"],
+          "type": "string"
         },
         "sort":{
           "title" : "Sort",
@@ -194,7 +194,7 @@
         "cancel" : {
           "title" : "Cancel an recurring",
           "description": "Cancelling a document negates its line item values. A source id must be set.",
-          "dependencies": ['source']
+          "dependencies": ["source"]
         }
       }
     },
