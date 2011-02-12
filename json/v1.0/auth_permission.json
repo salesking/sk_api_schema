@@ -1,0 +1,61 @@
+{"type":"object",
+  "title": "auth_permission",
+  "description": "A Permission authorises someone to execute actions(grants privileges) in the scope of a context. The context is a resource f.ex: clients, and the privileges a group of actions like: index, show, edit, update. A permission to read invoices has the context: invoices and as privileges: index,show.",
+  "properties": {
+    "id": {
+      "identity":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "full_name": {
+      "description": "Context_name and name localized: API Clients read - API Kunden anzeigen",
+      "type":"string"
+    },
+    "name": {
+      "description": "Name for the permission. Since a permission groups multiple privileges the name reflects what someone is allowed to do: read, update, delete. With 'read' granting acccess to the 'index' and 'show' actions of a resource.",
+      "type":"string"
+    },
+    "context_name":{
+      "description": "The context for the permission, beeing a resource: clients, emails",
+      "readonly":true,
+      "type":"string"
+    },
+    "privilege_list": {
+      "description": "A permission has many privileges which define the actions someone can execute. Such actions are resource methods like index, update, edit, show",
+      "type":"string",
+      "readonly":true
+    }
+  },
+
+  "links":[
+    { "rel": "instances",
+      "href": "auth_permissions",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Search in name and context names",
+          "type":"string"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":["auth_permission.name", "auth_context.name"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC"
+        }
+      }
+    },
+    { "rel": "self",
+      "href": "auth_permissions/{id}"
+    }
+  ]
+}

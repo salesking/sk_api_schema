@@ -13,13 +13,13 @@ http://dev.blog.salesking.eu/api/
 
 == Versioning
 
-The API-version, is kept in the folder-name and as long as there are no major
+The API-version is kept in the folder-name and as long as there are no major
 changes(breaking backwards compatibility), the version number will remain.
 
 The gem has its own version number. It is used by SalesKing to deliver it's
 resources BUT changes might not be directly reflected.
 A new gem version indicates a change, but we first try it on our staging environment
-before any live instances are updated.
+before any live instances are updated and the schema becomes public available.
 
 You can get the current schema at your SalesKing api url:
   my.salesking.eu/api/schema
@@ -41,4 +41,4 @@ see bugfixes since more resources where made available.
 
     gem install sk_api_schema
 
-Copyright (c) 2010 Georg Leciejewski, released under the MIT license
+Copyright (c) 2010-2011 Georg Leciejewski, released under the MIT license
