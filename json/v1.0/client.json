@@ -75,7 +75,7 @@
     },    
     "payment_method":{
       "description": "Default payment method for used for new documemts",
-      "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque"],
+      "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque", "moneybookers", "premium_sms"],
       "type":"string"
     },
     "bank_name": {

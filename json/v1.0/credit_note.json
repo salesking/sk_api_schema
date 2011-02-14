@@ -42,7 +42,7 @@
     },
     "payment_method":{
       "description": "How the document is beeing payed. Used in new payments.",
-      "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque"],
+      "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque", "moneybookers", "premium_sms"],
       "type":"string"
     },
     "title":{
