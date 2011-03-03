@@ -38,6 +38,12 @@ describe SK::Api::Schema do
     }.should raise_error
   end
 
+  it "should add schema to registry" do
+    SK::Api::Schema.read(:credit_note, 'v1.0')
+    File.should_not_receive(:open)
+    SK::Api::Schema.read(:credit_note, 'v1.0')
+  end
+
 end
 
 describe SK::Api::Schema, 'object parsing' do
@@ -76,8 +82,8 @@ describe SK::Api::Schema, 'object parsing' do
     @invoice.client = @client
     obj_hash = SK::Api::Schema.to_hash_from_schema(@invoice, 'v1.0')
     obj_hash["invoice"]['client']['client'].should == {"number"=>"911", "addresses"=>[], "id"=>"some-uuid", "organisation"=>"Dirty Food Inc.", "last_name"=>nil}
-    obj_hash["invoice"]["client"]['links'].should == []
-    obj_hash["invoice"]["line_items"].should == [ {'links'=>[], "line_item"=>{"name"=>"Pork Chops", "position"=>1, \
+    obj_hash["invoice"]["client"]['links'].should_not be_nil
+    obj_hash["invoice"]["line_items"].should == [ {"line_item"=>{"name"=>"Pork Chops", "position"=>1, \
                                        "id"=>"some-uuid", "description"=>"Yummi Pork chopped by mexian emigrants", "price_single"=>0.99}}]
   end
 

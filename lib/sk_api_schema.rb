@@ -5,6 +5,19 @@ module SK
     class Schema
 
       class << self
+
+        # class var remembering already read-in schema's
+        # {
+        #   'v1.0'=>{
+        #     'invoice'=>{schema}
+        #     'credit_note'=>{schema}
+        #   }
+        # }
+        # === Return
+        #<Hash>::
+        def registry
+          @registry ||={}
+        end
         # Read a schema with a given version and return it as hash
         # See ../json folder for available schema's and versions
         # === Parameter
@@ -13,11 +26,15 @@ module SK
         # === Return
         # <HashWithIndifferentAccess>:: schema as hash
         def read(schema, version)
+          return registry[version][schema] if registry[version] && registry[version][schema]
           # prefix version with v1.0 of v is not present
           v = (version =~ /^v/) ? version : "v#{version}"
+          registry[v] = {} unless registry[v]
+          # read schema from file
           file_path = File.join(File.dirname(__FILE__), '../json', v, "#{schema}.json")
           plain_data = File.open(file_path, 'r'){|f| f.read}
-          ActiveSupport::JSON.decode(plain_data).with_indifferent_access
+          # remember
+          registry[v][schema] = ActiveSupport::JSON.decode(plain_data).with_indifferent_access
         end
 
         # Read all available schemas from a given version(folder) and return
@@ -83,21 +100,26 @@ module SK
               data[field] = obj.send(field) if obj.respond_to?(field.to_sym)
             end
           end
-          #add links
-          { obj_class_name => data,
-            'links' =>  parse_links(obj, schema)
-          }
+          hsh = { obj_class_name => data }
+          #add links if present
+          links = parse_links(obj, schema)
+          links && hsh['links'] = links
+          # return hash
+          hsh
         end
 
         # Parse the link section of the schema by replacing {id} in urls
         # === Returns
         # <Array[Hash{String=>String}]>::
+        # <nil>:: no links present
         def parse_links(obj, schema)
           links = []
           schema['links'] && schema['links'].each do |link|
             links << { 'rel' => link['rel'], 'href' => link['href'].gsub(/\{id\}/, obj.id) }
           end
           links.uniq
+          # return links only if not empty
+          links.empty? ? nil : links
         end
 
       end # class methods

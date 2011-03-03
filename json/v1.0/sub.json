@@ -1,0 +1,53 @@
+{"type":"object",
+  "title": "sub",
+  "description": "Subscribe to push notifications(webhooks) about object livecycle events like new, update or delete. This is only available to apps using oAuth2. To register you must supply <br/>- callback_url: receives the object in it's latest state, the user_id & subdomain, company_id hmac-signed with your app secret.<br/>- channel: defining the event, made up of the singular object name and the action: invoice.delete, payment.new",
+  "properties": {
+    "id": {
+      "identity":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "channel": {
+      "description": "The channel to which to subscribe. See available at subs/channels",
+      "required":true,
+      "type":"string"
+    },
+    "callback_url": {
+      "description": "An url receiving the notification. By default makes a POST, but you can prepend any other http method: GET, PUT,DELETE  e.g. PUT http://horsts-lokal",
+      "type":"string",
+      "required":true
+    },   
+    "created_at": {
+      "description": "Date the record was created in SK. Never changes afterwards.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at": {
+      "description": "Last date when the record was edited.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    }
+  },
+  
+  "links":[
+    { "rel": "self",
+      "href": "{id}"
+    },
+    { "rel": "instances",
+      "href": "subs/"
+    },
+    { "rel": "destroy",
+      "href": "subs/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "subs/{id}",
+      "method": "PUT"
+    },
+    { "rel": "channels",
+      "href": "subs/channels"
+    }
+  ]
+}

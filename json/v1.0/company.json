@@ -1,6 +1,6 @@
-{"type":"object",
+{ "type":"object",
   "title": "company",
-  "description": "A company is the main entity. Any data is retrieved scoped to the current company, identified by the subdomain.",
+  "description": "A company is the main entity, so any data belongs to a company, identified by the current subdomain.",
   "properties": {
     "id": {
       "identity":true,
@@ -101,8 +101,8 @@
   },
   
   "links":[
-    { "rel": "self",
-      "href": "companies"
+    { "rel": "current",
+      "href": "companies/current"
     }
   ]
 }
