@@ -17,7 +17,7 @@
       "type":"string",
       "required":true
     },   
-    "method": {
+    "http_method": {
       "description": "HTTP method used for the request, defaults to POST",
       "type":"string",
       "default":"POST",
