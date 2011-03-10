@@ -1,6 +1,6 @@
 {"type":"object",
   "title": "sub",
-  "description": "Subscribe to push notifications(webhooks) about object livecycle events like new, update or delete. This is only available to apps using oAuth2. To register you must supply <br/>- callback_url: receives the object in it's latest state, the user_id & subdomain, company_id hmac-signed with your app secret.<br/>- channel: defining the event, made up of the singular object name and the action: invoice.delete, payment.new",
+  "description": "Subscribe to push notifications(webhooks) about object livecycle events like new, update or delete. Only returns subscription for the current app, so you MUST be using oAuth. When a user removes your app its subs are also deleted. <br/>To register you must supply <br/>- callback_url: receives the object in it's latest state, the user_id & subdomain, company_id, hmac-signed with your app secret.<br/>- channel: defining the event, made up of the SINGULAR object name and the action: invoice.delete, payment.new<br/> - register auth_permissions: An app MUST request non-api permissions f.ex.: clients:create. Perms(on company,app,user,team) are checked before any publishing, so if a user cannot create clients in the interface, his apps will not receive any callbacks.",
   "properties": {
     "id": {
       "identity":true,
@@ -8,15 +8,21 @@
       "type":"string"
     },
     "channel": {
-      "description": "The channel to which to subscribe. See available at subs/channels",
+      "description": "The channel to which to subscribe. See available at subs/channels.",
       "required":true,
       "type":"string"
     },
     "callback_url": {
-      "description": "An url receiving the notification. By default makes a POST, but you can prepend any other http method: GET, PUT,DELETE  e.g. PUT http://horsts-lokal",
+      "description": "An url receiving the notification. The url MUST be within the url of the current app",
       "type":"string",
       "required":true
     },   
+    "method": {
+      "description": "HTTP method used for the request, defaults to POST",
+      "type":"string",
+      "default":"POST",
+      "enum":["POST","GET", "DELETE", "PUT"]
+    },
     "created_at": {
       "description": "Date the record was created in SK. Never changes afterwards.",
       "format":"date-time",
@@ -46,7 +52,7 @@
       "href": "subs/{id}",
       "method": "PUT"
     },
-    { "rel": "channels",
+    { "rel": "subs/channels",
       "href": "subs/channels"
     }
   ]
