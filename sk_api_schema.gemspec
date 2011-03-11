@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sk_api_schema}
-  s.version = "0.0.16"
+  s.version = "0.0.18"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Georg Leciejewski"]
-  s.date = %q{2011-02-14}
+  s.date = %q{2011-03-10}
   s.description = %q{SalesKing API JSON schema and utility methods}
   s.email = %q{gl@salesking.eu}
   s.extra_rdoc_files = [
@@ -38,6 +38,7 @@ Gem::Specification.new do |s|
     "json/v1.0/payment_reminder.json",
     "json/v1.0/product.json",
     "json/v1.0/recurring.json",
+    "json/v1.0/sub.json",
     "json/v1.0/text_template.json",
     "json/v1.0/user.json",
     "lib/sk_api_schema.rb",
