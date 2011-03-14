@@ -1,25 +1,26 @@
-= SalesKing Api Schema
+= SalesKing API Schema
 
-SalesKing API description using JSON Schema(http://json-schema.org/). A schema
-describes the resource in terms of available fields, CRUD actions and
+Our API definition is using JSON Schema(http://json-schema.org/). A schema
+describes a resource in terms of available fields, CRUD actions and
 relationships with other resources.
 
 For ruby users this project provides a gem with some basic utility functions
-besides the schema. Other languages can take advantage of the raw json files.
+besides the schema. Other languages should take advantage of the raw json files.
 
 == Tutorial & Docs
 
-http://dev.blog.salesking.eu/api/
+* API Browser visualized JSON Schema - http://sk-api-browser.heroku.com/
+* API Intro - http://dev.blog.salesking.eu/api/
 
 == Versioning
 
-The API-version is kept in the folder-name and as long as there are no major
+The main API-version is kept in the folder-name and as long as there are no major
 changes(breaking backwards compatibility), the version number will remain.
 
 The gem has its own version number. It is used by SalesKing to deliver it's
 resources BUT changes might not be directly reflected.
 A new gem version indicates a change, but we first try it on our staging environment
-before any live instances are updated and the schema becomes public available.
+before any live instances are updated and the schema becomes public available. 
 
 You can get the current schema at your SalesKing api url:
   my.salesking.eu/api/schema
