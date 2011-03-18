@@ -1,0 +1,18 @@
+= Changelog for SalesKing API Schema
+
+A more detailed view of the changes can be found in the {commit messages}[https://github.com/salesking/sk_api_schema/commits/]
+
+2011-03
+* added subscriptions
+* added memoizing to ruby schema reader
+
+2011-02
+* added moneybookers, premium_sms to payment methods
+* added auth_permission
+* added external_ref to documents
+* added company
+* added recurring
+* added source param to copy documents
+
+2010-11 - 2011-01
+* initial version
