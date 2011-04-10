@@ -2,6 +2,9 @@ require 'spec/spec_helper'
 
 describe SK::Api::Schema do
 
+  before :each do
+    SK::Api::Schema.registry_reset
+  end
   it "should read json schema file" do
     schema = SK::Api::Schema.read(:invoice, 'v1.0')
     schema[:title].should == 'invoice'

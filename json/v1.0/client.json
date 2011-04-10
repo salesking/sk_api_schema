@@ -169,11 +169,13 @@
         },
         "filter[from]":{
           "title" : "From date",
-          "description": "All objects with a date after the date"
+          "description": "All objects with a date after the date",
+          "type" : "date"
         },
         "filter[to]":{
           "title" : "To date",
-          "description": "All objects with date before the date"
+          "description": "All objects with date before the date",
+          "type" : "date"
         },
         "sort_by":{
           "title" : "Sort by",

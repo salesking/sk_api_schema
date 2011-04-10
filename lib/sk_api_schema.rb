@@ -1,5 +1,6 @@
 require 'active_support'
 require 'active_support/core_ext/hash/indifferent_access'
+require 'active_support/core_ext/string/inflections'
 module SK
   module Api
     class Schema
@@ -9,23 +10,29 @@ module SK
         # class var remembering already read-in schema's
         # {
         #   'v1.0'=>{
-        #     'invoice'=>{schema}
-        #     'credit_note'=>{schema}
+        #     :invoice =>{schema}
+        #     :credit_note =>{schema}
         #   }
         # }
         # === Return
-        #<Hash>::
+        #<Hash{String=>Hash{Symbol=>HashWithIndifferentAccess}}>::
         def registry
           @registry ||={}
+        end
+        
+        def registry_reset
+          @registry = nil
         end
         # Read a schema with a given version and return it as hash
         # See ../json folder for available schema's and versions
         # === Parameter
         # schema<String|Symbol>::name of the schema, available ones are in json directory
-        # version<String>:: version to read, this is the folder name where the schema is in.
+        # version<String>:: version to read, the folder name where the schema is in.
+        # Can be used without v-prefix
         # === Return
         # <HashWithIndifferentAccess>:: schema as hash
         def read(schema, version)
+          schema = schema.to_sym
           return registry[version][schema] if registry[version] && registry[version][schema]
           # prefix version with v1.0 of v is not present
           v = (version =~ /^v/) ? version : "v#{version}"
@@ -33,7 +40,7 @@ module SK
           # read schema from file
           file_path = File.join(File.dirname(__FILE__), '../json', v, "#{schema}.json")
           plain_data = File.open(file_path, 'r'){|f| f.read}
-          # remember
+          # remember & return
           registry[v][schema] = ActiveSupport::JSON.decode(plain_data).with_indifferent_access
         end
 
@@ -41,22 +48,24 @@ module SK
         # them as array
         # See ../json folder for available schema's and versions
         # === Parameter
-        # schema<String|Symbol>::name of the schema, available ones are in json directory
+        # schema<String|Symbol>:: version to read, equals json/foldername v1.0 or
+        # use without prefix 1.0
         # === Return
         # Array[<HashWithIndifferentAccess>]:: array of schemas as hash
         def read_all(version)
           schemas = []
           v = (version =~ /^v/) ? version : "v#{version}"
+          registry[v] = {} unless registry[v]
           file_path = File.join(File.dirname(__FILE__), '../json', v, '*.json')
           Dir.glob( file_path ).each do |file|
-            schema = File.open(file, 'r'){|f| f.read}
-            schemas << ActiveSupport::JSON.decode(schema).with_indifferent_access
+            schema_name = File.basename(file, ".json").to_sym
+            schemas << read(schema_name, v)
           end
           schemas
         end
 
         # Create a Hash with the available (api)object attributes defined in the
-        # according schema properties. This is the meat of the object-to-api
+        # according schema properties. This is the meat of the object-to-api-markup
         # workflow
         #
         # === Example

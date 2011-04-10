@@ -111,11 +111,13 @@
         },
         "filter[from]":{
           "title" : "From date",
-          "description": "All objects updated on/after the date"
+          "description": "All objects updated on/after the date",
+          "type" : "date"
         },
         "filter[to]":{
           "title" : "To date",
-          "description": "All objects updated on/before the date"
+          "description": "All objects updated on/before the date",
+          "type" : "date"
         },
         "sort_by":{
           "title" : "Sort by",
