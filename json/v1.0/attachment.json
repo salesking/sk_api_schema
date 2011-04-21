@@ -23,6 +23,16 @@
       "readonly":true,
       "type":"string"
     },
+    "related_object_type": {
+      "description": "Object type of the attachment parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
+      "required":true,
+      "type":"string"
+    },
+    "related_object_id": {
+      "description": "uuid of the attachment parent object.",
+      "required":true,
+      "type":"string"
+    },
     "content_type": {
       "description": "Auto detected on upload. Might not always reflect the real content type",
       "readonly":true,
@@ -43,16 +53,60 @@
       "readonly":true,
       "type":"string"
     },
-    "updated_at": {
-      "description": "Date the object was edited in SK.",
-      "format":"date-time",
-      "readonly":true,
-      "type":"string"
-    },
     "team_id":{
       "description": "A team uuid. If set only the team and its parent teams can see the record.",
       "type":"string"
     }
     
-  }
+  },
+  "links":[
+    { "rel": "self",
+      "href": "attachments/{id}"
+    },
+    { "rel": "instances",
+      "href": "attachments",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 10, max is 100",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Search in filename",
+          "type":"string"
+        },
+        "filter[from]":{
+          "title" : "From date",
+          "description": "All objects created at and after the date",
+          "type" : "date"
+        },
+        "filter[to]":{
+          "title" : "To date",
+          "description": "All objects created at and before the date",
+          "type" : "date"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field",
+          "enum":["filename","related_object_id","related_object_type", "created_at"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "attachments/{id}",
+      "method": "DELETE"
+    }
+  ]
 }

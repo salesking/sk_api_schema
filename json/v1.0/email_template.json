@@ -58,6 +58,11 @@
           "description": "In paginated results set the page to look for",
           "type":"number"
         },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 10, max is 100",
+          "type":"number"
+        },
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",
