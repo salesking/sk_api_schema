@@ -65,31 +65,36 @@ module SK
         end
 
         # Create a Hash with the available (api)object attributes defined in the
-        # according schema properties. This is the meat of the object-to-api-markup
-        # workflow
+        # according schema properties. This is the meat of the
+        # object-to-api-markup workflow
         #
         # === Example
         #  obj = Invoice.new(:title =>'hello world', :number=>'4711')
-        #  obj_hash = Sk::Api::Schema.to_hash_from_schema(obj, 'v1.0')
+        #  obj_hash = SK::Api::Schema.to_hash_from_schema(obj, 'v1.0')
         #
-        #  obj_hash => { invoice =>{'title'=>'hello world', 'number'=>'4711' } }
+        #   => { invoice =>{'title'=>'hello world', 'number'=>'4711' } }
         #
+        #  obj_hash = SK::Api::Schema.to_hash_from_schema(obj, 'v1.0', ['title'])
+        #   => { invoice =>{'title'=>'hello world' } }
         # === Parameter
         # obj<Object>:: An ruby object which is returned as hash
-        # version<String>:: the schema version, must be a valid folder name see #self.read
+        # version<String>:: the schema version, must be a valid folder name see
+        # #self.read
+        # fields<Array[String]>:: fields to return, if not set all fields
+        # from the schema's properties are used
         #
         # === Return
         # <Hash{String=>{String=>Mixed}}>:: The object as hash:
         # { invoice =>{'title'=>'hello world', 'number'=>''4711 } }
-        def to_hash_from_schema(obj, version)
+        def to_hash_from_schema(obj, version, fields=nil)
           # get objects class name without inheritance
           obj_class_name =  obj.class.name.split('::').last.underscore
-          # init data hash
           data = {}
           # get schema
           schema = read(obj_class_name, version)
           # iterate over the defined schema fields
           schema['properties'].each do |field, prop|
+            next if fields && !fields.include?(field)
             if prop['type'] == 'array'
               data[field] = [] # always set an empty array
               if rel_objects = obj.send( field )

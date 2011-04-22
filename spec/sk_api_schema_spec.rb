@@ -90,6 +90,16 @@ describe SK::Api::Schema, 'object parsing' do
                                        "id"=>"some-uuid", "description"=>"Yummi Pork chopped by mexian emigrants", "price_single"=>0.99}}]
   end
 
+  it "should parse object given fields" do
+    @invoice.line_items = [@item]
+    @invoice.client = @client
+    fields = %w(id title client)
+    obj_hash = SK::Api::Schema.to_hash_from_schema(@invoice, 'v1.0', fields)
+    obj_hash["invoice"]['client']['client'].should == {"number"=>"911", "addresses"=>[], "id"=>"some-uuid", "organisation"=>"Dirty Food Inc.", "last_name"=>nil}
+    obj_hash["invoice"]["client"]['links'].should_not be_nil
+    obj_hash["invoice"].keys.sort.should == fields.sort
+  end
+
 end
 
 ################################################################################
