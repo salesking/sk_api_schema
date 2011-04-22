@@ -70,28 +70,40 @@ module SK
         #
         # === Example
         #  obj = Invoice.new(:title =>'hello world', :number=>'4711')
-        #  obj_hash = SK::Api::Schema.to_hash_from_schema(obj, 'v1.0')
         #
-        #   => { invoice =>{'title'=>'hello world', 'number'=>'4711' } }
+        #  obj_hash = SK::Api::Schema.to_hash_from_schema(obj, 'v1.0') 
+        #   => { 'invoice' =>{'title'=>'hello world', 'number'=>'4711' } }
         #
-        #  obj_hash = SK::Api::Schema.to_hash_from_schema(obj, 'v1.0', ['title'])
-        #   => { invoice =>{'title'=>'hello world' } }
+        #  obj_hash = SK::Api::Schema.to_hash_from_schema(obj, 'v1.0', :fields=>['title'])
+        #   => { 'invoice' =>{'title'=>'hello world' } }
+        #
+        #  obj_hash = SK::Api::Schema.to_hash_from_schema(obj, 'v1.0', :class_name=>:document)
+        #   => { 'document' =>{'title'=>'hello world' } }
+        #   
         # === Parameter
         # obj<Object>:: An ruby object which is returned as hash
         # version<String>:: the schema version, must be a valid folder name see
         # #self.read
-        # fields<Array[String]>:: fields to return, if not set all fields
-        # from the schema's properties are used
+        # opts<Hash{Symbol=>Mixed} >:: additional options
+        # 
+        # ==== Parameter opts
+        # class_name<String|Symbol>:: Name of the class to use as hash key. Should be
+        # a lowered, underscored name and it MUST have an existing schema file.
+        # Use it to override the default, which is obj.class.name
+        # fields<Array[String]>:: Fields/properties to return. If not set all
+        # schema's properties are used.
         #
         # === Return
         # <Hash{String=>{String=>Mixed}}>:: The object as hash:
         # { invoice =>{'title'=>'hello world', 'number'=>''4711 } }
-        def to_hash_from_schema(obj, version, fields=nil)
+        def to_hash_from_schema(obj, version, opts={})
+          fields = opts[:fields]
           # get objects class name without inheritance
-          obj_class_name =  obj.class.name.split('::').last.underscore
+          real_class_name = obj.class.name.split('::').last.underscore
+          class_name =  opts[:class_name] || real_class_name
           data = {}
           # get schema
-          schema = read(obj_class_name, version)
+          schema = read(class_name, version)
           # iterate over the defined schema fields
           schema['properties'].each do |field, prop|
             next if fields && !fields.include?(field)
@@ -114,9 +126,10 @@ module SK
               data[field] = obj.send(field) if obj.respond_to?(field.to_sym)
             end
           end
-          hsh = { obj_class_name => data }
+          hsh = { "#{class_name}" => data }
           #add links if present
-          links = parse_links(obj, schema)
+          real_class_schema = read(real_class_name, version)
+          links = parse_links(obj, real_class_schema)
           links && hsh['links'] = links
           # return hash
           hsh

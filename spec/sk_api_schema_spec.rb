@@ -94,12 +94,21 @@ describe SK::Api::Schema, 'object parsing' do
     @invoice.line_items = [@item]
     @invoice.client = @client
     fields = %w(id title client)
-    obj_hash = SK::Api::Schema.to_hash_from_schema(@invoice, 'v1.0', fields)
+    obj_hash = SK::Api::Schema.to_hash_from_schema(@invoice, 'v1.0', :fields=>fields)
     obj_hash["invoice"]['client']['client'].should == {"number"=>"911", "addresses"=>[], "id"=>"some-uuid", "organisation"=>"Dirty Food Inc.", "last_name"=>nil}
     obj_hash["invoice"]["client"]['links'].should_not be_nil
     obj_hash["invoice"].keys.sort.should == fields.sort
   end
 
+  it "should use different class name as object hash key" do
+    @invoice.line_items = [@item]
+    @invoice.client = @client
+    obj_hash = SK::Api::Schema.to_hash_from_schema(@invoice, 'v1.0', :class_name=>:document)
+    schema = SK::Api::Schema.read(:document, 'v1.0')
+    # check included fields, which should not be all fields from schema since our dummy invoice object does not responds_to all
+    intersect_keys = schema['properties'].keys & obj_hash["document"].keys
+    intersect_keys.sort.should == obj_hash["document"].keys.sort
+  end
 end
 
 ################################################################################
