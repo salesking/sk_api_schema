@@ -1,0 +1,64 @@
+{ "type":"object",
+  "title": "tag",
+  "description":"A tag",
+  "properties": {
+    "id": {
+      "description": "uuid of the object.",
+      "identity":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "name": {
+      "description": "The filename as set when uploaded",
+      "readonly":true,
+      "type":"string"
+    },    
+    "taggings_count": {
+      "description": "Usage count of this tag",
+      "readonly":true,
+      "type":"number"
+    }
+    
+  },
+  "links":[
+    { "rel": "self",
+      "href": "tags/{id}"
+    },
+    { "rel": "instances",
+      "href": "tags",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 10, max is 100",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Search in name",
+          "type":"string"
+        },
+        "filter[related_object_type]":{
+          "title" : "Search",
+          "description": "Search in tagname",
+          "type":"string"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field",
+          "enum":["filename","taggings_count"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC"
+        }
+      }
+    }
+  ]
+}
