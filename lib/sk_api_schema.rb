@@ -86,7 +86,7 @@ module SK
         # #self.read
         # opts<Hash{Symbol=>Mixed} >:: additional options
         # 
-        # ==== Parameter opts
+        # ==== opts Parameter
         # class_name<String|Symbol>:: Name of the class to use as hash key. Should be
         # a lowered, underscored name and it MUST have an existing schema file.
         # Use it to override the default, which is obj.class.name

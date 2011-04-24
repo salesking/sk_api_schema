@@ -18,17 +18,31 @@ The main API-version is kept in the folder-name and as long as there are no majo
 changes(breaking backwards compatibility), the version number will remain.
 
 The gem has its own version number. It is used by SalesKing to deliver it's
-resources BUT changes might not be directly reflected.
+resources BUT changes might not be directly reflected. To see what version of
+the gem we are using go to:
+
+  my.salesking.eu/api/schema?gem_version=1
+
 A new gem version indicates a change, but we first try it on our staging environment
-before any live instances are updated and the schema becomes public available. 
+before any live instances are updated and the schema becomes public available.
 
 You can get the current schema at your SalesKing api url:
   my.salesking.eu/api/schema
   my.salesking.eu/api/clients/schema
 
-The version to use can be set with the "v" url parameter:
+The schema version(NOT the gem version) can be set with the "v" url parameter
+in any call, but is pretty useless as long as we are in v1.0
   my.salesking.eu/api/clients?v='1.0'
 
+== Save the planet
+
+By default the api returns an object with all available properties(fields). You
+can limit those by passing an array or comma-separated string in the fields
+parameter:
+  my.salesking.eu/api/clients?fields=id,organisation
+  my.salesking.eu/api/clients?fields[]=id&fields[]=organisation
+
+Please try to only request the fields you really need, to save computing power!
 
 == Notice:
 
