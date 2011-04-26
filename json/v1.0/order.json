@@ -76,7 +76,7 @@
     "line_items":{
       "description": "Line items for the document",
       "type":"array",
-      "properties":{"$ref":"./address.json#properties"}
+      "properties":{"$ref":"./line_item.json#properties"}
     },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards.",

@@ -2,6 +2,12 @@
 
 A more detailed view of the changes can be found in the {commit messages}[https://github.com/salesking/sk_api_schema/commits/]
 
+2011-04
+* added tags
+* added documents
+* reduced default objects in list to 10, max is 100
+* added field parameter to limit returned fields in ruby to_hash_from_schema & SK
+
 2011-03
 * added subscriptions
 * added memoizing to ruby schema reader

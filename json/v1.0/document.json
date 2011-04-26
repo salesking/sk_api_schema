@@ -1,6 +1,6 @@
 { "type":"object",
   "title": "document",
-  "description": "This resource is readonly and serves as a convinient way to query all documents independent of their type(invoice, order,..). The specific document type is set in each object in the result-set.",
+  "description": "This resource is readonly and serves as a convinient way to query documents independent of their type(invoice, order,..). The specific document type is set in each object in the result-set.",
   "properties":{
     "id":{
       "description": "UUID assigned by SK",
@@ -13,15 +13,15 @@
       "type":"string"
     },
     "number":{
-      "description": "Unique number assigned by SK invoice number schema. Auto-assigned when invoice is opened. Required unless doc status is draft.",
+      "description": "Unique number assigned by SK user or object number schema.",
       "type":"string"
     },
     "address_field":{
-      "description": "Receiver address, normally shown in envelope window. Defaults to client address_field if empty and client_id given.",
+      "description": "Receiver address, normally shown in envelope window. Defaults to client address_field.",
       "type":"string"
     },
     "date":{
-      "description": "Date the invoice is issued. Automatically set when invoice is opened. Required for non-draft documents.",
+      "description": "Date the docuent is issued. Automatically set when document is opened. Required for non-draft documents.",
       "format":"date",
       "type":"string"
     },
@@ -63,7 +63,7 @@
     "line_items":{
       "description": "Line items for the document",
       "type":"array",
-      "properties":{"$ref":"./address.json#properties"}
+      "properties":{"$ref":"./line_items.json#properties"}
     },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards.",

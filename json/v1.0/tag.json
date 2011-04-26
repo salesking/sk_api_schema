@@ -9,12 +9,12 @@
       "type":"string"
     },
     "name": {
-      "description": "The filename as set when uploaded",
+      "description": "The tag itself",
       "readonly":true,
       "type":"string"
     },    
     "taggings_count": {
-      "description": "Usage count of this tag",
+      "description": "Usage count of this tag, for all objects in whole company scope.",
       "readonly":true,
       "type":"number"
     }
@@ -43,8 +43,8 @@
           "type":"string"
         },
         "filter[related_object_type]":{
-          "title" : "Search",
-          "description": "Search in tagname",
+          "title" : "Related object type",
+          "description": "Filter tags by their related object base type",
           "type":"string"
         },
         "sort_by":{
