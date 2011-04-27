@@ -164,7 +164,7 @@
         },
         "filter[q]":{
           "title" : "Search",
-          "description": "Search in first, last_name, organisation, email, number",
+          "description": "Wildcard search in first, last_name, organisation, email, number",
           "type":"string"
         },
         "filter[tags]":{
@@ -172,14 +172,19 @@
           "description": "Filter by a space delimited list of tags",
           "type":"string"
         },
-        "filter[from]":{
+        "filter[created_at_from]":{
           "title" : "From date",
-          "description": "All objects with a date after the date",
-          "type" : "date"
+          "description": "All objects with a creation date after the date, including given datetime. ISO 8601 format YYY-MM-DDThh:mm:ss+z",
+          "type" : "date-time"
         },
-        "filter[to]":{
+        "filter[created_at_to]":{
           "title" : "To date",
-          "description": "All objects with date before the date",
+          "description": "All objects with a creation date before the date, including given datetime. ISO 8601 format YYY-MM-DDThh:mm:ss+z",
+          "type" : "date-time"
+        },
+        "filter[number]":{
+          "title" : "By number",
+          "description": "Search by number where the number is matched from the start: %number",
           "type" : "date"
         },
         "sort_by":{
@@ -206,6 +211,9 @@
     { "rel": "create",
       "href": "clients",
       "method": "POST"
+    },
+    { "rel": "documents",
+      "href": "clients/{id}/documents"
     },
     { "rel": "attachments",
       "href": "clients/{id}/attachments"

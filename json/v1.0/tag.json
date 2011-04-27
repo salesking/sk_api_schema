@@ -17,8 +17,7 @@
       "description": "Usage count of this tag, for all objects in whole company scope.",
       "readonly":true,
       "type":"number"
-    }
-    
+    }    
   },
   "links":[
     { "rel": "self",

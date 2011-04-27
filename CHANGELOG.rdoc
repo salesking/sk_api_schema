@@ -7,6 +7,7 @@ A more detailed view of the changes can be found in the {commit messages}[https:
 * added documents
 * reduced default objects in list to 10, max is 100
 * added field parameter to limit returned fields in ruby to_hash_from_schema & SK
+* added created_at & number filtering to client
 
 2011-03
 * added subscriptions
