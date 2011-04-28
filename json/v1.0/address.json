@@ -40,7 +40,8 @@
     "created_at": {
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
-      "readonly":true, "type":"string"
+      "readonly":true,
+      "type":"string"
     },
     "updated_at": {
       "description": "Date the object was edited in SK.",
@@ -60,6 +61,10 @@
     "long": {
       "description": "Geolocation longitude",
       "type":"string"
+    },
+    "_delete": {
+      "description": "When set an existing address will be deleted. This switch is only used when addresses are passed-in nested inside their parent object(a contact).",
+      "type":"boolean"
     }
   }
 }

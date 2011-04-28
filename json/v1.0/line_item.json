@@ -45,7 +45,6 @@
     },
     "product_id":{
       "description": "A uuid of a product, referenced in this item. This makes it easier to track a products turnover and list the documents it is used on. Also see use_product",
-      "type":"string",
       "type":"string"
     },
     "use_product":{
@@ -63,6 +62,10 @@
       "format":"date-time",
       "readonly":true,
       "type":"string"
+    },
+    "_delete": {
+      "description": "When set an existing item will be deleted. This switch is used for items passed-in nested inside their parent object(a document), which is default as long as there is no line item endpoint available.",
+      "type":"boolean"
     }
   }
 }
