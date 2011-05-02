@@ -1,6 +1,6 @@
 require 'spec/spec_helper'
 
-describe SK::Api::Schema do
+describe SK::Api::Schema, 'reading' do
 
   before :each do
     SK::Api::Schema.registry_reset
@@ -111,6 +111,33 @@ describe SK::Api::Schema, 'object parsing' do
   end
 end
 
+describe SK::Api::Schema, 'hash cleaning' do
+
+  it "should kick readonly properties" do
+    props = {'id'=>'some id', 'archived_pdf'=>'some val', 'number'=>'1234' }
+    SK::Api::Schema.clean_hash!(:invoice, props, 'v1.0')
+    props.keys.should == ['number']
+
+    props1 = {:id =>'some id', :archived_pdf =>'some val', :number =>'1234' }
+    SK::Api::Schema.clean_hash!(:invoice, props1, 'v1.0')
+    props1.keys.should == [:number]
+  end
+
+  it "should convert string properties" do
+    props = {'title'=>4711, 'number'=>1234 }
+    SK::Api::Schema.clean_hash!(:invoice, props, 'v1.0')
+    props['title'].should == "4711"
+    props['number'].should == "1234"
+  end
+
+  it "should keep some properties" do
+    props = {'id'=>'some id', 'number'=>1234 }
+    SK::Api::Schema.clean_hash!(:invoice, props, 'v1.0', :keep=>['id'])
+    props['id'].should == "some id"
+  end
+
+end
+
 ################################################################################
 # virtual classes used in test
 class Invoice
@@ -120,6 +147,7 @@ end
 class LineItem
   attr_accessor :id, :name, :description, :position, :price_single
 end
+
 class Client
   attr_accessor :id, :organisation, :last_name, :number, :addresses
 end

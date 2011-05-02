@@ -149,6 +149,34 @@ module SK
           links.empty? ? nil : links
         end
 
+        # Clean a hash before a new object is created from it. Can be used in
+        # your ruby controllers where new objects are created from a params-hash
+        # Directly operates and CHANGES incoming properties-hash!
+        #
+        # === Parameter
+        # obj_name<String>:: name of the object/schema
+        # props<Hash{String|Symbol=>Mixed}>:: properties of the object as hash
+        # version<String>:: api version
+        # opts<Hash{Symbol=>Mixed}>:: additional options
+        # === Param opts
+        # :keep<Array[String]>:: properties not being kicked even if defined as
+        # readonly
+        def clean_hash!(obj_name, props, version, opts={})
+          # gather allowed properties
+          schema = SK::Api::Schema.read(obj_name, version)
+          setters = []
+          schema['properties'].each{ |k,v| setters << k if !v['readonly'] }
+          setters += opts[:keep] if opts[:keep] && opts[:keep].is_a?(Array)
+          # kick readonly
+          props.delete_if { |k,v| !setters.include?("#{k}")  }
+          #convert to type in schema 
+          props.each do |k,v|
+            if schema['properties']["#{k}"]['type'] == 'string' && !v.is_a?(String)
+             props[k] = "#{v}"
+            end
+          end
+        end
+
       end # class methods
     end
   end

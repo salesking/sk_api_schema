@@ -2,6 +2,9 @@
 
 A more detailed view of the changes can be found in the {commit messages}[https://github.com/salesking/sk_api_schema/commits/]
 
+2011-05
+* new hash_clean method for ruby schema reader class
+
 2011-04
 * added tags
 * added documents
