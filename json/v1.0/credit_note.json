@@ -79,13 +79,13 @@
       "properties":{"$ref":"./attachment.json#properties"}
     },
     "client":{
-      "description": "The client for the document. New documents cannot create a client, use client_id field to set it.",
+      "description": "The client for the document. You cannot create a client through this, use client_id field to set it.",
       "readonly":true,
       "type":"object",
       "properties":{"$ref":"./client.json#properties"}
     },
     "client_id":{
-      "description": "The clients uuid, must be set for a new document. New documents take the clients address field, due days and cash discount if those fields are not set.",
+      "description": "The clients uuid. If a new client is assigned its language, address field, due days and cash discount are used if those fields are not set.",
       "type":"string"
     },
     "team_id":{

@@ -71,7 +71,7 @@
       "properties":{"$ref":"./client.json#properties"}
     },
     "client_id":{
-      "description": "The clients uuid, must not be set for a new document. New docuents take the clients address field, due days and cash discount if client is present abd those fields are not set.",
+      "description": "The clients uuid. If a new client is assigned its language, address field are used if those fields are not set.",
       "type":"string"
     },
     "team_id":{

@@ -70,13 +70,13 @@
       "properties":{"$ref":"./attachment.json#properties"}
     },
     "client":{
-      "description": "The client for the document. New documents cannot create a client, use client_id field to set it.",
+      "description": "The client for the document. Is assigned throught the related invoice",
       "readonly":true,
       "type":"object",
       "properties":{"$ref":"./client.json#properties"}
     },
     "client_id":{
-      "description": "The clients uuid. New payment_reminders take the clients address field, due days and cash discount if those fields are not set.",
+      "description": "The clients uuid. Is assigned throught the related invoice.",
       "type":"string"
     },
     "team_id":{
