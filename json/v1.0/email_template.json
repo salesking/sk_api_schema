@@ -29,6 +29,11 @@
       "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "client"],
       "type":"string"
     },
+    "language":{
+      "description": "Should be a valid language short-code: de-DE, fr, en-GB; like defined in your account language menu. A multi-language template must belong to a parent. From then on just choose the parent-template and the localized child version is used if the related object(client, invoice,..) of the email, has the appropriate language.",
+      "type":"string",
+      "maxLength": 10
+    },
     "created_at": {
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",

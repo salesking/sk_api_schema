@@ -53,6 +53,11 @@
       "enum": [2,3,4],
       "default":2
     },
+    "language":{
+      "description": "Should be a valid language short-code: de-DE, fr, en-GB; like defined in your account language menu. When the document is emailed or printed, a localized version of a multi-language template(email, pdf) will be used if available. Defaults to the clients language, if empty and a client is assigned.",
+      "type":"string",
+      "maxLength": 10
+    },
     "archived_pdf":{
       "description": "Archived PDF version of the document. Is created when an document is printed and archived. A document can have multiple archived versions. This only returns the most recent one. ",
       "readonly":true,
