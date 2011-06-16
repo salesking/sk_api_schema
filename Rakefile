@@ -1,14 +1,15 @@
 require 'rubygems'
 require 'rake'
-require 'rake/rdoctask'
-require 'spec/rake/spectask'
+require 'rdoc/task'
+require 'rspec'
+require 'rspec/core/rake_task'
 
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "sk_api_schema"
     gem.summary = %Q{SalesKing API JSON Schema}
-    gem.description = %Q{SalesKing API JSON schema and utility methods}
+    gem.description = %Q{The SalesKing JSON Schema describes our business API in terms of available objects, their fields and links to url endpoints with related objects. Besides ruby users can use a smal lib with utility methods to load and test the schema files.}
     gem.email = "gl@salesking.eu"
     gem.homepage = "http://github.com/salesking/sk_api_schema"
     gem.authors = ["Georg Leciejewski"]
@@ -23,22 +24,20 @@ end
 desc 'Default: run specs.'
 task :default => :spec
 
-spec_files = Rake::FileList["spec/**/*_spec.rb"]
-
 desc "Run specs"
-Spec::Rake::SpecTask.new do |t|
-  t.spec_files = spec_files
-  t.spec_opts = ["-c"]
+RSpec::Core::RakeTask.new do |t|
+  t.pattern = "./spec/**/*_spec.rb" # don't need this, it's default.
+  # Put spec opts in a file named .rspec in root
 end
 
 desc "Generate code coverage"
-Spec::Rake::SpecTask.new(:coverage) do |t|
-  t.spec_files = spec_files
+RSpec::Core::RakeTask.new(:coverage) do |t|
+  t.pattern = "./spec/**/*_spec.rb" # don't need this, it's default.
   t.rcov = true
-  t.rcov_opts = ['--exclude', 'spec,/var/lib/gems']
+  t.rcov_opts = ['--exclude', 'spec']
 end
 
-desc 'Generate sk_api_activeresource documentation.'
+desc 'Generate documentation.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'SalesKing-Api JSON Schema'
