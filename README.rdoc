@@ -44,16 +44,21 @@ parameter:
 
 Please try to only request the fields you really need, to save computing power!
 
-== Notice:
+== ToDo:
 
 Those relative urls in the link sections, need some love, so please don't rely on
 them to much right now.
 
-Especially within the next couple of weeks (until beginning of march) you will
-see bugfixes since more resources where made available.
-
 == Install
 
     gem install sk_api_schema
+
+== Test
+
+Before you run the tests use bundler to install all required gems:
+  # git clone
+  # cd into sk_api_schema dir
+  bundle install
+  bundle exec rake spec
 
 Copyright (c) 2010-2011 Georg Leciejewski, released under the MIT license
