@@ -15,6 +15,7 @@ begin
     gem.authors = ["Georg Leciejewski"]
     gem.add_dependency 'activesupport'
     gem.add_development_dependency "rspec"
+    gem.add_development_dependency "rcov"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
