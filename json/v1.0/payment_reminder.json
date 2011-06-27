@@ -152,6 +152,11 @@
           "description": "All objects with date before the date",
           "type" : "date"
         },
+        "filter[languages]":{
+          "title" : "Languages",
+          "description": "A list of language codes, comma separated",
+          "type" : "string"
+        },
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",
