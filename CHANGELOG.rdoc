@@ -3,8 +3,11 @@
 A more detailed view of the changes can be found in the {commit messages}[https://github.com/salesking/sk_api_schema/commits/]
 
 2011-6
-* added language field to document, client, email-template 
-* changed _delete property to _destroy for address, line_item 
+* added language field to document, client, email-template
+* added filter[languages] for documents and clients, to search by one or more languages
+* added filter[client_ids] to documents, to search by one or multiple clients
+* added filter[ids] for documents, to find multiple specific documents
+* changed _delete property to _destroy for address, line_item
 * removed client_id requirement for documents 
 
 2011-05

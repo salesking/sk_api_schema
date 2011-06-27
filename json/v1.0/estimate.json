@@ -176,6 +176,16 @@
           "description": "A list of language codes, comma separated",
           "type" : "string"
         },
+        "filter[client_ids]":{
+          "title" : "Clients",
+          "description": "A single or a list of client uuids, comma separated",
+          "type" : "string"
+        },
+        "filter[ids]":{
+          "title" : "Documents",
+          "description": "A single or a list of document uuids, comma separated",
+          "type" : "string"
+        },
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",

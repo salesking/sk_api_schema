@@ -192,6 +192,11 @@
           "description": "Search by number where the number is matched from the start: %number",
           "type" : "date"
         },
+        "filter[languages]":{
+          "title" : "Languages",
+          "description": "A single or a list of language codes, comma separated",
+          "type" : "string"
+        },
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",
