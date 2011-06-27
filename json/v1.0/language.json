@@ -1,0 +1,76 @@
+{ "type":"object",
+  "title": "language",
+  "description": "A language in SK can be assigned to documents, contacts and templates. When creating new documents, emails or PDF the language is used to select a specific template or language agnostic defaults. A language has many translations.",
+  "properties":{
+    "id":{
+      "description": "uuid of the language.",
+      "identity":true,
+      "readonly":true,
+      "type":"string"
+    },
+    "code":{
+      "description": "Language short-code",
+      "type":"string"
+    },
+    "name":{
+      "description": "The name of the language, shown in the interface",
+      "type":"string",
+      "required":true
+    },   
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    }
+  },
+  "links":[
+    { "rel": "self",
+      "href": "languages/{id}"
+    },
+    { "rel": "instances",
+      "href": "languages",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 10, max is 100",
+          "type":"number"
+        },      
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => code",
+          "enum":["name","code", "created_at", "updated_at"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "languages/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "languages/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "languages",
+      "method": "POST"
+    }
+  ]
+}
