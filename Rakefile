@@ -13,7 +13,7 @@ begin
     gem.email = "gl@salesking.eu"
     gem.homepage = "http://github.com/salesking/sk_api_schema"
     gem.authors = ["Georg Leciejewski"]
-#    gem.add_dependency 'activesupport'
+    gem.add_dependency 'activesupport'
     gem.add_development_dependency "rspec"
     gem.add_development_dependency "rcov"
   end
