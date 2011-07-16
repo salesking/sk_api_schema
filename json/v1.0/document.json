@@ -13,7 +13,7 @@
       "type":"string"
     },
     "number":{
-      "description": "Unique number assigned by SK user or object number schema.",
+      "description": "Unique number assigned by a user or automatic by the object's number schema.",
       "type":"string"
     },
     "address_field":{
@@ -21,7 +21,7 @@
       "type":"string"
     },
     "date":{
-      "description": "Date the docuent is issued. Automatically set when document is opened. Required for non-draft documents.",
+      "description": "Date the document is issued. Automatically set when document is opened. Required for non-draft documents.",
       "format":"date",
       "type":"string"
     },
