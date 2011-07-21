@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sk_api_schema}
-  s.version = "0.2.2"
+  s.version = "0.2.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Georg Leciejewski"]
-  s.date = %q{2011-06-27}
+  s.date = %q{2011-07-21}
   s.description = %q{The SalesKing JSON Schema describes our business API in terms of available objects, their fields and links to url endpoints with related objects. Besides ruby users can use a smal lib with utility methods to load and test the schema files.}
   s.email = %q{gl@salesking.eu}
   s.extra_rdoc_files = [
@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "ci/Gemfile",
     "json/v1.0/address.json",
     "json/v1.0/attachment.json",
     "json/v1.0/auth_permission.json",
