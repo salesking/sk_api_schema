@@ -31,7 +31,7 @@
       "type":"string"
     },
     "status":{
-      "description": "Defaults to draft for new documents, if empty. For new documents with status 'open',the following fields are set if empty: number(next in number schema), date(today), due date(today unless due_days given). Only drafts can be deleted.",
+      "description": "Defaults to draft for new documents, if empty. For new documents with status 'open' or 'closed', the following fields are set if empty: number(next in number schema), date(today), due date(today unless due_days given). Only drafts can be deleted.",
       "default":"draft",
       "enum":["draft","open","closed"],
       "type":"string"
