@@ -4,45 +4,91 @@ Our API definition is using JSON Schema(http://json-schema.org/). A schema
 describes a resource in terms of available fields, CRUD actions and
 relationships with other resources.
 
-For ruby users this project provides a gem with some basic utility functions
-besides the schema. Other languages should take advantage of the raw json files.
+For ruby pirates this project is available as gem. It provides some utility
+functions to read the schema files and convert objects to their schema notation.
+See {/lib/sk_api_schema.rb}[https://github.com/salesking/sk_api_schema/blob/master/lib/sk_api_schema.rb]
+
+Other languages should take advantage of the raw json files.
 
 == Tutorial & Docs
 
-* API Browser visualized JSON Schema - http://sk-api-browser.heroku.com/
-* API Intro - http://dev.blog.salesking.eu/api/
+* {API Browser visualized JSON Schema}[http://sk-api-browser.heroku.com/]
+* {API Intro}[http://dev.blog.salesking.eu/api/]
+* {Ruby SDK - API Client}[https://github.com/salesking/sk_sdk]
 
 == Versioning
 
 The main API-version is kept in the folder-name and as long as there are no major
 changes(breaking backwards compatibility), the version number will remain.
 
-The gem has its own version number. It is used by SalesKing to deliver it's
-resources BUT changes might not be directly reflected. To see what version of
-the gem we are using go to:
-
-  my.salesking.eu/api/schema?gem_version=1
-
-A new gem version indicates a change, but we first try it on our staging environment
-before any live instances are updated and the schema becomes public available.
-
-You can get the current schema at your SalesKing api url:
+You can see the current schema at:
   my.salesking.eu/api/schema
   my.salesking.eu/api/clients/schema
 
-The schema version(NOT the gem version) can be set with the "v" url parameter
+The schema main version(NOT the gem version) can be set with the "v" url parameter
 in any call, but is pretty useless as long as we are in v1.0
   my.salesking.eu/api/clients?v='1.0'
 
+The gem has its own version number. A new gem version indicates a change, but 
+we first try it on our staging environment before any live instances are 
+updated and the schema becomes public available. The gem is used by SalesKing
+to deliver it's data BUT changes might not be directly reflected as stated.
+To see the current gem version use:
+
+  my.salesking.eu/api/schema?gem_version=1
+
 == Save the planet
 
-By default the api returns an object with all available properties(fields). You
-can limit those by passing an array or comma-separated string in the fields
+By default the API returns an object with all available properties(fields). You
+can limit those by passing comma-separated string(or array) in the fields
 parameter:
   my.salesking.eu/api/clients?fields=id,organisation
+
   my.salesking.eu/api/clients?fields[]=id&fields[]=organisation
 
 Please try to only request the fields you really need, to save computing power!
+
+== Object Structure
+
+The primary object types in SK are:
+* Documents
+* Contacts
+* Products
+
+Secondary objects cannot exist without a primary(related) object
+* Attachments
+* Comments
+* Messages
+* Tags
+
+The third kind are supportive objects
+* Company
+* Users
+* Exports
+* Templates
+
+Following list gives you a quick overview of relations with nested urls an how
+parameters work. You can find those in detail when looking at the link section
+of each schema.
+
+    # GET invoices tagged with hosting and important
+    /invoices?filter[tags]=important,hosting
+
+    # GET orders for given client ids
+    /orders?filter[client_ids]=:client_id,:client_id
+
+    # GET products second page with 100 in list, only id+name
+    /products?per_page=100&page=2&fields=id,name
+
+    # all comments for an invoice
+    /invoices/:id/comments
+
+    # all documents of a client
+    /clients/:id/documents
+
+    # all invoices of a client
+    /clients/:id/invoices
+
 
 == ToDo:
 
