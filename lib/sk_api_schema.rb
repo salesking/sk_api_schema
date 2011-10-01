@@ -96,7 +96,7 @@ module SK
         #
         # === Return
         # <Hash{String=>{String=>Mixed}}>:: The object as hash:
-        # { invoice =>{'title'=>'hello world', 'number'=>''4711 } }
+        # { invoice =>{'title'=>'hello world', 'number'=>'4711' } }
         def to_hash_from_schema(obj, version, opts={})
           fields = opts[:fields]
           # get objects class name without inheritance

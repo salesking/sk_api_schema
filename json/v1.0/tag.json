@@ -58,6 +58,14 @@
           "description": "Sort the results in ASC or DESC"
         }
       }
+    },
+    { "rel": "destroy",
+      "href": "tags/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "tags/{id}",
+      "method": "PUT"
     }
   ]
 }
