@@ -125,6 +125,11 @@
           "description": "Search in title, number, addressfield",
           "type":"string"
         },
+        "filter[number]":{
+          "title" : "Number",
+          "description": "Find by exact number",
+          "type":"string"
+        },
         "filter[tags]":{
           "title" : "Tags",
           "description": "Filter by a space delimited list of tags",

@@ -2,6 +2,15 @@
 
 A more detailed view of the changes can be found in the {commit messages}[https://github.com/salesking/sk_api_schema/commits/]
 
+2011-9
+* search documents by number
+* maxLength information for client and address properties
+* allow tags edit, destroy
+
+2011-7
+* allow new documents with status closed
+* auto-set number+date for new open/closed documents
+
 2011-6
 * added language field to document, client, email-template
 * added filter[languages] for documents and clients, to search by one or more languages
