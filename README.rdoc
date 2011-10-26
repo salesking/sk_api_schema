@@ -48,14 +48,14 @@ parameter:
 
 Please try to only request the fields you really need, to save computing power!
 
-== Object Structure
+== Object Structure Basic's
 
-The primary object types in SK are:
+Primary object types in SK are:
 * Documents
 * Contacts
 * Products
 
-Secondary objects cannot exist without a primary(related) object
+Secondary objects are always tied to a primary(related) object
 * Attachments
 * Comments
 * Messages
@@ -66,6 +66,8 @@ The third kind are supportive objects
 * Users
 * Exports
 * Templates
+
+== Enpoints & Links
 
 Following list gives you a quick overview of relations with nested urls an how
 parameters work. You can find those in detail when looking at the link section
