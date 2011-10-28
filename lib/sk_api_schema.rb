@@ -124,7 +124,7 @@ module SK
                 data[field] = to_hash_from_schema(rel_obj, version)
               end
             else # a simple field is only added if the object knows it
-              data[field] = obj.send(field) if obj.respond_to?(field.to_sym)
+              data[field] = obj.send(field) if obj.respond_to?(field)
             end
           end
           hsh = { "#{class_name}" => data }

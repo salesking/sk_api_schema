@@ -1,11 +1,20 @@
 = SalesKing API Schema
 
-Our API definition is using JSON Schema(http://json-schema.org/). A schema
-describes a resource in terms of available fields, CRUD actions and
-relationships with other resources.
+Our API is described with JSON Schema's (http://json-schema.org). A schema
+describes a resource(object) in a readable JSON format:
+
+  { 
+    "title": "client",
+    "properties": { ...},
+    "links": [ .. ]    
+  }
+The properties-section defines the fields. CRUD actions and
+relationships with other resources are found in the link-section.
+
+Look into the /json/ folder for the resources schema-files - https://github.com/salesking/sk_api_schema/tree/master/json/v1.0
 
 For ruby pirates this project is available as gem. It provides some utility
-functions to read the schema files and convert objects to their schema notation.
+methods to read the schema files and convert objects to their schema notation.
 See {/lib/sk_api_schema.rb}[https://github.com/salesking/sk_api_schema/blob/master/lib/sk_api_schema.rb]
 
 Other languages should take advantage of the raw json files.
@@ -48,14 +57,14 @@ parameter:
 
 Please try to only request the fields you really need, to save computing power!
 
-== Object Structure
+== Object Structure Basic's
 
-The primary object types in SK are:
+Primary object types in SK are:
 * Documents
 * Contacts
 * Products
 
-Secondary objects cannot exist without a primary(related) object
+Secondary objects are always tied to a primary(related) object
 * Attachments
 * Comments
 * Messages
@@ -66,6 +75,8 @@ The third kind are supportive objects
 * Users
 * Exports
 * Templates
+
+== Enpoints & Links
 
 Following list gives you a quick overview of relations with nested urls an how
 parameters work. You can find those in detail when looking at the link section
