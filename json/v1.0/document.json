@@ -137,13 +137,23 @@
         },
         "filter[from]":{
           "title" : "From date",
-          "description": "All objects with a date after the date",
+          "description": "Objects with a date after the date",
           "type" : "date"
         },
         "filter[to]":{
           "title" : "To date",
-          "description": "All objects with date before the date",
+          "description": "Objects with date before the date",
           "type" : "date"
+        },
+        "filter[created_at_from]":{
+          "title" : "From date",
+          "description": "Objects with a creation date after the date, including given datetime. ISO 8601 format YYY-MM-DDThh:mm:ss+z",
+          "type" : "date-time"
+        },
+        "filter[created_at_to]":{
+          "title" : "To date",
+          "description": "Objects with a creation date before the date, including given datetime. ISO 8601 format YYY-MM-DDThh:mm:ss+z",
+          "type" : "date-time"
         },
         "filter[languages]":{
           "title" : "Languages",
@@ -158,6 +168,11 @@
         "filter[ids]":{
           "title" : "Documents",
           "description": "A single or a list of document uuids, comma separated",
+          "type" : "string"
+        },
+        "filter[creator_ids]":{
+          "title" : "Creator",
+          "description": "Objects created by the given users uuids, comma separated",
           "type" : "string"
         },
         "sort_by":{

@@ -2,6 +2,10 @@
 
 A more detailed view of the changes can be found in the {commit messages}[https://github.com/salesking/sk_api_schema/commits/]
 
+2011-10
+* added created_at search filter to clients and documents
+* added creator(user) search filter to clients and documents
+
 2011-9
 * search documents by number
 * maxLength information for client and address properties
