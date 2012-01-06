@@ -24,7 +24,7 @@
       "maxLength": 50
     },
     "first_name": {
-       "description": "First name of a person.",
+      "description": "First name of a person.",
       "type":"string",
       "maxLength": 50
     },
@@ -32,6 +32,11 @@
       "description": "Can be empty for a company. Is used in salutation",
       "enum":["male", "female"],
       "type":"string"
+    },
+    "notes": {
+      "description": "Notes for a contact. For day to day information you should use comments instead.",
+      "type":"string",
+      "maxLength": 65000
     },
     "position": {
       "description": "Position of a person in a company.",
