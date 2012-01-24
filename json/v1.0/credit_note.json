@@ -61,12 +61,6 @@
       "description": "Space seperated list of tags.",
       "type":"string"
     },
-    "precision":{
-      "description": "Decimal places for displayed(printed) money values. gross_total and net_total will always be displayed rounded to a precision of 2. When greater 2 use net_total_base(also in line_item) to show the net val with the set precision(3,4).",
-      "type":"number",
-      "enum": [2,3,4],
-      "default":2
-    },
     "language":{
       "description": "Should be a valid language short-code: de-DE, fr, en-GB; like defined in your account language menu. When the document is emailed or printed, a localized version of a multi-language template(email, pdf) will be used if available. Defaults to the clients language, if empty and a client is assigned.",
       "type":"string",
@@ -139,11 +133,6 @@
       "type":"number"
     },
     "net_total_base":{
-      "description": "Net total, decimals places as set in precision, default 2",
-      "readonly":true,
-      "type":"number"
-    },
-    "net_total_base_raw":{
       "description": "Net total, 6 decimal places. Summmed items net_total_base_raw (incl discount)",
       "readonly":true,
       "type":"number"

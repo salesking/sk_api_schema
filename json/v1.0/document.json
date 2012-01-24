@@ -45,12 +45,6 @@
       "description": "Space separated list of tags.",
       "type":"string"
     },
-    "precision":{
-      "description": "Decimal places for displayed(printed) money values. gross_total and net_total will always be displayed rounded to a precision of 2. When greater 2 use net_total_base(also in line_item) to show the net val with the set precision(3,4).",
-      "type":"number",
-      "enum": [2,3,4],
-      "default":2
-    },
     "client_id":{
       "description": "The clients uuid",
       "type":"string",
