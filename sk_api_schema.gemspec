@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{sk_api_schema}
-  s.version = "0.2.6"
+  s.name = "sk_api_schema"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Georg Leciejewski"]
-  s.date = %q{2012-01-06}
-  s.description = %q{The SalesKing JSON Schema describes our business API in terms of available objects, their fields and links to url endpoints with related objects. Besides ruby users can use a smal lib with utility methods to load and test the schema files.}
-  s.email = %q{gl@salesking.eu}
+  s.date = "2012-01-24"
+  s.description = "The SalesKing JSON Schema describes our business API in terms of available objects, their fields and links to url endpoints with related objects. Besides ruby users can use a smal lib with utility methods to load and test the schema files."
+  s.email = "gl@salesking.eu"
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
@@ -51,10 +51,10 @@ Gem::Specification.new do |s|
     "spec/sk_api_schema_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/salesking/sk_api_schema}
+  s.homepage = "http://github.com/salesking/sk_api_schema"
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
-  s.summary = %q{SalesKing API JSON Schema}
+  s.rubygems_version = "1.8.15"
+  s.summary = "SalesKing API JSON Schema"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
