@@ -99,10 +99,10 @@
       "type":"integer"
     },
     "gross_total":{
-      "description": "Gross total of all line items, 2 decimals places",
+      "description": "DEPRECATED use net_total bcs there are no taxes applied",
       "readonly":true,
       "type":"number"
-    },    
+    },
     "net_total":{
       "description": "Net total, 2 decimals places",
       "readonly":true,
