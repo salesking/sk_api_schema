@@ -93,12 +93,14 @@
         "filter[from]":{
           "title" : "From date",
           "description": "All objects with a date after the date",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "filter[to]":{
           "title" : "To date",
           "description": "All objects with date before the date",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "sort_by":{
           "title" : "Sort by",

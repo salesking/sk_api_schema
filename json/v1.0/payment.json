@@ -12,7 +12,7 @@
       "description": "The payment amount",
       "required":true,
       "type":"number"
-    },   
+    },
     "external_ref":{
       "description": "Reference number f.ex. issued by the bank.",
       "type":"string"
@@ -74,13 +74,15 @@
         "filter[from]":{
           "title" : "From date",
           "description": "All objects with a date after the date",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
 
         },
         "filter[to]":{
           "title" : "To date",
           "description": "All objects with date before the date",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "sort_by":{
           "title" : "Sort by",

@@ -57,7 +57,7 @@
       "description": "VAT number, for a company or person paying value added taxes.",
       "type":"string",
       "maxLength": 30
-    },   
+    },
     "email": {
       "description": "Email address of the contact.",
       "type":"string",
@@ -75,7 +75,7 @@
     "tag_list": {
       "description": "Space separated list of tags.",
       "type":"string"
-    },   
+    },
     "created_at": {
       "description": "Date the record was created in SK. Never changes afterwards.",
       "format":"date-time",
@@ -205,22 +205,26 @@
         "filter[created_at_from]":{
           "title" : "From date",
           "description": "Objects with a creation date after the date, including given datetime. ISO 8601 format YYY-MM-DDThh:mm:ss+z",
-          "type" : "date-time"
+          "format" : "date-time",
+          "type" : "string"
         },
         "filter[created_at_to]":{
           "title" : "To date",
           "description": "Objects with a creation date before the date, including given datetime. ISO 8601 format YYY-MM-DDThh:mm:ss+z",
-          "type" : "date-time"
+          "format" : "date-time",
+          "type" : "string"
         },
         "filter[birthday_from]":{
           "title" : "From birthday date",
           "description": "Contacts with a birthday after and on the date. Leave the birthday-to date blank to only search on this day.",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "filter[birthday_to]":{
           "title" : "To birthday date",
           "description": "Contacts with a birthday date before and on the date.",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "filter[creator_ids]":{
           "title" : "Creator",
@@ -230,7 +234,7 @@
         "filter[number]":{
           "title" : "By number",
           "description": "Search by number where the number is matched from the start: %number",
-          "type" : "date"
+          "type" : "string"
         },
         "filter[languages]":{
           "title" : "Languages",

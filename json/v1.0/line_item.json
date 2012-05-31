@@ -67,5 +67,6 @@
       "description": "When set an existing item will be deleted. This switch is used for items passed-in nested inside their parent object(a document), which is default as long as there is no line item endpoint available.",
       "type":"boolean"
     }
-  }
+  },
+  "links":[]
 }

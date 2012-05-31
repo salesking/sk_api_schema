@@ -117,12 +117,14 @@
         "filter[from]":{
           "title" : "From date",
           "description": "All objects updated on/after the date",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "filter[to]":{
           "title" : "To date",
           "description": "All objects updated on/before the date",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "sort_by":{
           "title" : "Sort by",

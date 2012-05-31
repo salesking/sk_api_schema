@@ -1,6 +1,6 @@
 { "type":"object",
   "title": "invoice",
-  "description": "An invoice",  
+  "description": "An invoice",
   "properties":{
     "id":{
       "description": "UUID assigned by SK",
@@ -41,7 +41,7 @@
       "type":"string"
     },
     "payment_method":{
-      "description": "How the invoce is beeing payed. Used in new payments.",
+      "description": "How the document is beeing payed. Used in new payments.",
       "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque", "moneybookers", "premium_sms"],
       "type":"string"
     },
@@ -173,12 +173,14 @@
         "filter[from]":{
           "title" : "From date",
           "description": "Objects with a date after the date",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "filter[to]":{
           "title" : "To date",
           "description": "Objects with date before the date",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "filter[languages]":{
           "title" : "Languages",

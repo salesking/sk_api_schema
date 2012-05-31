@@ -55,7 +55,7 @@
       "format":"date-time",
       "readonly":true,
       "type":"string"
-    },   
+    },
     "address_type": {
       "description": "Type of the address, as seen by vCard definition. There can only be one type. Inside of SK you can use placeholders like client.parcel_address.city to access the first parcel adr(Same for work_ / home_). <br/>Besides the placeholder default_address, always returns the first address found. Sorting is done by the order(if set) else by date, newest first.",
       "enum":["work","home", "parcel"],
@@ -66,7 +66,7 @@
       "type":"integer"
     },
     "lat": {
-      "description": "Geolocation latitude",      
+      "description": "Geolocation latitude",
       "type":"string"
     },
     "long": {
@@ -77,5 +77,6 @@
       "description": "When set an existing address will be deleted. This switch is only used when addresses are passed-in nested inside their parent object(a contact).",
       "type":"boolean"
     }
-  }
+  },
+  "links":[]
 }

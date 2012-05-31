@@ -57,7 +57,7 @@
       "description": "A team uuid. If set only the team and its parent teams can see the record.",
       "type":"string"
     }
-    
+
   },
   "links":[
     { "rel": "self",
@@ -84,12 +84,14 @@
         "filter[from]":{
           "title" : "From date",
           "description": "All objects created at and after the date",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "filter[to]":{
           "title" : "To date",
           "description": "All objects created at and before the date",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "sort_by":{
           "title" : "Sort by",

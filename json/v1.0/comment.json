@@ -12,7 +12,7 @@
       "description": "The comment himself.",
       "required":true,
       "type":"string"
-    },   
+    },
     "related_object_type": {
       "description": "Object type of the comments parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
       "required":true,
@@ -65,12 +65,14 @@
         "filter[from]":{
           "title" : "From date",
           "description": "All objects with a date after the date",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "filter[to]":{
           "title" : "To date",
           "description": "All objects with date before the date",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "sort_by":{
           "title" : "Sort by",

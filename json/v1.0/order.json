@@ -31,6 +31,11 @@
       "description": "Some external reference, whatever this may be.",
       "type":"string"
     },
+    "payment_method":{
+      "description": "How the document is beeing payed. Used in new payments.",
+      "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque", "moneybookers", "premium_sms"],
+      "type":"string"
+    },
     "title":{
       "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your order [number]'",
       "type":"string"
@@ -149,22 +154,26 @@
         "filter[from]":{
           "title" : "From date",
           "description": "Objects with a date after the date",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "filter[to]":{
           "title" : "To date",
           "description": "Objects with date before the date",
-          "type" : "date"
+          "format" : "date",
+          "type" : "string"
         },
         "filter[created_at_from]":{
           "title" : "From date",
           "description": "Objects with a creation date after the date, including given datetime. ISO 8601 format YYY-MM-DDThh:mm:ss+z",
-          "type" : "date-time"
+          "format" : "date-time",
+          "type" : "string"
         },
         "filter[created_at_to]":{
           "title" : "To date",
           "description": "Objects with a creation date before the date, including given datetime. ISO 8601 format YYY-MM-DDThh:mm:ss+z",
-          "type" : "date-time"
+          "format" : "date-time",
+          "type" : "string"
         },
         "filter[languages]":{
           "title" : "Languages",
