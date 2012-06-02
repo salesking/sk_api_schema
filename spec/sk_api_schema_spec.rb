@@ -5,7 +5,7 @@ describe SK::Api::Schema, 'reading' do
   before :each do
     SK::Api::Schema.registry_reset
   end
-  
+
   it "should read json schema file" do
     schema = SK::Api::Schema.read(:invoice, 'v1.0')
     schema[:title].should == 'invoice'
@@ -24,7 +24,7 @@ describe SK::Api::Schema, 'reading' do
 
   it "should read all json schemas" do
     schemas = SK::Api::Schema.read_all('1.0')
-    
+
     file_path = File.join(File.dirname(__FILE__), '../json', 'v1.0', '*.json')
     # just check file count
     schemas.length.should == Dir.glob( file_path ).length
@@ -33,7 +33,7 @@ describe SK::Api::Schema, 'reading' do
   it "should raise error if version folder does not exist" do
     lambda{
       SK::Api::Schema.read(:invoice, 'v3.0')
-    }.should raise_error    
+    }.should raise_error
   end
 
   it "should raise error if schema file does not exist" do
@@ -74,10 +74,10 @@ describe SK::Api::Schema, 'object parsing' do
   it "should parse object with empty relations from schema" do
     obj_hash = SK::Api::Schema.to_hash_from_schema(@invoice, 'v1.0')
     #   {"invoice"=>{"number"=>"911", "line_items"=>[], "archived_pdf"=>nil, "title"=>"Your Invoice", "date"=>nil, "id"=>"some-uuid", "client"=>nil, "due_date"=>nil}}
-    obj_hash.keys.should == ["invoice", "links"]
+    obj_hash.keys.sort.should == ["invoice", "links"]
     obj_hash['invoice'].should include( "number"=>"911","line_items"=>[],"archived_pdf"=>nil,"id"=>"some-uuid", "title"=>"Your Invoice" )
     client_obj_hash = SK::Api::Schema.to_hash_from_schema(@client, 'v1.0')
-    client_obj_hash.keys.should == ["client", "links"]
+    client_obj_hash.keys.sort.should == ["client", "links"]
     client_obj_hash['client'].should include("number"=>"911", "addresses"=>[], "id"=>"some-uuid", "organisation"=>"Dirty Food Inc.", "last_name"=>nil)
   end
 

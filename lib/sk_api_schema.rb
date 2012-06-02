@@ -20,7 +20,7 @@ module SK
         def registry
           @registry ||={}
         end
-        
+
         def registry_reset
           @registry = nil
         end
@@ -72,7 +72,7 @@ module SK
         # === Example
         #  obj = Invoice.new(:title =>'hello world', :number=>'4711')
         #
-        #  obj_hash = SK::Api::Schema.to_hash_from_schema(obj, 'v1.0') 
+        #  obj_hash = SK::Api::Schema.to_hash_from_schema(obj, 'v1.0')
         #   => { 'invoice' =>{'title'=>'hello world', 'number'=>'4711' } }
         #
         #  obj_hash = SK::Api::Schema.to_hash_from_schema(obj, 'v1.0', :fields=>['title'])
@@ -80,13 +80,13 @@ module SK
         #
         #  obj_hash = SK::Api::Schema.to_hash_from_schema(obj, 'v1.0', :class_name=>:document)
         #   => { 'document' =>{'title'=>'hello world' } }
-        #   
+        #
         # === Parameter
         # obj<Object>:: An ruby object which is returned as hash
         # version<String>:: the schema version, must be a valid folder name see
         # #self.read
         # opts<Hash{Symbol=>Mixed} >:: additional options
-        # 
+        #
         # ==== opts Parameter
         # class_name<String|Symbol>:: Name of the class to use as hash key. Should be
         # a lowered, underscored name and it MUST have an existing schema file.
@@ -143,7 +143,7 @@ module SK
         def parse_links(obj, schema)
           links = []
           schema['links'] && schema['links'].each do |link|
-            links << { 'rel' => link['rel'], 'href' => link['href'].gsub(/\{id\}/, obj.id) }
+            links << { 'rel' => link['rel'], 'href' => link['href'].gsub(/\{id\}/, "#{obj.id}") }
           end
           links.uniq
           # return links only if not empty
@@ -170,7 +170,7 @@ module SK
           setters += opts[:keep] if opts[:keep] && opts[:keep].is_a?(Array)
           # kick readonly
           props.delete_if { |k,v| !setters.include?("#{k}")  }
-          #convert to type in schema 
+          #convert to type in schema
           props.each do |k,v|
             if schema['properties']["#{k}"]['type'] == 'string' && !v.is_a?(String)
              props[k] = "#{v}"
