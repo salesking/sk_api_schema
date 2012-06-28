@@ -24,12 +24,15 @@
       "type":"string"
     },
     "method":{
+      "description": "DEPRECATED use payment_method. Getter is already empty, Setter will be kicked after 07.2012"
+    },
+    "payment_method":{
       "description": "How the payment was made.",
       "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque", "moneybookers", "premium_sms"],
       "type":"string"
     },
     "related_object_type": {
-      "description": "Object type of the payments parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
+      "description": "Object type of the payments parent. Is the camel-cased base class name: Document for invoice, credit_note,.., Contact for client",
       "required":true,
       "type":"string"
     },
