@@ -1,7 +1,6 @@
 = SalesKing API Schema
 
-Our API is described with JSON Schema's (http://json-schema.org). A schema
-describes a resource(object) in a readable JSON format:
+Our API is described with JSON Schema's (http://json-schema.org), describing our objects(resources) in a readable JSON format:
 
   { 
     "title": "client",
@@ -57,7 +56,7 @@ parameter:
 
 Please try to only request the fields you really need, to save computing power!
 
-== Object Structure Basic's
+== Object Basic's
 
 Primary object types in SK are:
 * Documents
@@ -76,7 +75,7 @@ The third kind are supportive objects
 * Exports
 * Templates
 
-== Enpoints & Links
+== Endpoints & Links
 
 Following list gives you a quick overview of relations with nested urls an how
 parameters work. You can find those in detail when looking at the link section
@@ -100,12 +99,6 @@ of each schema.
     # all invoices of a client
     /clients/:id/invoices
 
-
-== ToDo:
-
-Those relative urls in the link sections, need some love, so please don't rely on
-them to much right now.
-
 == Install
 
     gem install sk_api_schema
@@ -118,4 +111,10 @@ Before you run the tests use bundler to install all required gems:
   BUNDLE_GEMFILE=ci/Gemfile bundle install
   BUNDLE_GEMFILE=ci/Gemfile bundle exec rake spec
 
-Copyright (c) 2010-2011 Georg Leciejewski, released under the MIT license
+
+== ToDo:
+
+Those relative urls in the link sections, need some love, so please don't rely on
+them to much right now.
+
+Copyright (c) 2010-2012 Georg Leciejewski, released under the MIT license
