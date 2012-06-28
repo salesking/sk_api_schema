@@ -24,7 +24,7 @@
       "type":"string"
     },
     "method":{
-      "description": "DEPRECATED use payment_method. Getter is already empty, Setter will be kicked after 07.2012"
+      "description": "DEPRECATED use payment_method. Kicked at beginning of 08.2012"
     },
     "payment_method":{
       "description": "How the payment was made.",
