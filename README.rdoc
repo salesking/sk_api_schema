@@ -107,11 +107,11 @@ of each schema.
 
 {<img src="https://secure.travis-ci.org/salesking/sk_api_schema.png?branch=master" alt="Build Status" />}[http://travis-ci.org/salesking/sk_api_schema]
 
-Before you run the tests use bundler to install all required gems:
+Install required gems with bundler and go for it:
   # git clone
   # cd into sk_api_schema dir
-  BUNDLE_GEMFILE=ci/Gemfile bundle install
-  BUNDLE_GEMFILE=ci/Gemfile bundle exec rake spec
+  bundle install
+  rake spec
 
 
 == ToDo:

@@ -87,12 +87,7 @@
       "type":"number"
     },
     "net_total_base":{
-      "description": "Net total, decimals places as set in precision, default 2",
-      "readonly":true,
-      "type":"number"
-    },
-    "net_total_base_raw":{
-      "description": "Net total, 6 decimal places. Summmed items net_total_base_raw (incl discount)",
+      "description": "Net total, 6 decimal places incl. discount",
       "readonly":true,
       "type":"number"
     }

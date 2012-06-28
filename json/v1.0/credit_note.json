@@ -104,11 +104,11 @@
       "type":"string"
     },
     "lock_version":{
-      "description": "Auto-incremented by SK to prevent concurrent updateing. First save wins.",
+      "description": "Auto-incremented to prevent concurrent updates. First save wins.",
       "type":"integer"
     },
     "price_total":{
-      "description": "Deprecated use net_total_base_raw",
+      "description": "Deprecated use net_total_base",
       "readonly":true,
       "type":"number"
     },
@@ -133,7 +133,7 @@
       "type":"number"
     },
     "net_total_base":{
-      "description": "Net total, 6 decimal places. Summmed items net_total_base_raw (incl discount)",
+      "description": "Net total, 6 decimal places incl. discount",
       "readonly":true,
       "type":"number"
     }

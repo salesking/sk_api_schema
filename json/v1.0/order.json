@@ -21,6 +21,15 @@
       "format":"date",
       "type":"string"
     },
+    "due_days":{
+      "description": "Used to calculate the due date for the document. Useless if date and due date are present.",
+      "type":"integer"
+    },
+    "due_date":{
+      "description": "Auto-calculated from date + due days if empty and the document is opened.",
+      "format":"date",
+      "type":"string"
+    },
     "status":{
       "description": "Defaults to draft for new documents, unless otherwise stated. For new documents with status 'open' or 'closed' or doc where the status changes away from draft, following fields are set if empty: number(next in number schema), date(today), due date(due_days must be given). Only draft documents can be deleted.",
       "default":"draft",
@@ -95,7 +104,7 @@
       "type":"string"
     },
     "lock_version":{
-      "description": "Auto-incremented to prevent concurrent updateing. First save wins and increments version.",
+      "description": "Auto-incremented to prevent concurrent updates. First save wins and increments version.",
       "type":"integer"
     },
     "gross_total":{
@@ -114,7 +123,7 @@
       "type":"number"
     },
     "net_total_base":{
-      "description": "Net total, 6 decimal places. Summmed items net_total_base_raw (incl discount)",
+      "description": "Net total, 6 decimal places incl. discount",
       "readonly":true,
       "type":"number"
     }
@@ -222,7 +231,8 @@
       "properties" : {
         "source" : {
           "title" : "Source document id",
-          "description": "Copies the source document(excl. number,date) and returns a new draft document."
+          "description": "Copies the source document(excl. number,date) and returns a new draft document.",
+          "type" : "string"
         }
       }
     },

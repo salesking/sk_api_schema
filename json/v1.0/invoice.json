@@ -22,11 +22,11 @@
       "type":"string"
     },
     "due_days":{
-      "description": "Used to calculate the due date of the invoice. Useless if date and due date are present.",
+      "description": "Used to calculate the due date of the document. Useless if date and due date are present.",
       "type":"integer"
     },
     "due_date":{
-      "description": "Auto-calculated from date + due days if empty and the invoice is opened.",
+      "description": "Auto-calculated from date + due days if empty and the document is opened.",
       "format":"date",
       "type":"string"
     },
@@ -104,7 +104,7 @@
       "type":"string"
     },
     "lock_version":{
-      "description": "Auto-incremented to prevent concurrent updateing. First save wins and increments version. ",
+      "description": "Auto-incremented to prevent concurrent updates. First save wins and increments version. ",
       "type":"integer"
     },
     "price_total":{
@@ -133,7 +133,7 @@
       "type":"number"
     },
     "net_total_base":{
-      "description": "Net total, 6 decimal places. Summmed items net_total_base_raw (incl discount)",
+      "description": "Net total, 6 decimal places incl. discount",
       "readonly":true,
       "type":"number"
     }
@@ -229,12 +229,14 @@
       "properties" : {
         "source" : {
           "title" : "Source document id",
-          "description": "Copies the source document(excl. number,date) and returns a new draft document. If the source is an Estimate or Order only line_items, client & tags are copied, so you can pass in additional fields."
+          "description": "Copies the source document(excl. number,date) and returns a new draft document. If the source is an Estimate or Order only line_items, client & tags are copied, so you can pass in additional fields.",
+          "type" : "string"
         },
         "cancel" : {
           "title" : "Cancel an invoice",
-          "description": "Cancelling a document negates its line item values. A source id must be set.",
-          "dependencies": ["source"]
+          "description": "Cancelling a document copies the source and negates its line item values. A source id must be set.",
+          "dependencies": ["source"],
+          "type":"boolean"
         }
       }
     },

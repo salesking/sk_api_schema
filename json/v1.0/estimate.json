@@ -99,7 +99,7 @@
       "type":"string"
     },
     "lock_version":{
-      "description": "Auto-incremented to prevent concurrent updateing. First save wins and increments version.",
+      "description": "Auto-incremented to prevent concurrent updates. First save wins and increments version.",
       "type":"integer"
     },
     "gross_total":{
@@ -118,12 +118,7 @@
       "type":"number"
     },
     "net_total_base":{
-      "description": "Net total, decimals places as set in precision, default 2",
-      "readonly":true,
-      "type":"number"
-    },
-    "net_total_base_raw":{
-      "description": "Net total unrounded, 6 decimal places. Summed items net_total_base_raw (incl discount)",
+      "description": "Net total, 6 decimal places incl. discount",
       "readonly":true,
       "type":"number"
     }
@@ -231,7 +226,8 @@
       "properties" : {
         "source" : {
           "title" : "Source document id",
-          "description": "Copies the source document(excl. number,date) and returns a new draft document."
+          "description": "Copies the source document(excl. number,date) and returns a new draft document.",
+          "type" : "string"
         }
       }
     },
