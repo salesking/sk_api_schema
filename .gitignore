@@ -1,6 +1,4 @@
-nbproject/*
 coverage/*
 rdoc/*
 pkg/*
 Gemfile.lock
-vendor/

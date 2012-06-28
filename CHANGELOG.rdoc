@@ -2,6 +2,15 @@
 
 A more detailed view of the changes can be found in the {commit messages}[https://github.com/salesking/sk_api_schema/commits/]
 
+2012-06
+* test with travis-ci.org
+
+2012-05
+* fix date type definitions
+* add empty links sections for address, line_item
+* add payment_method to order
+* deprecate gross_total for payment reminder
+
 2012-01
 * add notes field for client
 

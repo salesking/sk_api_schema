@@ -1,4 +1,18 @@
+# encoding: utf-8
+$:.unshift(File.dirname(__FILE__))
+$:.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+
+require 'simplecov'
+SimpleCov.start do
+  add_filter "/json/"
+end
+SimpleCov.coverage_dir 'coverage'
+
 require 'rubygems'
 require 'rspec'
-require "#{File.dirname(__FILE__)}/../lib/sk_api_schema"
-#require File.dirname(__FILE__) + '/../vendor/jsonschema-1.0.0/lib/jsonschema'
+require "sk_api_schema"
+
+
+
+RSpec.configure do |config|
+end
