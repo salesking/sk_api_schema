@@ -2,10 +2,10 @@
 
 Our API is described with JSON Schema's (http://json-schema.org), describing our objects(resources) in a readable JSON format:
 
-  { 
+  {
     "title": "client",
     "properties": { ...},
-    "links": [ .. ]    
+    "links": [ .. ]
   }
 The properties-section defines the fields. CRUD actions and
 relationships with other resources are found in the link-section.
@@ -37,8 +37,8 @@ The schema main version(NOT the gem version) can be set with the "v" url paramet
 in any call, but is pretty useless as long as we are in v1.0
   my.salesking.eu/api/clients?v='1.0'
 
-The gem has its own version number. A new gem version indicates a change, but 
-we first try it on our staging environment before any live instances are 
+The gem has its own version number. A new gem version indicates a change, but
+we first try it on our staging environment before any live instances are
 updated and the schema becomes public available. The gem is used by SalesKing
 to deliver it's data BUT changes might not be directly reflected as stated.
 To see the current gem version use:
@@ -104,6 +104,8 @@ of each schema.
     gem install sk_api_schema
 
 == Test
+
+{<img src="https://secure.travis-ci.org/salesking/sk_api_schema.png?branch=master" alt="Build Status" />}[http://travis-ci.org/salesking/sk_api_schema]
 
 Before you run the tests use bundler to install all required gems:
   # git clone
