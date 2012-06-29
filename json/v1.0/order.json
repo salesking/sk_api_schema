@@ -41,16 +41,16 @@
       "type":"string"
     },
     "payment_method":{
-      "description": "How the document is beeing payed. Used in new payments.",
+      "description": "How the document is being payed. Used in new payments.",
       "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque", "moneybookers", "premium_sms"],
       "type":"string"
     },
     "title":{
-      "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your order [number]'",
+      "description": "The headline of a document. Use SK placeholders to prevent excessive typing e.g. 'Your order [number]'",
       "type":"string"
     },
     "notes_before":{
-      "description": "Notes shown before the line items. Normaly contains salutation and other introductional information. SK placeholders can be used.",
+      "description": "Notes shown before the line items. Normally contains salutation and other introductional information. SK placeholders can be used.",
       "type":"string"
     },
     "notes_after":{
@@ -147,7 +147,7 @@
         },
         "filter[q]":{
           "title" : "Search",
-          "description": "Search in title, number, addressfield",
+          "description": "Search in title, number, address field",
           "type":"string"
         },
         "filter[number]":{

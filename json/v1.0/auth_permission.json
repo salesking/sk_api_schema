@@ -16,7 +16,7 @@
       "type":"string"
     },
     "context_name":{
-      "description": "The context for the permission, beeing a resource: clients, emails",
+      "description": "The context for the permission, being a resource: clients, emails",
       "readonly":true,
       "type":"string"
     },

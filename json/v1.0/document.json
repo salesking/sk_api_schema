@@ -1,6 +1,6 @@
 { "type":"object",
   "title": "document",
-  "description": "This resource is readonly and serves as a convinient way to query documents independent of their type(invoice, order,..). The specific document type is set in each object in the result-set.",
+  "description": "This resource is readonly and serves as a convenient way to query documents independent of their type(invoice, order,..). The specific document type is set in each object in the result-set.",
   "properties":{
     "id":{
       "description": "UUID assigned by SK",
@@ -30,11 +30,11 @@
       "type":"string"
     },
     "title":{
-      "description": "The headline of a document. Use SK placeholders to prevent exessive typing e.g. 'Your invoice [number]'",
+      "description": "The headline of a document. Use SK placeholders to prevent excessive typing e.g. 'Your invoice [number]'",
       "type":"string"
     },
     "notes_before":{
-      "description": "Notes shown before the line items. Normaly contains salutation and other introductional information. SK placeholders can be used.",
+      "description": "Notes shown before the line items. Normally contains salutation and other introductional information. SK placeholders can be used.",
       "type":"string"
     },
     "notes_after":{
@@ -111,7 +111,7 @@
         },
         "filter[q]":{
           "title" : "Search",
-          "description": "Search in title, number, addressfield",
+          "description": "Search in title, number, address field",
           "type":"string"
         },
         "filter[number]":{

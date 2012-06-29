@@ -71,7 +71,7 @@
         },
         "filter[q]":{
           "title" : "Search",
-          "description": "Search in title, number, addressfield",
+          "description": "Search in title, number, address field",
           "type":"string"
         },
         "filter[from]":{
@@ -110,7 +110,7 @@
       "properties" : {
         "new_doc_status":{
           "title" : "New status for document",
-          "description": "Convinience method to close a document with a payment.",
+          "description": "Convenience method to close a document with a payment.",
           "enum": ["open","closed"],
           "type":"string"
         }
