@@ -12,12 +12,14 @@
     },
     "code":{
       "description": "Language short-code",
-      "type":"string"
+      "type":"string",
+      "maxLength": 10
     },
     "name":{
       "description": "The name of the language, shown in the interface",
       "type":"string",
-      "required":true
+      "required":true,
+      "maxLength": 30
     },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",

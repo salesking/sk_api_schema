@@ -13,12 +13,15 @@
     "channel":{
       "description": "The channel to which to subscribe. See available at subs/channels.",
       "required":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 100
     },
     "callback_url":{
       "description": "An url receiving the notification. The url MUST be within the url of the current app and receives a POST with a single signed_request parameter containing an base64 encoded JSON object.",
       "type":"string",
-      "required":true
+      "format":"uri",
+      "required":true,
+      "maxLength": 100
     },
     "created_at":{
       "description": "Date the record was created in SK. Never changes afterwards.",

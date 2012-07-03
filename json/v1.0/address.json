@@ -68,12 +68,12 @@
       "type":"integer"
     },
     "lat":{
-      "description": "Geolocation latitude",
-      "type":"string"
+      "description": "Geo-Location latitude",
+      "type":"number"
     },
     "long":{
-      "description": "Geolocation longitude",
-      "type":"string"
+      "description": "Geo-Location longitude",
+      "type":"number"
     },
     "_destroy":{
       "description": "When set an existing address will be deleted. This switch is only used when addresses are passed-in nested inside their parent object(a contact).",

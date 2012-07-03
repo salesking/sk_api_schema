@@ -17,11 +17,13 @@
     },
     "name":{
       "description": "The name of an item",
-      "type":"string"
+      "type":"string",
+      "maxLength": 50
     },
     "description":{
       "description": "Item description",
-      "type":"string"
+      "type":"string",
+      "format": "text"
     },
     "price_single":{
       "description": "Net price of a single item",
@@ -32,17 +34,18 @@
       "type":"number"
     },
     "discount":{
-      "description": "Discount in percent applied to the items net total",
+      "description": "Discount in percent applied to the items net total. Can also be negative if you want to add additional charges.",
       "type":"number"
     },
     "quantity_unit":{
       "description": "Quantity unit: kg, days, month.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 30
     },
     "quantity":{
-      "description": "Quantity of the item. Must be > 0",
+      "description": "Quantity of the item. Must be >= 0",
       "type":"number",
-      "exclusiveMinimum":0,
+      "minimum":0,
       "required":true
     },
     "product_id":{

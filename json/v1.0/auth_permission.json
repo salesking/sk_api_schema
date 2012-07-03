@@ -12,21 +12,25 @@
     },
     "full_name":{
       "description": "Context_name and name localized: API Clients read - API Kunden anzeigen",
-      "type":"string"
+      "type":"string",
+      "maxLength": 255
     },
     "name":{
       "description": "Name for the permission. Since a permission groups multiple privileges the name reflects what someone is allowed to do: read, update, delete. With 'read' granting acccess to the 'index' and 'show' actions of a resource.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 255
     },
     "context_name":{
       "description": "The context for the permission, being a resource: clients, emails",
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 255
     },
     "privilege_list":{
       "description": "A permission has many privileges which define the actions someone can execute. Such actions are resource methods like index, update, edit, show",
       "type":"string",
-      "readonly":true
+      "readonly":true,
+      "maxLength": 255
     }
   },
 

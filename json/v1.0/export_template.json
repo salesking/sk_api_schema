@@ -13,12 +13,14 @@
     "name":{
       "description": "A meaningful name.",
       "required":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 50
     },
     "text":{
       "description": "Text with placeholders, replaced when the template is used.",
       "required":true,
-      "type":"string"
+      "type":"string",
+      "format":"text"
     },
     "kind":{
       "description": "Kind of exported data.",
@@ -28,7 +30,8 @@
     },
     "filename":{
       "description": "Name of the created export file. Date placeholders can be used: %y-%m-%d_%H-%M_clients.csv",
-      "type":"string"
+      "type":"string",
+      "maxLength": 255
     },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",

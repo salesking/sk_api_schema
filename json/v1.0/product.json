@@ -18,11 +18,13 @@
     "name":{
       "description": "The name of the product",
       "type":"string",
-      "required":true
+      "required":true,
+      "maxLength": 50
     },
     "description":{
       "description": "Product description",
-      "type":"string"
+      "type":"string",
+      "format":"text"
     },
     "price":{
       "description": "Net price of a single product",
@@ -34,7 +36,8 @@
     },
     "quantity_unit":{
       "description": "Unit like kg, days, month.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 30
     },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",

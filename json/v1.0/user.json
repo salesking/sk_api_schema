@@ -12,11 +12,13 @@
     },
     "last_name":{
       "description": "Last name of a person. At least this or the organisation field must be filled for new records",
-      "type":"string"
+      "type":"string",
+      "maxLength": 50
     },
     "first_name":{
       "description": "First name",
-      "type":"string"
+      "type":"string",
+      "maxLength": 50
     },
     "gender":{
       "description": "The users gender, used in salutation",
@@ -25,16 +27,19 @@
     },
     "position":{
       "description": "Position of a person in a company.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 50
     },
     "title":{
       "description": "Academical title of a person e.g. Dr., Prof",
-      "type":"string"
+      "type":"string",
+      "maxLength": 50
     },
     "language":{
       "description": "The users language, reflected in the interface.",
       "required":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 10
     },
     "time_zone":{
       "description": "Time zone",
@@ -43,11 +48,13 @@
     "email":{
       "description": "Email address of the user. Unique in SK",
       "required":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 100
     },
     "url":{
       "description": "An url associated with the person, e.g its company website.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 255
     },
     "birthday":{
       "format":"date",
@@ -55,19 +62,23 @@
     },
     "phone_fax":{
       "description": "Fax number",
-      "type":"string"
+      "type":"string",
+      "maxLength": 30
     },
     "phone_office":{
       "description": "Office phone number",
-      "type":"string"
+      "type":"string",
+      "maxLength": 30
     },
     "phone_home":{
       "description": "Private phone number.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 30
     },
     "phone_mobile":{
       "description": "Mobile phone number",
-      "type":"string"
+      "type":"string",
+      "maxLength": 30
     },
     "created_at":{
       "description": "Date the record was created in SK. Never changes afterwards.",

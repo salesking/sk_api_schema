@@ -13,17 +13,20 @@
     "filename":{
       "description": "The filename as set when uploaded",
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 255
     },
     "disk_filename":{
       "description": "Unique filename set by SK",
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 255
     },
     "url":{
       "description": "File download url. Unique and valid for 15 minutes, public accessible.",
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "format": "uri"
     },
     "related_object_type":{
       "description": "Object type of the attachment parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
@@ -33,7 +36,9 @@
     "related_object_id":{
       "description": "uuid of the attachment parent object.",
       "required":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
     "content_type":{
       "description": "Auto detected on upload. Might not always reflect the real content type",
@@ -57,7 +62,9 @@
     },
     "team_id":{
       "description": "A team uuid. If set only the team and its parent teams can see the record.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     }
 
   },

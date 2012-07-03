@@ -8,7 +8,7 @@
       "readonly":true,
       "type":"string",
       "maxLength": 22,
-      "minLength":22
+      "minLength": 22
     },
     "number":{
       "description": "Unique number assigned by SK invoice number schema. Auto-assigned when invoice is opened. Required unless doc status is draft.",
@@ -56,14 +56,16 @@
     },
     "notes_before":{
       "description": "Notes shown before the line items. Normally contains salutation and other introductional information. SK placeholders can be used.",
-      "type":"string"
+      "type":"string",
+      "format":"text"
     },
     "notes_after":{
       "description": "Notes shown after the line items. Can contain information about payments, bank account or a thank-you message. SK placeholders can be used.",
-      "type":"string"
+      "type":"string",
+      "format":"text"
     },
     "tag_list":{
-      "description": "Space separated list of tags.",
+      "description": "Space separated list of tags. Are split and saved as Tag objects on create, update.",
       "type":"string"
     },
     "language":{
@@ -87,13 +89,13 @@
       "description": "The clients uuid. If a new client is assigned its language, address field, due days and cash discount are used if those fields are not set.",
       "type":"string",
       "maxLength": 22,
-      "minLength":22
+      "minLength": 22
     },
     "team_id":{
       "description": "A team uuid. If set only the team and its parent teams can see the record.",
       "type":"string",
       "maxLength": 22,
-      "minLength":22
+      "minLength": 22
     },
     "line_items":{
       "description": "Line items for the document",

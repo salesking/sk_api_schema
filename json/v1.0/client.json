@@ -39,7 +39,7 @@
     "notes":{
       "description": "Notes for a contact. For day to day information you should use comments instead.",
       "type":"string",
-      "maxLength": 65000
+      "format": "text"
     },
     "position":{
       "description": "Position of a person in a company.",
@@ -76,7 +76,7 @@
       "type":"string"
     },
     "tag_list":{
-      "description": "Space separated list of tags.",
+      "description": "Space separated list of tags. Are split and saved as Tag objects on create, update.",
       "type":"string"
     },
     "created_at":{

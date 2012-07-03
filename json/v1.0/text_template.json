@@ -13,15 +13,17 @@
     "name":{
       "description": "A meaningful name.",
       "required":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 50
     },
     "text":{
       "description": "Text which may contain placeholders, replaced when the template is used.",
       "required":true,
-      "type":"string"
+      "type":"string",
+      "format":"text"
     },
     "kind":{
-      "description": "Kind of object in which the text is used. If empty the snippet can be used globally, but watch those placeholder.",
+      "description": "Kind of object in which the text is used. If empty the snippet can be used global, but watch the available placeholders.",
       "required":true,
       "enum": ["","invoice", "estimate", "credit_note", "payment_reminder", "order", "client", "email"],
       "type":"string"

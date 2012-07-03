@@ -13,7 +13,8 @@
     "name":{
       "description": "The tag itself",
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 50
     },
     "taggings_count":{
       "description": "Usage count of this tag, for all objects in whole company scope.",

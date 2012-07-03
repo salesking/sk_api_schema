@@ -8,7 +8,7 @@
       "readonly":true,
       "type":"string",
       "maxLength": 22,
-      "minLength":22
+      "minLength": 22
     },
     "object_type":{
       "description": "The specific type of the document",
@@ -40,14 +40,16 @@
     },
     "notes_before":{
       "description": "Notes shown before the line items. Normally contains salutation and other introductional information. SK placeholders can be used.",
-      "type":"string"
+      "type":"string",
+      "format":"text"
     },
     "notes_after":{
       "description": "Notes shown after the line items. Can contain information about payments, bank account or a thank-you message. SK placeholders can be used.",
-      "type":"string"
+      "type":"string",
+      "format":"text"
     },
     "tag_list":{
-      "description": "Space separated list of tags.",
+      "description": "Space separated list of tags. Are split and saved as Tag objects on create, update.",
       "type":"string"
     },
     "client_id":{

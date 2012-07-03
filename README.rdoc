@@ -1,14 +1,13 @@
 = SalesKing API Schema
 
-Our API is described with JSON Schema's (http://json-schema.org), describing our objects(resources) in a readable JSON format:
+Our API (objects,resources) is described with JSON Schema (http://json-schema.org).
+Each Object has its own description, with those top-level keys:
 
   {
-    "title": "client",
-    "properties": { ...},
-    "links": [ .. ]
+    "title": "client",      // object type
+    "properties": { .. },   // field descriptions
+    "links": [ .. ]         // CRUD actions, relationships to other resources
   }
-The properties-section defines the fields. CRUD actions and
-relationships with other resources are found in the link-section.
 
 Look into the /json/ folder for the resources schema-files - https://github.com/salesking/sk_api_schema/tree/master/json/v1.0
 
@@ -23,38 +22,6 @@ Other languages should take advantage of the raw json files.
 * {API Browser visualized JSON Schema}[http://sk-api-browser.heroku.com/]
 * {API Intro}[http://dev.blog.salesking.eu/api/]
 * {Ruby SDK - API Client}[https://github.com/salesking/sk_sdk]
-
-== Versioning
-
-The main API-version is kept in the folder-name and as long as there are no major
-changes(breaking backwards compatibility), the version number will remain.
-
-You can see the current schema at:
-  my.salesking.eu/api/schema
-  my.salesking.eu/api/clients/schema
-
-The schema main version(NOT the gem version) can be set with the "v" url parameter
-in any call, but is pretty useless as long as we are in v1.0
-  my.salesking.eu/api/clients?v='1.0'
-
-The gem has its own version number. A new gem version indicates a change, but
-we first try it on our staging environment before any live instances are
-updated and the schema becomes public available. The gem is used by SalesKing
-to deliver it's data BUT changes might not be directly reflected as stated.
-To see the current gem version use:
-
-  my.salesking.eu/api/schema?gem_version=1
-
-== Save the planet
-
-By default the API returns an object with all available properties(fields). You
-can limit those by passing comma-separated string(or array) in the fields
-parameter:
-  my.salesking.eu/api/clients?fields=id,organisation
-
-  my.salesking.eu/api/clients?fields[]=id&fields[]=organisation
-
-Please try to only request the fields you really need, to save computing power!
 
 == Object Basic's
 
@@ -98,6 +65,78 @@ of each schema.
 
     # all invoices of a client
     /clients/:id/invoices
+
+== Field types & formats
+
+Most of the fields are of type 'string'. Their format(espacially date fields)
+is casted on our side. We try to go with the {formats}[http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.23] and {types}[http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.1] defined by JSON-Schema
+
+All text MUST be UTF-8 encoded.
+
+Some example fields:
+
+    "title":{
+     "description": " Cut-off after 255 Characters",
+     "type":"string",
+     "maxLength": 255
+    },
+    "notes_before":{
+     "description": "Long Text is a custom format: see notes below",
+     "type":"string"
+     "format":"text"
+    },
+    "net_total":{
+      "description": "Number with 2 decimals places",
+      "readonly":true,
+      "type":"number"
+    },
+    "status":{
+      "description": "Allowed values are in enum list",
+      "default":"draft",
+      "enum":["draft","open","closed","rejected","billed" ],
+      "type":"string"
+    },
+    "created_at":{
+      "description": "Date time ISO 8601 format: YYYY-MM-DDThh:mm:ssZ",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+
+*Text-Format* length varies, between ~16,000 to 65.535, with the occurence of non-ASCII Characters {see this post on stackoverflow}[http://stackoverflow.com/questions/4420164/how-much-utf-8-text-fits-in-a-mysql-text-field]
+
+== Versioning
+
+The main API-version is kept in the folder-name and as long as there are no major
+changes(breaking backwards compatibility), the version number will remain.
+
+You can see the current schema at:
+  my.salesking.eu/api/schema
+  my.salesking.eu/api/clients/schema
+
+The schema main version(NOT the gem version) can be set with the "v" url parameter
+in any call, but is pretty useless as long as we are in v1.0
+  my.salesking.eu/api/clients?v='1.0'
+
+The gem has its own version number. A new gem version indicates a change, but
+we first try it on our staging environment before any live instances are
+updated and the schema becomes public available. The gem is used by SalesKing
+to deliver it's data BUT changes might not be directly reflected as stated.
+To see the current gem version use:
+
+  my.salesking.eu/api/schema?gem_version=1
+
+== Save the planet
+
+By default the API returns an object with all available properties(fields). You
+can limit those by passing comma-separated string(or array) in the fields
+parameter:
+  my.salesking.eu/api/clients?fields=id,organisation
+
+  my.salesking.eu/api/clients?fields[]=id&fields[]=organisation
+
+Please try to only request the fields you really need, to save computing power!
+
 
 == Install
 
