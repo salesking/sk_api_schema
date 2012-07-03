@@ -3,10 +3,12 @@
   "description": "This resource is readonly and serves as a convenient way to query documents independent of their type(invoice, order,..). The specific document type is set in each object in the result-set.",
   "properties":{
     "id":{
-      "description": "UUID assigned by SK",
+      "description":"Unique identifier - UUID",
       "identity":true,
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
     "object_type":{
       "description": "The specific type of the document",
@@ -14,7 +16,8 @@
     },
     "number":{
       "description": "Unique number assigned by a user or automatic by the object's number schema.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 50
     },
     "address_field":{
       "description": "Receiver address, normally shown in envelope window. Defaults to client address_field.",
@@ -27,11 +30,13 @@
     },
     "external_ref":{
       "description": "Some external reference, whatever this may be.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 255
     },
     "title":{
       "description": "The headline of a document. Use SK placeholders to prevent excessive typing e.g. 'Your invoice [number]'",
-      "type":"string"
+      "type":"string",
+      "maxLength": 255
     },
     "notes_before":{
       "description": "Notes shown before the line items. Normally contains salutation and other introductional information. SK placeholders can be used.",
@@ -41,14 +46,16 @@
       "description": "Notes shown after the line items. Can contain information about payments, bank account or a thank-you message. SK placeholders can be used.",
       "type":"string"
     },
-    "tag_list": {
+    "tag_list":{
       "description": "Space separated list of tags.",
       "type":"string"
     },
     "client_id":{
       "description": "The clients uuid",
       "type":"string",
-      "required":true
+      "required":true,
+      "maxLength": 22,
+      "minLength":22
     },
     "team_id":{
       "description": "A team uuid. If set only the team and its parent teams can see the record.",

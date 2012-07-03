@@ -1,37 +1,39 @@
 { "type":"object",
   "title": "email",
   "description":"An email in SK must always be related to an object. Receivers are limited to 5 per address field.",
-  "properties": {
-    "id": {
-      "description": "uuid of the email",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
       "identity":true,
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
-    "bcc_addr": {
+    "bcc_addr":{
       "description": "BCC addresses, comma separated. Max 5, format: a@b.de,'George'<georg@sk.eu>",
       "type":"string"
     },
-    "cc_addr": {
+    "cc_addr":{
       "description": "CC addresses, comma separated. Max 5, format: a@b.de,'George'<georg@sk.eu>",
       "type":"string"
     },
-    "from_addr": {
+    "from_addr":{
       "description": "From address",
       "required":true,
       "type":"string"
     },
-    "to_addr": {
+    "to_addr":{
       "description": "TO addresses, comma separated. Max 5, format: a@b.de,'George'<georg@sk.eu>",
       "required":true,
       "type":"string"
     },
-    "subject": {
+    "subject":{
       "description": "The email subject.",
       "required":true,
       "type":"string"
     },
-    "body": {
+    "body":{
       "description": "The email text.",
       "required":true,
       "type":"string"
@@ -42,34 +44,36 @@
       "type":"array",
       "properties":{"$ref":"./attachment.json#properties"}
     },
-    "related_object_type": {
+    "related_object_type":{
       "description": "Object type of the emails parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
       "required":true,
       "type":"string"
     },
-    "related_object_id": {
+    "related_object_id":{
       "description": "uuid of the emails parent object.",
       "required":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
-    "in_progress": {
+    "in_progress":{
       "description": "Is set after an email has been scheduled for sending until it has been sent.",
       "readonly":true,
       "type":"boolean"
     },
-    "delivered_at": {
+    "delivered_at":{
       "description": "Date the email was delivered by SK. If set, the message cannot be edited anymore.",
       "format":"date-time",
       "readonly":true,
       "type":"string"
     },
-    "created_at": {
+    "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
       "readonly":true,
       "type":"string"
     },
-    "updated_at": {
+    "updated_at":{
       "description": "Date the object was edited in SK.",
       "format":"date-time",
       "readonly":true,
@@ -77,7 +81,9 @@
     },
     "team_id":{
       "description": "A team uuid. If set only the team and its parent teams can see the record.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     }
   },
    "links":[
@@ -157,7 +163,9 @@
         "template_id":{
           "title" : "Template",
           "description": "UUID of an email template to use. If present, subject, body and attachments of the template are used for the current email.",
-          "type":"string"
+          "type":"string",
+          "maxLength": 22,
+          "minLength":22
         },
         "send":{
           "title" : "Send email",

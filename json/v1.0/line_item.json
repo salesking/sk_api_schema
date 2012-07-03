@@ -3,10 +3,12 @@
   "description": "A line item for a document",
   "properties":{
     "id":{
-      "description": "uuid of the item.",
+      "description":"Unique identifier - UUID",
       "identity":true,
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
     "position":{
       "description": "Required since items are sorted by position.",
@@ -45,7 +47,9 @@
     },
     "product_id":{
       "description": "A uuid of a product, referenced in this item. This makes it easier to track a products turnover and list the documents it is used on. Also see use_product",
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
     "use_product":{
       "description": "If set and product_id is present, the products name, description, quantity, unit, price are copied if the according item fields are missing.",
@@ -63,7 +67,7 @@
       "readonly":true,
       "type":"string"
     },
-    "_destroy": {
+    "_destroy":{
       "description": "When set an existing item will be deleted. This switch is used for items passed-in nested inside their parent object(a document), which is default as long as there is no line item endpoint available.",
       "type":"boolean"
     }

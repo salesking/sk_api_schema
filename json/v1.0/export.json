@@ -1,23 +1,25 @@
 { "type":"object",
   "title": "export",
   "description":"An export in SK",
-  "properties": {
-    "id": {
-      "description": "uuid of the export",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
       "identity":true,
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
-    "collection_type": {
+    "collection_type":{
       "description": "The type of data to export. Lower-case singular name of the export data's class(invoice,client ..), see available classes in json schema. Does not need to be set for text-exports as its set from the export tempaltes type.",
       "type":"string"
     },
-    "collection_ids": {
+    "collection_ids":{
       "description": "Comma separated uuid's of the export objects. The backend uses a mysql text-column limited to ~64kb. 100 uuids are ~2.5kb",
       "required":true,
       "type":"string"
     },
-    "kind": {
+    "kind":{
       "description": "The export type. text: uses an export template defined by a template_id. archived_pdf: zip with archived PDF(documents only). allinone_pdf: All archived PDF(Documents) in one big PDF. attachments: All attachments of the given objects as zip. dtaus: German bank format, relies on valid bank information in your company and for each client of the exported documents. dtaus_lk Lastschrift. dtaus_gk: Gutschrift.",
       "required":true,
       "enum": ["text", "archived_pdf", "attachments", "dtaus_lk", "dtaus_gk", "allinone_pdf"],
@@ -25,19 +27,23 @@
     },
     "template_id":{
       "description": "A export template uuid. Required for text exports. collection_type can be empty as is forced to the templates type",
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
     "team_id":{
       "description": "A team uuid. If set only the team and its parent teams can see the record.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
-    "status": {
+    "status":{
       "description": "The export status",
       "readonly":true,
       "enum": ["pending", "in_progress", "failed", "success"],
       "type":"string"
     },
-    "log": {
+    "log":{
       "description": "Errors and warnings, can contain html markup f.ex. links to clients with invalid back accounts when doing dtaus export",
       "readonly":true,
       "type":"string"
@@ -48,25 +54,25 @@
       "type":"array",
       "properties":{"$ref":"./attachment.json#properties"}
     },
-    "started_at": {
+    "started_at":{
       "description": "Date the was started",
       "format":"date-time",
       "readonly":true,
       "type":"string"
     },
-    "finished_at": {
+    "finished_at":{
       "description": "Date the was finished",
       "format":"date-time",
       "readonly":true,
       "type":"string"
     },
-    "created_at": {
+    "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
       "readonly":true,
       "type":"string"
     },
-    "updated_at": {
+    "updated_at":{
       "description": "Date the object was edited in SK.",
       "format":"date-time",
       "readonly":true,

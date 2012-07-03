@@ -1,29 +1,31 @@
 { "type":"object",
   "title": "email_template",
   "description":"An email_template in SK",
-  "properties": {
-    "id": {
-      "description": "uuid of the email template",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
       "identity":true,
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
-    "name": {
+    "name":{
       "description": "A meaningful name.",
       "required":true,
       "type":"string"
     },
-    "subject": {
+    "subject":{
       "description": "Subject containing placeholders, replaced when the template is used.",
       "required":true,
       "type":"string"
-    },   
-    "body": {
+    },
+    "body":{
       "description": "Body with placeholders, replaced when the template is used.",
       "required":true,
       "type":"string"
     },
-    "kind": {
+    "kind":{
       "description": "Kind of object receiving the email.",
       "required":true,
       "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "client"],
@@ -34,13 +36,13 @@
       "type":"string",
       "maxLength": 10
     },
-    "created_at": {
+    "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
       "readonly":true,
       "type":"string"
     },
-    "updated_at": {
+    "updated_at":{
       "description": "Date the object was edited in SK.",
       "format":"date-time",
       "readonly":true,
@@ -48,7 +50,9 @@
     },
     "team_id":{
       "description": "A team uuid. If set only the team and its parent teams can see the record.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     }
   },
    "links":[

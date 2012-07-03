@@ -1,88 +1,91 @@
 {"type":"object",
   "title": "client",
   "description": "A client as seen by SalesKing",
-  "properties": {
-    "id": {
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
       "identity":true,
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
-    "number": {
+    "number":{
       "description": "Unique number, auto-created by SK for new client without number.",
       "type":"string",
       "maxLength": 50
     },
-    "organisation": {
+    "organisation":{
       "description": "Name of a company. This or lastname must be present",
       "required" : true,
       "type":"string",
       "maxLength": 100
     },
-    "last_name": {
+    "last_name":{
       "description": "Last name of a person. At least this or the organisation field must be filled for new records",
       "type":"string",
       "maxLength": 50
     },
-    "first_name": {
+    "first_name":{
       "description": "First name of a person.",
       "type":"string",
       "maxLength": 50
     },
-    "gender": {
+    "gender":{
       "description": "Can be empty for a company. Is used in salutation",
       "enum":["male", "female"],
       "type":"string"
     },
-    "notes": {
+    "notes":{
       "description": "Notes for a contact. For day to day information you should use comments instead.",
       "type":"string",
       "maxLength": 65000
     },
-    "position": {
+    "position":{
       "description": "Position of a person in a company.",
       "type":"string",
       "maxLength": 50
     },
-    "title": {
+    "title":{
       "description": "Academical title of a person e.g. Dr., Prof",
       "type":"string",
       "maxLength": 50
     },
-    "tax_number": {
+    "tax_number":{
       "description": "Tax number, normally applies to a private person",
       "type":"string",
       "maxLength": 30
     },
-    "vat_number": {
+    "vat_number":{
       "description": "VAT number, for a company or person paying value added taxes.",
       "type":"string",
       "maxLength": 30
     },
-    "email": {
+    "email":{
       "description": "Email address of the contact.",
       "type":"string",
       "maxLength": 100
     },
-    "url": {
+    "url":{
       "description": "An url associated with the person, e.g its company website.",
       "type":"string",
       "maxLength": 255
     },
-    "birthday": {
+    "birthday":{
       "format":"date",
       "type":"string"
     },
-    "tag_list": {
+    "tag_list":{
       "description": "Space separated list of tags.",
       "type":"string"
     },
-    "created_at": {
+    "created_at":{
       "description": "Date the record was created in SK. Never changes afterwards.",
       "format":"date-time",
       "readonly":true,
       "type":"string"
     },
-    "updated_at": {
+    "updated_at":{
       "description": "Last date when the record was edited.",
       "format":"date-time",
       "readonly":true,
@@ -98,81 +101,83 @@
       "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque", "moneybookers", "premium_sms"],
       "type":"string"
     },
-    "bank_name": {
+    "bank_name":{
       "description": "Bank name",
       "type":"string",
       "maxLength": 70
     },
-    "bank_number": {
+    "bank_number":{
       "description": "Bank number",
       "type":"string",
       "maxLength": 35
     },
-    "bank_account_number": {
+    "bank_account_number":{
       "description": "Bank account number.",
       "type":"string",
       "maxLength": 35
     },
-    "bank_iban": {
+    "bank_iban":{
       "description": "IBAN Number of the bank account. Is validated",
       "type":"string",
       "maxLength": 35
     },
-    "bank_swift": {
+    "bank_swift":{
       "description": "SWIFT BIC-  Bank Identifier Code",
       "type":"string",
       "maxLength": 11
     },
-    "bank_owner": {
+    "bank_owner":{
       "description": "Bank account owner",
       "type":"string",
       "maxLength": 70
     },
-    "phone_fax": {
+    "phone_fax":{
       "description": "Fax number",
       "type":"string",
       "maxLength": 30
     },
-    "phone_office": {
+    "phone_office":{
       "description": "Office phone number",
       "type":"string",
       "maxLength": 30
     },
-    "phone_home": {
+    "phone_home":{
       "description": "Private phone number",
       "type":"string",
       "maxLength": 30
     },
-    "phone_mobile": {
+    "phone_mobile":{
       "description": "Mobile phone number",
       "type":"string",
       "maxLength": 30
     },
-    "lock_version": {
+    "lock_version":{
       "description": "Increased on every edit, so SK can detect/prevent a concurrent edit by another user. First save wins.",
       "type":"integer"
     },
-    "cash_discount": {
+    "cash_discount":{
       "description": "Default cash discount for new invoices.",
       "type":"number"
     },
-    "due_days": {
+    "due_days":{
       "description": "Default due days for new invoices.",
       "type":"integer"
     },
-    "address_field": {
+    "address_field":{
       "description": "Returns the address field used on new docs. Consist of Organisation name and default(first) address",
       "readonly":true,
       "type":"string"
     },
-    "addresses": {
+    "addresses":{
       "description": "A client can have many addresses, sorted by date descending(new first). Default address is the most recent one.",
       "type":"array",
       "properties" : {"$ref":"./address.json#properties"}
     },
     "team_id":{
       "description": "A team uuid. If set only the team and its parent teams can see the record.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     }
   },
   "links":[

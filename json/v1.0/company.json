@@ -1,105 +1,108 @@
 { "type":"object",
   "title": "company",
   "description": "A company is the main entity, so any data belongs to a company, identified by the current subdomain.",
-  "properties": {
-    "id": {
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
       "identity":true,
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
-    "name": {
+    "name":{
       "description": "Company name",
       "type":"string"
     },
-    "language": {
+    "language":{
       "description": "Default language, used for new users",
       "type":"string"
-    },    
-    "sub_domain": {
+    },
+    "sub_domain":{
       "description": "Unique subdomain identifying the company's SalesKing account.",
       "type":"string"
     },
-    "account_link": {
+    "account_link":{
       "description": "Link to a company's SalesKing account.",
       "type":"string",
       "readonly":true
     },
-    "time_zone": {
+    "time_zone":{
       "description": "Default time zone, used for new users",
       "type":"string"
     },
-    "email": {
+    "email":{
       "description": "Email address",
       "required":true,
       "type":"string"
     },
-    "url": {
+    "url":{
       "description": "A company website",
       "type":"string"
-    },   
-    "phone_fax": {
+    },
+    "phone_fax":{
       "description": "Fax number",
       "type":"string"
     },
-    "phone_office": {
+    "phone_office":{
       "description": "Office phone number",
       "type":"string"
     },
-    "phone_mobile": {
+    "phone_mobile":{
       "description": "Mobile phone number",
       "type":"string"
     },
-    "tax_number": {
+    "tax_number":{
       "description": "Tax number, normally applies to a private person running a small business.",
       "type":"string"
     },
-    "addresses": {
+    "addresses":{
       "description": "A company can have many addresses, sorted by date descending(new first). Default address used in placeholder is the most recent one.",
       "type":"array",
       "properties" : {"$ref":"./addresses.json#properties"}
     },
-    "vat_number": {
+    "vat_number":{
       "description": "VAT number, for a company entitled to pay value added taxes.",
       "type":"string"
     },
-    "bank_name": {
+    "bank_name":{
       "description": "Bank name",
       "type":"string"
     },
-    "bank_number": {
+    "bank_number":{
       "description": "Bank number",
       "type":"string"
     },
-    "bank_account_number": {
+    "bank_account_number":{
       "description": "Bank account number.",
       "type":"string"
     },
-    "bank_iban": {
+    "bank_iban":{
       "description": "IBAN Number of the bank account. Is validated",
       "type":"string"
     },
-    "bank_swift": {
+    "bank_swift":{
       "description": "SWIFT BIC-  Bank Identifier Code",
       "type":"string"
     },
-    "bank_owner": {
+    "bank_owner":{
       "description": "Bank account owner",
       "type":"string"
     },
-    "created_at": {
+    "created_at":{
       "description": "Date the record was created in SK. Never changes afterwards.",
       "format":"date-time",
       "readonly":true,
       "type":"string"
     },
-    "updated_at": {
+    "updated_at":{
       "description": "Last date when the record was edited.",
       "format":"date-time",
       "readonly":true,
       "type":"string"
     }
   },
-  
+
   "links":[
     { "rel": "current",
       "href": "companies/current"

@@ -1,53 +1,55 @@
 { "type":"object",
   "title": "attachment",
   "description":"An file attachment",
-  "properties": {
-    "id": {
+  "properties":{
+    "id":{
       "description": "uuid of the object.",
       "identity":true,
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
-    "filename": {
+    "filename":{
       "description": "The filename as set when uploaded",
       "readonly":true,
       "type":"string"
     },
-    "disk_filename": {
+    "disk_filename":{
       "description": "Unique filename set by SK",
       "readonly":true,
       "type":"string"
     },
-    "url": {
+    "url":{
       "description": "File download url. Unique and valid for 15 minutes, public accessible.",
       "readonly":true,
       "type":"string"
     },
-    "related_object_type": {
+    "related_object_type":{
       "description": "Object type of the attachment parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
       "required":true,
       "type":"string"
     },
-    "related_object_id": {
+    "related_object_id":{
       "description": "uuid of the attachment parent object.",
       "required":true,
       "type":"string"
     },
-    "content_type": {
+    "content_type":{
       "description": "Auto detected on upload. Might not always reflect the real content type",
       "readonly":true,
       "type":"string"
     },
-    "size": {
+    "size":{
       "description": "Filesize in kb. Auto detected on upload.",
       "readonly":true,
       "type":"integer"
     },
-    "is_signed": {
+    "is_signed":{
       "description": "True if the file(pdf) has been digitally signed.",
       "type":"boolean"
     },
-    "created_at": {
+    "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
       "readonly":true,

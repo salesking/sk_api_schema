@@ -3,14 +3,17 @@
   "description": "A product in SK",
   "properties":{
     "id":{
-      "description": "uuid of the product.",
+      "description":"Unique identifier - UUID",
       "identity":true,
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
     "number":{
       "description": "Unique number assigned by you or if empty SK product number schema.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 50
     },
     "name":{
       "description": "The name of the product",
@@ -47,9 +50,11 @@
     },
     "team_id":{
       "description": "A team uuid. If set only the team and its parent teams can see the record.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
-    "lock_version": {
+    "lock_version":{
       "description": "Increased on every edit, so SK can detect/prevent a concurrent edit by another user. First save wins.",
       "type":"integer"
     }
@@ -75,7 +80,7 @@
           "title" : "Search",
           "description": "Searches in number, name, description, price",
           "type":"string"
-        },        
+        },
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",

@@ -3,15 +3,18 @@
   "description": "An recurring is used as an template for new invoices.",
   "properties":{
     "id":{
-      "description": "UUID assigned by SK",
+      "description":"Unique identifier - UUID",
       "identity":true,
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
     "number":{
       "description": "Unique name to identify the document. Unlike all other document this one has no number schema and not auto assign",
       "type":"string",
-      "required":true
+      "required":true,
+      "maxLength": 50
     },
     "address_field":{
       "description": "Receiver address, normally shown in envelope window. Defaults to client address_field if empty and client_id given.",
@@ -46,11 +49,13 @@
     },
     "external_ref":{
       "description": "Some external reference, whatever this may be.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 255
     },
     "title":{
       "description": "The headline of a document. Use SK placeholders to prevent excessive typing e.g. 'Your recurring [number]'",
-      "type":"string"
+      "type":"string",
+      "maxLength": 255
     },
     "notes_before":{
       "description": "Notes shown before the line items. Normally contains salutation and other introductional information. SK placeholders can be used.",
@@ -60,7 +65,7 @@
       "description": "Notes shown after the line items. Can contain information about payments, bank account or a thank-you message. SK placeholders can be used.",
       "type":"string"
     },
-    "tag_list": {
+    "tag_list":{
       "description": "Space separated list of tags.",
       "type":"string"
     },
@@ -77,11 +82,15 @@
     },
     "client_id":{
       "description": "The clients uuid. If a new client is assigned its language, address field, due days and cash discount are used if those fields are not set.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
     "team_id":{
       "description": "A team uuid. If set only the team and its parent teams can see the record.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
     "line_items":{
       "description": "Line items for the document",

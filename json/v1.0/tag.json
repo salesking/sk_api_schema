@@ -1,23 +1,25 @@
 { "type":"object",
   "title": "tag",
   "description":"A tag",
-  "properties": {
-    "id": {
-      "description": "uuid of the object.",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
       "identity":true,
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
-    "name": {
+    "name":{
       "description": "The tag itself",
       "readonly":true,
       "type":"string"
-    },    
-    "taggings_count": {
+    },
+    "taggings_count":{
       "description": "Usage count of this tag, for all objects in whole company scope.",
       "readonly":true,
       "type":"number"
-    }    
+    }
   },
   "links":[
     { "rel": "self",

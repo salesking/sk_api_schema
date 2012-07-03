@@ -3,10 +3,12 @@
   "description": "A language in SK can be assigned to documents, contacts and templates. When creating new documents, emails or PDF the language is used to select a specific template or language agnostic defaults. A language has many translations.",
   "properties":{
     "id":{
-      "description": "uuid of the language.",
+      "description":"Unique identifier - UUID",
       "identity":true,
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
     "code":{
       "description": "Language short-code",
@@ -16,7 +18,7 @@
       "description": "The name of the language, shown in the interface",
       "type":"string",
       "required":true
-    },   
+    },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
@@ -46,7 +48,7 @@
           "title" : "Per page",
           "description": "Results per page. Default is 10, max is 100",
           "type":"number"
-        },      
+        },
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => code",

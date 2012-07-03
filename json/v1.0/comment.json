@@ -1,35 +1,39 @@
 { "type":"object",
   "title": "comment",
   "description":"An comment in SK must always be related to an object.",
-  "properties": {
-    "id": {
-      "description": "uuid of the comment",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
       "identity":true,
       "readonly":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
-    "text": {
+    "text":{
       "description": "The comment himself.",
       "required":true,
       "type":"string"
     },
-    "related_object_type": {
+    "related_object_type":{
       "description": "Object type of the comments parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
       "required":true,
       "type":"string"
     },
-    "related_object_id": {
+    "related_object_id":{
       "description": "uuid of the comments parent object.",
       "required":true,
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     },
-    "created_at": {
+    "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
       "readonly":true,
       "type":"string"
     },
-    "updated_at": {
+    "updated_at":{
       "description": "Date the object was edited in SK.",
       "format":"date-time",
       "readonly":true,
@@ -37,7 +41,9 @@
     },
     "team_id":{
       "description": "A team uuid. If set only the team and its parent teams can see the record.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     }
   },
    "links":[
