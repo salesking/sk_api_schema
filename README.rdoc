@@ -1,5 +1,7 @@
 = SalesKing API Schema
 
+{<img src="https://secure.travis-ci.org/salesking/sk_api_schema.png?branch=master" alt="Build Status" />}[http://travis-ci.org/salesking/sk_api_schema]
+
 Our API (objects,resources) is described with JSON Schema (http://json-schema.org).
 Each Object has its own description, with those top-level keys:
 
@@ -144,9 +146,8 @@ Please try to only request the fields you really need, to save computing power!
 
 == Test
 
-{<img src="https://secure.travis-ci.org/salesking/sk_api_schema.png?branch=master" alt="Build Status" />}[http://travis-ci.org/salesking/sk_api_schema]
-
-Install required gems with bundler and go for it:
+Tested with {travis-ci}[http://travis-ci.org/salesking/sk_api_schema], but of
+course you can run them too. Install required gems with bundler and go for it:
   # git clone
   # cd into sk_api_schema dir
   bundle install
