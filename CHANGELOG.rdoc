@@ -2,11 +2,15 @@
 
 A more detailed view of the changes can be found in the {commit messages}[https://github.com/salesking/sk_api_schema/commits/]
 
-2012-06
-* add payments link to invoice, credit_note
-* add due_date and due_days to order
+2012-07
 * maxLength for all string properties with limits
 * add "format":"text" to plain-text fields
+
+2012-06
+* line item discount can be negative
+* tax and discount values with up to four decimal places
+* add payments link to invoice, credit_note
+* add due_date and due_days to order
 * Deprecate payment.method in favour of payment.payment_method bcs 'method' is a keyword in programming
 * test with travis-ci.org
 
