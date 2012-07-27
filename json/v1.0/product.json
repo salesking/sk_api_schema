@@ -81,7 +81,12 @@
         },
         "filter[q]":{
           "title" : "Search",
-          "description": "Searches in number, name, description, price",
+          "description": "Wildcard search in number, name, description, price",
+          "type":["string", "number"]
+        },
+        "filter[number]":{
+          "title" : "By number",
+          "description": "Search by number. The number is matched from the start: %number",
           "type":"string"
         },
         "sort_by":{

@@ -5,6 +5,7 @@ A more detailed view of the changes can be found in the {commit messages}[https:
 2012-07
 * maxLength for all string properties with limits
 * add "format":"text" to plain-text fields
+* search products by number
 
 2012-06
 * line item discount can be negative
