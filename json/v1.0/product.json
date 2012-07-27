@@ -86,7 +86,7 @@
         },
         "filter[number]":{
           "title" : "By number",
-          "description": "Search by number. The number is matched from the start: %number",
+          "description": "Search by number. The number is matched from the start: number%",
           "type":"string"
         },
         "sort_by":{
