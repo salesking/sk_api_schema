@@ -78,14 +78,7 @@
       "description": "The client for the document. New documents cannot create a client, use client_id field to set it.",
       "readonly":true,
       "type":"object",
-      "properties":{
-        "numberschema": {
-          "properties"{
-
-        }
-        }
-
-      }
+      "properties":{"$ref":"./client.json#properties"}
     },
     "client_id":{
       "description": "The clients uuid. If a new client is assigned its language, address field are used if those fields are not set.",
