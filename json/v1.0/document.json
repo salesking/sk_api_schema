@@ -1,6 +1,6 @@
 { "type":"object",
   "title": "document",
-  "description": "This resource is readonly and serves as a convenient way to query documents independent of their type(invoice, order,..). The specific document type is set in each object in the result-set.",
+  "description": "This resource is readonly and serves as a convenient way to query documents independent of their type(invoice, order,..). The specific document type is set in each object in the result-set. Internally Document is the base class for all types and special fields are defined in each child-class. Due to this some fields might be missing if you are using this meta-class in queries.",
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -11,7 +11,7 @@
       "minLength": 22
     },
     "object_type":{
-      "description": "The specific type of the document",
+      "description": "The specific type of the document singular CamelCased: Invoice, PaymentReminder",
       "type":"string"
     },
     "number":{
@@ -99,7 +99,19 @@
       "description": "Net total, 6 decimal places incl. discount",
       "readonly":true,
       "type":"number"
+    },
+    "currency":{
+      "description": "Currency code as defined by the ISO 4217 standard. 3-letter UPCASE: EUR, USD",
+      "type":"string",
+      "maxLength": 3,
+      "minLength": 3
+    },
+    "language":{
+      "description": "Should be a valid language short-code: de-DE, fr, en-GB; like defined in your account language menu. When the document is emailed or printed, a localized version of a multi-language template(email, pdf) will be used if available. Defaults to the clients language, if empty and a client is assigned.",
+      "type":"string",
+      "maxLength": 10
     }
+
   },
   "links":[
     { "rel": "self",

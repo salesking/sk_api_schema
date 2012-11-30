@@ -26,6 +26,12 @@
       "format":"date",
       "type":"string"
     },
+    "currency":{
+      "description": "Currency code as defined by the ISO 4217 standard (3-letter UPCASE: EUR, USD)",
+      "type":"string",
+      "maxLength": 3,
+      "minLength": 3
+    },
     "method":{
       "description": "DEPRECATED use payment_method. Kicked at beginning of 08.2012"
     },

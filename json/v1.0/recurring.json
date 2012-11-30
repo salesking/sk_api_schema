@@ -76,6 +76,12 @@
       "type":"string",
       "maxLength": 10
     },
+    "currency":{
+      "description": "Currency code as defined by the ISO 4217 standard (3-letter UPCASE: EUR, USD)",
+      "type":"string",
+      "maxLength": 3,
+      "minLength": 3
+    },
     "client":{
       "description": "The client for the document. New documents cannot create a client, use client_id field to set it.",
       "readonly":true,

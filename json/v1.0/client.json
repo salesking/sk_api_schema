@@ -96,6 +96,12 @@
       "type":"string",
       "maxLength": 10
     },
+    "currency":{
+      "description": "Currency code as defined by the ISO 4217 standard(3-letter UPCASE: EUR, USD). If set the currency is taken for new documents.",
+      "type":"string",
+      "maxLength": 3,
+      "minLength": 3
+    },
     "payment_method":{
       "description": "Default payment method for used for new documemts",
       "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque", "moneybookers", "premium_sms"],

@@ -65,6 +65,12 @@
       "type":"string",
       "maxLength": 10
     },
+    "currency":{
+      "description": "Currency code as defined by the ISO 4217 standard (3-letter UPCASE: EUR, USD)",
+      "type":"string",
+      "maxLength": 3,
+      "minLength": 3
+    },
     "archived_pdf":{
       "description": "Archived PDF version of the document. Is created when an document is printed and archived. A document can have multiple archived versions. This only returns the most recent one. ",
       "readonly":true,

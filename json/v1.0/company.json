@@ -20,6 +20,12 @@
       "type":"string",
       "maxLength": 10
     },
+    "currency":{
+      "description": "Currency code as defined by the ISO 4217 standard (3-letter UPCASE: EUR, USD)",
+      "type":"string",
+      "maxLength": 3,
+      "minLength": 3
+    },
     "sub_domain":{
       "description": "Unique subdomain identifying the company's SalesKing account.",
       "type":"string",
