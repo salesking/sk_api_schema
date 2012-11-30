@@ -1,6 +1,6 @@
 { "type":"object",
-  "title": "text_template",
-  "description":"An text_template in SK",
+  "title": "pdf_template",
+  "description":"An PDF template. For now this is a read-only resource, which should fit the most important use-case: A user can select a print template.",
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -11,22 +11,26 @@
       "minLength":22
     },
     "name":{
-      "description": "A meaningful name.",
+      "description": "Name of the template as shown to the user.",
       "required":true,
       "type":"string",
       "maxLength": 50
     },
-    "text":{
-      "description": "Text which may contain placeholders, replaced when the template is used.",
-      "required":true,
+    "description":{
+      "description": "Additional information about the template.",
       "type":"string",
       "format":"text"
     },
     "kind":{
-      "description": "Kind of object the template can be used for. If empty the snippet can be used global. In this case watch not all placeholders are available: a client has different fields than an invoice.",
+      "description": "Kind of object the template can be used for.",
       "required":true,
-      "enum": ["","invoice", "estimate", "credit_note", "payment_reminder", "order", "client", "email"],
+      "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order"],
       "type":"string"
+    },
+    "language":{
+      "description": "Should be a valid language short-code: de-DE, fr, en-GB; like defined in your account language menu. A multi-language template should belong to a parent. From then on just choose the parent-template and the localized child version is used for printing if the related object(order, invoice,..) has the appropriate language.",
+      "type":"string",
+      "maxLength": 10
     },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
@@ -49,10 +53,10 @@
   },
    "links":[
     { "rel": "self",
-      "href": "text_templates/{id}"
+      "href": "pdf_templates/{id}"
     },
     { "rel": "instances",
-      "href": "text_templates",
+      "href": "pdf_templates",
       "properties" : {
         "page":{
           "title" : "Page",
@@ -78,16 +82,8 @@
       }
     },
     { "rel": "destroy",
-      "href": "text_templates/{id}",
+      "href": "pdf_templates/{id}",
       "method": "DELETE"
-    },
-    { "rel": "update",
-      "href": "text_templates/{id}",
-      "method": "PUT"
-    },
-    { "rel": "create",
-      "href": "text_templates",
-      "method": "POST"
     }
   ]
 }

@@ -23,7 +23,7 @@
       "format":"text"
     },
     "kind":{
-      "description": "Kind of exported data.",
+      "description": "Kind of object the template can be used for.",
       "required":true,
       "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "client", "payment", "comment", "email", "history", "product","recurring"],
       "type":"string"
