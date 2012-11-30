@@ -1,9 +1,8 @@
-require 'rake'
+#!/usr/bin/env rake
+require 'bundler/gem_tasks'
 require 'rspec'
 require 'rspec/core/rake_task'
 require 'rdoc/task'
-require 'bundler/gem_helper'
-Bundler::GemHelper.install_tasks
 
 desc "Run specs"
 RSpec::Core::RakeTask.new

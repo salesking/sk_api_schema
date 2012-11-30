@@ -10,7 +10,7 @@ SimpleCov.coverage_dir 'coverage'
 
 require 'rubygems'
 require 'rspec'
-require "sk_api_schema"
+require 'sk_api_schema'
 
 
 
