@@ -5,6 +5,7 @@ A more detailed view of the changes can be found in the {commit messages}[https:
 2012-11
 
   * add currency
+  * add PDF template resource
   * drop 'method' from payment in favour of payment_method
 
 2012-07
