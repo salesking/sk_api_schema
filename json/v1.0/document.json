@@ -106,6 +106,16 @@
       "maxLength": 3,
       "minLength": 3
     },
+    "exchange_rate":{
+      "description": "The exchange rate from the company currency(eg. EUR) to the document currency(USD). The rate is set on document open with the exchange rate based on the document date. If there is no rate for this day, say on weekends, the closest previous day is taken(Sunday->Friday).",
+      "readonly":true,
+      "type":"number"
+    },
+    "gross_total_exchanged":{
+      "description": "The exchanged gross total.",
+      "readonly":true,
+      "type":"number"
+    },
     "language":{
       "description": "Should be a valid language short-code: de-DE, fr, en-GB; like defined in your account language menu. When the document is emailed or printed, a localized version of a multi-language template(email, pdf) will be used if available. Defaults to the clients language, if empty and a client is assigned.",
       "type":"string",

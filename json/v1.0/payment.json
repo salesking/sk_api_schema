@@ -32,6 +32,16 @@
       "maxLength": 3,
       "minLength": 3
     },
+    "exchange_rate":{
+      "description": "The exchange rate from the company currency(eg. EUR) to the document currency(USD). The rate is set on document open with the exchange rate based on the document date. If there is no rate for this day, say on weekends, the closest previous day is taken(Sunday->Friday).",
+      "readonly":true,
+      "type":"number"
+    },
+    "amount_exchanged":{
+      "description": "The exchanged amount.",
+      "readonly":true,
+      "type":"number"
+    },
     "payment_method":{
       "description": "How the payment was made.",
       "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque", "moneybookers", "premium_sms"],
