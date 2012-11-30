@@ -4,7 +4,7 @@ A more detailed view of the changes can be found in the {commit messages}[https:
 
 2012-11
 
-  * add currency
+  * add currency fields for documents, client, company and payment
   * add PDF template resource
   * drop 'method' from payment in favour of payment_method
 
