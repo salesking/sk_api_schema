@@ -2,6 +2,11 @@
 
 A more detailed view of the changes can be found in the {commit messages}[https://github.com/salesking/sk_api_schema/commits/]
 
+2012-11
+
+  * add currency
+  * drop 'method' from payment in favour of payment_method
+
 2012-07
 * maxLength for all string properties with limits
 * add "format":"text" to plain-text fields

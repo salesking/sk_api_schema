@@ -32,9 +32,6 @@
       "maxLength": 3,
       "minLength": 3
     },
-    "method":{
-      "description": "DEPRECATED use payment_method. Kicked at beginning of 08.2012"
-    },
     "payment_method":{
       "description": "How the payment was made.",
       "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque", "moneybookers", "premium_sms"],
