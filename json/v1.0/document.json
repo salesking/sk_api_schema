@@ -66,12 +66,16 @@
     "line_items":{
       "description": "Line items for the document",
       "type":"array",
-      "properties":{"$ref":"./line_items.json#properties"}
+      "items":{"$ref":"./line_items.json#properties"}
     },
     "items":{
       "description": "Items for the document. Access items of all types including divider and sub_total items.",
       "type":"array",
-      "items": ["./line_item.json#properties", "./divider_item.json#properties", "./sub_total_item.json#properties"]
+      "default": "any",
+      "minItems": 0,
+      "items": [{ "$ref": "./line_item.json#properties"},
+                { "$ref":  "./divider_item.json#properties"},
+                { "$ref": "./sub_total_item.json#properties"}]
     },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards.",

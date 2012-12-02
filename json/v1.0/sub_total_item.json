@@ -22,11 +22,13 @@
     },
     "net_total":{
       "description": "Net sub-total",
-      "type":"number"
+      "type":"number",
+      "readonly":true
     },
     "gross_total":{
       "description": "Gross sub-total",
-      "type":"number"
+      "type":"number",
+      "readonly":true
     },
    "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
