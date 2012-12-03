@@ -87,7 +87,7 @@
         },
         "filter[kind]":{
           "title" : "Search by kind",
-          "description": "Kind of object this template can be used for: invoice, order",
+          "description": "Kind of object this template can be used for: invoice, credit_note (singular lowercase classname)",
           "type":"string"
         }
       }

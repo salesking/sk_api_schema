@@ -85,6 +85,16 @@
           "title" : "Sort",
           "enum":["ASC","DESC"],
           "description": "Sort the results in ASC or DESC"
+        },
+        "filter[q]":{
+          "title" : "Search wildcard",
+          "description": "Searches in name, subject, body",
+          "type":"string"
+        },
+        "filter[kind]":{
+          "title" : "Search by kind",
+          "description": "Kind of object this template can be used for: invoice, credit_note (singular lowercase classname)",
+          "type":"string"
         }
       }
     },
