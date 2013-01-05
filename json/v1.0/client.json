@@ -213,6 +213,11 @@
           "description": "Filter by a space delimited list of tags",
           "type":"string"
         },
+        "filter[ids]":{
+          "title" : "Clients",
+          "description": "A single or a list of client uuids, comma separated",
+          "type" : "string"
+        },
         "filter[created_at_from]":{
           "title" : "From date",
           "description": "Objects with a creation date after the date, including given datetime. ISO 8601 format YYY-MM-DDThh:mm:ss+z",

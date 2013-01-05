@@ -2,8 +2,12 @@
 
 A more detailed view of the changes can be found in the {commit messages}[https://github.com/salesking/sk_api_schema/commits/]
 
-2012-11
+2012-12
 
+  * add search filter to pdf_tempalte, email_template
+  * filter clients by ids - search for a list of comma separated uuids
+
+2012-11
   * add currency fields for documents, client, company and payment
   * add PDF template resource
   * drop 'method' from payment in favour of payment_method
