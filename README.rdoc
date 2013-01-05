@@ -6,7 +6,7 @@ Our API (objects,resources) is described with JSON Schema (http://json-schema.or
 Each Object has its own description, with those top-level keys:
 
   {
-    "title": "client",      // object type
+    "name": "client",      // object type
     "properties": { .. },   // field descriptions
     "links": [ .. ]         // CRUD actions, relationships to other resources
   }
