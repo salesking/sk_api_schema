@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "text_template",
+  "name": "text_template",
   "description":"An text_template in SK",
   "properties":{
     "id":{

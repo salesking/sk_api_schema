@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "payment_reminder",
+  "name": "payment_reminder",
   "description": "A payment reminder",
   "properties":{
     "id":{

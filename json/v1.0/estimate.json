@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "estimate",
+  "name": "estimate",
   "description": "An estimate",
   "properties":{
     "id":{

@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "payment",
+  "name": "payment",
   "description":"An payment in SK must always be related to an object.",
   "properties":{
     "id":{

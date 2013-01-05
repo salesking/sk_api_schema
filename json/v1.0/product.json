@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "product",
+  "name": "product",
   "description": "A product in SK",
   "properties":{
     "id":{

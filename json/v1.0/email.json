@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "email",
+  "name": "email",
   "description":"An email in SK must always be related to an object. Receivers are limited to 5 per address field.",
   "properties":{
     "id":{

@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "attachment",
+  "name": "attachment",
   "description":"An file attachment",
   "properties":{
     "id":{

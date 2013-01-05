@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "credit_note",
+  "name": "credit_note",
   "description": "A credit note",
   "properties":{
     "id":{

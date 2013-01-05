@@ -1,5 +1,6 @@
 {"type":"object",
   "title": "client",
+  "name": "client",
   "description": "A client as seen by SalesKing",
   "properties":{
     "id":{

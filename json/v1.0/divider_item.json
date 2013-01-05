@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "divider_item",
+  "name": "divider_item",
   "description": "A divider item serves as a separator or headline between line items, e.g. to distinguish hardware and service products on a document. Access and creation is done via documents.items(instead of line_items) where each item has a 'type' field set to its CamelCased class name.",
   "properties":{
     "id":{

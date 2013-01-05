@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "pdf_template",
+  "name": "pdf_template",
   "description":"An PDF template. For now this is a read-only resource ONLY returning your own templates. It fits the most important use-case: A user can select a print template.",
   "properties":{
     "id":{

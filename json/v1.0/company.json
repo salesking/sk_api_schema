@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "company",
+  "name": "company",
   "description": "A company is the main entity, so any data belongs to a company. It is identified by the current subdomain and cannot be edited via API atm",
   "properties":{
     "id":{

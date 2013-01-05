@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "email_template",
+  "name": "email_template",
   "description":"An email_template in SK",
   "properties":{
     "id":{

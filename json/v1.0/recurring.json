@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "recurring",
+  "name": "recurring",
   "description": "An recurring is used as an template for new invoices.",
   "properties":{
     "id":{

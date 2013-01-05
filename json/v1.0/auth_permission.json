@@ -1,5 +1,6 @@
 {"type":"object",
   "title": "auth_permission",
+  "name": "auth_permission",
   "description": "A Permission authorises someone to execute actions(grants privileges) in the scope of a context. The context is a resource f.ex: clients, and the privileges a group of actions like: index, show, edit, update. A permission to read invoices has the context: invoices and as privileges: index,show.",
   "properties":{
     "id":{

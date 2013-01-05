@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "invoice",
+  "name": "invoice",
   "description": "An invoice",
   "properties":{
     "id":{

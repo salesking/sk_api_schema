@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "order",
+  "name": "order",
   "description": "An order",
   "properties":{
     "id":{
