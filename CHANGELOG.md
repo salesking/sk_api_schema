@@ -4,6 +4,8 @@ A more detailed view of the changes can be found in the {commit messages}[https:
 
 2013-01
 * add external_ref for line item
+* email "send" parameter can be set to false or 0 to prevent sending
+* email "from_addr" is not required
 * add new item types: devider_item, sub_total_item
 * add items for documents containing all items by type
 * add filter\[tags] to products, mark price as required
