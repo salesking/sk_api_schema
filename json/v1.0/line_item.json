@@ -21,6 +21,11 @@
       "type":"string",
       "maxLength": 50
     },
+    "external_ref":{
+      "description": "Arbitrary number e.g. external product reference.",
+      "type":"string",
+      "maxLength": 255
+    },
     "description":{
       "description": "Item description",
       "type":"string",

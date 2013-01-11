@@ -3,6 +3,7 @@
 A more detailed view of the changes can be found in the {commit messages}[https://github.com/salesking/sk_api_schema/commits/]
 
 2013-01
+* add external_ref for line item
 * add new item types: devider_item, sub_total_item
 * add items for documents containing all items by type
 * add filter\[tags] to products, mark price as required

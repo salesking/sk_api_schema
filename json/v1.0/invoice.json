@@ -120,7 +120,7 @@
       "properties":{"$ref":"./line_item.json#properties"}
     },
     "items":{
-      "description": "Items for the document. Access items of all types including divider and sub_total items.",
+      "description": "Items for the document. Access items of all types including divider and sub_total items. Item creation is currently only supported through line_items array.",
       "type":"array",
       "default": "any",
       "minItems": 0,
