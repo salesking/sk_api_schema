@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "line_item",
+  "name": "line_item",
   "description": "A line item for a document",
   "properties":{
     "id":{
@@ -19,6 +20,11 @@
       "description": "The name of an item",
       "type":"string",
       "maxLength": 50
+    },
+    "external_ref":{
+      "description": "Arbitrary number e.g. external product reference.",
+      "type":"string",
+      "maxLength": 255
     },
     "description":{
       "description": "Item description",

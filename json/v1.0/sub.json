@@ -1,5 +1,6 @@
 {"type":"object",
   "title": "sub",
+  "name": "sub",
   "description": "Subscribe to push notifications(webhooks) about object livecycle events like new, update or delete. Only returns subscription for the current app, so you MUST be using oAuth. When a user removes your app its subs are also deleted. <br/>To register you must supply <br/>- callback_url: receives a base64 encode string containing a JSON object with the object in it's latest state, the user_id & subdomain, company_id, hmac-signed with your app secret.<br/>- channel: defining the event, made up of the SINGULAR object name and the action: invoice.delete, payment.new<br/> - register auth_permissions: An app MUST request non-api permissions f.ex.: clients:create. Perms(on company,app,user,team) are checked before any publishing, so if a user cannot create clients in the interface, his apps will not receive any callbacks.",
   "properties":{
     "id":{

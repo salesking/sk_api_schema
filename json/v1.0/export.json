@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "export",
+  "name": "export",
   "description":"An export in SK",
   "properties":{
     "id":{

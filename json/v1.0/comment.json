@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "comment",
+  "name": "comment",
   "description":"An comment in SK must always be related to an object.",
   "properties":{
     "id":{

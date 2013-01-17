@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "sub_total_item",
+  "name": "sub_total_item",
   "description": "A sub-total item shows a sum of the previous line items, e.g. to distinguish hardware and service costs on a document.",
   "properties":{
     "id":{

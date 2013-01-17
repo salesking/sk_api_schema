@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "product",
+  "name": "product",
   "description": "A product in SK",
   "properties":{
     "id":{
@@ -26,9 +27,14 @@
       "type":"string",
       "format":"text"
     },
+    "tag_list":{
+      "description": "Space separated list of tags. Are split and saved as Tag objects on create, update.",
+      "type":"string"
+    },
     "price":{
       "description": "Net price of a single product",
-      "type":"number"
+      "type":"number",
+      "required":true
     },
     "tax":{
       "description": "Tax percentage for this product.",
@@ -87,6 +93,11 @@
         "filter[number]":{
           "title" : "By number",
           "description": "Search by exact number",
+          "type":"string"
+        },
+        "filter[tags]":{
+          "title" : "Tags",
+          "description": "Filter by a space delimited list of tags",
           "type":"string"
         },
         "sort_by":{

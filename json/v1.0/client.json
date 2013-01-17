@@ -1,5 +1,6 @@
 {"type":"object",
   "title": "client",
+  "name": "client",
   "description": "A client as seen by SalesKing",
   "properties":{
     "id":{
@@ -212,6 +213,11 @@
           "title" : "Tags",
           "description": "Filter by a space delimited list of tags",
           "type":"string"
+        },
+        "filter[ids]":{
+          "title" : "Clients",
+          "description": "A single or a list of client uuids, comma separated",
+          "type" : "string"
         },
         "filter[created_at_from]":{
           "title" : "From date",

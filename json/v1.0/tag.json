@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "tag",
+  "name": "tag",
   "description":"A tag",
   "properties":{
     "id":{

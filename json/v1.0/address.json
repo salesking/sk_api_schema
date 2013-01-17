@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "address",
+  "name": "address",
   "description":"An address in SK is maintained within it's parent object(client, company). The first address(default_address) is used inside the address field of new documents. With multiple addresses sorting(first) is done by date, newest first. So if you add a new adddress it will be the new default one. See order and type property for details about ordering and accessing parcel work or home addresses.",
   "properties":{
     "id":{

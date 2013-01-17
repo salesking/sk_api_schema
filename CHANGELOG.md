@@ -1,12 +1,24 @@
-= Changelog for SalesKing API Schema
+# Changelog for SalesKing API Schema
 
 A more detailed view of the changes can be found in the {commit messages}[https://github.com/salesking/sk_api_schema/commits/]
 
-2012-11
+2013-01
+* add external_ref for line item
+* email "send" parameter can be set to false or 0 to prevent sending
+* email "from_addr" is not required
+* add new item types: devider_item, sub_total_item
+* add items for documents containing all items by type
+* add filter\[tags] to products, mark price as required
+* add name-key to all objects containing the lowercased_underscored-name, PLEASE start using it instead of the title-field, which will be changed to its CamelCasedObjectName
 
-  * add currency fields for documents, client, company and payment
-  * add PDF template resource
-  * drop 'method' from payment in favour of payment_method
+2012-12
+* add search filter to pdf_template, email_template
+* filter clients by ids - search for a list of comma separated uuids
+
+2012-11
+* add currency fields for documents, client, company and payment
+* add PDF template resource
+* drop 'method' from payment in favour of payment_method
 
 2012-07
 * maxLength for all string properties with limits
@@ -51,9 +63,9 @@ A more detailed view of the changes can be found in the {commit messages}[https:
 
 2011-6
 * added language field to document, client, email-template
-* added filter[languages] for documents and clients, to search by one or more languages
-* added filter[client_ids] to documents, to search by one or multiple clients
-* added filter[ids] for documents, to find multiple specific documents
+* added filter\[languages] for documents and clients, to search by one or more languages
+* added filter\[client_ids] to documents, to search by one or multiple clients
+* added filter\[ids] for documents, to find multiple specific documents
 * changed _delete property to _destroy for address, line_item
 * removed client_id requirement for documents
 

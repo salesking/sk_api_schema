@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "export_template",
+  "name": "export_template",
   "description":"An export_template in SK",
   "properties":{
     "id":{

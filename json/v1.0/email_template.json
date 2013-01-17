@@ -1,5 +1,6 @@
 { "type":"object",
   "title": "email_template",
+  "name": "email_template",
   "description":"An email_template in SK",
   "properties":{
     "id":{
@@ -31,7 +32,7 @@
     "kind":{
       "description": "Kind of object the template can be used for.",
       "required":true,
-      "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "contact"],
+      "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "client"],
       "type":"string"
     },
     "language":{
@@ -93,7 +94,7 @@
         },
         "filter[kind]":{
           "title" : "Search by kind",
-          "description": "Kind of object this template can be used for: invoice, order",
+          "description": "Kind of object this template can be used for",
           "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "contact"],
           "type":"string"
         }
