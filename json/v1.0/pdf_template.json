@@ -88,6 +88,7 @@
         "filter[kind]":{
           "title" : "Search by kind",
           "description": "Kind of object this template can be used for: invoice, order",
+          "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order"],
           "type":"string"
         }
       }
