@@ -31,7 +31,7 @@
     "kind":{
       "description": "Kind of object the template can be used for.",
       "required":true,
-      "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "client"],
+      "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "contact"],
       "type":"string"
     },
     "language":{
@@ -77,7 +77,7 @@
         },
         "sort_by":{
           "title" : "Sort by",
-          "description": "Sort the results by the given field => number",
+          "description": "Sort the results by the given field",
           "enum":["created_at", "updated_at"],
           "type": "string"
         },
@@ -85,6 +85,17 @@
           "title" : "Sort",
           "enum":["ASC","DESC"],
           "description": "Sort the results in ASC or DESC"
+        },
+        "filter[q]":{
+          "title" : "Search wildcard",
+          "description": "Searches in name, body, subject",
+          "type":"string"
+        },
+        "filter[kind]":{
+          "title" : "Search by kind",
+          "description": "Kind of object this template can be used for: invoice, order",
+          "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "contact"],
+          "type":"string"
         }
       }
     },
