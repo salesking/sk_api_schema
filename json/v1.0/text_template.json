@@ -26,7 +26,7 @@
     "kind":{
       "description": "Kind of object the template can be used for. If empty the snippet can be used global. In this case watch not all placeholders are available: a client has different fields than an invoice.",
       "required":true,
-      "enum": ["","invoice", "estimate", "credit_note", "payment_reminder", "order", "client", "email"],
+      "enum": ["","invoice", "estimate", "credit_note", "payment_reminder", "order", "contact", "email"],
       "type":"string"
     },
     "created_at":{

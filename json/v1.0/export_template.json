@@ -26,7 +26,7 @@
     "kind":{
       "description": "Kind of object the template can be used for.",
       "required":true,
-      "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "client", "payment", "comment", "email", "history", "product","recurring"],
+      "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "contact", "payment", "comment", "email", "history", "product","recurring"],
       "type":"string"
     },
     "filename":{
