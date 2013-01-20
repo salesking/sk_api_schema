@@ -231,7 +231,12 @@
         },
         "filter[client_ids]":{
           "title" : "Clients",
-          "description": "A single or a list of client uuids, comma separated",
+          "description": "DEPRECATED use contact_ids",
+          "type" : "string"
+        },
+        "filter[contact_ids]":{
+          "title" : "Contacts",
+          "description": "A single or a list of contact uuids, comma separated",
           "type" : "string"
         },
         "filter[ids]":{

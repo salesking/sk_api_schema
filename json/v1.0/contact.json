@@ -1,7 +1,7 @@
 {"type":"object",
   "title": "contact",
   "name": "contact",
-  "description": "A contact can be a lead, client or supplier, depending on its type field. This resource simplifies access to all contacts or only contacts of specified type if you use the filter[type] parameter. You should use this resource instead of clients, as we plan to deprecate them in the future.",
+  "description": "A contact can be a lead, client or supplier, depending on its type field. Use the filter[type] parameter to show only contacts of a kind. Use this resource instead of clients, as they are deprecated and dropped in the future.",
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
