@@ -51,7 +51,7 @@
       "properties":{"$ref":"./attachment.json#properties"}
     },
     "related_object_type":{
-      "description": "Object type of the emails parent. Is the camelcased base class name: Document for invoice, credit_note,.., Contact for client",
+      "description": "Object type of the emails parent. Is the camelcased base class name: Document for invoice, credit_note, contact,..",
       "required":true,
       "type":"string"
     },

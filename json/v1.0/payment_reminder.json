@@ -89,7 +89,7 @@
       "properties":{"$ref":"./attachment.json#properties"}
     },
     "client":{
-      "description": "The client for the document. Is assigned throught the related invoice",
+      "description": "The client for the document. Is assigned through the related invoice",
       "readonly":true,
       "type":"object",
       "properties":{"$ref":"./client.json#properties"}
