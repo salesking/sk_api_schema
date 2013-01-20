@@ -54,9 +54,14 @@
       "type":"string"
     },
     "client_id":{
-      "description": "The clients uuid",
+      "description": "DEPRECATED: use contact_id",
       "type":"string",
-      "required":true,
+      "maxLength": 22,
+      "minLength":22
+    },
+    "contact_id":{
+      "description": "The contact uuid. When assigning a contact its language, currency, address_field (due days, cash discount) values are used for the document if those doc-fields are not set.",
+      "type":"string",
       "maxLength": 22,
       "minLength":22
     },

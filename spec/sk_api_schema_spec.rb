@@ -144,7 +144,9 @@ end
 ################################################################################
 # virtual classes used in test
 class Invoice
-  attr_accessor :id, :title, :description, :number, :date, :due_date, :line_items, :client, :archived_pdf, :items
+  attr_accessor :id, :title, :description, :number, :date, :due_date,
+                :line_items, :archived_pdf, :items,
+                :client, :contact
 end
 
 class LineItem

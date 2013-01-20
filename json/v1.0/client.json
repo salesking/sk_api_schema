@@ -1,7 +1,7 @@
 {"type":"object",
   "title": "client",
   "name": "client",
-  "description": "A client as seen by SalesKing",
+  "description": "A client as seen by SalesKing. This resource is DEPRECATED please use contacts instead with type-field set 'Client'",
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",

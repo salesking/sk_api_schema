@@ -12,7 +12,7 @@
       "minLength":22
     },
     "collection_type":{
-      "description": "The type of data to export. Lower-case singular name of the export data's class(invoice,client ..), see available classes in json schema. Does not need to be set for text-exports as its set from the export tempaltes type.",
+      "description": "The type of data to export. Lower-case singular name of the export data's class(invoice,contact..), see available classes in json schema. Not required for text-exports, getting the type from the export_template.",
       "type":"string",
       "maxLength": 20
     },
@@ -47,7 +47,7 @@
       "type":"string"
     },
     "log":{
-      "description": "Errors and warnings, can contain html markup f.ex. links to clients with invalid back accounts when doing dtaus export",
+      "description": "Errors and warnings, can contain html markup f.ex. links to contacts with invalid back accounts when doing dtaus export",
       "readonly":true,
       "type":"string",
       "format": "text"

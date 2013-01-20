@@ -97,13 +97,25 @@
       "properties":{"$ref":"./attachment.json#properties"}
     },
     "client":{
-      "description": "The client for the document. You cannot create a client through this, use client_id field to set it.",
+      "description": "DEPRECATED: use contact",
       "readonly":true,
       "type":"object",
       "properties":{"$ref":"./client.json#properties"}
     },
     "client_id":{
-      "description": "The clients uuid. If a new client is assigned its language, address field, due days and cash discount are used if those fields are not set.",
+      "description": "DEPRECATED: use contact_id",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "contact":{
+      "description": "The contact for the document. Use contact_id field to set a contact.",
+      "readonly":true,
+      "type":"object",
+      "properties":{"$ref":"./contact.json#properties"}
+    },
+    "contact_id":{
+      "description": "The contact uuid. When assigning a contact its language, currency, address_field (due days, cash discount) values are used for the document if those doc-fields are not set.",
       "type":"string",
       "maxLength": 22,
       "minLength":22
