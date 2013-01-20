@@ -217,7 +217,7 @@
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",
-          "enum":["title", "number", "created_at", "updated_at", "client_id", "price_total"],
+          "enum":["title", "number", "created_at", "updated_at", "price_total"],
           "type": "string"
         },
         "sort":{

@@ -3,6 +3,12 @@
 A more detailed view of the changes can be found in the {commit messages}[https://github.com/salesking/sk_api_schema/commits/]
 
 2013-01
+
+Contacts/Client changes
+*  remove client_id from sort_by-param for doc list views (it makes no sense to sort by a UUID)
+
+
+Others
 * add external_ref for line item
 * email "send" parameter can be set to false or 0 to prevent sending
 * email "from_addr" is not required
