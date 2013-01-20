@@ -78,8 +78,9 @@
         },
         "sort":{
           "title" : "Sort",
-          "enum":["ASC","DESC"],
-          "description": "Sort the results in ASC or DESC"
+          "description": "Sort the results in ASC or DESC",
+          "type":"string",
+          "enum":["ASC","DESC"]
         },
         "filter[q]":{
           "title" : "Search wildcard",
@@ -89,7 +90,8 @@
         "filter[kind]":{
           "title" : "Search by kind",
           "description": "Kind of object this template can be used for: invoice, order",
-          "type":"string"
+          "type":"string",
+          "enum":["invoice","estimate", "credit_note", "payment_reminder", "order"]
         }
       }
     }
