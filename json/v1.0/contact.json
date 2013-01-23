@@ -192,6 +192,21 @@
       "type":"string",
       "maxLength": 22,
       "minLength":22
+    },
+    "lead_source":{
+      "description": "Lead source describing where a contact came from e.g. a campaign name, website, facebook, URL",
+      "type":"string",
+      "maxLength": 255
+    },
+    "lead_ref":{
+      "description": "Lead reference e.g. a tracking id, web-url",
+      "type":"string",
+      "maxLength": 255
+    },
+    "converted_at":{
+      "description": "Date the contact converted from lead to client or any other contact type (supplier)",
+      "format":"date-time",
+      "type":"string"
     }
   },
   "links":[
