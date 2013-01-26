@@ -11,6 +11,12 @@
       "maxLength": 22,
       "minLength":22
     },
+    "parent_id":{
+      "description": "ID of a parent contact.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
     "type":{
       "description": "Type of contact",
       "enum":["Client", "Lead", "Supplier"],
