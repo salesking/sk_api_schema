@@ -284,12 +284,12 @@
       "properties" : {
         "source" : {
           "title" : "Source document id",
-          "description": "Copies the source document(excl. number,date) and returns a new draft document. If the source is an Estimate or Order only line_items, client & tags are copied, so you can pass in additional fields.",
+          "description": "Copies the source(excl. number,date) and returns a new draft document. Fields passed with the object(e.g. notes, title, address_field) are not overwritten. If the source is an Estimate or Order only line_items, contact & tags are copied.",
           "type" : "string"
         },
         "cancel" : {
           "title" : "Cancel an invoice",
-          "description": "Cancelling a document copies the source and negates its line item values. A source id must be set.",
+          "description": "Cancelling a document copies the source and negates all line item values. A source id must be set.",
           "dependencies": ["source"],
           "type":"boolean"
         }
