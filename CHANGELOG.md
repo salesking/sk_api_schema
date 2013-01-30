@@ -6,14 +6,18 @@ Also signup to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter
 ##2013-01
 
 Contacts/Client changes
+* New contact resource sporting client, lead, supplier contact types
+* nested contacts
 * add contact, contact_id to all documents
 * add parent_id to contact, for contact nesting
 * remove client_id from param sort_by for doc list views (it makes no sense to sort by a UUID)
 * export_template, email_template.kind uses contact instead of client
 
 DEPRECATED removed ~ 08.2013
+* client resource
 * document.client, document.client_id => doc.contact, doc.contact_id
 * documents?filter\[client_ids] => filter\[contact_ids]
+* oAuth scope for api/clients
 
 Others
 * add external_ref for line item
