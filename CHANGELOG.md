@@ -7,6 +7,7 @@ Also signup to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter
 
 Contacts/Client changes
 * New contact resource sporting client, lead, supplier contact types
+* mark contact as employee, getting number, organisation, vat/tax number from his parent
 * nested contacts
 * add contact, contact_id to all documents
 * add parent_id to contact, for contact nesting

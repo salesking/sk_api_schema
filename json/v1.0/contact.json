@@ -24,6 +24,11 @@
       "type":"string",
       "maxLength": 50
     },
+    "is_employee":{
+      "description": "An employee gets number, organisation, tax and vat_number from its parent. If you set any of these, they are overwritten. When changing a parent-contact the fields on his direct child-employees are updated too.",
+      "type": "boolean",
+      "default": false
+    },
     "number":{
       "description": "Unique number, auto-created by SK for new contacts(client, supplier) without number.",
       "type":"string",
