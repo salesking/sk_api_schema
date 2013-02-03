@@ -14,7 +14,7 @@ Contacts/Client changes
 * remove client_id from param sort_by for doc list views (it makes no sense to sort by a UUID)
 * export_template, email_template.kind uses contact instead of client
 
-DEPRECATED removed ~ 08.2013
+DEPRECATED removed ~ 08.2013 prior notice via [Developer Newsletter](http://www.salesking.eu/dev/newsletter/)
 * client resource
 * document.client, document.client_id => doc.contact, doc.contact_id
 * documents?filter\[client_ids] => filter\[contact_ids]
