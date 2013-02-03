@@ -6,7 +6,7 @@ Our API (objects,resources) is described with JSON Schema (http://json-schema.or
 Each Object has its own description, with those top-level keys:
 
   {
-    "name": "client",      // object type
+    "type": "contact",      // object type
     "properties": { .. },   // field descriptions
     "links": [ .. ]         // CRUD actions, relationships to other resources
   }
@@ -21,9 +21,11 @@ Other languages should take advantage of the raw json files.
 
 == Tutorial & Docs
 
-* {API Browser visualized JSON Schema}[http://sk-api-browser.heroku.com/]
-* {API Intro}[http://dev.blog.salesking.eu/api/]
+* {API Browser}[http://sk-api-browser.heroku.com/]
+* {API Intro}[http://www.salesking.eu/dev/api/]
 * {Ruby SDK - API Client}[https://github.com/salesking/sk_sdk]
+* {PHP SDK - API Client}[https://github.com/salesking/salesking_php_sdk]
+* {Python SDK - API Client}[https://github.com/salesking/salesking_python_sdk]
 
 == Object Basic's
 
@@ -32,13 +34,13 @@ Primary object types in SK are:
 * Contacts
 * Products
 
-Secondary objects are always tied to a primary(related) object
+Secondary objects, tied to a primary(related) object
 * Attachments
 * Comments
 * Messages
 * Tags
 
-The third kind are supportive objects
+Supportive objects
 * Company
 * Users
 * Exports
@@ -53,8 +55,8 @@ of each schema.
     # GET invoices tagged with hosting and important
     /invoices?filter[tags]=important,hosting
 
-    # GET orders for given client ids
-    /orders?filter[client_ids]=:client_id,:client_id
+    # GET orders for given contact ids
+    /orders?filter[contact_ids]=:contact_id,:contact_id
 
     # GET products second page with 100 in list, only id+name
     /products?per_page=100&page=2&fields=id,name
@@ -62,11 +64,11 @@ of each schema.
     # all comments for an invoice
     /invoices/:id/comments
 
-    # all documents of a client
-    /clients/:id/documents
+    # all documents of a contact
+    /contacts/:id/documents
 
-    # all invoices of a client
-    /clients/:id/invoices
+    # all invoices of a contact
+    /contacts/:id/contact
 
 == Field types & formats
 
@@ -114,11 +116,11 @@ changes(breaking backwards compatibility), the version number will remain.
 
 You can see the current schema at:
   my.salesking.eu/api/schema
-  my.salesking.eu/api/clients/schema
+  my.salesking.eu/api/contacts/schema
 
 The schema main version(NOT the gem version) can be set with the "v" url parameter
 in any call, but is pretty useless as long as we are in v1.0
-  my.salesking.eu/api/clients?v='1.0'
+  my.salesking.eu/api/contacts?v='1.0'
 
 The gem has its own version number. A new gem version indicates a change, but
 we first try it on our staging environment before any live instances are
@@ -133,9 +135,9 @@ To see the current gem version use:
 By default the API returns an object with all available properties(fields). You
 can limit those by passing comma-separated string(or array) in the fields
 parameter:
-  my.salesking.eu/api/clients?fields=id,organisation
+  my.salesking.eu/api/contacts?fields=id,organisation
 
-  my.salesking.eu/api/clients?fields[]=id&fields[]=organisation
+  my.salesking.eu/api/contacts?fields[]=id&fields[]=organisation
 
 Please try to only request the fields you really need, to save computing power!
 
