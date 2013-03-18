@@ -9,6 +9,11 @@ module SK
 
       class << self
 
+        # Get the path to schema files. So it can be used f.ex. with
+        # gem json_schema_tools
+        def self.path
+          File.expand_path( '../json', File.dirname(__FILE__))
+        end
         # class var remembering already read-in schema's
         # {
         #   'v1.0'=>{
