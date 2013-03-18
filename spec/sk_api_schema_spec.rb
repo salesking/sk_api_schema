@@ -7,6 +7,10 @@ describe SK::Api::Schema do
       SK::Api::Schema.registry_reset
     end
 
+    it "should provide schema path" do
+      File.exists?(SK::Api::Schema.path).should be
+    end
+
     it "should read json schema file" do
       schema = SK::Api::Schema.read(:invoice, 'v1.0')
       schema[:title].should == 'invoice'
