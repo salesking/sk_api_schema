@@ -78,7 +78,7 @@
       "type":"number"
     },
     "gross_total_exchanged":{
-      "description": "The exchanged gross total.",
+      "description": "Exchanged gross total, in your company currency.",
       "readonly":true,
       "type":"number"
     },

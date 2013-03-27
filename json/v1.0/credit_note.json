@@ -86,7 +86,7 @@
       "type":"number"
     },
     "gross_total_exchanged":{
-      "description": "The exchanged gross total.",
+      "description": "Exchanged gross total, in your company currency.",
       "readonly":true,
       "type":"number"
     },
@@ -158,7 +158,7 @@
       "type":"number"
     },
     "gross_total":{
-      "description": "Gross total of all line items, 2 decimals places",
+      "description": "Gross total of all line items, 2 decimals places in document currency.",
       "readonly":true,
       "type":"number"
     },
