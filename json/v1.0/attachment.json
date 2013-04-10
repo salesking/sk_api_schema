@@ -24,7 +24,7 @@
       "maxLength": 255
     },
     "url":{
-      "description": "File download url. Unique and valid for 15 minutes, public accessible.",
+      "description": "DEPERECATED use attachments/ID/download",
       "readonly":true,
       "type":"string",
       "format": "uri"
@@ -72,6 +72,9 @@
   "links":[
     { "rel": "self",
       "href": "attachments/{id}"
+    },
+    { "rel": "download",
+      "href": "attachments/{id}/download"
     },
     { "rel": "instances",
       "href": "attachments",
