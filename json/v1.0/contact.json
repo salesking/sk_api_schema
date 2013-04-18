@@ -214,6 +214,11 @@
       "type":"string",
       "maxLength": 255
     },
+    "lead_date":{
+      "description": "Lead date e.g. date of first contact with your company",
+      "format":"date",
+      "type":"string"
+    },
     "converted_at":{
       "description": "Date the contact converted from lead to client or any other contact type (supplier)",
       "format":"date-time",
