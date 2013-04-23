@@ -24,7 +24,7 @@
       "maxLength": 255
     },
     "url":{
-      "description": "DEPERECATED use attachments/ID/download",
+      "description": "DEPRECATED use attachments/ID/download",
       "readonly":true,
       "type":"string",
       "format": "uri"

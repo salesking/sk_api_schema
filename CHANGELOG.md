@@ -5,15 +5,13 @@ Also signup to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter
 
 ##2013-04
 
+* new attachments/{ID}/download url DEPRECATE attachment.url
 * add lead_date to contact
+* make contact.lead_ref + lead_source text fields
 
 ##2013-03
 
 * add path method to schema: SK::Api::Schema.path
-
-##2013-04
-
-* new attachments/ID/download url
 
 ##2013-01
 
