@@ -30,7 +30,7 @@
       "format": "uri"
     },
     "related_object_type":{
-      "description": "Object type of the attachment parent. Is the camelCased base class name: Document for invoice, credit_note, contact, ..",
+      "description": "Object type of the attachment parent. A base class name: Document(for invoice, credit_note) Contact, Message(for email), Template(for email, pdf template)",
       "required":true,
       "type":"string"
     },
@@ -103,6 +103,12 @@
         "filter[to]":{
           "title" : "To date",
           "description": "All objects created at and before the date",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[related_object_type]":{
+          "title" : "Related object type",
+          "description": "All objects belonging to the given object type. The singular base class name like: Document, Contact, Export, Message",
           "format" : "date",
           "type" : "string"
         },
