@@ -4,7 +4,6 @@ require 'sk_api_schema/version'
 
 Gem::Specification.new do |s|
   s.version = SK::Api::Schema::VERSION
-  s.date = %q{2012-07-27}
   s.name = %q{sk_api_schema}
   s.summary = 'SalesKing API - JSON Schema'
   s.description = %q{The SalesKing JSON Schema describes our business API in terms of available objects, their fields and links to url endpoints with related objects.
