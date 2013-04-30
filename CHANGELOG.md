@@ -5,6 +5,8 @@ Also signup to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter
 
 ##2013-04
 
+* filter attachments by related_object_type
+* new PubSub channel for attachments
 * new attachments/{ID}/download url DEPRECATE attachment.url
 * add lead_date to contact
 * make contact.lead_ref + lead_source text fields
