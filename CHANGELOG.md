@@ -3,6 +3,11 @@
 See [commit messages](https://github.com/salesking/sk_api_schema/commits/) for details.
 Also signup to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter/) to stay up-to-date !!!
 
+##2013-05
+
+* add is_partial, cash_discount to payments
+* add late_fee param to create(POST) payments, creating an own payment for the last payment_reminder of an invoice
+
 ##2013-04
 
 * filter attachments by related_object_type

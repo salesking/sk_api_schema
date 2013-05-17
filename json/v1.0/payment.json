@@ -16,6 +16,15 @@
       "required":true,
       "type":"number"
     },
+    "cash_discount":{
+      "description": "The cash discount amount. If a client withdraws a cash discount say 2% of 100€, he pays 98€ used in amount and 2€ in cash_discount. Handled separate for correction of sales,vat accounts in bookkeeping.",
+      "type":"number"
+    },
+    "is_partial":{
+      "description": "If set the related document is NOT closed.",
+      "type":"boolean",
+      "default": false
+    },
     "external_ref":{
       "description": "Reference number f.ex. issued by the bank.",
       "type":"string",
@@ -130,11 +139,10 @@
       "href": "payments",
       "method": "POST",
       "properties" : {
-        "new_doc_status":{
-          "title" : "New status for document",
-          "description": "Convenience method to close a document with a payment.",
-          "enum": ["open","closed"],
-          "type":"string"
+        "late_fee":{
+          "title" : "The paid late fee for an invoice",
+          "description": "If an invoice has payment reminders with a late fee, add the late fee here if it was paid. We create a second payment for the last reminder and close it.",
+          "type":"number"
         }
       }
     }
