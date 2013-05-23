@@ -37,6 +37,12 @@
       "format":"date",
       "type":"string"
     },
+    "status":{
+      "description": "Defaults to open for new reminders, unless otherwise stated. Beware that the overdue-status is virtual as it depends on the real status=open and the document due_date.",
+      "default":"open",
+      "enum":["draft","open","closed", "overdue"],
+      "type":"string"
+    },
     "external_ref":{
       "description": "Some external reference, whatever this may be.",
       "type":"string",
