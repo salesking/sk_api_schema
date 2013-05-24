@@ -5,7 +5,7 @@ Also signup to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter
 
 ##2013-05
 
-* add payment_reminder "status"
+* add payment_reminder "status" and filter by "status"
 * add payment "is_partial", replaces the "new_doc_status" parameter on POST create. Partial payments dont close the related document.
 * add payment "cash_discount", to explicitly set the cash discount amount withdrawn by a client
 * add "late_fee" parameter to create(POST) payments, creating an own payment for the last payment_reminder of an invoice
