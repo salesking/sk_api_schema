@@ -40,7 +40,7 @@
     "status":{
       "description": "Defaults to open for new reminders, unless otherwise stated. Beware that the overdue-status is virtual as it depends on the real status=open and the document due_date.",
       "default":"open",
-      "enum":["draft","open","closed", "overdue"],
+      "enum":["draft","open","closed","overdue"],
       "type":"string"
     },
     "external_ref":{
@@ -214,6 +214,11 @@
         "filter[ids]":{
           "title" : "Documents",
           "description": "A single or a list of document uuids, comma separated",
+          "type" : "string"
+        },
+        "filter[status]":{
+          "title" : "Contacts",
+          "description": "A single or a list of status, comma separated: open,closed,overdue,draft",
           "type" : "string"
         },
         "sort_by":{
