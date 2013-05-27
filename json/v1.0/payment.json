@@ -57,6 +57,11 @@
       "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque", "moneybookers", "premium_sms"],
       "type":"string"
     },
+    "late_fee":{
+      "title" : "The paid late fee for an invoice",
+      "description": "Add a late fee if an invoice has payment reminders. We create a second payment for the last reminder and close all others. Set to 0, if you want to waive the fee(has not been paid). In this case all reminders are closed and we also correct the sales+debtor account with the open fees. This is a pure setter-method used in creation!",
+      "type":"number"
+    },
     "related_object_type":{
       "description": "Object type of the payments parent. Is the camel-cased base class name: Document for invoice, credit_note",
       "required":true,
@@ -137,14 +142,7 @@
     },
     { "rel": "create",
       "href": "payments",
-      "method": "POST",
-      "properties" : {
-        "late_fee":{
-          "title" : "The paid late fee for an invoice",
-          "description": "If an invoice has payment reminders with a late fee, add the late fee here if it was paid. We create a second payment for the last reminder and close it.",
-          "type":"number"
-        }
-      }
+      "method": "POST"
     }
   ]
 }
