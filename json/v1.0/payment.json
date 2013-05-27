@@ -58,7 +58,7 @@
       "type":"string"
     },
     "late_fee":{
-      "title" : "The paid late fee for an invoice",
+      "title" : "A late fee for an invoice",
       "description": "Add a late fee if an invoice has payment reminders. We create a second payment for the last reminder and close all others. Set to 0, if you want to waive the fee(has not been paid). In this case all reminders are closed and we also correct the sales+debtor account with the open fees. This is a pure setter-method used in creation!",
       "type":"number"
     },
