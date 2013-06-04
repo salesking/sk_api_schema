@@ -114,13 +114,10 @@
           "description": "Search in body and subject",
           "type":"string"
         },
-        "filter[sent]":{
-          "title" : "Sent emails",
-          "description": "Show only sent emails"
-        },
-        "filter[draft]":{
-          "title" : "Draft emails",
-          "description": "Show only draft emails"
+        "filter[status]":{
+          "title" : "Emails by status",
+          "description": "Show only sent, draft or emails in progress. The status is virtual and checks the delivered_at and in_progress field values.",
+          "enum":["draft", "sent", "in_progress" ]
         },
         "filter[address]":{
           "title" : "Search in address",
@@ -140,7 +137,7 @@
         },
         "sort_by":{
           "title" : "Sort by",
-          "description": "Sort the results by the given field => number",
+          "description": "Sort the results by the given field",
           "enum":["created_at", "updated_at"],
           "type": "string"
         },
