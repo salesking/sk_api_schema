@@ -291,6 +291,27 @@
     { "rel": "emails",
       "href": "orders/{id}/emails"
     },
+    { "rel": "emails create",
+      "href": "orders/{id}/emails",
+      "method": "POST",
+      "properties" : {
+        "template_id":{
+          "title" : "Template",
+          "description": "UUID of an email template to use. If present template fields like subject, body, attachments are used for the current email.",
+          "type":"string",
+          "maxLength": 22,
+          "minLength":22
+        },
+        "send":{
+          "title" : "Send email",
+          "description": "Schedule email for sending. Omit this parameter or set value to 0 or false(String or Integer) to keep email as draft."
+        },
+        "archived_pdf":{
+          "title" : "Attach archived pdf",
+          "description": "Adds the archived pdf from the related resource(if it has one)."
+        }
+      }
+    },
     { "rel": "print",
       "href": "orders/{id}/print",
       "method": "POST",
