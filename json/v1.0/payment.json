@@ -43,7 +43,7 @@
       "minLength": 3
     },
     "exchange_rate":{
-      "description": "The exchange rate from the foreign document currency(eg. USD) to the company currency(EUR). The rate is set on document open with the exchange rate based on the document date. If there is no rate for this day, say on weekends, the closest previous day is taken(Sunday->Friday).",
+      "description": "The exchange rate from the foreign document currency(eg. USD) to the company currency(EUR). If the rate is empty we use the exchange rate on the document date or today if doc.date is empty. If there is no rate for this day, say on weekends, the closest previous day is taken(Sunday->Friday). If you open the doc at a later time make sure to manually refresh the rate, as we dont change it. ",
       "readonly":true,
       "type":"number"
     },
