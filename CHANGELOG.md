@@ -3,8 +3,13 @@
 See [commit messages](https://github.com/salesking/sk_api_schema/commits/) for details.
 Also signup to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter/) to stay up-to-date !!!
 
+##2013-08
+
+* add items array to documents to be used instead of line_items
+
 ##2013-06
-- add email filter "status" accepting sent,draft,in_progress strings, dropped sent/status filter
+
+* add email filter "status" accepting sent,draft,in_progress strings, dropped sent/status filter
 
 ##2013-05
 
