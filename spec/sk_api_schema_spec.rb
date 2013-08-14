@@ -70,6 +70,7 @@ describe SK::Api::Schema do
 
       @item =  LineItem.new
       @item.id = 'some-uuid'
+      @item.type = 'LineItem'
       @item.name = 'Pork Chops'
       @item.description = 'Yummi Pork chopped by mexian emigrants'
       @item.position = 1
@@ -92,8 +93,8 @@ describe SK::Api::Schema do
       obj_hash = SK::Api::Schema.to_hash_from_schema(@invoice, 'v1.0')
       obj_hash["invoice"]['client']['client'].should == {"number"=>"911", "addresses"=>[], "id"=>"some-uuid", "organisation"=>"Dirty Food Inc.", "last_name"=>nil}
       obj_hash["invoice"]["client"]['links'].should_not be_nil
-      obj_hash["invoice"]["line_items"].should == [ {"line_item"=>{"name"=>"Pork Chops", "position"=>1, \
-                                         "id"=>"some-uuid", "description"=>"Yummi Pork chopped by mexian emigrants", "price_single"=>0.99}}]
+      obj_hash["invoice"]["line_items"].should == [ {"line_item"=>{"name"=>"Pork Chops", "position"=>1, "type"=>"LineItem",
+                                                    "id"=>"some-uuid", "description"=>"Yummi Pork chopped by mexian emigrants", "price_single"=>0.99}}]
     end
 
     it "should parse object given fields" do
@@ -154,7 +155,7 @@ class Invoice
 end
 
 class LineItem
-  attr_accessor :id, :name, :description, :position, :price_single
+  attr_accessor :id, :name, :description, :position, :price_single, :type
 end
 
 class Client

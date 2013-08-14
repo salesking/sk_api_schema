@@ -21,6 +21,11 @@
       "type":"string",
       "maxLength": 50
     },
+    "type":{
+      "description": "The item type: SubTotalItem. Must be set when creating new items via document.items array",
+      "type":"string",
+      "maxLength": 20
+    },
     "net_total":{
       "description": "Net sub-total",
       "type":"number",
