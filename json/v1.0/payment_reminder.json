@@ -1,7 +1,7 @@
 { "type":"object",
   "title": "payment_reminder",
   "name": "payment_reminder",
-  "description": "A payment reminder",
+  "description": "A payment reminder belongs to an invoice and inherits it's line items from the invoice total(first item) and late fee settings(second item).",
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -126,9 +126,16 @@
       "minLength":22
     },
     "line_items":{
-      "description": "Line items for the document. Defaults to invoice.gross_total and late fee values from settings",
+      "description": "DEPRECATED use items",
       "type":"array",
       "properties":{"$ref":"./line_item.json#properties"}
+    },
+    "items":{
+      "description": "Items for the document. GOTCHAs: you should NOT create items manually since we create them. The first item contains the invoice total and the optional second one the late_fee.",
+      "type":"array",
+      "default": "any",
+      "minItems": 1,
+      "items": { "$ref": "./line_item.json#properties"}
     },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards.",

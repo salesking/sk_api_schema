@@ -6,6 +6,7 @@ Also signup to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter
 ##2013-08
 
 * add items array to documents to be used instead of line_items
+* Deprecate line_items
 
 ##2013-06
 
