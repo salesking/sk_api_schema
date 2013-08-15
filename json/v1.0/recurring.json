@@ -119,7 +119,7 @@
       "properties":{"$ref":"./line_item.json#properties"}
     },
     "items":{
-      "description": "Items for the document. Access items of all types including divider and sub_total items. GOTCHAs when using items instead of line_items: You MUST set the type field(CamelCasesItem class name) on each item. You cannot use both, the items array is stronger.",
+      "description": "Items for the document. Access items of all types including divider and sub_total items. GOTCHAs when using items instead of line_items: You MUST set the type field(CamelCasesItem class name) on each item. You cannot use both, the line_items array is stronger for backward compat.",
       "type":"array",
       "default": "any",
       "minItems": 0,
