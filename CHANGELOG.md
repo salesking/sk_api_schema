@@ -8,6 +8,14 @@ Also signup to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter
 * add items array to documents to be used instead of line_items
 * Deprecate line_items
 
+** doc.items vs doc.line_items **
+
+ONLY use ONE as long as both items and line_items are present!
+When updating objects we cannot figure out which array changed. In this case we
+prefer line_items for backwards compatibility.
+When using items: make sure to remove line_items before submitting an updated
+document!
+
 ##2013-06
 
 * add email filter "status" accepting sent,draft,in_progress strings, dropped sent/status filter
