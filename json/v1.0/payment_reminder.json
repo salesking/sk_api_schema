@@ -23,7 +23,7 @@
       "type":"string"
     },
     "date":{
-      "description": "Date the payment_reminder is issued. Automatically set when created from invoice. Defaults to today.",
+      "description": "Date the payment_reminder is issued. Automatically set when created from invoice. Defaults to today. YYYY-MM-DD",
       "format":"date",
       "required": true,
       "type":"string"
@@ -33,7 +33,7 @@
       "type":"integer"
     },
     "due_date":{
-      "description": "Auto-calculated from date + due days if empty and the payment_reminder is opened.",
+      "description": "Auto-calculated from date + due days if empty and the payment_reminder is opened. YYYY-MM-DD",
       "format":"date",
       "type":"string"
     },
@@ -193,13 +193,13 @@
         },
         "filter[from]":{
           "title" : "From date",
-          "description": "All objects with a date after the date",
+          "description": "All objects with a date after the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },
         "filter[to]":{
           "title" : "To date",
-          "description": "All objects with date before the date",
+          "description": "All objects with date before the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },

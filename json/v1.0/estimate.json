@@ -21,7 +21,7 @@
       "type":"string"
     },
     "date":{
-      "description": "Date the estimate is issued. Automatically set when estimate is opened. Required for non-draft documents.",
+      "description": "Date the estimate is issued. Automatically set when estimate is opened. Required for non-draft documents. YYYY-MM-DD",
       "format":"date",
       "type":"string"
     },
@@ -30,7 +30,7 @@
       "type":"integer"
     },
     "due_date":{
-      "description": "Auto-calculated from date + due days if empty and the estimate is opened.",
+      "description": "Auto-calculated from date + due days if empty and the estimate is opened. YYYY-MM-DD",
       "format":"date",
       "type":"string"
     },
@@ -206,13 +206,13 @@
         },
         "filter[from]":{
           "title" : "From date",
-          "description": "Objects with a date after the date",
+          "description": "Objects with a date after the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },
         "filter[to]":{
           "title" : "To date",
-          "description": "Objects with date before the date",
+          "description": "Objects with date before the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },

@@ -25,7 +25,7 @@
       "type":"string"
     },
     "date":{
-      "description": "Date the document is issued. Automatically set when document is opened. Required for non-draft documents.",
+      "description": "Date the document is issued. Automatically set when document is opened. Required for non-draft documents. YYYY-MM-DD",
       "format":"date",
       "type":"string"
     },
@@ -172,13 +172,13 @@
         },
         "filter[from]":{
           "title" : "From date",
-          "description": "Objects with a date after the date",
+          "description": "Objects with a date after the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },
         "filter[to]":{
           "title" : "To date",
-          "description": "Objects with date before the date",
+          "description": "Objects with date before the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },

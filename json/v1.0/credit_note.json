@@ -21,7 +21,7 @@
       "type":"string"
     },
     "date":{
-      "description": "Date the credit note is issued. Automatically set when document is opened. Required unless doc status is draft.",
+      "description": "Date the credit note is issued. Automatically set when document is opened. Required unless doc status is draft. YYYY-MM-DD",
       "format":"date",
       "type":"string"
     },
@@ -30,7 +30,7 @@
       "type":"integer"
     },
     "due_date":{
-      "description": "Auto-calculated from date + due days if empty and the document is opened.",
+      "description": "Auto-calculated from date + due days if empty and the document is opened. YYYY-MM-DD",
       "format":"date",
       "type":"string"
     },
@@ -221,12 +221,12 @@
         },
         "filter[from]":{
           "title" : "From date",
-          "description": "Objects with a date on and after the date",
+          "description": "Objects with a date on and after the date. YYYY-MM-DD",
           "type" :"date"
         },
         "filter[to]":{
           "title" : "To date",
-          "description": "Objects with date before and on the date",
+          "description": "Objects with date before and on the date. YYYY-MM-DD",
           "type" :"date"
         },
         "filter[created_at_from]":{

@@ -22,7 +22,7 @@
       "type":"string"
     },
     "date":{
-      "description": "First date the recurring is issued. Not allowed to be in the past.",
+      "description": "First date the recurring is issued. Not allowed to be in the past. YYYY-MM-DD",
       "format":"date",
       "type":"string",
       "required":true
@@ -32,7 +32,7 @@
       "type":"integer"
     },
     "final_date":{
-      "description": "The last date the recurring is executed.",
+      "description": "The last date the recurring is executed. YYYY-MM-DD",
       "format":"date",
       "type":"string",
       "required":true
@@ -193,7 +193,7 @@
         },
         "filter[from]":{
           "title" : "From date",
-          "description": "Objects with a date after the date",
+          "description": "Objects with a date after the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },
