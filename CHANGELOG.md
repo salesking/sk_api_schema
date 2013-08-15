@@ -5,6 +5,7 @@ Also signup to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter
 
 ##2013-08
 
+* add filter by status to document
 * add BCC, CC, FROM fields for email templates
 * add items array to documents to be used instead of line_items
 * Deprecate line_items

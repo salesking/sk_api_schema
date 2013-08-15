@@ -224,7 +224,7 @@
           "type" : "string"
         },
         "filter[status]":{
-          "title" : "Contacts",
+          "title" : "Status",
           "description": "A single or a list of status, comma separated: open,closed,overdue,draft",
           "type" : "string"
         },

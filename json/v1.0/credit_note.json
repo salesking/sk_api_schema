@@ -209,6 +209,11 @@
           "description": "Search in title, number, address field",
           "type":"string"
         },
+        "filter[status]":{
+          "title" : "Status",
+          "description": "A single or a list of status, comma separated: open,closed,overdue,draft",
+          "type" : "string"
+        },
         "filter[number]":{
           "title" : "Number",
           "description": "Find by exact number",
