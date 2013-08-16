@@ -31,7 +31,7 @@
       "maxLength": 255
     },
     "date":{
-      "description": "Date the payment was made.",
+      "description": "Date the payment was made. YYYY-MM-DD",
       "required":true,
       "format":"date",
       "type":"string"
@@ -110,14 +110,14 @@
         },
         "filter[from]":{
           "title" : "From date",
-          "description": "All objects with a date after the date",
+          "description": "All objects with a date after the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
 
         },
         "filter[to]":{
           "title" : "To date",
-          "description": "All objects with date before the date",
+          "description": "All objects with date before the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },

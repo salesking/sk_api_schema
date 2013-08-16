@@ -1,7 +1,7 @@
 { "type":"object",
   "title": "email_template",
   "name": "email_template",
-  "description":"An email_template in SK",
+  "description":"An email_template is used to simplify the creation of emails. When creating a new email just pass template id and all fields from the template are copied to the new email. The fields are NOT merged with present values in a new email object!",
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -28,6 +28,21 @@
       "required":true,
       "type":"string",
       "format":"text"
+    },
+    "from_addr":{
+      "description": "Default from address. A valid email address. Make sure your server(if custom SMPT settings for the API user) allows sending with this address.",
+      "type":"string",
+      "maxLength": 255
+    },
+    "cc_addr":{
+      "description": "Default copy receivers comma separated valid email addresses.",
+      "type":"string",
+      "maxLength": 255
+    },
+    "bcc_addr":{
+      "description": "Default blind copy receivers comma separated valid email addresses. ",
+      "type":"string",
+      "maxLength": 255
     },
     "kind":{
       "description": "Kind of object the template can be used for.",

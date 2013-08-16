@@ -102,14 +102,13 @@
         },
         "filter[to]":{
           "title" : "To date",
-          "description": "All objects created at and before the date",
+          "description": "All objects created at and before the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },
         "filter[related_object_type]":{
           "title" : "Related object type",
           "description": "All objects belonging to the given object type. The singular base class name like: Document, Contact, Export, Message",
-          "format" : "date",
           "type" : "string"
         },
         "sort_by":{

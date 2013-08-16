@@ -21,6 +21,11 @@
       "type":"string",
       "maxLength": 50
     },
+    "type":{
+      "description": "The item type: LineItem. Must be set when creating new items via document.items array",
+      "type":"string",
+      "maxLength": 20
+    },
     "external_ref":{
       "description": "Arbitrary number e.g. external product reference.",
       "type":"string",

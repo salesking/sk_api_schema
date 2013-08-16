@@ -3,8 +3,23 @@
 See [commit messages](https://github.com/salesking/sk_api_schema/commits/) for details.
 Also signup to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter/) to stay up-to-date !!!
 
+##2013-08
+
+* add recurring_id for invoices referencing the recurring from which the invoice was created
+* add filter\[recurring_ids] to invoices, recurring links to all invoices
+* add filter\[status] to all documents
+* add log field for emails, keeping potential error log
+* add BCC, CC, FROM fields for email templates
+* add items array to documents to be used instead of line_items
+* Deprecate line_items **! doc.items vs doc.line_items !** ONLY use ONE as long as both items and line_items are present!
+When updating objects we cannot figure out which array changed. In this case we
+prefer line_items for backwards compatibility.
+When using items: make sure to remove line_items before submitting an updated
+document!
+
 ##2013-06
-- add email filter "status" accepting sent,draft,in_progress strings, dropped sent/status filter
+
+* add email filter "status" accepting sent,draft,in_progress strings, dropped sent/status filter
 
 ##2013-05
 

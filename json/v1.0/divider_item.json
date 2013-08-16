@@ -21,6 +21,11 @@
       "type":"string",
       "maxLength": 50
     },
+    "type":{
+      "description": "The item type: DividerItem. Must be set when creating new items via document.items array",
+      "type":"string",
+      "maxLength": 20
+    },
    "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",

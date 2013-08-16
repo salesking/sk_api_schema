@@ -73,6 +73,7 @@
       "maxLength": 255
     },
     "birthday":{
+      "description": "The birthday. YYYY-MM-DD",
       "format":"date",
       "type":"string"
     },
@@ -233,13 +234,13 @@
         },
         "filter[birthday_from]":{
           "title" : "From birthday date",
-          "description": "Contacts with a birthday after and on the date. Leave the birthday-to date blank to only search on this day.",
+          "description": "Contacts with a birthday after and on the date. Leave the birthday-to date blank to only search on this day. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },
         "filter[birthday_to]":{
           "title" : "To birthday date",
-          "description": "Contacts with a birthday date before and on the date.",
+          "description": "Contacts with a birthday date before and on the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },

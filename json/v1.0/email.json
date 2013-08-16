@@ -67,6 +67,11 @@
       "readonly":true,
       "type":"boolean"
     },
+    "log":{
+      "description": "Logs error message when sending failed.",
+      "readonly":true,
+      "type":"text"
+    },
     "delivered_at":{
       "description": "Date the email was delivered by SK. If set, the message cannot be edited anymore.",
       "format":"date-time",
@@ -125,13 +130,13 @@
         },
         "filter[from]":{
           "title" : "From date",
-          "description": "All objects updated on/after the date",
+          "description": "All objects updated on/after the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },
         "filter[to]":{
           "title" : "To date",
-          "description": "All objects updated on/before the date",
+          "description": "All objects updated on/before the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },

@@ -21,7 +21,7 @@
       "type":"string"
     },
     "date":{
-      "description": "Date the invoice is issued. Automatically set when invoice is opened. Required for non-draft documents.",
+      "description": "Date the invoice is issued. Automatically set when invoice is opened. Required for non-draft documents. YYYY-MM-DD",
       "format":"date",
       "type":"string"
     },
@@ -30,7 +30,7 @@
       "type":"integer"
     },
     "due_date":{
-      "description": "Auto-calculated from date + due days if empty and the document is opened.",
+      "description": "Auto-calculated from date + due days if empty and the document is opened. YYYY-MM-DD",
       "format":"date",
       "type":"string"
     },
@@ -127,12 +127,12 @@
       "minLength": 22
     },
     "line_items":{
-      "description": "Line items for the document",
+      "description": "DEPRECATED use items",
       "type":"array",
       "properties":{"$ref":"./line_item.json#properties"}
     },
     "items":{
-      "description": "Items for the document. Access items of all types including divider and sub_total items. Item creation is currently only supported through line_items array.",
+      "description": "Items for the document. Access items of all types including divider and sub_total items. GOTCHAs when using items instead of line_items: You MUST set the type field(CamelCasesItem class name) on each item. You cannot use both, the line_items array is stronger for backward compat.",
       "type":"array",
       "default": "any",
       "minItems": 0,
@@ -157,12 +157,12 @@
       "type":"integer"
     },
     "price_total":{
-      "description": "Deprecated use net_total_base_raw",
+      "description": "DEPRECATED use net_total_base",
       "readonly":true,
       "type":"number"
     },
     "price_tax":{
-      "description": "Deprecated: use tax_total",
+      "description": "DEPRECATED: use tax_total",
       "readonly":true,
       "type":"number"
     },
@@ -185,6 +185,13 @@
       "description": "Net total, 6 decimal places incl. discount",
       "readonly":true,
       "type":"number"
+    },
+    "recurring_id":{
+      "description":"Recurring document ID, if the invoice was created from a recurring.",
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength": 22
     }
   },
   "links":[
@@ -209,6 +216,11 @@
           "description": "Search in title, number, address field",
           "type":"string"
         },
+        "filter[status]":{
+          "title" : "Status",
+          "description": "A single or a list of status, comma separated: open,closed,overdue,draft",
+          "type" : "string"
+        },
         "filter[number]":{
           "title" : "Number",
           "description": "Find by exact number",
@@ -221,13 +233,13 @@
         },
         "filter[from]":{
           "title" : "From date",
-          "description": "Objects with a date after the date",
+          "description": "Objects with a date after the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },
         "filter[to]":{
           "title" : "To date",
-          "description": "Objects with date before the date",
+          "description": "Objects with date before the date. YYYY-MM-DD",
           "format" : "date",
           "type" : "string"
         },
@@ -254,6 +266,11 @@
         "filter[creator_ids]":{
           "title" : "Creator",
           "description": "Objects created by the given users uuids, comma separated",
+          "type" : "string"
+        },
+        "filter[recurring_ids]":{
+          "title" : "Recurrings",
+          "description": "Documents belonging to the given recurring uuids, comma separated",
           "type" : "string"
         },
         "sort_by":{
@@ -284,7 +301,7 @@
       "properties" : {
         "source" : {
           "title" : "Source document id",
-          "description": "Copies the source(excl. number,date) and returns a new draft document. Fields passed with the object(e.g. notes, title, address_field) are not overwritten. If the source is an Estimate or Order only line_items, contact & tags are copied.",
+          "description": "Copies the source(excl. number,date) and returns a new draft document. You can pass any document type(e.g. invoice, order). Fields passed with the object(e.g. notes, title, address_field) are not overwritten.",
           "type" : "string"
         },
         "cancel" : {
