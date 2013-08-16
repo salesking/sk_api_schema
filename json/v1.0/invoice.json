@@ -301,7 +301,7 @@
       "properties" : {
         "source" : {
           "title" : "Source document id",
-          "description": "Copies the source(excl. number,date) and returns a new draft document. Fields passed with the object(e.g. notes, title, address_field) are not overwritten. If the source is an Estimate or Order only line_items, contact & tags are copied.",
+          "description": "Copies the source(excl. number,date) and returns a new draft document. You can pass any document type(e.g. invoice, order). Fields passed with the object(e.g. notes, title, address_field) are not overwritten.",
           "type" : "string"
         },
         "cancel" : {
