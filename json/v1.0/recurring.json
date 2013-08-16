@@ -273,6 +273,9 @@
         }
       }
     },
+    { "rel": "invoices",
+      "href": "invoices?filter[recurring_ids]={id}"
+    },
     { "rel": "attachments",
       "href": "recurrings/{id}/attachments"
     },

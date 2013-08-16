@@ -5,6 +5,8 @@ Also signup to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter
 
 ##2013-08
 
+* add recurring_id for invoices referencing the recurring from which the invoice was created
+* add filter\[recurring_ids] to invoices, recurring links to all invoices
 * add filter\[status] to all documents
 * add log field for emails, keeping potential error log
 * add BCC, CC, FROM fields for email templates

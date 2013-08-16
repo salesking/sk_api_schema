@@ -185,6 +185,13 @@
       "description": "Net total, 6 decimal places incl. discount",
       "readonly":true,
       "type":"number"
+    },
+    "recurring_id":{
+      "description":"Recurring document ID, if the invoice was created from a recurring.",
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength": 22
     }
   },
   "links":[
@@ -259,6 +266,11 @@
         "filter[creator_ids]":{
           "title" : "Creator",
           "description": "Objects created by the given users uuids, comma separated",
+          "type" : "string"
+        },
+        "filter[recurring_ids]":{
+          "title" : "Recurrings",
+          "description": "Documents belonging to the given recurring uuids, comma separated",
           "type" : "string"
         },
         "sort_by":{
