@@ -11,11 +11,11 @@ Besides ruby users can use a small lib with utility methods to load and test the
   s.authors     = ['Georg Leciejewski']
   s.email       = %q{gl@salesking.eu}
   s.homepage    = %q{http://github.com/salesking/sk_api_schema}
+  s.license = 'MIT'
 
   s.files       = `git ls-files`.split("\n").reject{|i| i[/^docs\//] }
   s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.extra_rdoc_files = ['README.rdoc']
-
   s.require_paths = ['lib']
 
   s.add_runtime_dependency 'activesupport'
