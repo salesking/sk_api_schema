@@ -176,8 +176,10 @@
       "minLength":22
     },
     "auto_send":{
-      "description": "Enable automatic sending of new invoices created from the recurring. Opens the invoice, creates a PDF and sends an email to the contact. GOTCHA's: check PDF-, Email-Template, SMTP Settings and of course the contacts email address! New recurrings with start date today directly create new invoices. If auto_send is true they are also SEND!! If something fails, we'll send an error-email to the user who created the recurring.",
-      "type":"boolean"
+      "description": "Enable automatic sending of new invoices created from the recurring. Opens the invoice, creates a PDF and sends an email to the contact. GOTCHA's: check PDF-, Email-Template, SMTP Settings and of course the contacts email address! Since new recurrings which start today directly create new invoices, they are also SEND if auto_send is true!! If something fails, we'll send an error-email to the user who created the recurring. For success infos you can add yourself to the BCC of the email template or",
+      "default": null,
+      "type": "string",
+      "enum":["email"]
     }
   },
   "links":[
