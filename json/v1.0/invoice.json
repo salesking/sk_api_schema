@@ -348,6 +348,10 @@
         }
       }
     },
+    { "rel": "payment create",
+      "href": "invoices/{id}/payments",
+      "method": "POST"
+    },
     { "rel": "print",
       "href": "invoices/{id}/print",
       "method": "POST",

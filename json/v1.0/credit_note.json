@@ -336,6 +336,10 @@
         }
       }
     },
+    { "rel": "payment create",
+      "href": "invoices/{id}/payments",
+      "method": "POST"
+    },
     { "rel": "print",
       "href": "credit_notes/{id}/print",
       "method": "POST",

@@ -1,13 +1,15 @@
 # SalesKing API Changelog
 
 See [commit messages](https://github.com/salesking/sk_api_schema/commits/) for details.
-Also signup to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter/) to stay up-to-date !!!
+Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter/) to stay up-to-date !!!
 
 ##2013-08
 
+* fix docs for POST invoices/ID/payments to create payments
 * add auto_send setting for recurring, opens invoice,creates pdf, sends email
 * add recurring_id for invoices referencing the recurring from which the invoice was created
-* add filter\[recurring_ids] to invoices, recurring links to all invoices
+* add filter\[recurring_ids] to invoices
+* add link to all invoices in recurring
 * add filter\[status] to all documents
 * add log field for emails, keeping potential error log
 * add BCC, CC, FROM fields for email templates
