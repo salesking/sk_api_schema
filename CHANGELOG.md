@@ -3,6 +3,10 @@
 See [commit messages](https://github.com/salesking/sk_api_schema/commits/) for details.
 Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter/) to stay up-to-date !!!
 
+##2013-10
+
+* add net_total, gross_total to line item
+
 ##2013-08
 
 * fix docs for POST invoices/ID/payments to create payments

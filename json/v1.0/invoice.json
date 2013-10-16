@@ -301,12 +301,12 @@
       "properties" : {
         "source" : {
           "title" : "Source document id",
-          "description": "Copies the source(excl. number,date) and returns a new draft document. You can pass any document type(e.g. invoice, order). Fields passed with the object(e.g. notes, title, address_field) are not overwritten.",
+          "description": "Copies the source(excl. number,date) and returns a new draft document. Fields passed with the object(e.g. notes, title, address_field) are not overwritten. When copying a different document type e.g. creating an invoice from an order(pass an order ID), ONLY the items, contact, currency and tag list are taken from the source doc.",
           "type" : "string"
         },
         "cancel" : {
           "title" : "Cancel an invoice",
-          "description": "Cancelling a document copies the source and negates all line item values. A source id must be set.",
+          "description": "Cancelling a document copies the source and negates all line item values. A source id MUST be set.",
           "dependencies": ["source"],
           "type":"boolean"
         }

@@ -40,6 +40,14 @@
       "description": "Net price of a single item",
       "type":"number"
     },
+    "net_total":{
+      "description": "Net price of a single item",
+      "type":"number"
+    },
+    "gross_total":{
+      "description": "Gross price ",
+      "type":"number"
+    },
     "tax":{
       "description": "Tax percent for a single item.",
       "type":"number"
