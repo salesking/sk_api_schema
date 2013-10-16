@@ -41,11 +41,13 @@
       "type":"number"
     },
     "net_total":{
-      "description": "Net price of a single item",
+      "description": "Net price of a single item. Calculated from price_single * quantity * discount",
+      "readonly":true,
       "type":"number"
     },
     "gross_total":{
-      "description": "Gross price ",
+      "description": "Gross price. Net total with taxes applied.",
+      "readonly":true,
       "type":"number"
     },
     "tax":{
