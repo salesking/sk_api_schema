@@ -6,6 +6,7 @@ Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newslette
 ##2013-10
 
 * add net_total, gross_total to line item
+* add category_name, cost_price fields to product
 
 ##2013-08
 

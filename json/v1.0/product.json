@@ -36,6 +36,15 @@
       "type":"number",
       "required":true
     },
+    "cost_price":{
+      "description": "Cost price of a single product",
+      "type":"number"
+    },
+    "category_name":{
+      "description": "Name of the product category. A new category is created if it does not exist.",
+      "type":"string",
+      "maxLength": 255
+    },
     "tax":{
       "description": "Tax percentage for this product.",
       "type":"number"
