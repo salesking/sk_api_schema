@@ -12,9 +12,9 @@
       "minLength":22
     },
     "position":{
-      "description": "Required since items are sorted by position.",
+      "description": "Position by which the items are sorted. Two items can have the same position(if you dont care) and numbers dont need to continuous",
       "type":"integer",
-      "required":true
+      "default": 1
     },
     "name":{
       "description": "The name of an item",
@@ -67,17 +67,13 @@
       "description": "Quantity of the item. Must be >= 0",
       "type":"number",
       "minimum":0,
-      "required":true
+      "default": 1
     },
     "product_id":{
-      "description": "A uuid of a product, referenced in this item. This makes it easier to track a products turnover and list the documents it is used on. Also see use_product",
+      "description": "A uuid of a product, used by this item. If set or changed, the product fields (name, description, quantity, unit, price, cost price) are copied if the according item fields are missing. Besides this product link makes it possible to track a products turnover and list the documents it is used on.",
       "type":"string",
       "maxLength": 22,
       "minLength":22
-    },
-    "use_product":{
-      "description": "If set and product_id is present, the products name, description, quantity, unit, price are copied if the according item fields are missing.",
-      "type":"boolean"
     },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",

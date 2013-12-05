@@ -3,6 +3,11 @@
 See [commit messages](https://github.com/salesking/sk_api_schema/commits/) for details.
 Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter/) to stay up-to-date !!!
 
+##2013-12
+
+* line_item: remove use_product switch. Instead automatically copy product fields into item when product_id is set.
+* line_item: remove required quantity and position, now defaulting to 1
+
 ##2013-10
 
 * add net_total, gross_total to line item
