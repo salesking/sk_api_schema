@@ -185,6 +185,21 @@
       "description": "Net total, 6 decimal places incl. discount",
       "readonly":true,
       "type":"number"
+    },
+    "cost_total":{
+      "description": "Cost total of all line items, 2 decimals places in document currency.",
+      "readonly":true,
+      "type":"number"
+    },
+    "gross_margin_total":{
+      "description": "Total gross margin across all line items. Calculated from net_total-cost_total.",
+      "readonly":true,
+      "type":"number"
+    },
+    "gross_margin_pct":{
+      "description": "Percentage of gross profit to cost of items sold. Calculated from gross_margin_total/net_total*100",
+      "readonly":true,
+      "type":"number"
     }
   },
   "links":[

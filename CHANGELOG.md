@@ -5,8 +5,13 @@ Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newslette
 
 ##2013-12
 
-* line_item: remove use_product switch. Instead automatically copy product fields into item when product_id is set.
-* line_item: remove required quantity and position, now defaulting to 1
+* add cost_total, gross_margin to documents
+* rename product.cost_price to cost
+
+line_item:
+* remove use_product switch. Now copy product fields into item whenever a product_id is set.
+* remove required quantity and position, now defaulting to 1
+* add cost, cost_total, gross_margin
 
 ##2013-10
 

@@ -40,6 +40,25 @@
       "description": "Net price of a single item",
       "type":"number"
     },
+    "cost":{
+      "description": "Cost price for a single item. Used to calculate the gross margin",
+      "type":"number"
+    },
+    "cost_total":{
+      "description": "Total costs. Calculated from cost_single * quantity",
+      "readonly":true,
+      "type":"number"
+    },
+    "gross_margin_total":{
+      "description": "Gross margin, the difference between revenue and cost before accounting for certain other costs. Calculated from net_total - cost_total",
+      "readonly":true,
+      "type":"number"
+    },
+    "gross_margin_pct":{
+      "description": "Gross margin percentage. Calculated from gross_margin_total/cost_total",
+      "readonly":true,
+      "type":"number"
+    },
     "net_total":{
       "description": "Net price of a single item. Calculated from price_single * quantity * discount",
       "readonly":true,
@@ -70,7 +89,7 @@
       "default": 1
     },
     "product_id":{
-      "description": "A uuid of a product, used by this item. If set or changed, the product fields (name, description, quantity, unit, price, cost price) are copied if the according item fields are missing. Besides this product link makes it possible to track a products turnover and list the documents it is used on.",
+      "description": "A uuid of a product, used by this item. If set or changed, the product fields (name, description, quantity, unit, price, cost price) are copied if the according item fields are missing/blank. Besides this product link makes it possible to track a products turnover and find the documents it is used on.",
       "type":"string",
       "maxLength": 22,
       "minLength":22
