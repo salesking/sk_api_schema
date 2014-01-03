@@ -5,6 +5,8 @@ Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newslette
 
 ##2014-01
 
+* line_item price_single is required,
+* line item empty tax,discount now return null instead of 0
 * filter documents by products (product_ids)
 
 ##2013-12
