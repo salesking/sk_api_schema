@@ -278,6 +278,11 @@
           "description": "Objects created by the given users uuids, comma separated",
           "type" : "string"
         },
+        "filter[product_ids]":{
+          "title" : "Products",
+          "description": "Documents using the given product uuids(comma separated) in their line items.",
+          "type" : "string"
+        },
         "sort_by":{
           "title" : "Sort by",
           "description": "Sort the results by the given field => number",

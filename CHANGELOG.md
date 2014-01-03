@@ -3,6 +3,10 @@
 See [commit messages](https://github.com/salesking/sk_api_schema/commits/) for details.
 Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter/) to stay up-to-date !!!
 
+##2014-01
+
+* filter documents by products (product_ids)
+
 ##2013-12
 
 * add cost_total, gross_margin to documents
