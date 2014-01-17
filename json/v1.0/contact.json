@@ -246,6 +246,11 @@
           "description": "Wildcard search in first, last_name, organisation, email, number",
           "type":"string"
         },
+        "filter[organisation]":{
+          "title" : "Organisation",
+          "description": "Search by organisation. Searches by organisation begins with name%",
+          "type":"string"
+        },
         "filter[tags]":{
           "title" : "Tags",
           "description": "Filter by a space delimited list of tags",
