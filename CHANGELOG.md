@@ -5,6 +5,8 @@ Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newslette
 
 ##2014-01
 
+* add SEPA creditor_id for company
+* add SEPA fields for invoice, credit note: sepa_mandate_id, sepa_mandate_signed_at, sepa_debit_sequence_type
 * search/filter contacts by organisation
 * line_item price_single is required,
 * line item empty tax,discount now return null instead of 0

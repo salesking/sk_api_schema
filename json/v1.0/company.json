@@ -84,6 +84,11 @@
       "type":"string",
       "maxLength": 30
     },
+    "sepa_creditor_id":{
+      "description": "SEPA Creditor ID, needed for SEPA direct debit transactions.",
+      "type":"string",
+      "maxLength": 18
+    },
     "bank_name":{
       "description": "Bank name",
       "type":"string",
