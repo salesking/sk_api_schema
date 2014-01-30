@@ -23,9 +23,9 @@
       "format":"text"
     },
     "kind":{
-      "description": "The export type. text: uses an export template defined by a template_id. archived_pdf: zip with archived PDF(documents only). allinone_pdf: All archived PDF(Documents) in one big PDF. attachments: All attachments of the given objects as zip. dtaus: German bank format, relies on valid bank information in your company and for each client of the exported documents. dtaus_lk Lastschrift. dtaus_gk: Gutschrift.",
+      "description": "The export type. text: uses an export template defined by a template_id. archived_pdf: zip with archived PDF(documents only). allinone_pdf: All archived PDF(Documents) in one big PDF. attachments: All attachments of the given objects as zip. SEPA: bank exports, relies on valid bank information in your company, the exported document and the contact.",
       "required":true,
-      "enum": ["text", "archived_pdf", "attachments", "dtaus_lk", "dtaus_gk", "allinone_pdf"],
+      "enum": ["text", "archived_pdf", "attachments", "allinone_pdf", "sepa_debit", "sepa_credit"],
       "type":"string"
     },
     "template_id":{
