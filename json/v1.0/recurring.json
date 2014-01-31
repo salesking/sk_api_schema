@@ -83,6 +83,21 @@
       "maxLength": 3,
       "minLength": 3
     },
+    "sepa_mandate_id":{
+      "description": "SEPA mandate identifier needed in direct debit transactions. This is a unique id given by you to the customer beforehand.",
+      "type":"string",
+      "maxLength": 35
+    },
+    "sepa_mandate_signed_at":{
+      "description": "Date the SEPA mandate was signed by your customer. Must not be in the future!",
+      "format":"date",
+      "type":"string"
+    },
+    "sepa_debit_sequence_type":{
+      "description": "SEPA direct debit sequence type. Check with you bank how they handle FRST(first) and FNAL(final) types. When exporting SEPA debit to your bank the type defaults to OOF if blank.",
+      "type":"string",
+      "enum":["FRST","OOFF","RCUR","FNAL"]
+    },
     "client":{
       "description": "DEPRECATED: use contact",
       "readonly":true,
