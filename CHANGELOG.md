@@ -3,6 +3,10 @@
 See [commit messages](https://github.com/salesking/sk_api_schema/commits/) for details.
 Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter/) to stay up-to-date !!!
 
+##2014-02
+
+* clarify team use: a team bubbles down from a contact to its documents and their related objects (comments, atms, emails). When the team changed for a contact all related objects are updated with the new team.
+
 ##2014-01
 
 * add SEPA creditor_id for company

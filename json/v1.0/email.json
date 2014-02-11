@@ -91,7 +91,8 @@
       "type":"string"
     },
     "team_id":{
-      "description": "A team uuid. If set only the team and its parent teams can see the record.",
+      "description": "A team uuid taken from the related object. If set only the team and its parent teams can see the record.",
+      "readonly" :true,
       "type":"string",
       "maxLength": 22,
       "minLength":22

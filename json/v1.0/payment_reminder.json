@@ -120,7 +120,8 @@
       "minLength":22
     },
     "team_id":{
-      "description": "A team uuid. If set, only the team and its parent teams can see the record. Defaults to team id from invoice",
+      "description": "A team uuid taken from the contact. If set only the team and its parent teams can see the record.",
+      "readonly" :true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
