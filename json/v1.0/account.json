@@ -33,6 +33,12 @@
       "type":"number",
       "readonly":true
     },
+    "contact_id":{
+      "description": "The contacts uuid to which the account is related.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
@@ -120,6 +126,9 @@
     { "rel": "create",
       "href": "accounts",
       "method": "POST"
+    },
+    { "rel": "account entries",
+      "href": "accounts/{id}/account_entries"
     }
   ]
 }

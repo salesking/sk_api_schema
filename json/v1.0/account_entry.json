@@ -11,6 +11,13 @@
       "maxLength": 22,
       "minLength":22
     },
+    "account_id":{
+      "description":"Account the entry belongs to.",
+      "required":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
     "name":{
       "description": "The name of an entry",
       "type":"string",
@@ -63,5 +70,78 @@
       "type":"boolean"
     }
   },
-  "links":[]
+  "links":[
+
+    { "rel": "self",
+      "href": "account_entries/{id}"
+    },
+    { "rel": "instances",
+      "href": "account_entries",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 10, max is 100",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Wildcard search in name, description",
+          "type":"string"
+        },
+        "filter[date_from]":{
+          "title" : "From date",
+          "description": "Objects with a date eq/after the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[date_to]":{
+          "title" : "To date",
+          "description": "Objects with date eq/before the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[created_at_from]":{
+          "title" : "From creation date",
+          "description": "Objects with a date eq/after the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[created_at_to]":{
+          "title" : "To creation date",
+          "description": "Objects with date eq/before the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":["name","number","date","quantity","price_single","created_at", "updated_at"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC",
+          "type": "string"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "account_entries/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "account_entries/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "account_entries",
+      "method": "POST"
+    }
+  ]
 }
