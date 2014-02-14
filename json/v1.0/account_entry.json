@@ -1,0 +1,67 @@
+{ "type":"object",
+  "title": "account_entry",
+  "name": "account_entry",
+  "description": "A line entry for a document",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "name":{
+      "description": "The name of an entry",
+      "type":"string",
+      "maxLength": 50
+    },
+    "description":{
+      "description": "Entry description",
+      "type":"string",
+      "format": "text"
+    },
+    "price_single":{
+      "description": "Net price of a single entry. If a product id is given, price_single is taken from the product if not set.",
+      "type":"number",
+      "required" : true
+    },
+    "net_total":{
+      "description": "Net price of a single entry. Calculated from price_single * quantity",
+      "readonly":true,
+      "type":"number"
+    },
+    "quantity_unit":{
+      "description": "Quantity unit: kg, days, month.",
+      "type":"string",
+      "maxLength": 30
+    },
+    "quantity":{
+      "description": "Quantity of the entry.",
+      "type":"number",
+      "default": 1
+    },
+    "date":{
+      "description": "Date of the entry.",
+      "format":"date-time",
+      "type":"string"
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "_destroy":{
+      "description": "When set an existing entry will be deleted. This switch is used for entries passed during batch operations.",
+      "type":"boolean"
+    }
+  },
+  "links":[]
+}
