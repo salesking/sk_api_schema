@@ -222,13 +222,13 @@
         },
         "filter[created_at_from]":{
           "title" : "From date",
-          "description": "Objects with a creation date after the date, including given datetime. ISO 8601 format YYY-MM-DDThh:mm:ss+z",
+          "description": "Objects with a creation on/after the date(>=). ISO 8601 format YYY-MM-DDThh:mm:ss+z or just a date YYY-MM-DD. If date is given the time is set to the start of the day(00:00:00) so all objects created on this day are included. A time should be already utc time",
           "format" : "date-time",
           "type" : "string"
         },
         "filter[created_at_to]":{
           "title" : "To date",
-          "description": "Objects with a creation date before the date, including given datetime. ISO 8601 format YYY-MM-DDThh:mm:ss+z",
+          "description": "Objects with a creation until the date(<=). ISO 8601 format YYY-MM-DDThh:mm:ss+z or just a date YYY-MM-DD. If date is given the time is set to the end of the day(23:59:59) so all objects created on that day are included. A time should be already utc time.",
           "format" : "date-time",
           "type" : "string"
         },
