@@ -1,7 +1,7 @@
 { "type":"object",
   "title": "account_entry",
   "name": "account_entry",
-  "description": "A line entry for a document",
+  "description": "A entry for an account",
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -49,7 +49,16 @@
       "default": 1
     },
     "date":{
-      "description": "Date of the entry.",
+      "description": "Date of the entry. Defaults to today. Entries are sorted by date per default.",
+      "format":"date-time",
+      "type":"string"
+    },
+    "billable":{
+      "description": "True if the entry should appear on invoices.",
+      "type":"boolean"
+    },
+    "billed_at":{
+      "description": "Date the object was billed. Is set when the entry is used on an invoice",
       "format":"date-time",
       "type":"string"
     },
