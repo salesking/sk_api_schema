@@ -38,6 +38,10 @@
       "readonly":true,
       "type":"number"
     },
+    "tax":{
+      "description": "Tax percentage",
+      "type":"number"
+    },
     "quantity_unit":{
       "description": "Quantity unit: kg, days, month.",
       "type":"string",
@@ -122,7 +126,7 @@
         },
         "filter[created_at_to]":{
           "title" : "To creation date",
-          "description": "Objects with date eq/before the date. YYYY-MM-DD",
+          "description": "Objects with a creation until the date(<=). ISO 8601 format YYY-MM-DDThh:mm:ss+z or just a date YYY-MM-DD. If date is given the time is set to the end of the day(23:59:59) so all objects created on that day are included. A time should be already utc time.",
           "format" : "date",
           "type" : "string"
         },
