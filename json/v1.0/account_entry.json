@@ -106,6 +106,11 @@
           "description": "Wildcard search in name, description",
           "type":"string"
         },
+        "filter[account_ids]":{
+          "title" : "Search by related accounts",
+          "description": "Set multiple account ids comma separated or as array",
+          "type":"string"
+        },
         "filter[date_from]":{
           "title" : "From date",
           "description": "Objects with a date eq/after the date. YYYY-MM-DD",
