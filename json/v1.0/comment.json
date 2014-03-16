@@ -70,6 +70,11 @@
           "description": "Search in text",
           "type":"string"
         },
+        "filter[contact_ids]":{
+          "title" : "Contact IDs",
+          "description": "Comma-separated list of contact IDs. While present, it will return comments related to the contact and all its documents.",
+          "type" : "string"
+        },
         "filter[from]":{
           "title" : "From date",
           "description": "All objects with a date after the date. YYYY-MM-DD",
