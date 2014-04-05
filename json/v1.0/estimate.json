@@ -261,7 +261,7 @@
         },
         "filter[contact_ids]":{
           "title" : "Contacts",
-          "description": "A single or a list of contact uuids, comma separated",
+          "description": "Find objects belonging to a single or a list of contacts, use ids comma separated.",
           "type" : "string"
         },
         "filter[ids]":{
