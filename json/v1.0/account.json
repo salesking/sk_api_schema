@@ -77,10 +77,6 @@
       "maxLength": 22,
       "minLength":22,
       "readonly":true
-    },
-    "lock_version":{
-      "description": "Increased on every edit, so SK can detect/prevent a concurrent edit by another user. First save wins.",
-      "type":"integer"
     }
   },
   "links":[

@@ -1,0 +1,131 @@
+{ "type":"object",
+  "title": "account_billing",
+  "name": "account_billing",
+  "description": "BETA An account billing serves as the glue between an account a document and their related account entries and line items. It also lets one keep track of who billed what and when.",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "name":{
+      "description": "A note for the billing e.g. happyPDF usage April 2014. The field is wildcard searchable",
+      "type":"string",
+      "maxLength": 100
+    },
+    "account_id":{
+      "description": "A team uuid. Is inferred from the accounts team id.",
+      "type":"string",
+      "required":true,
+      "maxLength": 22,
+      "minLength":22
+    },
+    "group_by":{
+      "description": "Group multiple account entries into single line items. Account entries MUST have the same price_single and quantity unit, to land in a group. Date base groups also require the same entry name.",
+      "type":"string",
+      "enum": ["name", "day", "week", "month"]
+    },
+    "document_type":{
+      "description": "The document type to create. CamelCase document class name",
+      "type":"string",
+      "default" : "Invoice",
+      "enum": ["Invoice", "CreditNote", "Order", "Estimate"]
+    },
+    "set_billed_at":{
+      "description": "Set billed at date for related account entries.",
+      "type":"boolean",
+      "default" : false
+    },
+    "document_id":{
+      "description": "The document created by the billing.",
+      "type":"string",
+      "readonly":true,
+      "maxLength": 22,
+      "minLength":22
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "team_id":{
+      "description": "A team uuid. Is inferred from the accounts team id.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "creator_id":{
+      "description": "The user uuid who created the record.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22,
+      "readonly":true
+    }
+  },
+  "links":[
+    { "rel": "self",
+      "href": "account_billings/{id}"
+    },
+    { "rel": "instances",
+      "href": "account_billings",
+      "properties" : {
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Wildcard search in name",
+          "type":"string"
+        },
+        "filter[account_ids]":{
+          "title" : "Accounts",
+          "description": "Find objects belonging to a single or a list of accounts, use ids comma separated.",
+          "type" : "string"
+        },
+        "filter[created_at_from]":{
+          "title" : "From creation date",
+          "description": "Objects with a date eq/after the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[created_at_to]":{
+          "title" : "To creation date",
+          "description": "Objects with a creation until the date(<=). ISO 8601 format YYY-MM-DDThh:mm:ss+z or just a date YYY-MM-DD. If date is given the time is set to the end of the day(23:59:59) so all objects created on that day are included. A time should be already utc time.",
+          "format" : "date",
+          "type" : "string"
+        },
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 10, max is 100",
+          "type":"number"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":["name","number","balance", "created_at", "updated_at"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC",
+          "type": "string"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "account_billings/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "create",
+      "href": "account_billings",
+      "method": "POST"
+    }
+  ]
+}
