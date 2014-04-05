@@ -110,6 +110,11 @@
           "description": "Find accounts with a balance smaller(<=) than given number.",
           "type":"number"
         },
+        "filter[contact_ids]":{
+          "title" : "Contacts",
+          "description": "Find objects belonging to a single or a list of contacts, use ids comma separated.",
+          "type" : "string"
+        },
         "filter[parent_id]":{
           "title" : "By parent",
           "description": "Search children of the given account.",
