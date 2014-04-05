@@ -99,6 +99,11 @@
           "description": "Wildcard search in number, name, description, price",
           "type":["string", "number"]
         },
+        "filter[contact_ids]":{
+          "title" : "Contact IDs",
+          "description": "Comma-separated list of contact IDs. While present, it will return payments related to all contacts' documents.",
+          "type" : "string"
+        },
         "filter[number]":{
           "title" : "By number",
           "description": "Search by exact number",
