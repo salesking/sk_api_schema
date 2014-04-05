@@ -3,9 +3,19 @@
 See [commit messages](https://github.com/salesking/sk_api_schema/commits/) for details.
 Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter/) to stay up-to-date !!!
 
+##2014-04
+
+* add account default_price, default_unit, hide_fields
+* filter accounts by balance range
+
+##2014-03
+
+* filter account entries by account ids
+
 ##2014-02
 
-* clarify team use: a team bubbles down from a contact to its documents and their related objects (comments, atms, emails). When the team changed for a contact all related objects are updated with the new team.
+* clarify team use: a team bubbles down from a contact to its documents and their related objects (comments, attachments, emails). On team change for a contact all related objects are updated with the new team.
+* Add accounts + account entries - BETA
 
 ##2014-01
 

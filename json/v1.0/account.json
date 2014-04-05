@@ -33,6 +33,20 @@
       "type":"number",
       "readonly":true
     },
+    "default_price":{
+      "description": "The default price single for new account entries. Is only used if price single is left empty on create.",
+      "type":"number"
+    },
+    "default_unit":{
+      "description": "The default quantity unit for new account entries. Is only used if unit is left empty on create.",
+      "type":"string",
+      "maxLength": 30
+    },
+    "hide_fields":{
+      "description": "A list of account entry field names. The fields are hidden on account entry lists and forms so one can focus on the important inputs. For example hide: tax,description,billed_at",
+      "type":"string",
+      "maxLength": 255
+    },
     "contact_id":{
       "description": "The contacts uuid to which the account is related.",
       "type":"string",
@@ -76,16 +90,6 @@
     { "rel": "instances",
       "href": "accounts",
       "properties" : {
-        "page":{
-          "title" : "Page",
-          "description": "In paginated results set the page to look for",
-          "type":"number"
-        },
-        "per_page":{
-          "title" : "Per page",
-          "description": "Results per page. Default is 10, max is 100",
-          "type":"number"
-        },
         "filter[q]":{
           "title" : "Search",
           "description": "Wildcard search in number, name, description",
@@ -96,10 +100,30 @@
           "description": "Search by exact number",
           "type":"string"
         },
+        "filter[balance_from]":{
+          "title" : "By balance from",
+          "description": "Find account with a balance greater(>=) than given number.",
+          "type":"number"
+        },
+        "filter[balance_to]":{
+          "title" : "By balance to",
+          "description": "Find accounts with a balance smaller(<=) than given number.",
+          "type":"number"
+        },
         "filter[parent_id]":{
           "title" : "By parent",
           "description": "Search children of the given account.",
           "type":"string"
+        },
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 10, max is 100",
+          "type":"number"
         },
         "sort_by":{
           "title" : "Sort by",
