@@ -7,6 +7,7 @@ Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newslette
 
 * add account default_price, default_unit, hide_fields
 * filter accounts by balance range
+* filter account entries by billing date, unbilled and billable
 
 ##2014-03
 

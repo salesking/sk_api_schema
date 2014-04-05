@@ -58,8 +58,9 @@
       "type":"string"
     },
     "billable":{
-      "description": "True if the entry should appear on invoices.",
-      "type":"boolean"
+      "description": "True if the entry can be billed.",
+      "type":"boolean",
+      "default": false
     },
     "billed_at":{
       "description": "Date the object was billed. Is set when the entry is used on an invoice",
@@ -111,6 +112,16 @@
           "description": "Set multiple account ids comma separated or as array",
           "type":"string"
         },
+        "filter[unbilled]":{
+          "title" : "Unbilled",
+          "description": "Entries available for billing: marked as billable without a billing date(billed_at) set. False values will skip this filter. To find billed entries simply use filter[billed_at_to] e.g with todays date.",
+          "type":"boolean"
+        },
+        "filter[billable]":{
+          "title" : "Billable",
+          "description": "Billable or not billable entries. Set false(string) or 0(Integer) to get not billable entries. For billable entries use true or 1. Also see filter[unbilled] to find not yet billed entries.",
+          "type":"boolean"
+        },
         "filter[date_from]":{
           "title" : "From date",
           "description": "Objects with a date eq/after the date. YYYY-MM-DD",
@@ -120,6 +131,18 @@
         "filter[date_to]":{
           "title" : "To date",
           "description": "Objects with date eq/before the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[billed_at_from]":{
+          "title" : "From billing date",
+          "description": "Objects with a billing date eq/after the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[billed_at_to]":{
+          "title" : "To billing date",
+          "description": "Objects with billing date eq/before the date. YYYY-MM-DD. A set billing date means the entry has been billed, so simply use this filter e.g with date today to find all billed entries.",
           "format" : "date",
           "type" : "string"
         },
