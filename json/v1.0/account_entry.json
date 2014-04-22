@@ -112,6 +112,11 @@
           "description": "Set multiple account ids comma separated or as array",
           "type":"string"
         },
+        "filter[ids]":{
+          "title" : "Search by account entry ids",
+          "description": "Set multiple entry ids comma separated or as array",
+          "type":"string"
+        },
         "filter[unbilled]":{
           "title" : "Unbilled",
           "description": "Entries available for billing: marked as billable without a billing date(billed_at) set. False values will skip this filter. To find billed entries simply use filter[billed_at_to] e.g with todays date.",

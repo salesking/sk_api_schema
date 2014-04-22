@@ -152,8 +152,11 @@
       "href": "accounts",
       "method": "POST"
     },
-    { "rel": "account entries",
+    { "rel": "account_entries",
       "href": "accounts/{id}/account_entries"
+    },
+    { "rel": "account_billings",
+      "href": "accounts/{id}/account_billings"
     }
   ]
 }
