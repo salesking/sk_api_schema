@@ -95,6 +95,11 @@
       "maxLength": 22,
       "minLength":22
     },
+    "product_from_line_item":{
+      "description": "Saves and associates an instance of a Product from LineItem fields (name, description, quantity, unit, price, cost price), if no Product association is found. Accepted values to trigger this behaviour: 1, true",
+      "type":"boolean",
+      "default": false
+    },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
