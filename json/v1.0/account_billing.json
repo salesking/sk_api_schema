@@ -1,7 +1,7 @@
 { "type":"object",
   "title": "account_billing",
   "name": "account_billing",
-  "description": "BETA An account billing serves as the glue between an account a document and their related account entries and line items. It also lets one keep track of who billed what and when.",
+  "description": "BETA An account billing serves as the glue between an account a document and their related account entries and line items. It also lets one keep track of who billed what and when. A billing is created from billable account entries, which are turned into line items for a document.",
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -17,16 +17,16 @@
       "maxLength": 100
     },
     "account_id":{
-      "description": "A team uuid. Is inferred from the accounts team id.",
+      "description": "The related account.",
       "type":"string",
       "required":true,
       "maxLength": 22,
       "minLength":22
     },
-    "group_by":{
-      "description": "Group multiple account entries into single line items. Account entries MUST have the same price_single and quantity unit, to land in a group. Date base groups also require the same entry name.",
+    "group_entries_by":{
+      "description": "Group multiple account entries into single line items, when creating a billing+document from entries. Account entries MUST have the SAME price_single and quantity unit, to land in a group. Date base groups also require the SAME entry name.",
       "type":"string",
-      "enum": ["name", "day", "week", "month"]
+      "enum": ["none", "name", "day", "week", "month", "year"]
     },
     "document_type":{
       "description": "The document type to create. CamelCase document class name",
@@ -42,7 +42,6 @@
     "document_id":{
       "description": "The document created by the billing.",
       "type":"string",
-      "readonly":true,
       "maxLength": 22,
       "minLength":22
     },

@@ -6,6 +6,8 @@ Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newslette
 ##2014-05
 
 * add ability to create products from line items
+* search account_entries by document_ids
+* account_entries show related document and line item
 
 ##2014-04
 

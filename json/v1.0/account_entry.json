@@ -18,6 +18,20 @@
       "maxLength": 22,
       "minLength":22
     },
+    "document_id":{
+      "description":"Document the entry is related to. This relation is set by an account billing.",
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "item_id":{
+      "description":"Line item on the document the entry is related to. This relation is set by an account billing.",
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
     "name":{
       "description": "The name of an entry",
       "type":"string",
@@ -110,6 +124,11 @@
         "filter[account_ids]":{
           "title" : "Search by related accounts",
           "description": "Set multiple account ids comma separated or as array",
+          "type":"string"
+        },
+        "filter[document_ids]":{
+          "title" : "Search by related documents",
+          "description": "Set multiple document ids comma separated or as array",
           "type":"string"
         },
         "filter[ids]":{
