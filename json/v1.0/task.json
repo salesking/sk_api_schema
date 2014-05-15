@@ -33,6 +33,23 @@
       "maxLength": 22,
       "minLength":22
     },
+    "contact":{
+      "description": "The contact for the task. Use contact_id field to set a contact.",
+      "readonly":true,
+      "type":"object",
+      "properties":{"$ref":"./contact.json#properties"}
+    },
+    "documents":{
+      "description": "A tasks can have many related documents.",
+      "type":"array",
+      "properties" : {"$ref":"./document.json#properties"}
+    },
+    "attachments":{
+      "description": "Attached files, uploads.",
+      "readonly":true,
+      "type":"array",
+      "properties":{"$ref":"./attachment.json#properties"}
+    },
     "assignee_id":{
       "description": "User who should do the tasks.",
       "type":"string",
@@ -47,7 +64,7 @@
     },
     "closed_at":{
       "description": "Date the task was completed.",
-      "format":"date-time",
+      "format":"date",
       "readonly":true,
       "type":"string"
     },
@@ -183,7 +200,30 @@
     },
     { "rel": "create",
       "href": "tasks",
-      "method": "POST"
+      "method": "POST",
+      "properties" : {
+        "template_id":{
+          "title" : "Task Template",
+          "description": "Task template(id) to use. If set template fields like name, description, attachments are used for the new task.",
+          "type":"string",
+          "maxLength": 22,
+          "minLength":22
+        },
+        "document_id":{
+          "title" : "Create a task for the document.",
+          "description": "If set: the document, its contact and due date are used for the task. Dont forget to set a task.name though. Useful if you want to create a reminder when the document is due e.g call contact.",
+          "type":"string",
+          "maxLength": 22,
+          "minLength":22
+        },
+        "source":{
+          "title" : "Copy a task.",
+          "description": "Uses name, description, contact, documents from given given source task.",
+          "type":"string",
+          "maxLength": 22,
+          "minLength":22
+        }
+      }
     }
   ]
 }
