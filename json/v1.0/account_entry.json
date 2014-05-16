@@ -26,7 +26,7 @@
       "minLength":22
     },
     "item_id":{
-      "description":"Line item on the document the entry is related to. This relation is set by an account billing.",
+      "description":"Line item on the document the entry is related to. This relation is set by an account billing or when a document is booked onto an account.",
       "readonly":true,
       "type":"string",
       "maxLength": 22,
@@ -57,7 +57,7 @@
       "type":"number"
     },
     "quantity_unit":{
-      "description": "Quantity unit: kg, days, month.",
+      "description": "Quantity unit e.g: kg, days, month, ..",
       "type":"string",
       "maxLength": 30
     },
@@ -77,18 +77,18 @@
       "default": false
     },
     "billed_at":{
-      "description": "Date the object was billed. Is set when the entry is used on an invoice",
+      "description": "Date the object was billed. Automatically set when the entry is used on an invoice.",
       "format":"date-time",
       "type":"string"
     },
     "created_at":{
-      "description": "Date the object was created in SK. Never changes afterwards",
+      "description": "Date the object was created. Never changes afterwards",
       "format":"date-time",
       "readonly":true,
       "type":"string"
     },
     "updated_at":{
-      "description": "Date the object was edited in SK.",
+      "description": "Date the object was edited.",
       "format":"date-time",
       "readonly":true,
       "type":"string"
