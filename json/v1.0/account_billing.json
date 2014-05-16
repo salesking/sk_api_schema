@@ -17,7 +17,7 @@
       "maxLength": 100
     },
     "account_id":{
-      "description": "The related account.",
+      "description": "The related account. Must be set for entries to be found.",
       "type":"string",
       "required":true,
       "maxLength": 22,
@@ -26,10 +26,10 @@
     "group_entries_by":{
       "description": "Group multiple account entries into single line items, when creating a billing+document from entries. Account entries MUST have the SAME price_single and quantity unit, to land in a group. Date base groups also require the SAME entry name.",
       "type":"string",
-      "enum": ["none", "name", "day", "week", "month", "year"]
+      "enum": ["name", "day", "week", "month", "year"]
     },
     "document_type":{
-      "description": "The document type to create. CamelCase document class name",
+      "description": "The document type to create. CamelCase document class name. Invoice by default",
       "type":"string",
       "default" : "Invoice",
       "enum": ["Invoice", "CreditNote", "Order", "Estimate"]
@@ -42,6 +42,7 @@
     "document_id":{
       "description": "The document created by the billing.",
       "type":"string",
+      "readonly": true,
       "maxLength": 22,
       "minLength":22
     },
@@ -58,7 +59,7 @@
       "minLength":22
     },
     "creator_id":{
-      "description": "The user uuid who created the record.",
+      "description": "User who created the record.",
       "type":"string",
       "maxLength": 22,
       "minLength":22,
