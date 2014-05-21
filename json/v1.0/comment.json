@@ -75,6 +75,11 @@
           "description": "Comma-separated list of contact IDs. While present, it will return comments related to the contact and all its documents.",
           "type" : "string"
         },
+        "filter[related_object_ids]":{
+          "title" : "Related object IDs",
+          "description": "Comma-separated list of related object IDs (objects which can have their own comments: document, task, products). Can also be used with  a single ID to find all comments related to the given object.",
+          "type" : "string"
+        },
         "filter[from]":{
           "title" : "From date",
           "description": "All objects with a date after the date. YYYY-MM-DD",
