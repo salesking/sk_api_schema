@@ -33,6 +33,10 @@
       "type":"number",
       "readonly":true
     },
+    "budget":{
+      "description": "If an account is used to track budgetary things f.ex. projects, this fields can be used to perform calculations like: Are we still inside the allowed budget?",
+      "type":"number"
+    },
     "default_price":{
       "description": "The default price single for new account entries. Is only used if price single is left empty on create.",
       "type":"number"
