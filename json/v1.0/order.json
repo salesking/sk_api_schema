@@ -120,6 +120,13 @@
       "maxLength": 22,
       "minLength":22
     },
+    "estimate_id":{
+      "description":"Estimate document ID, if the order was created from a estimate.",
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength": 22
+    },
     "team_id":{
       "description": "A team uuid taken from the contact. If set only the team and its parent teams can see the record.",
       "readonly" :true,

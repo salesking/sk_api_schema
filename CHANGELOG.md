@@ -6,6 +6,7 @@ Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newslette
 ##2014-06
 
 * add budget to account
+* add estimate_id to order
 
 ##2014-05
 
