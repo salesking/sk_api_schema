@@ -170,12 +170,13 @@ module SK
         # readonly
         def clean_hash!(obj_name, props, version, opts={})
           # gather allowed properties
-          schema = SK::Api::Schema.read(obj_name, version)
-          setters = []
-          schema['properties'].each{ |k,v| setters << k if !v['readonly'] }
-          setters += opts[:keep] if opts[:keep] && opts[:keep].is_a?(Array)
+          schema   = SK::Api::Schema.read(obj_name, version)
+          setters  = schema['properties'].select{|_,property|!property['readonly']}.keys
+          setters += opts[:keep] if Array === opts[:keep]
+          
           # kick readonly
           props.delete_if { |k,v| !setters.include?("#{k}")  }
+          
           #convert to type in schema
           props.each do |k,v|
             if schema['properties']["#{k}"]['type'] == 'string' && !v.is_a?(String)
