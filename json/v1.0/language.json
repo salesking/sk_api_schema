@@ -49,7 +49,7 @@
         },
         "per_page":{
           "title" : "Per page",
-          "description": "Results per page. Default is 10, max is 100",
+          "description": "Results per page. Default is 50, max is 200",
           "type":"number"
         },
         "sort_by":{
