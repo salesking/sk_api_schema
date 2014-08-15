@@ -3,6 +3,11 @@
 {<img src="https://secure.travis-ci.org/salesking/sk_api_schema.png?branch=master" alt="Build Status" />}[http://travis-ci.org/salesking/sk_api_schema]
 
 Our API (objects,resources) is described with JSON Schema (http://json-schema.org).
+
+See our {API Browser}[http://sk-api-browser.herokuapp.com/] for a visual presentation.
+
+== Intro
+
 Each Object has its own description, with those top-level keys:
 
   {
@@ -21,7 +26,7 @@ Other languages should take advantage of the raw json files.
 
 == Tutorial & Docs
 
-* {API Browser}[http://sk-api-browser.heroku.com/]
+* {API Browser}[http://sk-api-browser.herokuapp.com/]
 * {API Intro}[http://www.salesking.eu/dev/api/]
 * {Ruby SDK - API Client}[https://github.com/salesking/sk_sdk]
 * {PHP SDK - API Client}[https://github.com/salesking/salesking_php_sdk]
@@ -158,7 +163,4 @@ course you can run them too. Install required gems with bundler and go for it:
 
 == ToDo:
 
-Those relative urls in the link sections, need some love, so please don't rely on
-them to much right now.
-
-Copyright (c) 2010-2012 Georg Leciejewski, released under the MIT license
+Copyright (c) 2010-2014 Georg Leciejewski, released under the MIT license

@@ -16,7 +16,7 @@ describe SK::Api::Schema do
       schema[:title].should == 'invoice'
       schema[:type].should == 'object'
       schema['properties'].should be_a Hash
-      schema['properties']['id']['identity'].should be_true
+      schema['properties']['id']['identity'].should == true
     end
 
     it "should read json schema file with simple version" do
@@ -24,7 +24,7 @@ describe SK::Api::Schema do
       schema[:title].should == 'invoice'
       schema[:type].should == 'object'
       schema['properties'].should be_a Hash
-      schema['properties']['id']['identity'].should be_true
+      schema['properties']['id']['identity'].should == true
     end
 
     it "should read all json schemas" do
