@@ -186,6 +186,19 @@
       "description": "Percentage of gross profit to cost of items sold. Calculated from gross_margin_total/net_total*100",
       "readonly":true,
       "type":"number"
+    },
+    "probability":{
+      "description": "Percentage of estimated confidence in closing the deal. Estimated Probability percentage of the net total amount",
+      "type":"number"
+    },
+    "expected_revenue":{
+      "description": "Product of the probability and net total. ",
+      "readonly":true,
+      "type":"number"
+    },
+    "close_date":{
+      "description": "Date when the deal is expected to be closed.",
+      "type":"number"
     }
   },
   "links":[

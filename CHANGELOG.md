@@ -3,6 +3,11 @@
 See [commit messages](https://github.com/salesking/sk_api_schema/commits/) for details.
 Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter/) to stay up-to-date !!!
 
+##2014-08
+
+* Estimate: add close_date, probability percent, expected_revenue
+* Contact: add sales_potential, probability percent, expected_revenue
+
 ##2014-06
 
 * add budget to account

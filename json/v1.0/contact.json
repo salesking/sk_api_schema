@@ -222,6 +222,19 @@
       "description": "Date the contact converted from lead to client or any other contact type (supplier)",
       "format":"date-time",
       "type":"string"
+    },
+    "sales_potential":{
+      "description": "Sales potential for the contact e.g what is his budget, how much can he spend?",
+      "type":"number"
+    },
+    "probability":{
+      "description": "Likelihood that the sales potential will be realised in percent e.g. How hot is the contact, How much of the sales potential will we get also see expected_revenue?",
+      "type":"number"
+    },
+    "expected_revenue":{
+      "description": "Product of the probability and sales potential.",
+      "readonly":true,
+      "type":"number"
     }
   },
   "links":[
