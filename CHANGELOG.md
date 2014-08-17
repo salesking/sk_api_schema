@@ -6,7 +6,9 @@ Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newslette
 ##2014-08
 
 * Estimate: add close_date, probability percent, expected_revenue
+* Estimate: filter by close_date, updated_at, probability range
 * Contact: add sales_potential, probability percent, expected_revenue
+* Contact: filter by sales_potential range, probability range
 
 ##2014-06
 

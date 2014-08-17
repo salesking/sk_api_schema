@@ -232,7 +232,7 @@
       "type":"number"
     },
     "expected_revenue":{
-      "description": "Product of the probability and sales potential.",
+      "description": "Product of the probability and sales potential. e.g how much of the sales_potential can we get?",
       "readonly":true,
       "type":"number"
     }
@@ -318,6 +318,24 @@
           "description": "Type of the contact: ",
           "enum":["Client", "Lead", "Supplier"],
           "type" : "string"
+        },
+        "filter[probability_from]":{
+          "title" : "By probability from",
+          "description": "Find contacts with a probability greater(>=) than given number. Minimum is 0 for percent fields, max 100",
+          "type":"number"
+        },
+        "filter[probability_to]": {
+          "title": "By probability to",
+          "description": "Find contacts with a probability smaller(<=) than given number."
+        },
+        "filter[sales_potential_from]":{
+          "title" : "By sales potential from",
+          "description": "Find contacts with a sales potential greater(>=) than given number.",
+          "type":"number"
+        },
+        "filter[sales_potential_to]": {
+          "title": "By sales potential to",
+          "description": "Find contacts with a sales potential smaller(<=) than given number."
         },
         "sort_by":{
           "title" : "Sort by",
