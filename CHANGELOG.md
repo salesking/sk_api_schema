@@ -5,6 +5,7 @@ Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newslette
 
 ##2014-08
 
+* Account: add document_id to relate a document to an account
 * Estimate: add close_date, probability percent, expected_revenue
 * Estimate: filter by close_date, updated_at, probability range
 * Contact: add sales_potential, probability percent, expected_revenue

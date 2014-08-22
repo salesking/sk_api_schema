@@ -57,6 +57,12 @@
       "maxLength": 22,
       "minLength":22
     },
+    "document_id":{
+      "description": "Document uuid, related to the account.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
