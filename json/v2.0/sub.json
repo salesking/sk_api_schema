@@ -1,0 +1,60 @@
+{"type":"object",
+  "title": "sub",
+  "name": "sub",
+  "description": "Subscribe to push notifications(webhooks) about object livecycle events like new, update or delete. Only returns subscription for the current app, so you MUST be using oAuth. When a user removes your app its subs are also deleted. <br/>To register you must supply <br/>- callback_url: receives a base64 encode string containing a JSON object with the object in it's latest state, the user_id & subdomain, company_id, hmac-signed with your app secret.<br/>- channel: defining the event, made up of the SINGULAR object name and the action: invoice.delete, payment.new<br/> - register auth_permissions: An app MUST request non-api permissions f.ex.: clients:create. Perms(on company,app,user,team) are checked before any publishing, so if a user cannot create clients in the interface, his apps will not receive any callbacks.",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "channel":{
+      "description": "The channel to which to subscribe. See available at subs/channels.",
+      "required":true,
+      "type":"string",
+      "maxLength": 100
+    },
+    "callback_url":{
+      "description": "An url receiving the notification. The url MUST be within the url of the current app and receives a POST with a single signed_request parameter containing an base64 encoded JSON object.",
+      "type":"string",
+      "format":"uri",
+      "required":true,
+      "maxLength": 100
+    },
+    "created_at":{
+      "description": "Date the record was created in SK. Never changes afterwards.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Last date when the record was edited.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    }
+  },
+
+  "links":[
+    { "rel": "self",
+      "href": "{id}"
+    },
+    { "rel": "instances",
+      "href": "subs/"
+    },
+    { "rel": "destroy",
+      "href": "subs/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "subs/{id}",
+      "method": "PUT"
+    },
+    { "rel": "subs/channels",
+      "href": "subs/channels"
+    }
+  ]
+}

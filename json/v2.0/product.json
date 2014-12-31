@@ -1,0 +1,144 @@
+{ "type":"object",
+  "title": "product",
+  "name": "product",
+  "description": "A product in SK",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "number":{
+      "description": "Unique number assigned by you or if empty SK product number schema.",
+      "type":"string",
+      "maxLength": 50
+    },
+    "name":{
+      "description": "The name of the product",
+      "type":"string",
+      "required":true,
+      "maxLength": 50
+    },
+    "description":{
+      "description": "Product description",
+      "type":"string",
+      "format":"text"
+    },
+    "tag_list":{
+      "description": "Space separated list of tags. Are split and saved as Tag objects on create, update.",
+      "type":"string"
+    },
+    "price":{
+      "description": "Net price of a single product",
+      "type":"number",
+      "required":true
+    },
+    "cost":{
+      "description": "Cost price of a single product",
+      "type":"number"
+    },
+    "category_name":{
+      "description": "Name of the product category. A new category is created if it does not exist.",
+      "type":"string",
+      "maxLength": 255
+    },
+    "tax":{
+      "description": "Tax percentage for this product.",
+      "type":"number"
+    },
+    "quantity_unit":{
+      "description": "Unit like kg, days, month.",
+      "type":"string",
+      "maxLength": 30
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "team_id":{
+      "description": "A team uuid. If set only the team and its parent teams can see the record.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "lock_version":{
+      "description": "Increased on every edit, so SK can detect/prevent a concurrent edit by another user. First save wins.",
+      "type":"integer"
+    }
+  },
+  "links":[
+    { "rel": "self",
+      "href": "products/{id}"
+    },
+    { "rel": "instances",
+      "href": "products",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 50, max is 200",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Wildcard search in number, name, description, price",
+          "type":["string", "number"]
+        },
+        "filter[contact_ids]":{
+          "title" : "Contact IDs",
+          "description": "Comma-separated list of contact IDs. While present, it will return payments related to all contacts' documents.",
+          "type" : "string"
+        },
+        "filter[number]":{
+          "title" : "By number",
+          "description": "Search by exact number",
+          "type":"string"
+        },
+        "filter[tags]":{
+          "title" : "Tags",
+          "description": "Filter by a space delimited list of tags",
+          "type":"string"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":["name","number","price", "created_at", "updated_at"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC",
+          "type": "string"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "products/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "products/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "products",
+      "method": "POST"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{ "type":"object",
+  "title": "address",
+  "name": "address",
+  "description":"An address in SK is maintained within it's parent object(client, company). The first address(default_address) is used inside the address field of new documents. With multiple addresses sorting(first) is done by date, newest first. So if you add a new adddress it will be the new default one. See order and type property for details about ordering and accessing parcel work or home addresses.",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "city":{
+      "description": "City for the address. Must at least be present for an address.",
+      "required":true,
+      "type":"string",
+      "maxLength": 100
+    },
+    "address1":{
+      "description": "Should contain the street or otherwise primary address information.",
+      "type":"string",
+      "maxLength": 100
+    },
+    "address2":{
+      "description": "Additional address information, like floor number",
+      "type":"string",
+      "maxLength": 100
+    },
+    "pobox":{
+      "description": "Post office box number",
+      "type":"string",
+      "maxLength": 10
+    },
+    "zip":{
+      "description": "Zip number of the city. Length must be between 4..10",
+      "type":"string",
+      "maxLength": 10
+    },
+    "state":{
+      "description": "Country state of address",
+      "type":"string",
+      "maxLength": 100
+    },
+    "country":{
+      "description": "Country of the address.",
+      "type":"string",
+      "maxLength": 100
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "address_type":{
+      "description": "Type of the address, as seen by vCard definition. There can only be one type. Inside of SK you can use placeholders like client.parcel_address.city to access the first parcel adr(Same for work_ / home_). <br/>Besides the placeholder default_address, always returns the first address found. Sorting is done by the order(if set) else by date, newest first.",
+      "enum":["work","home", "parcel"],
+      "type":"string"
+    },
+    "order":{
+      "description": "Addresses are normally sorted by date, newest first. If you need to strongly rely on their sorting e.g. default_address (always first) or have multiple addresses of one type(3 parcel), use this field for all adrs. <br/>Single adrs are used in placeholders like: addresses.2.city, returning the second adr found(not necessarily one with order=2).",
+      "type":"integer"
+    },
+    "lat":{
+      "description": "Geo-Location latitude",
+      "type":"number"
+    },
+    "long":{
+      "description": "Geo-Location longitude",
+      "type":"number"
+    },
+    "_destroy":{
+      "description": "When set an existing address will be deleted. This switch is only used when addresses are passed-in nested inside their parent object(a contact).",
+      "type":"boolean"
+    }
+  },
+  "links":[]
+}

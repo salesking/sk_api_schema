@@ -1,0 +1,172 @@
+{ "type":"object",
+  "title": "account",
+  "name": "account",
+  "description": "BETA An account to track times, expenses, projects, usages, etc. Those are single entry accounts, opposed to double entry accounting in bookkeeping accounts.",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "number":{
+      "description": "Unique number assigned by you or if empty SK account number schema.",
+      "type":"string",
+      "maxLength": 50
+    },
+    "name":{
+      "description": "The name of the account",
+      "type":"string",
+      "required":true,
+      "maxLength": 100
+    },
+    "description":{
+      "description": "Account description",
+      "type":"string",
+      "format":"text",
+      "maxLength": 255
+    },
+    "balance":{
+      "description": "The account balance is the sum of all entries, also those from sub-accounts.",
+      "type":"number",
+      "readonly":true
+    },
+    "budget":{
+      "description": "If an account is used to track budgetary things f.ex. projects, this fields can be used to perform calculations like: Are we still inside the allowed budget?",
+      "type":"number"
+    },
+    "default_price":{
+      "description": "The default price single for new account entries. Is only used if price single is left empty on create.",
+      "type":"number"
+    },
+    "default_unit":{
+      "description": "The default quantity unit for new account entries. Is only used if unit is left empty on create.",
+      "type":"string",
+      "maxLength": 30
+    },
+    "hide_fields":{
+      "description": "A list of account entry field names. The fields are hidden on account entry lists and forms so one can focus on the important inputs. For example hide: tax,description,billed_at",
+      "type":"string",
+      "maxLength": 255
+    },
+    "contact_id":{
+      "description": "The contacts uuid to which the account is related.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "document_id":{
+      "description": "Document uuid, related to the account.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "team_id":{
+      "description": "A team uuid. If set only the team and its parent teams can see the record.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "creator_id":{
+      "description": "The user uuid who created the record.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22,
+      "readonly":true
+    }
+  },
+  "links":[
+    { "rel": "self",
+      "href": "accounts/{id}"
+    },
+    { "rel": "instances",
+      "href": "accounts",
+      "properties" : {
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Wildcard search in number, name, description",
+          "type":"string"
+        },
+        "filter[number]":{
+          "title" : "By number",
+          "description": "Search by exact number",
+          "type":"string"
+        },
+        "filter[balance_from]":{
+          "title" : "By balance from",
+          "description": "Find account with a balance greater(>=) than given number.",
+          "type":"number"
+        },
+        "filter[balance_to]":{
+          "title" : "By balance to",
+          "description": "Find accounts with a balance smaller(<=) than given number.",
+          "type":"number"
+        },
+        "filter[contact_ids]":{
+          "title" : "Contacts",
+          "description": "Find objects belonging to a single or a list of contacts, use ids comma separated.",
+          "type" : "string"
+        },
+        "filter[parent_id]":{
+          "title" : "By parent",
+          "description": "Search children of the given account.",
+          "type":"string"
+        },
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 50, max is 200",
+          "type":"number"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":["name","number","balance", "created_at", "updated_at"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC",
+          "type": "string"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "accounts/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "accounts/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "accounts",
+      "method": "POST"
+    },
+    { "rel": "account_entries",
+      "href": "accounts/{id}/account_entries"
+    },
+    { "rel": "account_billings",
+      "href": "accounts/{id}/account_billings"
+    }
+  ]
+}

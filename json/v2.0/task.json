@@ -1,0 +1,229 @@
+{ "type":"object",
+  "title": "task",
+  "name": "task",
+  "description":"An Task in SK.",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "name":{
+      "description": "The task title.",
+      "required":true,
+      "type":"string"
+    },
+    "description":{
+      "description": "Notes, explanations for the task.",
+      "required":true,
+      "type":"string"
+    },
+    "status":{
+      "description": "New tasks are open by default, unless otherwise stated.",
+      "default":"open",
+      "enum":["open","closed","overdue"],
+      "type":"string"
+    },
+    "contact_id":{
+      "description": "Related contact of the tasks.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "contact":{
+      "description": "The contact for the task. Use contact_id field to set a contact.",
+      "readonly":true,
+      "type":"object",
+      "properties":{"$ref":"./contact.json#properties"}
+    },
+    "documents":{
+      "description": "A tasks can have many related documents.",
+      "type":"array",
+      "properties" : {"$ref":"./document.json#properties"}
+    },
+    "attachments":{
+      "description": "Attached files, uploads.",
+      "readonly":true,
+      "type":"array",
+      "properties":{"$ref":"./attachment.json#properties"}
+    },
+    "assignee_id":{
+      "description": "User who should do the tasks.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "creator_id":{
+      "description": "User who created the tasks.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "closed_at":{
+      "description": "Date the task was completed.",
+      "format":"date",
+      "readonly":true,
+      "type":"string"
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    }
+  },
+   "links":[
+    { "rel": "self",
+      "href": "tasks/{id}"
+    },
+    { "rel": "instances",
+      "href": "tasks",
+      "properties" : {
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Search in name, description",
+          "type":"string"
+        },
+        "filter[status]":{
+          "title" : "Status",
+          "description": "A single or a list of status, comma separated: open,closed,overdue",
+          "type" : "string"
+        },
+        "filter[ids]":{
+          "title" : "Task IDs",
+          "description": "Only find tasks with given ids. Comma-separated list of task IDs.",
+          "type" : "string"
+        },
+        "filter[contact_ids]":{
+          "title" : "Contact IDs",
+          "description": "Tasks related to given contacts. Comma-separated list of contact IDs.",
+          "type" : "string"
+        },
+        "filter[creator_ids]":{
+          "title" : "Creator IDs",
+          "description": "Tasks created by given users. Comma-separated list of user IDs.",
+          "type" : "string"
+        },
+        "filter[assignee_ids]":{
+          "title" : "Assignee IDs",
+          "description": "Tasks assigned to given users. Comma-separated list of user IDs.",
+          "type" : "string"
+        },
+        "filter[due_at_from]":{
+          "title" : "From date",
+          "description": "Tasks due after the date(>=). YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[due_at_to]":{
+          "title" : "To date",
+          "description": "Tasks due before the date(<=). YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[closed_at_from]":{
+          "title" : "From date",
+          "description": "Tasks closed after the date(>=). YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[closed_at_to]":{
+          "title" : "To date",
+          "description": "Tasks closed before the date(<=). YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[updated_at_from]":{
+          "title" : "From date",
+          "description": "Tasks updated after the date(>=). YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[updated_at_to]":{
+          "title" : "To date",
+          "description": "Tasks updated before the date(<=). YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[created_at_from]":{
+          "title" : "From date",
+          "description": "Tasks created after the date(>=). YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[created_at_to]":{
+          "title" : "To date",
+          "description": "Tasks created before the date(<=). YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 50, max is 200",
+          "type":"number"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":["created_at", "updated_at"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC",
+          "type": "string"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "tasks/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "tasks/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "tasks",
+      "method": "POST",
+      "properties" : {
+        "template_id":{
+          "title" : "Task Template",
+          "description": "Task template(id) to use. If set template fields like name, description, attachments are used for the new task.",
+          "type":"string",
+          "maxLength": 22,
+          "minLength":22
+        },
+        "document_id":{
+          "title" : "Create a task for the document.",
+          "description": "If set: the document, its contact and due date are used for the task. Dont forget to set a task.name though. Useful if you want to create a reminder when the document is due e.g call contact.",
+          "type":"string",
+          "maxLength": 22,
+          "minLength":22
+        },
+        "source":{
+          "title" : "Copy a task.",
+          "description": "Uses name, description, contact, documents from given given source task.",
+          "type":"string",
+          "maxLength": 22,
+          "minLength":22
+        }
+      }
+    }
+  ]
+}

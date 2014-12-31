@@ -1,0 +1,240 @@
+{ "type":"object",
+  "title": "document",
+  "name": "document",
+  "description": "This resource is readonly and serves as a convenient way to query documents independent of their type(invoice, order,..). The specific document type is set in each object in the result-set. Internally Document is the base class for all types and special fields are defined in each child-class. Due to this some fields might be missing if you are using this meta-class in queries.",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength": 22
+    },
+    "object_type":{
+      "description": "The specific type of the document singular CamelCased: Invoice, PaymentReminder",
+      "type":"string"
+    },
+    "number":{
+      "description": "Unique number assigned by a user or automatic by the object's number schema.",
+      "type":"string",
+      "maxLength": 50
+    },
+    "address_field":{
+      "description": "Receiver address, normally shown in envelope window. Defaults to client address_field.",
+      "type":"string"
+    },
+    "date":{
+      "description": "Date the document is issued. Automatically set when document is opened. Required for non-draft documents. YYYY-MM-DD",
+      "format":"date",
+      "type":"string"
+    },
+    "external_ref":{
+      "description": "Some external reference, whatever this may be.",
+      "type":"string",
+      "maxLength": 255
+    },
+    "title":{
+      "description": "The headline of a document. Use SK placeholders to prevent excessive typing e.g. 'Your invoice [number]'",
+      "type":"string",
+      "maxLength": 255
+    },
+    "notes_before":{
+      "description": "Notes shown before the line items. Normally contains salutation and other introductional information. SK placeholders can be used.",
+      "type":"string",
+      "format":"text"
+    },
+    "notes_after":{
+      "description": "Notes shown after the line items. Can contain information about payments, bank account or a thank-you message. SK placeholders can be used.",
+      "type":"string",
+      "format":"text"
+    },
+    "tag_list":{
+      "description": "Space separated list of tags. Are split and saved as Tag objects on create, update.",
+      "type":"string"
+    },
+    "client_id":{
+      "description": "DEPRECATED: use contact_id",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "contact_id":{
+      "description": "The contact uuid. When assigning a contact its language, currency, address_field (due days, cash discount) values are used for the document if those doc-fields are not set.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "team_id":{
+      "description": "A team uuid taken from the contact. If set only the team and its parent teams can see the record.",
+      "readonly" :true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "line_items":{
+      "description": "Line items for the document",
+      "type":"array",
+      "items":{"$ref":"./line_items.json#properties"}
+    },
+    "items":{
+      "description": "Items for the document. Access items of all types including divider and sub_total items.",
+      "type":"array",
+      "default": "any",
+      "minItems": 0,
+      "items": [{ "$ref": "./line_item.json#properties"},
+                { "$ref":  "./divider_item.json#properties"},
+                { "$ref": "./sub_total_item.json#properties"}]
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "gross_total":{
+      "description": "Gross total of all line items, 2 decimals places in document currency.",
+      "readonly":true,
+      "type":"number"
+    },
+    "tax_total":{
+      "description": "Tax total, 2 decimals places",
+      "readonly":true,
+      "type":"number"
+    },
+    "net_total":{
+      "description": "Net total, 2 decimals places",
+      "readonly":true,
+      "type":"number"
+    },
+    "net_total_base":{
+      "description": "Net total, 6 decimal places incl. discount",
+      "readonly":true,
+      "type":"number"
+    },
+    "currency":{
+      "description": "Currency code as defined by the ISO 4217 standard. 3-letter UPCASE: EUR, USD",
+      "type":"string",
+      "maxLength": 3,
+      "minLength": 3
+    },
+    "exchange_rate":{
+      "description": "The exchange rate from the foreign document currency(eg. USD) to the company currency(EUR). If the rate is empty we use the exchange rate on the document date or today if doc.date is empty. If there is no rate for this day, say on weekends, the closest previous day is taken(Sunday->Friday). If you open the doc at a later time make sure to manually refresh the rate, as we dont change it. ",
+      "readonly":true,
+      "type":"number"
+    },
+    "gross_total_exchanged":{
+      "description": "Exchanged gross total, in your company currency.",
+      "readonly":true,
+      "type":"number"
+    },
+    "language":{
+      "description": "Should be a valid language short-code: de-DE, fr, en-GB; like defined in your account language menu. When the document is emailed or printed, a localized version of a multi-language template(email, pdf) will be used if available. Defaults to the clients language, if empty and a client is assigned.",
+      "type":"string",
+      "maxLength": 10
+    }
+
+  },
+  "links":[
+    { "rel": "self",
+      "href": "documents/{id}"
+    },
+    { "rel": "instances",
+      "href": "documents",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 50, max is 200",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Search in title, number, address field",
+          "type":"string"
+        },
+        "filter[number]":{
+          "title" : "Number",
+          "description": "Find by exact number",
+          "type":"string"
+        },
+        "filter[tags]":{
+          "title" : "Tags",
+          "description": "Filter by a space delimited list of tags",
+          "type":"string"
+        },
+        "filter[from]":{
+          "title" : "From date",
+          "description": "Objects with a date after the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[to]":{
+          "title" : "To date",
+          "description": "Objects with date before the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[created_at_from]":{
+          "title" : "From date",
+          "description": "Objects with a creation on/after the date(>=). ISO 8601 format YYY-MM-DDThh:mm:ss+z or just a date YYY-MM-DD. If date is given the time is set to the start of the day(00:00:00) so all objects created on this day are included. A time should be already utc time",
+          "format" : "date-time",
+          "type" : "string"
+        },
+        "filter[created_at_to]":{
+          "title" : "To date",
+          "description": "Objects with a creation until the date(<=). ISO 8601 format YYY-MM-DDThh:mm:ss+z or just a date YYY-MM-DD. If date is given the time is set to the end of the day(23:59:59) so all objects created on that day are included. A time should be already utc time.",
+          "format" : "date-time",
+          "type" : "string"
+        },
+        "filter[languages]":{
+          "title" : "Languages",
+          "description": "A list of language codes, comma separated",
+          "type" : "string"
+        },
+        "filter[client_ids]":{
+          "title" : "Clients",
+          "description": "DEPRECATED use contact_ids",
+          "type" : "string"
+        },
+        "filter[contact_ids]":{
+          "title" : "Contacts",
+          "description": "Find objects belonging to a single or a list of contacts, use ids comma separated.",
+          "type" : "string"
+        },
+        "filter[ids]":{
+          "title" : "Documents",
+          "description": "A single or a list of document uuids, comma separated",
+          "type" : "string"
+        },
+        "filter[creator_ids]":{
+          "title" : "Creator",
+          "description": "Objects created by the given users uuids, comma separated",
+          "type" : "string"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":["title", "number", "created_at", "updated_at", "price_total", "price_tax", "date", "due_date"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC",
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

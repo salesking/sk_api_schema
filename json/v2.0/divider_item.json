@@ -1,0 +1,47 @@
+{ "type":"object",
+  "title": "divider_item",
+  "name": "divider_item",
+  "description": "A divider item serves as a separator or headline between line items, e.g. to distinguish hardware and service products on a document. Access and creation is done via documents.items(instead of line_items) where each item has a 'type' field set to its CamelCased class name.",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "position":{
+      "description": "Required since items are sorted by position.",
+      "type":"integer",
+      "required":true
+    },
+    "name":{
+      "description": "The divider text",
+      "type":"string",
+      "maxLength": 50
+    },
+    "type":{
+      "description": "The item type: DividerItem. Must be set when creating new items via document.items array",
+      "type":"string",
+      "maxLength": 20
+    },
+   "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "_destroy":{
+      "description": "When set an existing item will be deleted. This switch is used for items submitted nested within their parent object(a document), which is default as long as there is no line item endpoint available.",
+      "type":"boolean"
+    }
+  },
+  "links":[]
+}

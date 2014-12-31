@@ -1,0 +1,132 @@
+{ "type":"object",
+  "title": "email_template",
+  "name": "email_template",
+  "description":"An email_template is used to simplify the creation of emails. When creating a new email just pass template id and all fields from the template are copied to the new email. The fields are NOT merged with present values in a new email object!",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "name":{
+      "description": "A meaningful name.",
+      "required":true,
+      "type":"string",
+      "maxLength": 50
+    },
+    "subject":{
+      "description": "Subject containing placeholders, replaced when the template is used.",
+      "required":true,
+      "type":"string",
+      "maxLength": 255
+    },
+    "body":{
+      "description": "Body with placeholders, replaced when the template is used.",
+      "required":true,
+      "type":"string",
+      "format":"text"
+    },
+    "from_addr":{
+      "description": "Default from address. A valid email address. Make sure your server(if custom SMPT settings for the API user) allows sending with this address.",
+      "type":"string",
+      "maxLength": 255
+    },
+    "cc_addr":{
+      "description": "Default copy receivers comma separated valid email addresses.",
+      "type":"string",
+      "maxLength": 255
+    },
+    "bcc_addr":{
+      "description": "Default blind copy receivers comma separated valid email addresses. ",
+      "type":"string",
+      "maxLength": 255
+    },
+    "kind":{
+      "description": "Kind of object the template can be used for.",
+      "required":true,
+      "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "contact"],
+      "type":"string"
+    },
+    "language":{
+      "description": "Should be a valid language short-code: de-DE, fr, en-GB; like defined in your account language menu. A multi-language template must belong to a parent. From then on just choose the parent-template and the localized child version is used if the related object(client, invoice,..) of the email, has the appropriate language.",
+      "type":"string",
+      "maxLength": 10
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "team_id":{
+      "description": "A team uuid. If set only the team and its parent teams can see the record.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    }
+  },
+   "links":[
+    { "rel": "self",
+      "href": "email_templates/{id}"
+    },
+    { "rel": "instances",
+      "href": "email_templates",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 50, max is 200",
+          "type":"number"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field",
+          "enum":["created_at", "updated_at"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC",
+          "type":"string"
+        },
+        "filter[q]":{
+          "title" : "Search wildcard",
+          "description": "Searches in name, body, subject",
+          "type":"string"
+        },
+        "filter[kind]":{
+          "title" : "Search by kind",
+          "description": "Kind of object this template can be used for",
+          "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "contact"],
+          "type":"string"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "email_templates/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "email_templates/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "email_templates",
+      "method": "POST"
+    }
+  ]
+}

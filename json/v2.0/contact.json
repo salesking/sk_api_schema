@@ -1,0 +1,418 @@
+{"type":"object",
+  "title": "contact",
+  "name": "contact",
+  "description": "A contact can be a lead, client or supplier, depending on its type field. Use the filter[type] parameter to show only contacts of a kind. Use this resource instead of clients, as they are deprecated and dropped in the future.",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "parent_id":{
+      "description": "ID of a parent contact.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "type":{
+      "description": "Type of contact",
+      "enum":["Client", "Lead", "Supplier"],
+      "required" : true,
+      "type":"string",
+      "maxLength": 50
+    },
+    "is_employee":{
+      "description": "An employee gets number, organisation, tax and vat_number from its parent. If you set any of these, they are overwritten. When changing a parent-contact the fields on his direct child-employees are updated too.",
+      "type": "boolean",
+      "default": false
+    },
+    "number":{
+      "description": "Unique number, auto-created by SK for new contacts(client, supplier) without number.",
+      "type":"string",
+      "maxLength": 50
+    },
+    "organisation":{
+      "description": "Name of a company. This or lastname must be present",
+      "required" : true,
+      "type":"string",
+      "maxLength": 100
+    },
+    "last_name":{
+      "description": "Last name of a person. At least this or the organisation field must be filled for new records",
+      "type":"string",
+      "maxLength": 50
+    },
+    "first_name":{
+      "description": "First name of a person.",
+      "type":"string",
+      "maxLength": 50
+    },
+    "gender":{
+      "description": "Can be empty for a company. Is used in salutation",
+      "enum":["male", "female"],
+      "type":"string"
+    },
+    "notes":{
+      "description": "Notes for a contact. For day to day information you should use comments instead.",
+      "type":"string",
+      "format": "text"
+    },
+    "position":{
+      "description": "Position of a person in a company.",
+      "type":"string",
+      "maxLength": 50
+    },
+    "title":{
+      "description": "Academical title of a person e.g. Dr., Prof",
+      "type":"string",
+      "maxLength": 50
+    },
+    "tax_number":{
+      "description": "Tax number, normally applies to a private person",
+      "type":"string",
+      "maxLength": 30
+    },
+    "vat_number":{
+      "description": "VAT number, for a company or person paying value added taxes.",
+      "type":"string",
+      "maxLength": 30
+    },
+    "email":{
+      "description": "Email address of the contact.",
+      "type":"string",
+      "maxLength": 100
+    },
+    "url":{
+      "description": "An url associated with the person, e.g its company website.",
+      "type":"string",
+      "maxLength": 255
+    },
+    "birthday":{
+      "description": "The birthday. YYYY-MM-DD",
+      "format":"date",
+      "type":"string"
+    },
+    "tag_list":{
+      "description": "Space separated list of tags. Are split and saved as Tag objects on create, update.",
+      "type":"string"
+    },
+    "created_at":{
+      "description": "Date the record was created in SK. Never changes afterwards.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Last date when the record was edited.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "language":{
+      "description": "Should be a valid language short-code: de-DE, fr, en-GB; like defined in your account language menu. When the client is emailed, a localized version of a multi-language template(email, pdf) will be used if available. The language will also be set for new documents.",
+      "type":"string",
+      "maxLength": 10
+    },
+    "currency":{
+      "description": "Currency code as defined by the ISO 4217 standard(3-letter UPCASE: EUR, USD). If set the currency is taken for new documents.",
+      "type":"string",
+      "maxLength": 3,
+      "minLength": 3
+    },
+    "payment_method":{
+      "description": "Default payment method for used for new documemts",
+      "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque", "moneybookers", "premium_sms"],
+      "type":"string"
+    },
+    "bank_name":{
+      "description": "Bank name",
+      "type":"string",
+      "maxLength": 70
+    },
+    "bank_number":{
+      "description": "Bank number",
+      "type":"string",
+      "maxLength": 35
+    },
+    "bank_account_number":{
+      "description": "Bank account number.",
+      "type":"string",
+      "maxLength": 35
+    },
+    "bank_iban":{
+      "description": "IBAN Number of the bank account. Is validated",
+      "type":"string",
+      "maxLength": 35
+    },
+    "bank_swift":{
+      "description": "SWIFT BIC-  Bank Identifier Code",
+      "type":"string",
+      "maxLength": 11
+    },
+    "bank_owner":{
+      "description": "Bank account owner",
+      "type":"string",
+      "maxLength": 70
+    },
+    "phone_fax":{
+      "description": "Fax number",
+      "type":"string",
+      "maxLength": 30
+    },
+    "phone_office":{
+      "description": "Office phone number",
+      "type":"string",
+      "maxLength": 30
+    },
+    "phone_home":{
+      "description": "Private phone number",
+      "type":"string",
+      "maxLength": 30
+    },
+    "phone_mobile":{
+      "description": "Mobile phone number",
+      "type":"string",
+      "maxLength": 30
+    },
+    "lock_version":{
+      "description": "Increased on every edit, so SK can detect/prevent a concurrent edit by another user. First save wins.",
+      "type":"integer"
+    },
+    "cash_discount":{
+      "description": "Default cash discount for new invoices.",
+      "type":"number"
+    },
+    "due_days":{
+      "description": "Default due days for new invoices.",
+      "type":"integer"
+    },
+    "address_field":{
+      "description": "Returns the address field used on new docs. Consist of Organisation name and default(first) address",
+      "readonly":true,
+      "type":"string"
+    },
+    "addresses":{
+      "description": "A client can have many addresses, sorted by date descending(new first). Default address is the most recent one.",
+      "type":"array",
+      "properties" : {"$ref":"./address.json#properties"}
+    },
+    "team_id":{
+      "description": "A team uuid. If set only the team and its parent teams can see the record. The team is set for all new documents and related objects like comments, attachments, emails. When changed ALL related objects are updated with the new team!!",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "lead_source":{
+      "description": "Lead source describing where a contact came from e.g. a campaign name, website, facebook, URL",
+      "type":"text"
+    },
+    "lead_ref":{
+      "description": "Lead reference e.g. a tracking id, web-url",
+      "type":"text"
+    },
+    "lead_date":{
+      "description": "Lead date e.g. date of first contact with your company. YYYY-MM-DD",
+      "format":"date",
+      "type":"string"
+    },
+    "converted_at":{
+      "description": "Date the contact converted from lead to client or any other contact type (supplier)",
+      "format":"date-time",
+      "type":"string"
+    },
+    "sales_potential":{
+      "description": "Sales potential for the contact e.g what is his budget, how much can he spend?",
+      "type":"number"
+    },
+    "probability":{
+      "description": "Likelihood that the sales potential will be realised in percent e.g. How hot is the contact, How much of the sales potential will we get also see expected_revenue?",
+      "type":"number"
+    },
+    "expected_revenue":{
+      "description": "Product of the probability and sales potential. e.g how much of the sales_potential can we get?",
+      "readonly":true,
+      "type":"number"
+    }
+  },
+  "links":[
+    { "rel": "self",
+      "href": "contacts/{id}"
+    },
+    { "rel": "instances",
+      "href": "contacts",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 50, max is 200",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Wildcard search in first, last_name, organisation, email, number",
+          "type":"string"
+        },
+        "filter[organisation]":{
+          "title" : "Organisation",
+          "description": "Search by organisation. Searches by organisation begins with name%",
+          "type":"string"
+        },
+        "filter[tags]":{
+          "title" : "Tags",
+          "description": "Filter by a space delimited list of tags",
+          "type":"string"
+        },
+        "filter[ids]":{
+          "title" : "Contacts",
+          "description": "A single or a list of contacts uuids, comma separated",
+          "type" : "string"
+        },
+        "filter[created_at_from]":{
+          "title" : "From date",
+          "description": "Objects with a creation on/after the date(>=). ISO 8601 format YYY-MM-DDThh:mm:ss+z or just a date YYY-MM-DD. If date is given the time is set to the start of the day(00:00:00) so all objects created on this day are included. A time should be already utc time",
+          "format" : "date-time",
+          "type" : "string"
+        },
+        "filter[created_at_to]":{
+          "title" : "To date",
+          "description": "Objects with a creation until the date(<=). ISO 8601 format YYY-MM-DDThh:mm:ss+z or just a date YYY-MM-DD. If date is given the time is set to the end of the day(23:59:59) so all objects created on that day are included. A time should be already utc time.",
+          "format" : "date-time",
+          "type" : "string"
+        },
+        "filter[birthday_from]":{
+          "title" : "From birthday date",
+          "description": "Contacts with a birthday after and on the date. Leave the birthday-to date blank to only search on this day. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[birthday_to]":{
+          "title" : "To birthday date",
+          "description": "Contacts with a birthday date before and on the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[creator_ids]":{
+          "title" : "Creator",
+          "description": "Objects created by the given users uuids, comma separated",
+          "type" : "string"
+        },
+        "filter[number]":{
+          "title" : "By number",
+          "description": "Search by number where the number is matched from the start: number%",
+          "type" : "string"
+        },
+        "filter[languages]":{
+          "title" : "Languages",
+          "description": "A single or a list of language codes, comma separated",
+          "type" : "string"
+        },
+        "filter[type]":{
+          "title" : "Type",
+          "description": "Type of the contact: ",
+          "enum":["Client", "Lead", "Supplier"],
+          "type" : "string"
+        },
+        "filter[probability_from]":{
+          "title" : "By probability from",
+          "description": "Find contacts with a probability greater(>=) than given number. Minimum is 0 for percent fields, max 100",
+          "type":"number"
+        },
+        "filter[probability_to]": {
+          "title": "By probability to",
+          "description": "Find contacts with a probability smaller(<=) than given number."
+        },
+        "filter[sales_potential_from]":{
+          "title" : "By sales potential from",
+          "description": "Find contacts with a sales potential greater(>=) than given number.",
+          "type":"number"
+        },
+        "filter[sales_potential_to]": {
+          "title": "By sales potential to",
+          "description": "Find contacts with a sales potential smaller(<=) than given number."
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":["organisation", "number","email","first_name","last_name", "created_at", "updated_at"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC",
+          "type": "string"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "contacts/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "contacts/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "contacts",
+      "method": "POST"
+    },
+    { "rel": "documents",
+      "href": "contacts/{id}/documents"
+    },
+    { "rel": "attachments",
+      "href": "contacts/{id}/attachments"
+    },
+    { "rel": "invoices",
+      "href": "contacts/{id}/invoices"
+    },
+    { "rel": "estimates",
+      "href": "contacts/{id}/estimates"
+    },
+    { "rel": "orders",
+      "href": "contacts/{id}/orders"
+    },
+    { "rel": "credit_notes",
+      "href": "contacts/{id}/credit_notes"
+    },
+    { "rel": "recurrings",
+      "href": "contacts/{id}/recurrings"
+    },
+    { "rel": "payment_reminders",
+      "href": "contacts/{id}/payment_reminders"
+    },
+    { "rel": "comments",
+      "href": "contacts/{id}/comments"
+    },
+    { "rel": "emails",
+      "href": "contacts/{id}/emails"
+    },
+    { "rel": "emails create",
+      "href": "contacts/{id}/emails",
+      "method": "POST",
+      "properties" : {
+        "template_id":{
+          "title" : "Template",
+          "description": "UUID of an email template to use. If present template fields like subject, body, attachments are used for the current email.",
+          "type":"string",
+          "maxLength": 22,
+          "minLength":22
+        },
+        "send":{
+          "title" : "Send email",
+          "description": "Schedule email for sending. Omit this parameter or set value to 0 or false(String or Integer) to keep email as draft."
+        },
+        "archived_pdf":{
+          "title" : "Attach archived pdf",
+          "description": "Adds the archived pdf from the related resource(if it has one)."
+        }
+      }
+    }
+  ]
+}

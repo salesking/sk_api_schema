@@ -1,0 +1,212 @@
+{ "type":"object",
+  "title": "account_entry",
+  "name": "account_entry",
+  "description": "A entry for an account",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "account_id":{
+      "description":"Account the entry belongs to.",
+      "required":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "document_id":{
+      "description":"Document the entry is related to. This relation is set by an account billing.",
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "item_id":{
+      "description":"Line item on the document the entry is related to. This relation is set by an account billing or when a document is booked onto an account.",
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "name":{
+      "description": "The name of an entry",
+      "type":"string",
+      "maxLength": 50
+    },
+    "description":{
+      "description": "Entry description",
+      "type":"string",
+      "format": "text"
+    },
+    "price_single":{
+      "description": "Net price of a single entry. If a product id is given, price_single is taken from the product if not set.",
+      "type":"number",
+      "required" : true
+    },
+    "net_total":{
+      "description": "Net price of a single entry. Calculated from price_single * quantity",
+      "readonly":true,
+      "type":"number"
+    },
+    "tax":{
+      "description": "Tax percentage",
+      "type":"number"
+    },
+    "quantity_unit":{
+      "description": "Quantity unit e.g: kg, days, month, ..",
+      "type":"string",
+      "maxLength": 30
+    },
+    "quantity":{
+      "description": "Quantity of the entry.",
+      "type":"number",
+      "default": 1
+    },
+    "date":{
+      "description": "Date of the entry. Defaults to today. Entries are sorted by date per default.",
+      "format":"date-time",
+      "type":"string"
+    },
+    "billable":{
+      "description": "True if the entry can be billed.",
+      "type":"boolean",
+      "default": false
+    },
+    "billed_at":{
+      "description": "Date the object was billed. Automatically set when the entry is used on an invoice.",
+      "format":"date-time",
+      "type":"string"
+    },
+    "created_at":{
+      "description": "Date the object was created. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "_destroy":{
+      "description": "When set an existing entry will be deleted. This switch is used for entries passed during batch operations.",
+      "type":"boolean"
+    }
+  },
+  "links":[
+
+    { "rel": "self",
+      "href": "account_entries/{id}"
+    },
+    { "rel": "instances",
+      "href": "account_entries",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 50, max is 200",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Wildcard search in name, description",
+          "type":"string"
+        },
+        "filter[account_ids]":{
+          "title" : "Search by related accounts",
+          "description": "Set multiple account ids comma separated or as array",
+          "type":"string"
+        },
+        "filter[document_ids]":{
+          "title" : "Search by related documents",
+          "description": "Set multiple document ids comma separated or as array",
+          "type":"string"
+        },
+        "filter[ids]":{
+          "title" : "Search by account entry ids",
+          "description": "Set multiple entry ids comma separated or as array",
+          "type":"string"
+        },
+        "filter[unbilled]":{
+          "title" : "Unbilled",
+          "description": "Entries available for billing: marked as billable without a billing date(billed_at) set. False values will skip this filter. To find billed entries simply use filter[billed_at_to] e.g with todays date.",
+          "type":"boolean"
+        },
+        "filter[billable]":{
+          "title" : "Billable",
+          "description": "Billable or not billable entries. Set false(string) or 0(Integer) to get not billable entries. For billable entries use true or 1. Also see filter[unbilled] to find not yet billed entries.",
+          "type":"boolean"
+        },
+        "filter[date_from]":{
+          "title" : "From date",
+          "description": "Objects with a date eq/after the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[date_to]":{
+          "title" : "To date",
+          "description": "Objects with date eq/before the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[billed_at_from]":{
+          "title" : "From billing date",
+          "description": "Objects with a billing date eq/after the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[billed_at_to]":{
+          "title" : "To billing date",
+          "description": "Objects with billing date eq/before the date. YYYY-MM-DD. A set billing date means the entry has been billed, so simply use this filter e.g with date today to find all billed entries.",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[created_at_from]":{
+          "title" : "From creation date",
+          "description": "Objects with a date eq/after the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[created_at_to]":{
+          "title" : "To creation date",
+          "description": "Objects with a creation until the date(<=). ISO 8601 format YYY-MM-DDThh:mm:ss+z or just a date YYY-MM-DD. If date is given the time is set to the end of the day(23:59:59) so all objects created on that day are included. A time should be already utc time.",
+          "format" : "date",
+          "type" : "string"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":["name","number","date","quantity","price_single","created_at", "updated_at"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC",
+          "type": "string"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "account_entries/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "account_entries/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "account_entries",
+      "method": "POST"
+    }
+  ]
+}

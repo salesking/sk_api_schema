@@ -1,0 +1,121 @@
+{ "type":"object",
+  "title": "line_item",
+  "name": "line_item",
+  "description": "A line item for a document",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "position":{
+      "description": "Position by which the items are sorted. Two items can have the same position(if you dont care) and numbers dont need to continuous",
+      "type":"integer",
+      "default": 1
+    },
+    "name":{
+      "description": "The name of an item",
+      "type":"string",
+      "maxLength": 50
+    },
+    "type":{
+      "description": "The item type: LineItem. Must be set when creating new items via document.items array",
+      "type":"string",
+      "maxLength": 20
+    },
+    "external_ref":{
+      "description": "Arbitrary number e.g. external product reference.",
+      "type":"string",
+      "maxLength": 255
+    },
+    "description":{
+      "description": "Item description",
+      "type":"string",
+      "format": "text"
+    },
+    "price_single":{
+      "description": "Net price of a single item. If a product id is given, price_single is taken from the product if not set.",
+      "type":"number",
+      "required" : true
+    },
+    "cost":{
+      "description": "Cost price for a single item. Used to calculate the gross margin",
+      "type":"number"
+    },
+    "cost_total":{
+      "description": "Total costs. Calculated from cost_single * quantity",
+      "readonly":true,
+      "type":"number"
+    },
+    "gross_margin_total":{
+      "description": "Gross margin, the difference between revenue and cost before accounting for certain other costs. Calculated from net_total - cost_total",
+      "readonly":true,
+      "type":"number"
+    },
+    "gross_margin_pct":{
+      "description": "Gross margin percentage. Calculated from gross_margin_total/cost_total",
+      "readonly":true,
+      "type":"number"
+    },
+    "net_total":{
+      "description": "Net price of a single item. Calculated from price_single * quantity * discount",
+      "readonly":true,
+      "type":"number"
+    },
+    "gross_total":{
+      "description": "Gross price. Net total with taxes applied.",
+      "readonly":true,
+      "type":"number"
+    },
+    "tax":{
+      "description": "Tax percent for a single item.",
+      "type":"number"
+    },
+    "discount":{
+      "description": "Discount in percent applied to the items net total. Can also be negative if you want to add additional charges.",
+      "type":"number"
+    },
+    "quantity_unit":{
+      "description": "Quantity unit: kg, days, month.",
+      "type":"string",
+      "maxLength": 30
+    },
+    "quantity":{
+      "description": "Quantity of the item. Must be >= 0",
+      "type":"number",
+      "minimum":0,
+      "default": 1
+    },
+    "product_id":{
+      "description": "A uuid of a product, used by this item. If set or changed, the product fields (name, description, quantity, unit, price, cost price) are copied if the according item fields are missing/blank. Besides this product link makes it possible to track a products turnover and find the documents it is used on.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "product_from_line_item":{
+      "description": "Saves and associates an instance of a Product from LineItem fields (name, description, quantity, unit, price, cost price), if no Product association is found. Accepted values to trigger this behaviour: 1, true",
+      "type":"boolean",
+      "default": false
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "_destroy":{
+      "description": "When set an existing item will be deleted. This switch is used for items passed-in nested inside their parent object(a document), which is default as long as there is no line item endpoint available.",
+      "type":"boolean"
+    }
+  },
+  "links":[]
+}

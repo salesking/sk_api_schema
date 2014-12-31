@@ -1,0 +1,103 @@
+{"type":"object",
+  "title": "user",
+  "name": "user",
+  "description": "A user as seen by SalesKing",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "last_name":{
+      "description": "Last name of a person. At least this or the organisation field must be filled for new records",
+      "type":"string",
+      "maxLength": 50
+    },
+    "first_name":{
+      "description": "First name",
+      "type":"string",
+      "maxLength": 50
+    },
+    "gender":{
+      "description": "The users gender, used in salutation",
+      "enum":["male", "female"],
+      "type":"string"
+    },
+    "position":{
+      "description": "Position of a person in a company.",
+      "type":"string",
+      "maxLength": 50
+    },
+    "title":{
+      "description": "Academical title of a person e.g. Dr., Prof",
+      "type":"string",
+      "maxLength": 50
+    },
+    "language":{
+      "description": "The users language, reflected in the interface.",
+      "required":true,
+      "type":"string",
+      "maxLength": 10
+    },
+    "time_zone":{
+      "description": "Time zone",
+      "type":"string"
+    },
+    "email":{
+      "description": "Email address of the user. Unique in SK",
+      "required":true,
+      "type":"string",
+      "maxLength": 100
+    },
+    "url":{
+      "description": "An url associated with the person, e.g its company website.",
+      "type":"string",
+      "maxLength": 255
+    },
+    "birthday":{
+      "format":"date",
+      "type":"string"
+    },
+    "phone_fax":{
+      "description": "Fax number",
+      "type":"string",
+      "maxLength": 30
+    },
+    "phone_office":{
+      "description": "Office phone number",
+      "type":"string",
+      "maxLength": 30
+    },
+    "phone_home":{
+      "description": "Private phone number.",
+      "type":"string",
+      "maxLength": 30
+    },
+    "phone_mobile":{
+      "description": "Mobile phone number",
+      "type":"string",
+      "maxLength": 30
+    },
+    "created_at":{
+      "description": "Date the record was created in SK. Never changes afterwards.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Last date when the record was edited.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    }
+  },
+
+  "links":[
+    { "rel": "self",
+      "href": "users/current"
+    }
+  ]
+}

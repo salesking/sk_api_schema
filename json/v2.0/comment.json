@@ -1,0 +1,122 @@
+{ "type":"object",
+  "title": "comment",
+  "name": "comment",
+  "description":"An comment in SK must always be related to an object.",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "text":{
+      "description": "The comment himself.",
+      "required":true,
+      "type":"string"
+    },
+    "related_object_type":{
+      "description": "Object type of the comments parent. Is the camelcased base class name: Document for invoice, credit_note, contact",
+      "required":true,
+      "type":"string"
+    },
+    "related_object_id":{
+      "description": "uuid of the comments parent object.",
+      "required":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "team_id":{
+      "description": "A team uuid taken from the related object. If set only the team and its parent teams can see the record.",
+      "readonly" :true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    }
+  },
+   "links":[
+    { "rel": "self",
+      "href": "comments/{id}"
+    },
+    { "rel": "instances",
+      "href": "comments",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 50, max is 200",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Search in text",
+          "type":"string"
+        },
+        "filter[contact_ids]":{
+          "title" : "Contact IDs",
+          "description": "Comma-separated list of contact IDs. While present, it will return comments related to the contact and all its documents.",
+          "type" : "string"
+        },
+        "filter[related_object_ids]":{
+          "title" : "Related object IDs",
+          "description": "Comma-separated list of related object IDs (objects which can have their own comments: document, task, products). Can also be used with  a single ID to find all comments related to the given object.",
+          "type" : "string"
+        },
+        "filter[from]":{
+          "title" : "From date",
+          "description": "All objects with a date after the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[to]":{
+          "title" : "To date",
+          "description": "All objects with date before the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":["created_at", "updated_at"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC",
+          "type": "string"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "comments/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "comments/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "comments",
+      "method": "POST"
+    }
+  ]
+}

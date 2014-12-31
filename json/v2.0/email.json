@@ -1,0 +1,191 @@
+{ "type":"object",
+  "title": "email",
+  "name": "email",
+  "description":"An email in SK must always be related to an object. Receivers are limited to 5 per address field.",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "bcc_addr":{
+      "description": "BCC addresses, comma separated. Max 5, format: a@b.de,'George'<georg@sk.eu>",
+      "type":"string",
+      "format":"text"
+    },
+    "cc_addr":{
+      "description": "CC addresses, comma separated. Max 5, format: a@b.de,'George'<georg@sk.eu>",
+      "type":"string",
+      "format":"text"
+    },
+    "from_addr":{
+      "description": "From address. If empty the email of the current user is taken.",
+      "type":"string",
+      "maxLength": 255
+    },
+    "to_addr":{
+      "description": "TO addresses, comma separated. Max 5, format: a@b.de,'George'<georg@sk.eu>",
+      "required":true,
+      "type":"string",
+      "format":"text"
+    },
+    "subject":{
+      "description": "The email subject.",
+      "required":true,
+      "type":"string",
+      "maxLength": 255
+    },
+    "body":{
+      "description": "The email text.",
+      "required":true,
+      "type":"string",
+      "format":"text"
+    },
+    "attachments":{
+      "description": "The emails attachments.",
+      "readonly":true,
+      "type":"array",
+      "properties":{"$ref":"./attachment.json#properties"}
+    },
+    "related_object_type":{
+      "description": "Object type of the emails parent. Is the camelcased base class name: Document for invoice, credit_note, contact,..",
+      "required":true,
+      "type":"string"
+    },
+    "related_object_id":{
+      "description": "uuid of the emails parent object.",
+      "required":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "in_progress":{
+      "description": "Is set after an email has been scheduled for sending until it has been sent.",
+      "readonly":true,
+      "type":"boolean"
+    },
+    "log":{
+      "description": "Logs error message when sending failed.",
+      "readonly":true,
+      "type":"text"
+    },
+    "delivered_at":{
+      "description": "Date the email was delivered by SK. If set, the message cannot be edited anymore.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "team_id":{
+      "description": "A team uuid taken from the related object. If set only the team and its parent teams can see the record.",
+      "readonly" :true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    }
+  },
+   "links":[
+    { "rel": "self",
+      "href": "emails/{id}"
+    },
+    { "rel": "instances",
+      "href": "emails",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 50, max is 200",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Search in body and subject",
+          "type":"string"
+        },
+        "filter[status]":{
+          "title" : "Emails by status",
+          "description": "Show only sent, draft or emails in progress. The status is virtual and checks the delivered_at and in_progress field values.",
+          "enum":["draft", "sent", "in_progress" ]
+        },
+        "filter[address]":{
+          "title" : "Search in address",
+          "description": "Searches in all address fields: bcc, cc, to, from"
+        },
+        "filter[from]":{
+          "title" : "From date",
+          "description": "All objects updated on/after the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[to]":{
+          "title" : "To date",
+          "description": "All objects updated on/before the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field",
+          "enum":["created_at", "updated_at"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC",
+          "type": "string"
+        }
+      }
+    },
+    { "rel": "attachments",
+      "href": "emails/{id}/attachments"
+    },
+    { "rel": "destroy",
+      "href": "emails/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "emails/{id}",
+      "method": "PUT"
+    },
+    { "rel": "create",
+      "href": "emails",
+      "method": "POST",
+      "properties" : {
+        "template_id":{
+          "title" : "Template",
+          "description": "UUID of an email template to use. If present, subject, body and attachments of the template are used for the current email.",
+          "type":"string",
+          "maxLength": 22,
+          "minLength":22
+        },
+        "send":{
+          "title" : "Send email",
+          "description": "Schedule email for sending. Omit this parameter or set value to 0 or false(String or Integer) to keep email as draft."
+        },
+        "archived_pdf":{
+          "title" : "Attach archived pdf",
+          "description": "Adds the archived pdf from the related resource(if it has one)."
+        }
+      }
+    }
+  ]
+}

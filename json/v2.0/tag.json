@@ -1,0 +1,76 @@
+{ "type":"object",
+  "title": "tag",
+  "name": "tag",
+  "description":"A tag",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "name":{
+      "description": "The tag itself",
+      "readonly":true,
+      "type":"string",
+      "maxLength": 50
+    },
+    "taggings_count":{
+      "description": "Usage count of this tag, for all objects in whole company scope.",
+      "readonly":true,
+      "type":"number"
+    }
+  },
+  "links":[
+    { "rel": "self",
+      "href": "tags/{id}"
+    },
+    { "rel": "instances",
+      "href": "tags",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 50, max is 200",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Search in name",
+          "type":"string"
+        },
+        "filter[related_object_type]":{
+          "title" : "Related object type",
+          "description": "Filter tags by their related object base type",
+          "type":"string"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field",
+          "enum":["filename","taggings_count"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC",
+          "type": "string"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "tags/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "update",
+      "href": "tags/{id}",
+      "method": "PUT"
+    }
+  ]
+}

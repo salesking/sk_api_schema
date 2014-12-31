@@ -1,0 +1,148 @@
+{ "type":"object",
+  "title": "payment",
+  "name": "payment",
+  "description":"An payment must always be related to an document, so you must use the nested URL e.g. POST invoices/ID/payments. In this case the related_object_id/type are automatically set.",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "amount":{
+      "description": "The payment amount",
+      "required":true,
+      "type":"number"
+    },
+    "cash_discount":{
+      "description": "The cash discount amount. If a client withdraws a cash discount say 2% of 100€, he pays 98€ used in amount and 2€ in cash_discount. Handled separate for correction of sales,vat accounts in bookkeeping.",
+      "type":"number"
+    },
+    "is_partial":{
+      "description": "If set the related document is NOT closed.",
+      "type":"boolean",
+      "default": false
+    },
+    "external_ref":{
+      "description": "Reference number f.ex. issued by the bank.",
+      "type":"string",
+      "maxLength": 255
+    },
+    "date":{
+      "description": "Date the payment was made. YYYY-MM-DD",
+      "required":true,
+      "format":"date",
+      "type":"string"
+    },
+    "currency":{
+      "description": "Currency code as defined by the ISO 4217 standard (3-letter UPCASE: EUR, USD)",
+      "type":"string",
+      "maxLength": 3,
+      "minLength": 3
+    },
+    "exchange_rate":{
+      "description": "The exchange rate from the foreign document currency(eg. USD) to the company currency(EUR). If the rate is empty we use the exchange rate on the document date or today if doc.date is empty. If there is no rate for this day, say on weekends, the closest previous day is taken(Sunday->Friday). If you open the doc at a later time make sure to manually refresh the rate, as we dont change it. ",
+      "readonly":true,
+      "type":"number"
+    },
+    "amount_exchanged":{
+      "description": "The exchanged amount.",
+      "readonly":true,
+      "type":"number"
+    },
+    "payment_method":{
+      "description": "How the payment was made.",
+      "enum":["cash","bank_transfer","credit_card","paypal","direct_debit","cheque", "moneybookers", "premium_sms"],
+      "type":"string"
+    },
+    "late_fee":{
+      "description": "Add a late fee if an invoice has payment reminders. We create a second payment for the last reminder and close all others. Set to 0, if you want to waive the fee(has not been paid). In this case all reminders are closed and we also correct the sales+debtor account with the open fees. This is a pure setter-method used in creation!",
+      "type":"number"
+    },
+    "related_object_type":{
+      "description": "Object type of the payments parent. Is the camel-cased base class name: Document for invoice, credit_note. Is auto-set when using the nested URL POST invoices/ID/payments",
+      "required":true,
+      "type":"string"
+    },
+    "related_object_id":{
+      "description": "uuid of the payments parent object. Is auto-set when using the nested URL POST invoices/ID/payments",
+      "required":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "team_id":{
+      "description": "A team uuid taken from the related object(e.g.invoice). If set only the team and its parent teams can see the record.",
+      "readonly" :true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    }
+  },
+   "links":[
+    { "rel": "self",
+      "href": "payments/{id}"
+    },
+    { "rel": "instances",
+      "href": "payments",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 50, max is 200",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Search in title, number, address field",
+          "type":"string"
+        },
+        "filter[from]":{
+          "title" : "From date",
+          "description": "All objects with a date after the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+
+        },
+        "filter[to]":{
+          "title" : "To date",
+          "description": "All objects with date before the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field => number",
+          "enum":["amount","created_at", "updated_at"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC",
+          "type": "string"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "payments/{id}",
+      "method": "DELETE"
+    },
+    { "rel": "create",
+      "href": "payments",
+      "method": "POST"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{ "type":"object",
+  "title": "pdf_template",
+  "name": "pdf_template",
+  "description":"An PDF template. For now this is a read-only resource ONLY returning your own templates. It fits the most important use-case: A user can select a print template.",
+  "properties":{
+    "id":{
+      "description":"Unique identifier - UUID",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "name":{
+      "description": "Name of the template as shown to the user.",
+      "required":true,
+      "type":"string",
+      "maxLength": 50
+    },
+    "description":{
+      "description": "Additional information about the template.",
+      "type":"string",
+      "format":"text"
+    },
+    "kind":{
+      "description": "Kind of object the template can be used for.",
+      "required":true,
+      "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order"],
+      "type":"string"
+    },
+    "language":{
+      "description": "Should be a valid language short-code: de-DE, fr, en-GB; like defined in your account language menu. A multi-language template should belong to a parent. From then on just choose the parent-template and the localized child version is used for printing if the related object(order, invoice,..) has the appropriate language.",
+      "type":"string",
+      "maxLength": 10
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "updated_at":{
+      "description": "Date the object was edited in SK.",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "team_id":{
+      "description": "A team uuid. If set only the team and its parent teams can see the record.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    }
+  },
+   "links":[
+    { "rel": "self",
+      "href": "pdf_templates/{id}"
+    },
+    { "rel": "instances",
+      "href": "pdf_templates",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 50, max is 200",
+          "type":"number"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field",
+          "default":"name",
+          "enum":["created_at", "updated_at", "name", "kind"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "description": "Sort the results in ASC or DESC",
+          "type":"string",
+          "enum":["ASC","DESC"]
+        },
+        "filter[q]":{
+          "title" : "Search wildcard",
+          "description": "Searches in name, description",
+          "type":"string"
+        },
+        "filter[kind]":{
+          "title" : "Search by kind",
+          "description": "Kind of object this template can be used for: invoice, order",
+          "type":"string",
+          "enum":["invoice","estimate", "credit_note", "payment_reminder", "order"]
+        }
+      }
+    }
+  ]
+}

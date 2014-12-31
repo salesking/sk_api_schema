@@ -1,0 +1,133 @@
+{ "type":"object",
+  "title": "attachment",
+  "name": "attachment",
+  "description":"An file attachment",
+  "properties":{
+    "id":{
+      "description": "uuid of the object.",
+      "identity":true,
+      "readonly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "filename":{
+      "description": "The filename as set when uploaded",
+      "readonly":true,
+      "type":"string",
+      "maxLength": 255
+    },
+    "disk_filename":{
+      "description": "Unique filename set by SK",
+      "readonly":true,
+      "type":"string",
+      "maxLength": 255
+    },
+    "url":{
+      "description": "DEPRECATED use attachments/ID/download",
+      "readonly":true,
+      "type":"string",
+      "format": "uri"
+    },
+    "related_object_type":{
+      "description": "Object type of the attachment parent. A base class name: Document(for invoice, credit_note) Contact, Message(for email), Template(for email, pdf template)",
+      "required":true,
+      "type":"string"
+    },
+    "related_object_id":{
+      "description": "uuid of the attachment parent object.",
+      "required":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
+    "content_type":{
+      "description": "Auto detected on upload. Might not always reflect the real content type",
+      "readonly":true,
+      "type":"string"
+    },
+    "size":{
+      "description": "Filesize in kb. Auto detected on upload.",
+      "readonly":true,
+      "type":"integer"
+    },
+    "is_signed":{
+      "description": "True if the file(pdf) has been digitally signed.",
+      "type":"boolean"
+    },
+    "created_at":{
+      "description": "Date the object was created in SK. Never changes afterwards",
+      "format":"date-time",
+      "readonly":true,
+      "type":"string"
+    },
+    "team_id":{
+      "description": "A team uuid. If set only the team and its parent teams can see the record.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    }
+
+  },
+  "links":[
+    { "rel": "self",
+      "href": "attachments/{id}"
+    },
+    { "rel": "download",
+      "href": "attachments/{id}/download"
+    },
+    { "rel": "instances",
+      "href": "attachments",
+      "properties" : {
+        "page":{
+          "title" : "Page",
+          "description": "In paginated results set the page to look for",
+          "type":"number"
+        },
+        "per_page":{
+          "title" : "Per page",
+          "description": "Results per page. Default is 50, max is 200",
+          "type":"number"
+        },
+        "filter[q]":{
+          "title" : "Search",
+          "description": "Search in filename",
+          "type":"string"
+        },
+        "filter[from]":{
+          "title" : "From date",
+          "description": "All objects created at and after the date",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[to]":{
+          "title" : "To date",
+          "description": "All objects created at and before the date. YYYY-MM-DD",
+          "format" : "date",
+          "type" : "string"
+        },
+        "filter[related_object_type]":{
+          "title" : "Related object type",
+          "description": "All objects belonging to the given object type. The singular base class name like: Document, Contact, Export, Message",
+          "type" : "string"
+        },
+        "sort_by":{
+          "title" : "Sort by",
+          "description": "Sort the results by the given field",
+          "enum":["filename","related_object_id","related_object_type", "created_at"],
+          "type": "string"
+        },
+        "sort":{
+          "title" : "Sort",
+          "enum":["ASC","DESC"],
+          "description": "Sort the results in ASC or DESC",
+          "type": "string"
+        }
+      }
+    },
+    { "rel": "destroy",
+      "href": "attachments/{id}",
+      "method": "DELETE"
+    }
+  ]
+}
