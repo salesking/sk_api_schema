@@ -111,18 +111,6 @@
       "type":"string",
       "enum":["FRST","OOFF","RCUR","FNAL"]
     },
-    "client":{
-      "description": "DEPRECATED: use contact",
-      "readonly":true,
-      "type":"object",
-      "properties":{"$ref":"./client.json#properties"}
-    },
-    "client_id":{
-      "description": "DEPRECATED: use contact_id",
-      "type":"string",
-      "maxLength": 22,
-      "minLength":22
-    },
     "contact":{
       "description": "The contact for the document. Use contact_id field to set a contact.",
       "readonly":true,
@@ -141,11 +129,6 @@
       "type":"string",
       "maxLength": 22,
       "minLength":22
-    },
-    "line_items":{
-      "description": "DEPRECATED use items",
-      "type":"array",
-      "properties":{"$ref":"./line_item.json#properties"}
     },
     "items":{
       "description": "Items for the document. Access items of all types including divider and sub_total items. GOTCHAs when using items instead of line_items: You MUST set the type field(CamelCasesItem class name) on each item. You cannot use both, the line_items array is stronger for backward compat.",
@@ -171,16 +154,6 @@
     "lock_version":{
       "description": "Auto-incremented to prevent concurrent updates. First save wins and increments version. ",
       "type":"integer"
-    },
-    "price_total":{
-      "description": "DEPRECATED use net_total_base",
-      "readonly":true,
-      "type":"number"
-    },
-    "price_tax":{
-      "description": "DEPRECATED: use tax_total",
-      "readonly":true,
-      "type":"number"
     },
     "gross_total":{
       "description": "Gross total of all line items, 2 decimals places in document currency.",
@@ -277,11 +250,6 @@
         "filter[languages]":{
           "title" : "Languages",
           "description": "A list of language codes, comma separated",
-          "type" : "string"
-        },
-        "filter[client_ids]":{
-          "title" : "Clients",
-          "description": "DEPRECATED use contact_ids",
           "type" : "string"
         },
         "filter[contact_ids]":{

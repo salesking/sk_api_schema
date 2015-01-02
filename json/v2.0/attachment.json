@@ -23,12 +23,6 @@
       "type":"string",
       "maxLength": 255
     },
-    "url":{
-      "description": "DEPRECATED use attachments/ID/download",
-      "readonly":true,
-      "type":"string",
-      "format": "uri"
-    },
     "related_object_type":{
       "description": "Object type of the attachment parent. A base class name: Document(for invoice, credit_note) Contact, Message(for email), Template(for email, pdf template)",
       "required":true,
