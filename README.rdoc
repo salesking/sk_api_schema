@@ -27,7 +27,7 @@ Other languages should take advantage of the raw json files.
 == Tutorial & Docs
 
 * {API Browser}[http://sk-api-browser.herokuapp.com/]
-* {API Intro}[http://www.salesking.eu/dev/api/]
+* {API Intro}[https://developer.salesking.eu/articles/tips-tricks/api-documentation]
 * {Ruby SDK - API Client}[https://github.com/salesking/sk_sdk]
 * {PHP SDK - API Client}[https://github.com/salesking/salesking_php_sdk]
 * {Python SDK - API Client}[https://github.com/salesking/salesking_python_sdk]
