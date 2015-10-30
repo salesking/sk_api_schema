@@ -32,12 +32,12 @@
       "type":"string"
     },
     "price":{
-      "description": "Net price of a single product",
+      "description": "Net price of a single product. Max 6 decimal places.",
       "type":"number",
       "required":true
     },
     "cost":{
-      "description": "Cost price of a single product",
+      "description": "Cost price of a single product. Max 6 decimal places.",
       "type":"number"
     },
     "category_name":{

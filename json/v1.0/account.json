@@ -38,11 +38,11 @@
       "type":"number"
     },
     "default_price":{
-      "description": "The default price single for new account entries. Is only used if price single is left empty on create.",
+      "description": "The default price single for new account entries, if price single is empty on create. Max 6 decimal places.",
       "type":"number"
     },
     "default_unit":{
-      "description": "The default quantity unit for new account entries. Is only used if unit is left empty on create.",
+      "description": "The default quantity unit for new account entries, if unit is empty on create.",
       "type":"string",
       "maxLength": 30
     },

@@ -207,11 +207,11 @@
     },
     "lead_source":{
       "description": "Lead source describing where a contact came from e.g. a campaign name, website, facebook, URL",
-      "type":"text"
+      "type":"string"
     },
     "lead_ref":{
       "description": "Lead reference e.g. a tracking id, web-url",
-      "type":"text"
+      "type":"string"
     },
     "lead_date":{
       "description": "Lead date e.g. date of first contact with your company. YYYY-MM-DD",
