@@ -37,12 +37,12 @@
       "format": "text"
     },
     "price_single":{
-      "description": "Net price of a single item. If a product id is given, price_single is taken from the product if not set.",
+      "description": "Net price of a single item. If a product id is given, price_single is taken from the product if not set. Max 6 decimal places.",
       "type":"number",
       "required" : true
     },
     "cost":{
-      "description": "Cost price for a single item. Used to calculate the gross margin",
+      "description": "Cost price for a single item. Used to calculate the gross margin. Max 6 decimal places.",
       "type":"number"
     },
     "cost_total":{
@@ -84,7 +84,7 @@
       "maxLength": 30
     },
     "quantity":{
-      "description": "Quantity of the item. Must be >= 0",
+      "description": "Quantity of the item. Must be >= 0. Max 6 decimal places.",
       "type":"number",
       "minimum":0,
       "default": 1
