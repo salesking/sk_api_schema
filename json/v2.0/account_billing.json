@@ -6,7 +6,7 @@
     "id":{
       "description":"Unique identifier - UUID",
       "identity":true,
-      "readonly":true,
+      "readOnly":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
@@ -42,14 +42,14 @@
     "document_id":{
       "description": "The document created by the billing.",
       "type":"string",
-      "readonly": true,
+      "readOnly": true,
       "maxLength": 22,
       "minLength":22
     },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "team_id":{
@@ -63,7 +63,7 @@
       "type":"string",
       "maxLength": 22,
       "minLength":22,
-      "readonly":true
+      "readOnly":true
     }
   },
   "links":[

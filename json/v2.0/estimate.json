@@ -6,7 +6,7 @@
     "id":{
       "description":"Unique identifier - UUID",
       "identity":true,
-      "readonly":true,
+      "readOnly":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
@@ -77,23 +77,23 @@
     },
     "exchange_rate":{
       "description": "The exchange rate from the foreign document currency(eg. USD) to the company currency(EUR). If the rate is empty we use the exchange rate on the document date or today if doc.date is empty. If there is no rate for this day, say on weekends, the closest previous day is taken(Sunday->Friday). If you open the doc at a later time make sure to manually refresh the rate, as we dont change it. ",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "gross_total_exchanged":{
       "description": "Exchanged gross total, in your company currency.",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "archived_pdf":{
       "description": "Archived PDF version of the document. Is created when an document is printed and archived. A document can have multiple archived versions. This only returns the most recent one. ",
-      "readonly":true,
+      "readOnly":true,
       "type":"object",
       "properties":{"$ref":"./attachment.json#properties"}
     },
     "contact":{
       "description": "The contact for the document. Use contact_id field to set a contact.",
-      "readonly":true,
+      "readOnly":true,
       "type":"object",
       "properties":{"$ref":"./contact.json#properties"}
     },
@@ -105,7 +105,7 @@
     },
     "team_id":{
       "description": "A team uuid taken from the contact. If set only the team and its parent teams can see the record.",
-      "readonly" :true,
+      "readOnly" :true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
@@ -122,13 +122,13 @@
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "updated_at":{
       "description": "Date the object was edited in SK.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "lock_version":{
@@ -137,37 +137,37 @@
     },
     "gross_total":{
       "description": "Gross total of all line items, 2 decimals places in document currency.",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "tax_total":{
       "description": "Tax total, 2 decimals places",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "net_total":{
       "description": "Net total, 2 decimals places",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "net_total_base":{
       "description": "Net total, 6 decimal places incl. discount",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "cost_total":{
       "description": "Cost total of all line items, 2 decimals places in document currency.",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "gross_margin_total":{
       "description": "Total gross margin across all line items. Calculated from net_total-cost_total.",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "gross_margin_pct":{
       "description": "Percentage of gross profit to cost of items sold. Calculated from gross_margin_total/net_total*100",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "probability":{
@@ -176,7 +176,7 @@
     },
     "expected_revenue":{
       "description": "Product of the probability and net total. In company currency.",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "close_date":{

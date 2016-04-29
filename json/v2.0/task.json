@@ -6,7 +6,7 @@
     "id":{
       "description":"Unique identifier - UUID",
       "identity":true,
-      "readonly":true,
+      "readOnly":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
@@ -35,7 +35,7 @@
     },
     "contact":{
       "description": "The contact for the task. Use contact_id field to set a contact.",
-      "readonly":true,
+      "readOnly":true,
       "type":"object",
       "properties":{"$ref":"./contact.json#properties"}
     },
@@ -46,7 +46,7 @@
     },
     "attachments":{
       "description": "Attached files, uploads.",
-      "readonly":true,
+      "readOnly":true,
       "type":"array",
       "properties":{"$ref":"./attachment.json#properties"}
     },
@@ -65,19 +65,19 @@
     "closed_at":{
       "description": "Date the task was completed.",
       "format":"date",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "updated_at":{
       "description": "Date the object was edited in SK.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     }
   },

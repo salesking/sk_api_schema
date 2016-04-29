@@ -6,7 +6,7 @@
     "id":{
       "description":"Unique identifier - UUID",
       "identity":true,
-      "readonly":true,
+      "readOnly":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
@@ -47,27 +47,27 @@
     },
     "cost_total":{
       "description": "Total costs. Calculated from cost_single * quantity",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "gross_margin_total":{
       "description": "Gross margin, the difference between revenue and cost before accounting for certain other costs. Calculated from net_total - cost_total",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "gross_margin_pct":{
       "description": "Gross margin percentage. Calculated from gross_margin_total/cost_total",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "net_total":{
       "description": "Net price of a single item. Calculated from price_single * quantity * discount",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "gross_total":{
       "description": "Gross price. Net total with taxes applied.",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "tax":{
@@ -103,13 +103,13 @@
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "updated_at":{
       "description": "Date the object was edited in SK.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "_destroy":{

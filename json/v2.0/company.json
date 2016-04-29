@@ -6,7 +6,7 @@
     "id":{
       "description":"Unique identifier - UUID",
       "identity":true,
-      "readonly":true,
+      "readOnly":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
@@ -36,7 +36,7 @@
       "description": "Link to a company's SalesKing account.",
       "type":"string",
       "format":"uri",
-      "readonly":true
+      "readOnly":true
     },
     "time_zone":{
       "description": "Default time zone, used for new users",
@@ -122,13 +122,13 @@
     "created_at":{
       "description": "Date the record was created in SK. Never changes afterwards.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "updated_at":{
       "description": "Last date when the record was edited.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     }
   },

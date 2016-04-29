@@ -1,12 +1,11 @@
 {"type":"object",
   "title": "user",
-  "name": "user",
-  "description": "A user as seen by SalesKing",
+  "description": "A SalesKing user",
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
       "identity":true,
-      "readonly":true,
+      "readOnly":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
@@ -84,13 +83,13 @@
     "created_at":{
       "description": "Date the record was created in SK. Never changes afterwards.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "updated_at":{
       "description": "Last date when the record was edited.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     }
   },

@@ -6,7 +6,7 @@
     "id":{
       "description":"Unique identifier - UUID",
       "identity":true,
-      "readonly":true,
+      "readOnly":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
@@ -102,13 +102,13 @@
     "created_at":{
       "description": "Date the record was created in SK. Never changes afterwards.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "updated_at":{
       "description": "Last date when the record was edited.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "language":{
@@ -191,7 +191,7 @@
     },
     "address_field":{
       "description": "Returns the address field used on new docs. Consist of Organisation name and default(first) address",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "addresses":{
@@ -233,7 +233,7 @@
     },
     "expected_revenue":{
       "description": "Product of the probability and sales potential. e.g how much of the sales_potential can we get?",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     }
   },

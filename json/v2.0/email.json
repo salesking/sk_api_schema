@@ -6,7 +6,7 @@
     "id":{
       "description":"Unique identifier - UUID",
       "identity":true,
-      "readonly":true,
+      "readOnly":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
@@ -46,7 +46,7 @@
     },
     "attachments":{
       "description": "The emails attachments.",
-      "readonly":true,
+      "readOnly":true,
       "type":"array",
       "properties":{"$ref":"./attachment.json#properties"}
     },
@@ -64,35 +64,35 @@
     },
     "in_progress":{
       "description": "Is set after an email has been scheduled for sending until it has been sent.",
-      "readonly":true,
+      "readOnly":true,
       "type":"boolean"
     },
     "log":{
       "description": "Logs error message when sending failed.",
-      "readonly":true,
+      "readOnly":true,
       "type":"text"
     },
     "delivered_at":{
       "description": "Date the email was delivered by SK. If set, the message cannot be edited anymore.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "updated_at":{
       "description": "Date the object was edited in SK.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "team_id":{
       "description": "A team uuid taken from the related object. If set only the team and its parent teams can see the record.",
-      "readonly" :true,
+      "readOnly" :true,
       "type":"string",
       "maxLength": 22,
       "minLength":22

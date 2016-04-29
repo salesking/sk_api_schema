@@ -6,7 +6,7 @@
     "id":{
       "description":"Unique identifier - UUID",
       "identity":true,
-      "readonly":true,
+      "readOnly":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
@@ -44,12 +44,12 @@
     },
     "exchange_rate":{
       "description": "The exchange rate from the foreign document currency(eg. USD) to the company currency(EUR). If the rate is empty we use the exchange rate on the document date or today if doc.date is empty. If there is no rate for this day, say on weekends, the closest previous day is taken(Sunday->Friday). If you open the doc at a later time make sure to manually refresh the rate, as we dont change it. ",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "amount_exchanged":{
       "description": "The exchanged amount.",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "payment_method":{
@@ -75,7 +75,7 @@
     },
     "team_id":{
       "description": "A team uuid taken from the related object(e.g.invoice). If set only the team and its parent teams can see the record.",
-      "readonly" :true,
+      "readOnly" :true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
@@ -83,7 +83,7 @@
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     }
   },

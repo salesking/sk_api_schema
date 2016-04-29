@@ -2,32 +2,32 @@
   "title": "account_entry",
   "name": "account_entry",
   "description": "A entry for an account",
+  "required": ["account_id", "price_single"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
       "identity":true,
-      "readonly":true,
+      "readOnly":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
     },
     "account_id":{
       "description":"Account the entry belongs to.",
-      "required":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
     },
     "document_id":{
       "description":"Document the entry is related to. This relation is set by an account billing.",
-      "readonly":true,
+      "readOnly":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
     },
     "item_id":{
       "description":"Line item on the document the entry is related to. This relation is set by an account billing or when a document is booked onto an account.",
-      "readonly":true,
+      "readOnly":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
@@ -44,12 +44,11 @@
     },
     "price_single":{
       "description": "Net price of a single entry. If a product id is given, price_single is taken from the product if not set.",
-      "type":"number",
-      "required" : true
+      "type":"number"
     },
     "net_total":{
       "description": "Net price of a single entry. Calculated from price_single * quantity",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "tax":{
@@ -84,13 +83,13 @@
     "created_at":{
       "description": "Date the object was created. Never changes afterwards",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "updated_at":{
       "description": "Date the object was edited.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "_destroy":{

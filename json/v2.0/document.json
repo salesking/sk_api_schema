@@ -1,12 +1,12 @@
 { "type":"object",
   "title": "document",
   "name": "document",
-  "description": "This resource is readonly and serves as a convenient way to query documents independent of their type(invoice, order,..). The specific document type is set in each object in the result-set. Internally Document is the base class for all types and special fields are defined in each child-class. Due to this some fields might be missing if you are using this meta-class in queries.",
+  "description": "This resource is readOnly and serves as a convenient way to query documents independent of their type(invoice, order,..). The specific document type is set in each object in the result-set. Internally Document is the base class for all types and special fields are defined in each child-class. Due to this some fields might be missing if you are using this meta-class in queries.",
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
       "identity":true,
-      "readonly":true,
+      "readOnly":true,
       "type":"string",
       "maxLength": 22,
       "minLength": 22
@@ -61,7 +61,7 @@
     },
     "team_id":{
       "description": "A team uuid taken from the contact. If set only the team and its parent teams can see the record.",
-      "readonly" :true,
+      "readOnly" :true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
@@ -83,33 +83,33 @@
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "updated_at":{
       "description": "Date the object was edited in SK.",
       "format":"date-time",
-      "readonly":true,
+      "readOnly":true,
       "type":"string"
     },
     "gross_total":{
       "description": "Gross total of all line items, 2 decimals places in document currency.",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "tax_total":{
       "description": "Tax total, 2 decimals places",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "net_total":{
       "description": "Net total, 2 decimals places",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "net_total_base":{
       "description": "Net total, 6 decimal places incl. discount",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "currency":{
@@ -120,12 +120,12 @@
     },
     "exchange_rate":{
       "description": "The exchange rate from the foreign document currency(eg. USD) to the company currency(EUR). If the rate is empty we use the exchange rate on the document date or today if doc.date is empty. If there is no rate for this day, say on weekends, the closest previous day is taken(Sunday->Friday). If you open the doc at a later time make sure to manually refresh the rate, as we dont change it. ",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "gross_total_exchanged":{
       "description": "Exchanged gross total, in your company currency.",
-      "readonly":true,
+      "readOnly":true,
       "type":"number"
     },
     "language":{

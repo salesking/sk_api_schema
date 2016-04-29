@@ -163,4 +163,4 @@ course you can run them too. Install required gems with bundler and go for it:
 
 == ToDo:
 
-Copyright (c) 2010-2014 Georg Leciejewski, released under the MIT license
+Copyright (c) 2010-2016 Georg Leciejewski, released under the MIT license
