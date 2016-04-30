@@ -1,7 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "export_template",
-  "name": "export_template",
   "description":"An export_template in SK",
+  "required": ["name", "text", "kind"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -13,19 +15,16 @@
     },
     "name":{
       "description": "A meaningful name.",
-      "required":true,
       "type":"string",
       "maxLength": 50
     },
     "text":{
       "description": "Text with placeholders, replaced when the template is used.",
-      "required":true,
       "type":"string",
       "format":"text"
     },
     "kind":{
       "description": "Kind of object the template can be used for.",
-      "required":true,
       "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "contact", "payment", "comment", "email", "history", "product","recurring"],
       "type":"string"
     },

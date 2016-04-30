@@ -19,9 +19,9 @@ Besides ruby users can use a small lib with utility methods to load and test the
   s.require_paths = ['lib']
 
   s.add_runtime_dependency 'activesupport'
-  s.add_development_dependency 'rdoc'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'json_schema_validator'
   s.add_development_dependency 'rake', '>= 0.9.2'
 
 end

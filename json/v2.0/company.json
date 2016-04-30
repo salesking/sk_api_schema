@@ -1,4 +1,6 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "company",
   "description": "A company is the main entity, so any data belongs to a company. It is identified by the current subdomain and cannot be edited via API atm",
   "properties":{
@@ -44,7 +46,6 @@
     },
     "email":{
       "description": "Email address",
-      "required":true,
       "type":"string",
       "maxLength": 100
     },

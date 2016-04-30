@@ -1,7 +1,9 @@
-{"type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "contact",
-  "name": "contact",
   "description": "A contact can be a lead, client or supplier, depending on its type field. Use the filter[type] parameter to show only contacts of a kind.",
+  "required" : ["type"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -20,7 +22,6 @@
     "type":{
       "description": "Type of contact",
       "enum":["Client", "Lead", "Supplier"],
-      "required" : true,
       "type":"string",
       "maxLength": 50
     },
@@ -35,8 +36,7 @@
       "maxLength": 50
     },
     "organisation":{
-      "description": "Name of a company. This or lastname must be present",
-      "required" : true,
+      "description": "Name of a company. This or lastname MUST be present",
       "type":"string",
       "maxLength": 100
     },

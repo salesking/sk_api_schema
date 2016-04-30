@@ -7,7 +7,8 @@ The following todo's are some of the things we are going to tackle.
 ## TODO
 
 - [x] remove all deprecations
-- [ ] move required attributes markup to top level object definition
+- [x] move required attributes markup to top level object definition
+- [x] add schema validation to specs
 - [ ] revise schema definitions for nested objects
 - [ ] remove sub-status from documents status enum e.g overdue
 - [ ] use oneOf definitions for nested items

@@ -1,6 +1,7 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "product",
-  "name": "product",
   "description": "A product in SK",
   "properties":{
     "id":{

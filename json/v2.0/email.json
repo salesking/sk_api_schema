@@ -1,7 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "email",
-  "name": "email",
   "description":"An email in SK must always be related to an object. Receivers are limited to 5 per address field.",
+  "required": ["to_addr", "subject", "body", "related_object_type", "related_object_id" ],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -28,19 +30,16 @@
     },
     "to_addr":{
       "description": "TO addresses, comma separated. Max 5, format: a@b.de,'George'<georg@sk.eu>",
-      "required":true,
       "type":"string",
       "format":"text"
     },
     "subject":{
       "description": "The email subject.",
-      "required":true,
       "type":"string",
       "maxLength": 255
     },
     "body":{
       "description": "The email text.",
-      "required":true,
       "type":"string",
       "format":"text"
     },
@@ -52,12 +51,10 @@
     },
     "related_object_type":{
       "description": "Object type of the emails parent. Is the camelcased base class name: Document for invoice, credit_note, contact,..",
-      "required":true,
       "type":"string"
     },
     "related_object_id":{
       "description": "uuid of the emails parent object.",
-      "required":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22

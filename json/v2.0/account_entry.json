@@ -1,6 +1,7 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "account_entry",
-  "name": "account_entry",
   "description": "A entry for an account",
   "required": ["account_id", "price_single"],
   "properties":{

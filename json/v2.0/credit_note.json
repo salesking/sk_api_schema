@@ -1,4 +1,6 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "credit_note",
   "description": "A credit note",
   "properties":{
@@ -352,8 +354,7 @@
       "properties" : {
         "template_id" : {
           "title" : "PDF template used for printing",
-          "description": "UUID of a pdf template used to print the document. MUST be present",
-          "required":true
+          "description": "UUID of a pdf template used to print the document. MUST be present"
         },
         "base64" : {
           "title" : "Return the created pdf base64 encoded",

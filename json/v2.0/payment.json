@@ -1,7 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "payment",
-  "name": "payment",
   "description":"An payment must always be related to an document, so you must use the nested URL e.g. POST invoices/ID/payments. In this case the related_object_id/type are automatically set.",
+  "required":["amount","date", "related_object_type", "related_object_id"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -13,7 +15,6 @@
     },
     "amount":{
       "description": "The payment amount",
-      "required":true,
       "type":"number"
     },
     "cash_discount":{
@@ -32,7 +33,6 @@
     },
     "date":{
       "description": "Date the payment was made. YYYY-MM-DD",
-      "required":true,
       "format":"date",
       "type":"string"
     },
@@ -63,12 +63,10 @@
     },
     "related_object_type":{
       "description": "Object type of the payments parent. Is the camel-cased base class name: Document for invoice, credit_note. Is auto-set when using the nested URL POST invoices/ID/payments",
-      "required":true,
       "type":"string"
     },
     "related_object_id":{
       "description": "uuid of the payments parent object. Is auto-set when using the nested URL POST invoices/ID/payments",
-      "required":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22

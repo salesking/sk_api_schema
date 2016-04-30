@@ -1,7 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "export",
-  "name": "export",
-  "description":"An export in SK",
+  "description":"An export of SalesKing data",
+  "required": ["collection_ids", "kind"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -18,13 +20,11 @@
     },
     "collection_ids":{
       "description": "Comma separated uuid's of the export objects. The backend uses a mysql text-column limited to ~64kb. 100 uuids are ~2.5kb",
-      "required":true,
       "type":"string",
       "format":"text"
     },
     "kind":{
       "description": "The export type. text: uses an export template defined by a template_id. archived_pdf: zip with archived PDF(documents only). allinone_pdf: All archived PDF(Documents) in one big PDF. attachments: All attachments of the given objects as zip. SEPA: bank exports, relies on valid bank information in your company, the exported document and the contact.",
-      "required":true,
       "enum": ["text", "archived_pdf", "attachments", "allinone_pdf", "sepa_debit", "sepa_credit"],
       "type":"string"
     },

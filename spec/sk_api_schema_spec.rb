@@ -60,7 +60,6 @@ describe SK::Api::Schema do
       File.should_not_receive(:open)
       SK::Api::Schema.read(:credit_note, 'v1.0')
     end
-
   end
 
   context 'object parsing' do
@@ -151,6 +150,16 @@ describe SK::Api::Schema do
       props['id'].should == "some id"
     end
 
+  end
+
+  context 'validate v2 schemata' do
+    it 'should validate all' do
+      schema_path = File.join(SK::Api::Schema.path, 'v2.0')
+      errors = JsonSchemaValidator.validate_schemas(schema_path)
+      errors.each do |name, error|
+        expect(error).to be_empty
+      end
+    end
   end
 end
 

@@ -1,7 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "divider_item",
-  "name": "divider_item",
   "description": "A divider item serves as a separator or headline between line items, e.g. to distinguish hardware and service products on a document. Access and creation is done via documents.items(instead of line_items) where each item has a 'type' field set to its CamelCased class name.",
+  "required": ["position"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -13,8 +15,7 @@
     },
     "position":{
       "description": "Required since items are sorted by position.",
-      "type":"integer",
-      "required":true
+      "type":"integer"
     },
     "name":{
       "description": "The divider text",

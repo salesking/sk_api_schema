@@ -1,6 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "payment_reminder",
   "description": "A payment reminder belongs to an invoice and inherits it's line items from the invoice total(first item) and late fee settings(second item).",
+  "required": ["invoice_id", "date"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -12,7 +15,6 @@
     },
     "invoice_id":{
       "description": "The invoice for the reminder. If set assumes all other fields are set to custom values, instead of filling them from the invoice. POSTing to invoices/:id/payment_reminders, automatically set this and all other fields.",
-      "required": true,
       "type":"string",
       "maxLength": 22,
       "minLength":22
@@ -24,7 +26,6 @@
     "date":{
       "description": "Date the payment_reminder is issued. Automatically set when created from invoice. Defaults to today. YYYY-MM-DD",
       "format":"date",
-      "required": true,
       "type":"string"
     },
     "due_days":{
@@ -280,8 +281,7 @@
       "properties" : {
         "template_id" : {
           "title" : "PDF template used for printing",
-          "description": "UUID of a pdf template used to print the document. MUST be present",
-          "required":true
+          "description": "UUID of a pdf template used to print the document. MUST be present"
         },
         "base64" : {
           "title" : "Return the created pdf base64 encoded",

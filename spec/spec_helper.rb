@@ -11,6 +11,7 @@ SimpleCov.coverage_dir 'coverage'
 require 'rubygems'
 require 'rspec'
 require 'sk_api_schema'
+require 'json_schema_validator'
 
 
 

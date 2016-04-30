@@ -1,7 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "text_template",
-  "name": "text_template",
-  "description":"An text_template in SK",
+  "description":"A text snippet template to be used in documents and emails",
+  "required" : ["name", "text", "kind"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -13,19 +15,16 @@
     },
     "name":{
       "description": "A meaningful name.",
-      "required":true,
       "type":"string",
       "maxLength": 50
     },
     "text":{
-      "description": "Text which may contain placeholders, replaced when the template is used.",
-      "required":true,
+      "description": "Text which may contain placeholders, replaced when the template is used."
       "type":"string",
       "format":"text"
     },
     "kind":{
       "description": "Kind of object the template can be used for. If empty the snippet can be used global. In this case watch not all placeholders are available: a client has different fields than an invoice.",
-      "required":true,
       "enum": ["","invoice", "estimate", "credit_note", "payment_reminder", "order", "contact", "email"],
       "type":"string"
     },

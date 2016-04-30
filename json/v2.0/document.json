@@ -1,4 +1,6 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "document",
   "description": "This resource is readOnly and serves as a convenient way to query documents independent of their type(invoice, order,..). The specific document type is set in each object in the result-set. Internally Document is the base class for all types and special fields are defined in each child-class. Due to this some fields might be missing if you are using this meta-class in queries.",
   "properties":{

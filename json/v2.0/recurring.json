@@ -1,6 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "recurring",
   "description": "An recurring is used as an template for new invoices.",
+  "required": ["number", "date", "final_date", "frequency" ],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -13,7 +16,6 @@
     "number":{
       "description": "Unique name to identify the document. Unlike all other document this one has no number schema and not auto assign",
       "type":"string",
-      "required":true,
       "maxLength": 50
     },
     "address_field":{
@@ -23,8 +25,7 @@
     "date":{
       "description": "First date the recurring is issued. Not allowed to be in the past. YYYY-MM-DD",
       "format":"date",
-      "type":"string",
-      "required":true
+      "type":"string"
     },
     "due_days":{
       "description": "Used to calculate the due date of the recurring. Useless if date and due date are present.",
@@ -33,14 +34,12 @@
     "final_date":{
       "description": "The last date the recurring is executed. YYYY-MM-DD",
       "format":"date",
-      "type":"string",
-      "required":true
+      "type":"string"
     },
     "frequency":{
       "description": "Recurring frequency",
       "enum":["yearly", "monthly", "weekly", "quarterly", "biweekly", "sixmonthly"],
-      "type":"string",
-      "required":true
+      "type":"string"
     },
     "payment_method":{
       "description": "How the document is being payed. Used in new payments.",

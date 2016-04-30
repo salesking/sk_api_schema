@@ -1,7 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "line_item",
-  "name": "line_item",
   "description": "A line item for a document",
+  "required": ["price_single"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -38,8 +40,7 @@
     },
     "price_single":{
       "description": "Net price of a single item. If a product id is given, price_single is taken from the product if not set. Max 6 decimal places.",
-      "type":"number",
-      "required" : true
+      "type":"number"
     },
     "cost":{
       "description": "Cost price for a single item. Used to calculate the gross margin. Max 6 decimal places.",

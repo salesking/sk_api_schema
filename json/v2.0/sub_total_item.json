@@ -1,7 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "sub_total_item",
-  "name": "sub_total_item",
   "description": "A sub-total item shows a sum of the previous line items, e.g. to distinguish hardware and service costs on a document.",
+  "required" : ["position"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -13,8 +15,7 @@
     },
     "position":{
       "description": "Required since items are sorted by position.",
-      "type":"integer",
-      "required":true
+      "type":"integer"
     },
     "name":{
       "description": "Title of the sub-total e.g. Hardware total",

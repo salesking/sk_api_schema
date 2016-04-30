@@ -1,7 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "comment",
-  "name": "comment",
   "description":"An comment in SK must always be related to an object.",
+  "required": ["related_object_type", "related_object_id", "text"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -13,17 +15,14 @@
     },
     "text":{
       "description": "The comment himself.",
-      "required":true,
       "type":"string"
     },
     "related_object_type":{
       "description": "Object type of the comments parent. Is the camelcased base class name: Document for invoice, credit_note, contact",
-      "required":true,
       "type":"string"
     },
     "related_object_id":{
       "description": "uuid of the comments parent object.",
-      "required":true,
       "type":"string",
       "maxLength": 22,
       "minLength":22

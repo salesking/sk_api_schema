@@ -1,7 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "language",
-  "name": "language",
   "description": "A language in SK can be assigned to documents, contacts and templates. When creating new documents, emails or PDF the language is used to select a specific template or language agnostic defaults. A language has many translations.",
+  "required":["name"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -19,7 +21,6 @@
     "name":{
       "description": "The name of the language, shown in the interface",
       "type":"string",
-      "required":true,
       "maxLength": 30
     },
     "created_at":{

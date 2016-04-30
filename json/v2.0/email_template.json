@@ -1,7 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "email_template",
-  "name": "email_template",
   "description":"An email_template is used to simplify the creation of emails. When creating a new email just pass template id and all fields from the template are copied to the new email. The fields are NOT merged with present values in a new email object!",
+  "required": ["name", "subject", "body", "kind"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -13,19 +15,16 @@
     },
     "name":{
       "description": "A meaningful name.",
-      "required":true,
       "type":"string",
       "maxLength": 50
     },
     "subject":{
       "description": "Subject containing placeholders, replaced when the template is used.",
-      "required":true,
       "type":"string",
       "maxLength": 255
     },
     "body":{
       "description": "Body with placeholders, replaced when the template is used.",
-      "required":true,
       "type":"string",
       "format":"text"
     },
@@ -46,7 +45,6 @@
     },
     "kind":{
       "description": "Kind of object the template can be used for.",
-      "required":true,
       "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order", "contact"],
       "type":"string"
     },

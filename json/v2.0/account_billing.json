@@ -1,7 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "account_billing",
-  "name": "account_billing",
   "description": "BETA An account billing serves as the glue between an account a document and their related account entries and line items. It also lets one keep track of who billed what and when. A billing is created from billable account entries, which are turned into line items for a document.",
+  "required": ["account_id"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -19,7 +21,6 @@
     "account_id":{
       "description": "The related account. Must be set for entries to be found.",
       "type":"string",
-      "required":true,
       "maxLength": 22,
       "minLength":22
     },

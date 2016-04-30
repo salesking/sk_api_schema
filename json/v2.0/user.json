@@ -1,6 +1,9 @@
-{"type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "user",
   "description": "A SalesKing user",
+  "required" : ["email", "language"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -37,7 +40,6 @@
     },
     "language":{
       "description": "The users language, reflected in the interface.",
-      "required":true,
       "type":"string",
       "maxLength": 10
     },
@@ -47,7 +49,6 @@
     },
     "email":{
       "description": "Email address of the user. Unique in SK",
-      "required":true,
       "type":"string",
       "maxLength": 100
     },

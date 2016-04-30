@@ -1,7 +1,9 @@
-{ "type":"object",
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
   "title": "task",
-  "name": "task",
-  "description":"An Task in SK.",
+  "description":"An Task",
+  "required" : ["name", "description"],
   "properties":{
     "id":{
       "description":"Unique identifier - UUID",
@@ -13,12 +15,10 @@
     },
     "name":{
       "description": "The task title.",
-      "required":true,
       "type":"string"
     },
     "description":{
-      "description": "Notes, explanations for the task.",
-      "required":true,
+      "description": "Notes, explanations for the task."
       "type":"string"
     },
     "status":{
