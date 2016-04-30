@@ -1,6 +1,5 @@
 { "type":"object",
   "title": "company",
-  "name": "company",
   "description": "A company is the main entity, so any data belongs to a company. It is identified by the current subdomain and cannot be edited via API atm",
   "properties":{
     "id":{
@@ -77,7 +76,10 @@
     "addresses":{
       "description": "A company can have many addresses, sorted by date descending(new first). Default address used in placeholder is the most recent one.",
       "type":"array",
-      "properties" : {"$ref":"./addresses.json#properties"}
+      "items": {
+        "type": "object",
+        "$ref": "./address.json#"
+      }
     },
     "vat_number":{
       "description": "VAT number, for a company entitled to pay value added taxes.",

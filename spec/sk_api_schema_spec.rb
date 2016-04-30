@@ -35,6 +35,14 @@ describe SK::Api::Schema do
       schemas.length.should == Dir.glob( file_path ).length
     end
 
+    it "reads v2 json schemas" do
+      schemas = SK::Api::Schema.read_all('2.0')
+
+      file_path = File.join(File.dirname(__FILE__), '../json', 'v2.0', '*.json')
+      # just check file count
+      schemas.length.should == Dir.glob( file_path ).length
+    end
+
     it "should raise error if version folder does not exist" do
       lambda{
         SK::Api::Schema.read(:invoice, 'v3.0')

@@ -1,6 +1,5 @@
 { "type":"object",
   "title": "invoice",
-  "name": "invoice",
   "description": "An invoice",
   "properties":{
     "id":{
@@ -133,11 +132,24 @@
     "items":{
       "description": "Items for the document. Access items of all types including divider and sub_total items. GOTCHAs when using items instead of line_items: You MUST set the type field(CamelCasesItem class name) on each item. You cannot use both, the line_items array is stronger for backward compat.",
       "type":"array",
-      "default": "any",
       "minItems": 0,
-      "items": [{ "$ref": "./line_item.json#properties"},
-                { "$ref":  "./divider_item.json#properties"},
-                { "$ref": "./sub_total_item.json#properties"}]
+      "items": {
+        "type" : "object",
+        "anyOf" : [
+          {
+            "title": "line_item",
+            "$ref": "./line_item.json#"
+          },
+          {
+            "title": "divider_item",
+            "$ref": "./divider_item.json#"
+          },
+          {
+            "title": "sub_total_item",
+            "$ref": "./sub_total_item.json#"
+          }
+        ]
+      }
     },
     "created_at":{
       "description": "Date the object was created in SK. Never changes afterwards.",
