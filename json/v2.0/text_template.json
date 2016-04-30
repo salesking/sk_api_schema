@@ -19,7 +19,7 @@
       "maxLength": 50
     },
     "text":{
-      "description": "Text which may contain placeholders, replaced when the template is used."
+      "description": "Text which may contain placeholders, replaced when the template is used.",
       "type":"string",
       "format":"text"
     },
