@@ -23,7 +23,7 @@
       "description": "Type of contact",
       "enum":["Client", "Lead", "Supplier"],
       "type":"string",
-      "maxLength": 50
+      "default":"Lead"
     },
     "is_employee":{
       "description": "An employee gets number, organisation, tax and vat_number from its parent. If you set any of these, they are overwritten. When changing a parent-contact the fields on his direct child-employees are updated too.",
@@ -31,7 +31,7 @@
       "default": false
     },
     "number":{
-      "description": "Unique number, auto-created by SK for new contacts(client, supplier) without number.",
+      "description": "Unique number, auto-set, if empty, for new Client and Suppliers from SK's contact number schema.",
       "type":"string",
       "maxLength": 50
     },
@@ -41,7 +41,7 @@
       "maxLength": 100
     },
     "last_name":{
-      "description": "Last name of a person. At least this or the organisation field must be filled for new records",
+      "description": "Last name of a person. This or the organisation field must be present for new records",
       "type":"string",
       "maxLength": 50
     },

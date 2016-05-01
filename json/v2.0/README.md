@@ -9,12 +9,12 @@ The following todo's are some of the things we are going to tackle.
 - [x] remove all deprecations
 - [x] move required attributes markup to top level object definition
 - [x] add schema validation to specs
-- [ ] revise schema definitions for nested objects
+- [x] revise schema definitions for nested objects
+- [x] use anyOf definitions for nested line items
+- [x] add type to nested objects reflecting the class
 - [ ] remove sub-status from documents status enum e.g overdue
-- [ ] use oneOf definitions for nested items
 - [ ] revise filter methods
 - [ ] remove nested url's in favour of filter links instead e.g /emails?filter[contact_ids]=ID
-- [ ] add type to nested objects reflecting the class
 - [ ] change to/from filters to to_date/from_date
 - [ ] add /teams
 - [ ] move collection info to header ?
