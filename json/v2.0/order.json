@@ -95,13 +95,13 @@
       "description": "Archived PDF version of the document. Is created when an document is printed and archived. A document can have multiple archived versions. This only returns the most recent one. ",
       "readOnly":true,
       "type":"object",
-      "properties":{"$ref":"./attachment.json#properties"}
+      "$ref":"./attachment.json#properties"
     },
     "contact":{
       "description": "The contact for the document. Use contact_id field to set a contact.",
       "readOnly":true,
       "type":"object",
-      "properties":{"$ref":"./contact.json#properties"}
+      "$ref":"./contact.json#"
     },
     "contact_id":{
       "description": "The contact uuid. When assigning a contact its language, currency, address_field (due days, cash discount) values are used for the document if those doc-fields are not set.",

@@ -56,7 +56,7 @@
       "description": "The exported data as attachment.",
       "readOnly":true,
       "type":"array",
-      "properties":{"$ref":"./attachment.json#properties"}
+      "$ref":"./attachment.json#properties"
     },
     "started_at":{
       "description": "Date the was started",

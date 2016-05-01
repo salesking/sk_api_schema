@@ -100,7 +100,7 @@
       "description": "The contact for the document. Use contact_id field to set a contact.",
       "readOnly":true,
       "type":"object",
-      "properties":{"$ref":"./contact.json#properties"}
+      "$ref":"./contact.json#"
     },
     "contact_id":{
       "description": "The contact uuid. When assigning a contact its language, currency, address_field (due days, cash discount) values are used for the document if those doc-fields are not set.",

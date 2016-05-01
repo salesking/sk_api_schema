@@ -47,7 +47,7 @@
       "description": "The emails attachments.",
       "readOnly":true,
       "type":"array",
-      "properties":{"$ref":"./attachment.json#properties"}
+      "$ref":"./attachment.json#properties"
     },
     "related_object_type":{
       "description": "Object type of the emails parent. Is the camelcased base class name: Document for invoice, credit_note, contact,..",

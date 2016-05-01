@@ -37,7 +37,7 @@
       "description": "The contact for the task. Use contact_id field to set a contact.",
       "readOnly":true,
       "type":"object",
-      "properties":{"$ref":"./contact.json#properties"}
+      "$ref":"./contact.json#"
     },
     "documents":{
       "description": "A tasks can have many related documents.",
@@ -48,7 +48,7 @@
       "description": "Attached files, uploads.",
       "readOnly":true,
       "type":"array",
-      "properties":{"$ref":"./attachment.json#properties"}
+      "$ref":"./attachment.json#properties"
     },
     "assignee_id":{
       "description": "User who should do the tasks.",
