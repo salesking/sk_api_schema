@@ -43,12 +43,12 @@
     "notes_before":{
       "description": "Notes shown before the line items. Normally contains salutation and other introductional information. SK placeholders can be used.",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "notes_after":{
       "description": "Notes shown after the line items. Can contain information about payments, bank account or a thank-you message. SK placeholders can be used.",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "tag_list":{
       "description": "Space separated list of tags. Are split and saved as Tag objects on create, update.",
@@ -66,11 +66,6 @@
       "type":"string",
       "maxLength": 22,
       "minLength":22
-    },
-    "line_items":{
-      "description": "Line items for the document",
-      "type":"array",
-      "items":{"$ref":"./line_items.json#properties"}
     },
     "items":{
       "description": "Items for the document. Access items of all types including divider and sub_total items. GOTCHAs when using items instead of line_items: You MUST set the type field(CamelCasesItem class name) on each item. You cannot use both, the line_items array is stronger for backward compat.",

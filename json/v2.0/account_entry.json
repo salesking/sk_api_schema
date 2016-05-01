@@ -41,7 +41,7 @@
     "description":{
       "description": "Entry description",
       "type":"string",
-      "format": "text"
+      "format": "string"
     },
     "price_single":{
       "description": "Net price of a single entry. If a product id is given, price_single is taken from the product if not set.",

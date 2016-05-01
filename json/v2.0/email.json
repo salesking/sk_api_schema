@@ -16,12 +16,12 @@
     "bcc_addr":{
       "description": "BCC addresses, comma separated. Max 5, format: a@b.de,'George'<georg@sk.eu>",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "cc_addr":{
       "description": "CC addresses, comma separated. Max 5, format: a@b.de,'George'<georg@sk.eu>",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "from_addr":{
       "description": "From address. If empty the email of the current user is taken.",
@@ -31,7 +31,7 @@
     "to_addr":{
       "description": "TO addresses, comma separated. Max 5, format: a@b.de,'George'<georg@sk.eu>",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "subject":{
       "description": "The email subject.",
@@ -41,13 +41,16 @@
     "body":{
       "description": "The email text.",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "attachments":{
       "description": "The emails attachments.",
       "readOnly":true,
       "type":"array",
-      "$ref":"./attachment.json#properties"
+      "items": {
+        "type": "object",
+        "$ref":"./attachment.json#"
+      }
     },
     "related_object_type":{
       "description": "Object type of the emails parent. Is the camelcased base class name: Document for invoice, credit_note, contact,..",
@@ -67,7 +70,7 @@
     "log":{
       "description": "Logs error message when sending failed.",
       "readOnly":true,
-      "type":"text"
+      "type":"string"
     },
     "delivered_at":{
       "description": "Date the email was delivered by SK. If set, the message cannot be edited anymore.",

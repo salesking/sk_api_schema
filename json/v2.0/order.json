@@ -59,12 +59,12 @@
     "notes_before":{
       "description": "Notes shown before the line items. Normally contains salutation and other introductional information. SK placeholders can be used.",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "notes_after":{
       "description": "Notes shown after the line items. Can contain information about payments, bank account or a thank-you message. SK placeholders can be used.",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "tag_list":{
       "description": "Space separated list of tags. Are split and saved as Tag objects on create, update.",
@@ -95,7 +95,7 @@
       "description": "Archived PDF version of the document. Is created when an document is printed and archived. A document can have multiple archived versions. This only returns the most recent one. ",
       "readOnly":true,
       "type":"object",
-      "$ref":"./attachment.json#properties"
+      "$ref":"./attachment.json#"
     },
     "contact":{
       "description": "The contact for the document. Use contact_id field to set a contact.",

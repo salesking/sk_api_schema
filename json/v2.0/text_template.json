@@ -21,7 +21,7 @@
     "text":{
       "description": "Text which may contain placeholders, replaced when the template is used.",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "kind":{
       "description": "Kind of object the template can be used for. If empty the snippet can be used global. In this case watch not all placeholders are available: a client has different fields than an invoice.",

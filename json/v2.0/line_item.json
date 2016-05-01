@@ -36,7 +36,7 @@
     "description":{
       "description": "Item description",
       "type":"string",
-      "format": "text"
+      "format": "string"
     },
     "price_single":{
       "description": "Net price of a single item. If a product id is given, price_single is taken from the product if not set. Max 6 decimal places.",

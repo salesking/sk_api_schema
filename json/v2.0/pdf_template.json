@@ -14,18 +14,16 @@
     },
     "name":{
       "description": "Name of the template as shown to the user.",
-      "required":true,
       "type":"string",
       "maxLength": 50
     },
     "description":{
       "description": "Additional information about the template.",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "kind":{
       "description": "Kind of object the template can be used for.",
-      "required":true,
       "enum": ["invoice", "estimate", "credit_note", "payment_reminder", "order"],
       "type":"string"
     },

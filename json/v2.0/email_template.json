@@ -26,7 +26,7 @@
     "body":{
       "description": "Body with placeholders, replaced when the template is used.",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "from_addr":{
       "description": "Default from address. A valid email address. Make sure your server(if custom SMPT settings for the API user) allows sending with this address.",

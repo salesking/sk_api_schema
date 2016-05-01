@@ -58,7 +58,7 @@
     "notes":{
       "description": "Notes for a contact. For day to day information you should use comments instead.",
       "type":"string",
-      "format": "text"
+      "format": "string"
     },
     "position":{
       "description": "Position of a person in a company.",
@@ -196,8 +196,11 @@
     },
     "addresses":{
       "description": "A client can have many addresses, sorted by date descending(new first). Default address is the most recent one.",
-      "type":"array",
-      "properties" : {"$ref":"./address.json#properties"}
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref" : "./address.json#"
+      }
     },
     "team_id":{
       "description": "A team uuid. If set only the team and its parent teams can see the record. The team is set for all new documents and related objects like comments, attachments, emails. When changed ALL related objects are updated with the new team!!",

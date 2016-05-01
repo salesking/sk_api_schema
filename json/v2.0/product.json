@@ -26,7 +26,7 @@
     "description":{
       "description": "Product description",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "tag_list":{
       "description": "Space separated list of tags. Are split and saved as Tag objects on create, update.",

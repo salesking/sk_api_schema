@@ -59,12 +59,12 @@
     "notes_before":{
       "description": "Notes shown before the line items. Normally contains salutation and other introductional information. SK placeholders can be used.",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "notes_after":{
       "description": "Notes shown after the line items. Can contain information about payments, bank account or a thank-you message. SK placeholders can be used.",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "tag_list":{
       "description": "Space separated list of tags. Are split and saved as Tag objects on create, update.",

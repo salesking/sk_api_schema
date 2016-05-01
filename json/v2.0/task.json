@@ -42,13 +42,19 @@
     "documents":{
       "description": "A tasks can have many related documents.",
       "type":"array",
-      "properties" : {"$ref":"./document.json#properties"}
+      "items": {
+        "type": "object",
+        "$ref" : "./document.json#"
+      }
     },
     "attachments":{
       "description": "Attached files, uploads.",
       "readOnly":true,
       "type":"array",
-      "$ref":"./attachment.json#properties"
+      "items": {
+        "type": "object",
+        "$ref" : "./attachment.json#"
+      }
     },
     "assignee_id":{
       "description": "User who should do the tasks.",

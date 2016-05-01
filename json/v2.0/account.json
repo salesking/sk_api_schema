@@ -26,7 +26,7 @@
     "description":{
       "description": "Account description",
       "type":"string",
-      "format":"text",
+      "format":"string",
       "maxLength": 255
     },
     "balance":{

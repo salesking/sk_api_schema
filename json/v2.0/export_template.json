@@ -21,7 +21,7 @@
     "text":{
       "description": "Text with placeholders, replaced when the template is used.",
       "type":"string",
-      "format":"text"
+      "format":"string"
     },
     "kind":{
       "description": "Kind of object the template can be used for.",
