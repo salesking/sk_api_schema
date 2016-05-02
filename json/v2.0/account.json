@@ -47,10 +47,9 @@
       "type":"string",
       "maxLength": 30
     },
-    "hide_fields":{
-      "description": "A list of account entry field names. The fields are hidden on account entry lists and forms so one can focus on the important inputs. For example hide: tax,description,billed_at",
-      "type":"string",
-      "maxLength": 255
+    "default_tax":{
+      "description": "The default tax for new account entries, if tax is empty on create.",
+      "type":"number"
     },
     "contact_id":{
       "description": "The contacts uuid to which the account is related.",
