@@ -3,3 +3,7 @@ rvm:
   - 2.2
 gemfile:
   - Gemfile
+
+# fix undefined spec error in ruby 1.9.3 due to outdated bundler
+before_install:
+  - gem install bundler
