@@ -92,10 +92,6 @@
       "format":"date-time",
       "readOnly":true,
       "type":"string"
-    },
-    "_destroy":{
-      "description": "When set an existing entry will be deleted. This switch is used for entries passed during batch operations.",
-      "type":"boolean"
     }
   },
   "links":[
