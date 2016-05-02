@@ -15,7 +15,8 @@
     },
     "name":{
       "description": "The task title.",
-      "type":"string"
+      "type":"string",
+      "maxLength": 255
     },
     "description":{
       "description": "Notes, explanations for the task.",
@@ -40,7 +41,7 @@
       "$ref":"./contact.json#"
     },
     "documents":{
-      "description": "A tasks can have many related documents.",
+      "description": "A task can have many related documents.",
       "type":"array",
       "items": {
         "type": "object",

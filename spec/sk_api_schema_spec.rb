@@ -7,52 +7,51 @@ describe SK::Api::Schema do
       SK::Api::Schema.registry_reset
     end
 
-    it "should provide schema path" do
-      File.exists?(SK::Api::Schema.path).should be
+    it "provides schema path" do
+      expect(File.exists?(SK::Api::Schema.path)).to be true
     end
 
-    it "should read json schema file" do
+    it "reads json schema file" do
       schema = SK::Api::Schema.read(:invoice, 'v1.0')
-      schema[:title].should == 'invoice'
-      schema[:type].should == 'object'
-      schema['properties'].should be_a Hash
-      schema['properties']['id']['identity'].should == true
+      expect(schema[:title]).to eq 'invoice'
+      expect(schema[:type]).to eq 'object'
+      expect(schema['properties']).to be_a Hash
+      expect(schema['properties']['id']['identity']).to be true
     end
 
-    it "should read json schema file with simple version" do
+    it "reads json schema file with simple version" do
       schema = SK::Api::Schema.read(:invoice, '1.0')
-      schema[:title].should == 'invoice'
-      schema[:type].should == 'object'
-      schema['properties'].should be_a Hash
-      schema['properties']['id']['identity'].should == true
+      expect(schema[:title]).to eq 'invoice'
+      expect(schema[:type]).to eq 'object'
+      expect(schema['properties']).to be_a Hash
+      expect(schema['properties']['id']['identity']).to be true
     end
 
-    it "should read all json schemas" do
+    it "reads all json schemas" do
       schemas = SK::Api::Schema.read_all('1.0')
 
       file_path = File.join(File.dirname(__FILE__), '../json', 'v1.0', '*.json')
       # just check file count
-      schemas.length.should == Dir.glob( file_path ).length
+      expect(schemas.length).to eq Dir.glob( file_path ).length
     end
 
     it "reads v2 json schemas" do
       schemas = SK::Api::Schema.read_all('2.0')
 
       file_path = File.join(File.dirname(__FILE__), '../json', 'v2.0', '*.json')
-      # just check file count
-      schemas.length.should == Dir.glob( file_path ).length
+      expect(schemas.length).to eq Dir.glob( file_path ).length
     end
 
     it "should raise error if version folder does not exist" do
-      lambda{
+      expect{
         SK::Api::Schema.read(:invoice, 'v3.0')
-      }.should raise_error
+      }.to raise_error(Errno::ENOENT)
     end
 
     it "should raise error if schema file does not exist" do
-      lambda{
+      expect{
         SK::Api::Schema.read(:nope, 'v1.0')
-      }.should raise_error
+      }.to raise_error(Errno::ENOENT)
     end
 
     it "should add schema to registry" do

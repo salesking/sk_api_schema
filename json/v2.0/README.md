@@ -12,7 +12,6 @@ The following todo's are some of the things we are going to tackle.
 - [x] revise schema definitions for nested objects
 - [x] use anyOf definitions for nested line items
 - [x] add type to nested objects reflecting the class
-- [ ] remove sub-status from documents status enum e.g overdue
 - [ ] revise filter methods
 - [ ] remove nested url's in favour of filter links instead e.g /emails?filter[contact_ids]=ID
 - [ ] change to/from filters to to_date/from_date
