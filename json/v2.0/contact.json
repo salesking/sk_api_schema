@@ -238,6 +238,12 @@
       "description": "Product of the probability and sales potential. e.g how much of the sales_potential can we get?",
       "readOnly":true,
       "type":"number"
+    },
+    "tax_exemption_id":{
+      "description": "ID of a tax exemption. New documents inherit the tax exemption and will be created without any taxes.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     }
   },
   "links":[

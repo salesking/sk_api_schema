@@ -205,6 +205,12 @@
       "default": null,
       "type": "string",
       "enum":["email"]
+    },
+    "tax_exemption_id":{
+      "description": "ID of a tax exemption. When set all item taxes are omitted.",
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
     }
   },
   "links":[
