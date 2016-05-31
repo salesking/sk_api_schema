@@ -159,6 +159,7 @@
     },
     "lock_version":{
       "description": "Auto-incremented to prevent concurrent updates. First save wins and increments version.",
+      "readOnly":true,
       "type":"integer"
     },
     "gross_total":{

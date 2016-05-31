@@ -42,6 +42,7 @@
     },
     "documents":{
       "description": "A task can have many related documents.",
+      "readOnly":true,
       "type":"array",
       "items": {
         "type": "object",
