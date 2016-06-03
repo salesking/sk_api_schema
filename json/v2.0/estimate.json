@@ -112,7 +112,7 @@
       "minLength":22
     },
     "items":{
-      "description": "Items for the document. Access items of all types including divider and sub_total items. GOTCHAs when using items instead of line_items: You MUST set the type field(CamelCasesItem class name) on each item. You cannot use both, the line_items array is stronger for backward compat.",
+      "description": "Items for the document, including divider and sub_total items. You MUST set the type field(CamelCasedItem class name) on each item on creation.",
       "type":"array",
       "minItems": 0,
       "items": {

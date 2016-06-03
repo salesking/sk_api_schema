@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type":"object",
   "title": "divider_item",
-  "description": "A divider item serves as a separator or headline between line items, e.g. to distinguish hardware and service products on a document. Access and creation is done via documents.items(instead of line_items) where each item has a 'type' field set to its CamelCased class name.",
+  "description": "A divider item serves as a separator or headline between line items, e.g. to distinguish hardware and service products on a document. Access and creation is done via documents.items where each item has a 'type' field containing the CamelCased class name.",
   "required": ["position"],
   "properties":{
     "id":{
