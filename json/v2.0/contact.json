@@ -381,55 +381,34 @@
       "method": "POST"
     },
     { "rel": "documents",
-      "href": "contacts/{id}/documents"
+      "href": "documents?filter[contact_ids]={id}"
     },
     { "rel": "attachments",
-      "href": "contacts/{id}/attachments"
+      "href": "attachments?filter[related_object_ids]={id}"
     },
     { "rel": "invoices",
-      "href": "contacts/{id}/invoices"
+      "href": "invoices?filter[contact_ids]={id}"
     },
     { "rel": "estimates",
-      "href": "contacts/{id}/estimates"
+      "href": "estimates?filter[contact_ids]={id}"
     },
     { "rel": "orders",
-      "href": "contacts/{id}/orders"
+      "href": "orders?filter[contact_ids]={id}"
     },
     { "rel": "credit_notes",
-      "href": "contacts/{id}/credit_notes"
+      "href": "credit_notes?filter[contact_ids]={id}"
     },
     { "rel": "recurrings",
-      "href": "contacts/{id}/recurrings"
+      "href": "recurrings?filter[contact_ids]={id}"
     },
     { "rel": "payment_reminders",
-      "href": "contacts/{id}/payment_reminders"
+      "href": "payment_reminders?filter[contact_ids]={id}"
     },
     { "rel": "comments",
-      "href": "contacts/{id}/comments"
+      "href": "comments?filter[related_object_ids]={id}"
     },
     { "rel": "emails",
-      "href": "contacts/{id}/emails"
-    },
-    { "rel": "emails create",
-      "href": "contacts/{id}/emails",
-      "method": "POST",
-      "properties" : {
-        "template_id":{
-          "title" : "Template",
-          "description": "UUID of an email template to use. If present template fields like subject, body, attachments are used for the current email.",
-          "type":"string",
-          "maxLength": 22,
-          "minLength":22
-        },
-        "send":{
-          "title" : "Send email",
-          "description": "Schedule email for sending. Omit this parameter or set value to 0 or false(String or Integer) to keep email as draft."
-        },
-        "archived_pdf":{
-          "title" : "Attach archived pdf",
-          "description": "Adds the archived pdf from the related resource(if it has one)."
-        }
-      }
+      "href": "emails?filter[related_object_ids]={id}"
     }
   ]
 }

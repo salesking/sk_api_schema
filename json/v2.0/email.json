@@ -163,7 +163,7 @@
       }
     },
     { "rel": "attachments",
-      "href": "emails/{id}/attachments"
+      "href": "attachments?filter[related_object_ids]={id}"
     },
     { "rel": "destroy",
       "href": "emails/{id}",
