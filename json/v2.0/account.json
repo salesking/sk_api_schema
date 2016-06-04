@@ -13,6 +13,13 @@
       "maxLength": 22,
       "minLength":22
     },
+    "company_id":{
+      "description":"Company",
+      "readOnly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
     "number":{
       "description": "Unique number assigned by you or if empty SK account number schema.",
       "type":"string",

@@ -12,11 +12,12 @@ The following todo's are some of the things we are going to tackle.
 - [x] revise schema definitions for nested objects
 - [x] use anyOf definitions for nested line items
 - [x] add type to nested objects reflecting the class
+- [x] add company_id to all resources
 - [ ] revise filter methods
 - [ ] remove nested url's in favour of filter links instead e.g /emails?filter[contact_ids]=ID
 - [ ] change to/from filters to to_date/from_date
 - [ ] add /teams
-- [ ] move collection info to header ?
+- [x] move collection info to header
 - [ ] define error object
 - ..
 

@@ -12,6 +12,13 @@
       "maxLength": 22,
       "minLength": 22
     },
+    "company_id":{
+      "description":"Company",
+      "readOnly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
     "object_type":{
       "description": "The specific type of the document singular CamelCased: Invoice, PaymentReminder",
       "type":"string"

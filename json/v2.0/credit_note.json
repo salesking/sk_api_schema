@@ -12,6 +12,13 @@
       "maxLength": 22,
       "minLength":22
     },
+    "company_id":{
+      "description":"Company",
+      "readOnly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
     "number":{
       "description": "Unique number assigned by SK credit note number schema. Auto-assigned when document is opened. Required unless doc status is draft.",
       "type":"string",
@@ -319,16 +326,16 @@
       }
     },
     { "rel": "attachments",
-      "href": "credit_notes/{id}/attachments"
+      "href": "attachments?filter[related_object_ids]={id}"
     },
     { "rel": "payments",
-      "href": "credit_notes/{id}/payments"
+      "href": "payments?filter[related_object_ids]={id}"
     },
     { "rel": "comments",
-      "href": "credit_notes/{id}/comments"
+      "href": "comments?filter[related_object_ids]={id}"
     },
     { "rel": "emails",
-      "href": "credit_notes/{id}/emails"
+      "href": "emails?filter[related_object_ids]={id}"
     },
     { "rel": "emails create",
       "href": "credit_notes/{id}/emails",

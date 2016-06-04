@@ -13,6 +13,13 @@
       "maxLength": 22,
       "minLength":22
     },
+    "company_id":{
+      "description":"Company",
+      "readOnly":true,
+      "type":"string",
+      "maxLength": 22,
+      "minLength":22
+    },
     "invoice_id":{
       "description": "The invoice for the reminder. If set assumes all other fields are set to custom values, instead of filling them from the invoice. POSTing to invoices/:id/payment_reminders, automatically set this and all other fields.",
       "type":"string",
@@ -250,10 +257,13 @@
       "method": "POST"
     },
     { "rel": "attachments",
-      "href": "payment_reminders/{id}/attachments"
+      "href": "attachments?filter[related_object_ids]={id}"
+    },
+    { "rel": "comments",
+      "href": "comments?filter[related_object_ids]={id}"
     },
     { "rel": "emails",
-      "href": "payment_reminders/{id}/emails"
+      "href": "emails?filter[related_object_ids]={id}"
     },
     { "rel": "emails create",
       "href": "payment_reminders/{id}/emails",
