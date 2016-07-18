@@ -33,7 +33,6 @@
     "description":{
       "description": "Account description",
       "type":"string",
-      "format":"string",
       "maxLength": 255
     },
     "balance":{
@@ -56,6 +55,19 @@
     },
     "default_tax":{
       "description": "The default tax for new account entries, if tax is empty on create.",
+      "type":"number"
+    },
+    "billing_fee_name":{
+      "description": "Name for a billing fee line item. The item is added to the resulting document upon each account_billing creation, if billing_fee_price_single is set.",
+      "type":"string",
+      "maxLength": 255
+    },
+    "billing_fee_tax":{
+      "description": "Tax value for a billing fee line item. The item is added to the resulting document upon each account_billing creation.",
+      "type":"number"
+    },
+    "billing_fee_price_single":{
+      "description": "Price of a billing fee line item. This field serves as a trigger of whether to add the item. The item is added to the resulting document upon each account_billing creation.",
       "type":"number"
     },
     "contact_id":{

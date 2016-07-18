@@ -46,6 +46,19 @@
       "type":"string",
       "maxLength": 30
     },
+    "billing_fee_name":{
+       "description": "Name for a billing fee line item. The item is added to the resulting document upon each account_billing creation, if billing_fee_price_single is set.",
+       "type":"string",
+       "maxLength": 255
+     },
+     "billing_fee_tax":{
+       "description": "Tax value for a billing fee line item. The item is added to the resulting document upon each account_billing creation.",
+       "type":"number"
+     },
+     "billing_fee_price_single":{
+       "description": "Price of a billing fee line item. This field serves as a trigger of whether to add the item. The item is added to the resulting document upon each account_billing creation.",
+       "type":"number"
+     },
     "hide_fields":{
       "description": "A list of account entry field names. The fields are hidden on account entry lists and forms so one can focus on the important inputs. For example hide: tax,description,billed_at",
       "type":"string",
