@@ -194,7 +194,7 @@
       "type":"number"
     },
     "due_days":{
-      "description": "Default due days for new invoices.",
+      "description": "Default due days for new documents.",
       "type":"integer"
     },
     "address_field":{
