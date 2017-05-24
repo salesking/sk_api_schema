@@ -3,6 +3,10 @@
 See [commit messages](https://github.com/salesking/sk_api_schema/commits/) for details.
 Also sign up to our [Developer Newsletter](http://www.salesking.eu/dev/newsletter/) to stay up-to-date!
 
+##2017-05
+
+* Product remove lock_version
+
 ##2015-10
 
 * Update description to clarify number field decimal places length
